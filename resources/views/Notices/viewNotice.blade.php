@@ -74,7 +74,7 @@
 
                               <form id="{{$n->id}}" action='' method='post' >
                                   <input type='hidden' name='toDelete'  value="{{$n->id}}">
-                                       <input  type='submit'  name='delete'  value='Delete' class="btn btn-primary btn-xs m-l-sm">
+                                       <input  type='submit'  name='delete'  value='delete' class="btn btn-primary btn-xs m-l-sm">
                                        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                               </form>
 
@@ -105,7 +105,7 @@
 <div class="col-sd-3" align="right">
 <form method="post">
                    <input type='hidden' name='toDelete'  value="{{$n->id}}">
-                        <input  type='submit' name='delete'  value='Delete' class="btn btn-primary btn-xs m-l-sm">
+                        <input  type='submit' name='delete'  value='delete' class="btn btn-primary btn-xs m-l-sm">
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 </form>
 
@@ -123,7 +123,7 @@
               <h5>     <a href="{{ asset('view1/' . $n->detail) }}">{{$n->topic}}</a></h5>
                 <div class="col-sd-3" align="right">
                     <input type='hidden' name='toDelete'  value="{{$n->id}}">
-                         <p><input  type='submit' name='delete'  value='Delete' class="btn btn-primary btn-xs m-l-sm">
+                         <p><input  type='submit' name='delete'  value='delete' class="btn btn-primary btn-xs m-l-sm">
                          <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
 </div>

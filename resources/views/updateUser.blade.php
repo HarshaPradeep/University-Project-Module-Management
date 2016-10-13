@@ -7,18 +7,12 @@
 @endsection
 
 @section('title')
-    <div class="row wrapper border-bottom white-bg page-heading">
-        <div class="col-lg-10">
-            <h2>Update User Account</h2>
-            <ol class="breadcrumb">
-
-            </ol>
-        </div>
-        <div class="col-lg-2">
-
-        </div>
+    <h2>Update User Account <small>Details.</small></h2>
+    <div class="ibox-tools">
+        <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+        </a>
     </div>
-
 @endsection
 
 @section('content')
@@ -40,7 +34,7 @@
                             <div class="col-sm-10">
                                 <select class="form-control m-b" name="searchdropdown" id="searchdropdown" onchange="selectUser()">
 
-                                    <option>Select</option>
+<option>Select One..</option>
                                     <?php
 
                                     foreach($categories1 as $category=>$value)

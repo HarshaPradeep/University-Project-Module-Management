@@ -34,7 +34,7 @@
                 <div class="ibox float-e-margins">
                     <div class="ibox-content text-left p-md">
 
-                        <h2><span class="text-navy" style="color: #ff0000">{{$link->deadline}}</span></h2></br>
+                        <h2><span class="text-navy" style="color: #ff0000">{{substr($link->deadline, 0, -9)}}</span></h2></br>
                         <h5>{{$link->description }}</h5>
 
                         <a href="{{ URL::to('uploads/' . $link->id )}}"><h4>{{$link->linkName }}</h4></a>

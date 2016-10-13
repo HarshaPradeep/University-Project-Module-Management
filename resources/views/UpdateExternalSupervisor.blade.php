@@ -57,7 +57,8 @@
 
 
                     <div class="col-sm-10">
-                        <select class="form-control m-b" name="searchdropdown" id="searchdropdown" onchange="selectUser(event)">
+                        <select class="form-control m-b" name="searchdropdown" id="searchdropdown" 
+                                onchange="selectUser(event)">
 
 
                             <?php
@@ -80,18 +81,22 @@
 
                 <div class="form-group"><label class="col-sm-2 control-label">User Name</label>
 
-                    <div class="col-sm-10"><input id="userName" name="userName" placeholder="Enter User Name" type="text" disabled class="form-control required"/></div>
+                    <div class="col-sm-10"><input id="userName" name="userName" placeholder="Enter User Name" 
+                                                  type="text" disabled class="form-control required"/></div>
                 </div>
 
                 <div class="form-group"><label class="col-sm-2 control-label">Status</label>
 
-                    <div class="col-sm-10"><input id="status" name="status" placeholder="Enter Status" type="text" disabled class="form-control required"/></div>
+                    <div class="col-sm-10"><input id="status" name="status" placeholder="Enter Status" 
+                                                  type="text" disabled class="form-control required"/></div>
                 </div>
 
                 <div class="form-group" id="emailDiv"><label class="col-sm-2 control-label">Email</label>
 
                     <div class="col-sm-10">
-                        <input id="email" name="email" onkeypress="validateEmail(event)" type="email" placeholder="Enter Email" class="form-control required" required="" aria-required="true" aria-invalid="true"></div>
+                        <input id="email" name="email" onkeypress="validateEmail(event)" type="email" 
+                               placeholder="Enter Email" class="form-control required" required="" 
+                               aria-required="true" aria-invalid="true"></div>
                 </div>
 
 
@@ -99,7 +104,8 @@
                 <div class="form-group" id="fullNameDiv"><label class="col-sm-2 control-label">Full Name</label>
 
                     <div class="col-sm-10">
-                        <input id="fullname" name="fullname" onkeypress="validateFullName(event)" placeholder="Enter Full Name" type="text" class="form-control required"/></div>
+                        <input id="fullname" name="fullname" onkeypress="validateFullName(event)" 
+                               placeholder="Enter Full Name" type="text" class="form-control required"/></div>
                 </div>
 
 
@@ -132,17 +138,21 @@
                 </div>
                 <div class="form-group" id="teliv"><label class="col-sm-2 control-label">Tel</label>
 
-                    <div class="col-sm-10"><input id="tel" name="tel" onkeypress='validate(event)' placeholder="Enter Tel No" type="text" class="form-control required"/></div>
+                    <div class="col-sm-10"><input id="tel" name="tel" onkeypress='validate(event)' 
+                                                  placeholder="Enter Tel No" type="text" class="form-control required"/></div>
                 </div>
 
                 <div class="form-group" id="speciality"><label class="col-sm-2 control-label">Speciality</label>
 
-                    <div class="col-sm-10"><input id="spe" name="spe" onkeypress='validateSpe(event)' placeholder="Enter Supervisor Speciality" type="text" class="form-control required"/></div>
+                    <div class="col-sm-10"><input id="spe" name="spe" onkeypress='validateSpe(event)' 
+                                                  placeholder="Enter Supervisor Speciality" type="text" 
+                                                  class="form-control required"/></div>
                 </div>
 
                 <div class="form-group" id="uniDiv"><label class="col-sm-2 control-label">University</label>
 
-                    <div class="col-sm-10"><input id="uni" name="uni" placeholder="Enter University" type="text" class="form-control required"/></div>
+                    <div class="col-sm-10"><input id="uni" name="uni" placeholder="Enter University" type="text" 
+                                                  class="form-control required"/></div>
                 </div>
 
                 <div class="hr-line-dashed"></div>

@@ -160,21 +160,6 @@
 
                                 <!---->
                             </div>
-                            
-                            <div class="form-group">
-                                <label>Research Area *</label>
-                                <!--select id="position" name="position" type="text" class="form-control"-->
-                                <!-- Brand and toggle get grouped for better mobile display -->
-
-                                <select id="designation" name="designation" class="form-control">
-                                    <option>Big Data Management </option>
-                                    <option>Business Intelligence</option>
-                                    <option>Computational Linguistics</option>
-                                    <option>Artificial Intelligence(AI)</option>
-                                </select>
-
-                                <!---->
-                            </div>
 
                         </div>
                         <div class="col-lg-6">

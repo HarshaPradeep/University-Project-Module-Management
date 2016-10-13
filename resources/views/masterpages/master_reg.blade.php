@@ -5,7 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>workZone</title>
-    @yield('cssLinks')
+    @yield('cssLinks
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
+    <script src="{{asset('public/public_assets/dist/summernote.min.css')}}"></script>
+    <script src="{{asset('public_assets/dist/summernote.min.js')}}"></script>
     <link href="{{asset('public_assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
     <link href="{{asset('public_assets/css/plugins/toastr/toastr.min.css')}}" rel="stylesheet">
     <link href="{{asset('public_assets/js/plugins/gritter/jquery.gritter.css')}}" rel="stylesheet">
@@ -32,7 +36,7 @@
     color: #FFFFFF;">
                    <div class="navbar-header">
 
-                       <a class="navbar-brand" href="#" style="color: #ffffff;">workZone Project Management</a>
+                       <a class="navbar-brand" href="#" style="color: #ffffff;">workZone</a>
                    </div>
 
                </div>
@@ -119,7 +123,13 @@
 
     <script src="{{asset('public_assets/js/plugins/sweetalert/sweetalert.min.js')}}"></script>
 
-
+   <script type="text/javascript">
+        $(document).ready(function() {
+            $('#summernote').summernote({
+              height:300,
+            });
+        });
+    </script>
     <!-- jQuery 2.1.3 -->
     <!--script src="{{asset('/plugins/jQuery/jQuery-2.1.3.min.js')}}"></script>
     <!-- jQuery UI 1.11.2 -->

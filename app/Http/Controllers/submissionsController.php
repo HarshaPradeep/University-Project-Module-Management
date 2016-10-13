@@ -20,16 +20,16 @@ class submissionsController extends Controller
 
 
 
-        $proSubmissions=Submission::join('projects','submissions.projectId','=','projects.id')
+        $proSubmissions=Submission::join('projects','submissions.id','=','projects.id')
             ->where('submissions.month','=',$month)
             ->join('students','students.id','=','projects.studentId')
             ->select('submissions.id','projects.title','students.regId','students.name','submissions.submittedDate','submissions.location')
             ->get();
 
 
+
         return view('Rubika.viewMonthlyReports')->with('submissions',$proSubmissions)->with('month',$month);
-
-
+            
     }
     //view submissions before month selected
     public function viewSubmissionsDetails()
@@ -81,8 +81,10 @@ class submissionsController extends Controller
 
                 $newDate = new DateTime();
                 $curDate = new DateTime($newDate->format('Y-m-d'));
-
+                $newDate2 = new DateTime();
+                $curMonth = new DateTime($newDate2->format('F'));
                 $curYear = $curDate->format("Y");
+                //$curMonth = $curDate->format("F");
                 $regNo = Input::get('regNo');
 
                 $file=Input::file('formField');
@@ -98,7 +100,7 @@ class submissionsController extends Controller
                     );
 
                     $stuId = Student::where('regId', '=', $regNo)->pluck('id');
-                    Submission::create(['type' => $document, 'submittedDate' => $curDate, 'status' => 'submitted', 'location' => $destinationPath . '/' . $fileName, 'studentId' => $stuId]);
+                    Submission::create(['type' => $document, 'submittedDate' => $curDate, 'month' => $curMonth, 'status' => 'submitted', 'location' => $destinationPath . '/' . $fileName, 'studentId' => $stuId]);
                     return redirect('/studentdashboard');
 
 

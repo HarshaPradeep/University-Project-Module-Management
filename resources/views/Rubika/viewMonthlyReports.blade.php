@@ -1,5 +1,5 @@
 @extends('masterpages.master_rpc')
-
+ 
 @section('cssLinks')
 
     <link href="{{asset('public_assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
@@ -69,7 +69,7 @@
                    <div class="col-lg-10">
                                       <div class="ibox float-e-margins">
                                           <div class="ibox-title">
-                                              <h3>Monthly Reports   <small>{{$month}}</small></h3>
+                                              <h3>Monthly Reports   <small> {{$month}}</small></h3>
 
                                           </div>
 

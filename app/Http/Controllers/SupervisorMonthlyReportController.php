@@ -11,6 +11,15 @@ use Illuminate\Support\Facades\Input;
 use Redirect;
 use Response;
 
+//---------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+//---------------------------------Supervisor view and give feedback for monthly reports -------------------------------
+
+
 
 class SupervisorMonthlyReportController extends Controller {
 
@@ -39,6 +48,7 @@ class SupervisorMonthlyReportController extends Controller {
 			->pluck('id');
 
 		//save to database
+			//on form submit
 		MonthlyReportSupervisorFeedback::create([
 			"reportId" => $inputs['reportNo'],
 			"supervisorId" => $supervisorId,
@@ -65,6 +75,7 @@ class SupervisorMonthlyReportController extends Controller {
 		$month = Input::get('month');
 		$supervisorEmail = Sentinel::getUser()['email'];
 
+		//Take all the record details in to a the project variable
 		$projects = MonthlyReport::leftJoin('monthly_report_supervisor_feedbacks','monthly_report_supervisor_feedbacks.reportId','=','monthly_reports.id')
 			->join('projects','projects.id', '=', 'monthly_reports.projectId')
 			->whereNull('monthly_report_supervisor_feedbacks.id')

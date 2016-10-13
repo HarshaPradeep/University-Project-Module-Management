@@ -8,10 +8,13 @@
     <title>workZone</title>
     @yield('cssLinks')
 
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
     <link href="{{ asset('public_assets/css/plugins/dataTables/dataTables.bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('public_assets/css/plugins/dataTables/dataTables.responsive.css') }}" rel="stylesheet">
     <link href="{{ asset('public_assets/css/plugins/dataTables/dataTables.tableTools.min.css') }}" rel="stylesheet">
-
+    <script src="{{asset('public_assets/dist/summernote.min.css')}}"></script>
+    <script src="{{asset('public_assets/dist/summernote.min.js')}}"></script>
     <link href="{{asset('public_assets/css/plugins/fullcalendar/fullcalendar.css')}}" rel="stylesheet">
     <link href="{{asset('public_assets/css/plugins/fullcalendar/fullcalendar.print.css')}}" rel='stylesheet' media='print'>
     <link href="{{ asset('public_assets/css/bootstrap-formhelpers.css') }}" rel="stylesheet">
@@ -111,7 +114,7 @@
                 </li>
 
                 <li>
-                    <a href="/thesisPresentations"><i class="fa fa-th-large"></i> <span class="nav-label">Final Presentation</span> </a>
+                    <a href="/thesisPresentations"><i class="fa fa-th-large"></i> <span class="nav-label">Thesis Presentation</span> </a>
                 </li>
 
                 {{--<li >--}}
@@ -125,23 +128,14 @@
                     <a href="/studentinfo"><i class="fa fa-th-large"></i> <span class="nav-label">View Student Info</span> <span class="fa"></span></a>
                 </li>
                 <li>
-                    <a href="/downloadthesis"><i class="fa fa-th-large"></i> <span class="nav-label">Download Final Report</span> <span class="fa"></span></a>
-                </li>                
-                <li>
-                    <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Evaluation</span> <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        {{--<li class="active"><a href="#"></a></li>--}}
-                        <li ><a href="/propevaluation">Proposal Submission</a></li>
-                        <li ><a href="/srsevaluation">SRS Submission</a></li>
-                        <li ><a href="/protoevaluation">Prototype</a></li>
-                        <li ><a href="/midevaluation">Mid Review</a></li>
-                        <li ><a href="/">Final Presentation</a></li>
-                        <li ><a href="/">Viva</a></li>
-                        <li ><a href="/">Other Assessment</a></li>
-                    </ul>
+                    <a href="/downloadthesis"><i class="fa fa-th-large"></i> <span class="nav-label">Download Thesis Report</span> <span class="fa"></span></a>
                 </li>
+
+
             </ul>
+
         </div>
+
     </nav>
 
     <div id="page-wrapper" class="gray-bg">
@@ -325,7 +319,13 @@
 <script src="{{ asset('public_assets/js/plugins/chartJs/Chart.min.js') }}"></script>
 <script src="{{ asset('public_assets/js/plugins/toastr/toastr.min.js') }}"></script>
 
-
+   <script type="text/javascript">
+        $(document).ready(function() {
+            $('#summernote').summernote({
+              height:300,
+            });
+        });
+    </script>
 
 
 </body>

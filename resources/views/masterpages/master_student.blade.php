@@ -7,11 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>workZone</title>
     @yield('cssLinks')
+    
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
     <link href="{{asset('public_assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
     <link href="{{asset('public_assets/css/plugins/toastr/toastr.min.css')}}" rel="stylesheet">
     <link href="{{asset('public_assets/js/plugins/gritter/jquery.gritter.css')}}" rel="stylesheet">
     <link href="{{ asset('public_assets/css/bootstrap.min.css') }}" rel="stylesheet">
-
+    <script src="{{asset('public_assets/dist/summernote.min.css')}}"></script>
+    <script src="{{asset('public_assets/dist/summernote.min.js')}}"></script>
     <link href="{{ asset('public_assets/css/plugins/iCheck/custom.css') }}" rel="stylesheet">
     <link href="{{ asset('public_assets/css/plugins/steps/jquery.steps.css') }}" rel="stylesheet">
 
@@ -48,11 +52,6 @@
                 </li>
                 <li>
                     <a href="/studentdashboard"><i class="fa fa-th-large"></i> <span class="nav-label">Student Dashboard</span> </a>
-
-                </li>
-                
-                <li>
-                    <a href="/grouping"><i class="fa fa-th-large"></i> <span class="nav-label">Form Group</span> </a>
 
                 </li>
                 {{--<li>--}}
@@ -95,9 +94,6 @@
                 </li>
 
                 <li>
-                    <a href="/diaryhome"><i class="fa fa-th-large"></i> <span class="nav-label">Project Diary</span> </a>
-
-                </li>
             </ul>
 
         </div>
@@ -188,18 +184,18 @@
                                                             <small class="text-muted"><?php $now = new DateTime();
                                                                 echo $now->diff($rpc->created_at)->format("%a");?> days ago at <?php echo date_format($rpc->created_at, 'g:i A');?> - <?php echo $newDate = date("Y/m/d", strtotime($rpc->created_at)); ?>
                                                             </small>
-                                                            <br>
                                                         </div>
-                                                        
-                                                        <button style="margin-left: 78px" type="button" class="btn btn-info btn-foursquare"><i class="fa fa-check"></i></button> 
-                                                         
-                                                        <button style="margin-left: 24px" type="button" class="btn btn-warning btn-foursquare"><i class="fa fa-times"></i></button> 
-                                                    
-                                                        </div>
+
+                                                    </div>
                                                 </li>
                                                 <li class="divider"></li>
                                             @endif
-                                            @endforeach
+
+
+
+
+
+                                        @endforeach
                                     @endfor
                                 </ul>
                             </li>
@@ -337,7 +333,13 @@
 {{--<!-- AdminLTE for demo purposes -->--}}
 <script src="{{asset('/dist/js/demo.js')}}" type="text/javascript"></script>
 
-
+   <script type="text/javascript">
+        $(document).ready(function() {
+            $('#summernote').summernote({
+              height:300,
+            });
+        });
+    </script>
 <script src="{{ asset('public_assets/js/plugins/fullcalendar/moment.min.js')}}"></script>
 <script src="{{ asset('public_assets/js/plugins/fullcalendar/fullcalendar.min.js')}}"></script>
 </body>

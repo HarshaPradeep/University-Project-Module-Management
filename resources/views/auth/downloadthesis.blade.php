@@ -32,7 +32,7 @@
 @section('title')
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
-            <h2> Final Report</h2>
+            <h2> Thesis Report</h2>
             <ol class="breadcrumb">
 
             </ol>

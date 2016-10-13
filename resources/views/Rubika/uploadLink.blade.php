@@ -48,8 +48,14 @@
           <div class="wrapper wrapper-content animated fadeInRight">
 
                   <ul> <h2><span style="color: #3cdb2d"> {{ $message }} </span> </h2></ul>
-                  <ul> <h2><span style="color: #ff0000"> {{ $errorMessage }} </span> </h2></ul>
-
+                   @if ($errors->has('linkName'))
+                   <ul> <h2><span style="color: #ff0000"> Link Cannot be Empty </span> </h2></ul>
+                  @endif
+                  <!--validations updated -->
+                  @if ($errors->has('deadline'))
+                   <ul> <h2><span style="color: #ff0000"> Date Not Valid </span> </h2></ul>
+                  @endif
+                  <!--validations updated -->
                </div>
 
 <div class="wrapper wrapper-content animated fadeInRight">
@@ -61,10 +67,10 @@
                      <div class="col-sm-9">
                                   <select class="form-control m-b" name="getCourse" id="getCourse">
 
-                                             <option>IT</option>
-                                             <option>IS</option>
-                                             <option>CS</option>
-                                             <option>SE</option>
+                                                        <option>IT</option>
+                                                        <option>IS</option>
+                                                        <option>CS</option>
+                                                        <option>SE</option>
 
                                   </select>
                      </div>
@@ -75,9 +81,12 @@
                                       <div class="col-sm-9">
                                                    <select class="form-control m-b" name="docType" id="docType">
 
-                                                              <option>Proposal</option>
+                                                              <option>Proposal </option>
                                                               <option>Interim Report</option>
-                                                              <option>Thesis</option>
+                                                              <option>Thesis Report </option>
+                                                              <option>SRS Document</option>
+                                                              <option>Project Charter</option>
+                                                              <option>Final Document</option>
                                                               <option>January Monthly Report</option>
                                                               <option>February Monthly Report</option>
                                                               <option>March Monthly Report</option>
@@ -99,7 +108,7 @@
                  <div class="form-group">
                          <label class="col-sm-3 control-label">link Visible As</label>
                          <div class="col-sm-9">
-                         <input type="text" name="linkName" placeholder="link Name" class="form-control m-b">
+                         <input type="text" name="linkName" placeholder="Link Name" class="form-control m-b">
                          </div>
                  </div>
                  </br>
@@ -174,11 +183,3 @@
 
   @endsection
   @stop
-
-
-
-
-
-
-
-

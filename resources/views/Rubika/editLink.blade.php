@@ -60,10 +60,10 @@
                                 <div class="col-sm-9">
                                              <select class="form-control m-b" name="getCourse" id="getCourse">
 
-                                                        <option>Information Technology</option>
-                                                        <option>Information System</option>
-                                                        <option>Cyber Security</option>
-                                                        <option>Software Engineering</option>
+                                                        <option>IT</option>
+                                                        <option>IS</option>
+                                                        <option>CS</option>
+                                                        <option>SE</option>
 
                                              </select>
                                 </div>
@@ -74,10 +74,24 @@
                                                  <div class="col-sm-9">
                                                               <select class="form-control m-b" name="docType" id="docType" >
 
-                                                                         <option>Proposal</option>
-                                                                         <option>Monthly Report</option>
-                                                                         <option>Interim Report</option>
-                                                                         <option>Thesis</option>
+                                                              <option>Proposal </option>
+                                                              <option>Interim Report</option>
+                                                              <option>Thesis Report </option>
+                                                              <option>SRS Document</option>
+                                                              <option>Project Charter</option>
+                                                              <option>Final Document</option>
+                                                              <option>January Monthly Report</option>
+                                                              <option>February Monthly Report</option>
+                                                              <option>March Monthly Report</option>
+                                                              <option>April Monthly Report</option>
+                                                              <option>May Monthly Report</option>
+                                                              <option>June Monthly Report</option>
+                                                              <option>July Monthly Report</option>
+                                                              <option>August Monthly Report</option>
+                                                              <option>September Monthly Report</option>
+                                                              <option>October Monthly Report</option>
+                                                              <option>November Monthly Report</option>
+                                                              <option>December Monthly Report</option>
 
                                                               </select>
                                                  </div>

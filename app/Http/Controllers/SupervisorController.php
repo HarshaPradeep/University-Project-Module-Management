@@ -24,6 +24,7 @@ class SupervisorController extends Controller
     function updateSupindex()
     {
 
+        
 
         $wh1 = array("type" => "Internal Supervisor");
         $wh2 = array("type" => "External Supervisor");
@@ -97,9 +98,6 @@ class SupervisorController extends Controller
 
     }
 
-
-
-
     ////////////////////////////////////////////////////////////
 
 // Supervisor can view their own projects
@@ -166,7 +164,10 @@ class SupervisorController extends Controller
 
         if ($unique) {
             User::create(['username' => $username, 'password' => $password, 'role' => 'Panel Member']);
-            PanelMember::create(['name' => $FullName, 'email' => $Email, 'phone' => $contactNo, 'university' => $workPlace, 'designation' => $designation, 'speciality' => $speciality, 'username' => $username, 'password' => $password, 'cv' => $destinationPath . $fileName, 'type' => 'External Supervisor', 'status' => 'Approved']);
+            PanelMember::create(['name' => $FullName, 'email' => $Email,
+            'phone' => $contactNo, 'university' => $workPlace, 'designation' => $designation,
+            'speciality' => $speciality, 'username' => $username, 'password' => $password,
+            'cv' => $destinationPath . $fileName, 'type' => 'External Supervisor', 'status' => 'Approved']);
 
             \Session::flash('message_success', 'Registration Successful!!');
             return Redirect::to('/ExternalSup');

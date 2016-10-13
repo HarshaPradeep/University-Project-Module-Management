@@ -65,11 +65,11 @@
                         <td>{{$link->docType }}</td>
                         <td>{{$link->linkName}}</td>
                         <td>{{$link->description}}</td>
-                        <td>{{$link->deadline}}</td>
+                        <td>{{substr($link->deadline, 0, -9)}}</td>
                         <td><a href="{{ asset('editLink/' . $link->id) }}" class="edit_btn btn btn-primary btn-xs m-l-sm">Edit   </a></td>
                         <td>
 
-                        <form method='post'>
+                          <form method='post'>
                                 <input type='hidden' name='hideLink'  value={{$link->id}}>
                                  <button type="submit" name="hide"  class="btn btn-primary btn-xs m-l-sm">{{$link->status}}</button>
                                  <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">

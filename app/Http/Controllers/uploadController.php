@@ -14,6 +14,17 @@ use Illuminate\Support\Facades\Crypt;
 use Session;
 use Illuminate\Database\Eloquent\Model;
 
+
+//-----------------------------------------------------------------------------------------------------------------------
+
+
+//----------------------------------Upload Link File Controller ---------------------------------------------------------
+
+
+
+
+
+
 class uploadController extends Controller
 {
 
@@ -21,35 +32,41 @@ class uploadController extends Controller
     public function createUploadLink()
     {
         //To redirect to the page to view all created links
-        if(isset($_POST['viewLink']))
+        if (isset($_POST['viewLink']))
         {
+            //redirect to 'viewLink' 
             return redirect('viewLink')->with('message','');
         }
-
+        //Check whether the create link button is clicked
         if (isset($_POST['createLink']))
         {
+            //validate link name and date
             $rules = array(
-                'linkName'=>'required'
+                'linkName'=>'required',
+                //validations updated
+                'deadline'=>'required|date|after:today'
             );
 
+            //If validations fail, return with error messages
             $validator = \Validator::make(Input::all(), $rules);
             if ($validator->fails()) {
-
-                return view('Rubika.uploadLink')->with('message', '')->with('errorMessage','link Name field cannot be empty!! ');
+                //validations updated
+                return view('Rubika.uploadLink')->with('message', '')->withErrors($validator);
 
 
             } else {
-
+                //
                 $course = Input::get('getCourse');
                 $document = Input::get('docType');
                 $link = Input::get('linkName');
                 $description = Input::get('description');
-                //$deadline = date('Y-m-d', strtotime(str_replace('-', '/', Input::get('deadline'))));
                 $deadline=Input::get('deadline');
 
-                UploadLink::create(['category' => $course, 'docType' => $document, 'linkName' => $link, 'description' => $description, 'deadline' => $deadline, 'status' => 'visible']);
+                UploadLink::create(['category' => $course, 'docType' => $document, 'linkName' => $link,
+                 'description' => $description, 'deadline' => $deadline, 'status' => 'visible']);
 
-                return view('Rubika.uploadLink')->with('message', 'Successfully created the upload Link!!')->with('errorMessage','');
+                return view('Rubika.uploadLink')->with('message', 'Successfully created the upload Link!!')
+                ->with('errorMessage','');
             }
         }
 
@@ -121,7 +138,8 @@ class uploadController extends Controller
         }
         if (isset($_POST['editLink'])) {
             $rules = array(
-                'linkName' => 'required'
+                'linkName' => 'required',
+               // 'deadline'=>'required|date|after:today'
             );
 
             $validator = \Validator::make(Input::all(), $rules);

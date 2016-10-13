@@ -20,7 +20,7 @@
     <link href="{{ asset('public_assets/css/style.css') }}" rel="stylesheet">
 
 
-       
+        <title>Interim Reports</title>
 
 
 
@@ -32,7 +32,7 @@
 @section('title')
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
-            <h2>Download Final Report</h2>
+            <h2>Download Thesis Report</h2>
             <ol class="breadcrumb">
 
             </ol>
