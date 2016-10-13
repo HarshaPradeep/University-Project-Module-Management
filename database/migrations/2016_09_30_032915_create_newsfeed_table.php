@@ -21,7 +21,7 @@ class CreatenewsfeedTable extends Migration {
 			$table->date('date');
                         $table->time('time');
                         $table->string('topic');
-                        $table->text('description');
+                        $table->string('description');
 			$table->timestamps();
             });
 	}

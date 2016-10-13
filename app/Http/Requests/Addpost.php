@@ -22,7 +22,7 @@ class Addpost extends Request {
 	public function rules()
 	{
 		return [
-			'topic'=> 'required|max:100',
+			            'topic'=> 'required|max:60|min:10',
                         'message'=>'required|min:10|max:3500'
 		];
 	}
