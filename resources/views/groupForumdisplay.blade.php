@@ -44,8 +44,9 @@
 
 @section('title')
     <div class="row wrapper border-bottom white-bg page-heading">
-        <div class="col-lg-10">
-            <h2>Comment</h2> <input  type="submit" name="submit1" value="View Posts" class="btn btn-w-m btn-primary">
+        <div class="col-lg-10" style="padding-top: 20px;">
+            <button type="button" class="btn btn-w-m btn-primary" onclick="window.location='http://localhost:8000/groupForum'">View Posts</button>
+
             <ol class="breadcrumb">
 
             </ol>
@@ -83,13 +84,36 @@
      @if(Session::has('message_success'))
 
     <script>
-        swal("Post Added!", "{{ Session::get('message_success') }}", "success");
+        swal("Record Altered!", "{{ Session::get('message_success') }}", "success");
     </script>
     
     <div class="alert alert-success" role="alert" id="divAlert" style="font-size: 14px">
         <span class="glyphicon glyphicon-envelope"></span> {{Session::get('message_success') }}
     </div>
     @endif
+
+
+        @if(Session::has('message_delete'))
+
+            <script>
+                swal("Comment deleted!", "{{ Session::get('message_success') }}", "success");
+            </script>
+
+            <div class="alert alert-success" role="alert" id="divAlert" style="font-size: 14px">
+                <span class="glyphicon glyphicon-envelope"></span> {{Session::get('message_delete') }}
+            </div>
+        @endif
+
+        @if(Session::has('message_comment'))
+
+            <script>
+                swal("Comment Added!", "{{ Session::get('message_success') }}", "success");
+            </script>
+
+            <div class="alert alert-success" role="alert" id="divAlert" style="font-size: 14px">
+                <span class="glyphicon glyphicon-envelope"></span> {{Session::get('message_comment') }}
+            </div>
+        @endif
     
     
     @if(Session::has('message_error'));
@@ -104,7 +128,9 @@
 </div>
     
     <div class="container">
-
+        {{--@can('editPost',$val)
+            <a href="{{action('ForumController@editPost', $val}}">Edit post</a>
+        @endcan--}}
       
 
            
@@ -119,7 +145,9 @@
                         <br><br><br>
                         <h4>{{$p->message}}</h4>
                         <br>
-                        <hr>
+
+
+                <hr>
                    <div class="container" style="padding-left: 85px;color:black;"><h2><b>Comments</b></h2></div>
 
 
@@ -131,15 +159,23 @@
                         <div  class="jumbotran" style="border-radius:10px;background-color:white;width:1000px;padding-left: 100px;">
 
 
-                           Posted by : {{$comment->username}}<br>
+                           <div style="color:#121A5B;" > Posted by :{{$comment->username}}<br>
                            on :{{$comment->timedate}}
                             <br><br>
-                            &emsp;<h4>{{$comment->description}}</h4>
+                            &emsp;<h3>{{$comment->description}}</h3></div>
                             <br>
+                            @if($comment->username == $uname)
+                            <form id="{{$comment->id}}" action='' method='post' >
+                                <a href="{{ asset('editComment/'. $comment->id) }}" class="edit_btn btn btn-primary btn-xs m-l-sm">Edit</a>
+                                <input type='hidden' name='toDelete'  value="{{$comment->id}}">
+                                <input  type='submit'  onclick="deleteComment()" name='delete'  value='delete' class="btn btn-danger  btn-primary btn-xs m-l-sm">
+                                <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                            </form>
+                            @endif
 
                             <hr>
-
                             <br><br>
+
 
 
                         </div>
@@ -172,14 +208,15 @@
 
 
         <div class="col-sm-10 form-group" style="padding-top:70px;">
-            <label><h2>Comment-new</h2></label>
-            <textarea rows='6' columns='7' id="summernote" name="message" class="form-control"></textarea>
+            <label><h2>Type your idea ...</h2></label>
+            <textarea required rows='6' columns='7' id='msg' name="message" class="form-control"></textarea>
         </div>
 
 
 
         <div class="form-group">
             <div class="col-md-4">
+                <div><input type='hidden' name='toEdit'></div>
                 <button type="submit" name="addNotice" value="Submit" class="btn btn-w-m btn-primary">Submit</button>
                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                 <input type="reset" name="Submit2" value="Reset" class="btn btn-w-m btn-primary">
@@ -192,51 +229,36 @@
 
 @endsection
 
-<!--<script>
-    jQuery(document).ready(function() {
-        jQuery('#message').summernote({
-            height: 250,
-            callbacks: {
-                onImageUpload: function(files, editor, $editable) {
-                    alert('evoked');
-                    sendFile(files[0],editor,$editable);
-                }
-            }
+<script>
+    function deleteComment() {
+
+        swal({   title: "Are you sure?",
+            text: "Do You want to Delete Comment ??",
+            type: "warning",   showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, Delete it!",
+            closeOnConfirm: true }
+
+        ).fail( function() {
+            alert( 'something wrong' );
         });
-        function sendFile(file,editor,welEditable) {
-            data = new FormData();
-            data.append("file", file);
-            jQuery.ajax({
-                url: "{{ URL::to('upload/image') }}",
-                data: data,
-                cache: false,
-                contentType: false,
-                processData: false,
-                type: 'POST',
-                success: function(s){
-                    jQuery('#message').summernote("insertImage", s);
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.log(textStatus+" "+errorThrown);
-                }
-            });
+
+    }
+</script>
+
+<script>
+
+
+    //delete task and remove it from list
+    $.ajax({
+        url: '/groupForumdisplay/' + id,
+        data: { "_token": "{{ csrf_token() }}" },
+        type: 'DELETE',
+        success: function(result) {
+            console.log(result);
         }
     });
-</script>-->
 
-@section('ValidationJavaScript')
-    <script src="//cdn.ckeditor.com/4.5.4/standard/ckeditor.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('.summernote').ckeditor();
-        });
-    </script>
-    
-       <script type="text/javascript">
-        $(document).ready(function() {
-            $('#summernote').summernote({
-              height:300,
-            });
-        });
-    </script>
-@endsection
+</script>
+
+

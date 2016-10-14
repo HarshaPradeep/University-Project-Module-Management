@@ -50,7 +50,9 @@
 @section('title')
     <div class="row wrapper border-bottom white-bg page-heading">
 <!--        <div class="col-lg-10">-->
-<div style="padding-left:320px;"><img width="300px" height="170px" src="http://sod208.fulton.asu.edu/forum-1/forum/image_preview">
+<div><div style="font-size:15px;padding: 20px;color: #488475;background-color: #E1F1ED  ;">
+        Welcome to the workZone Forum! Come in, have a look around...</div>
+    <img style="padding-left:350px;" height="170px" src="http://sod208.fulton.asu.edu/forum-1/forum/image_preview">
 
 
     </div>
@@ -98,8 +100,18 @@
         <span class="glyphicon glyphicon-envelope"></span> {{Session::get('message_success') }}
     </div>
     @endif
-    
-    
+
+        @if(Session::has('message_delete'))
+
+            <script>
+                swal("Post Deleted!", "{{ Session::get('message_success') }}", "success");
+            </script>
+
+            <div class="alert alert-success" role="alert" id="divAlert" style="font-size: 14px">
+                <span class="glyphicon glyphicon-envelope"></span> {{Session::get('message_delete') }}
+            </div>
+        @endif
+
     @if(Session::has('message_error'));
     
     <script>
@@ -111,40 +123,54 @@
     
 </div>
     
-    <div class="container">
-    
+
+
+
       
 <!--        @if(count($posts))-->
             @forelse($posts as $post)
-            <div class="row">  
+
+
                
-            <div  class="jumbotran" style="border-radius:10px;background-color:white;width:1000px;padding-left: 10px;">
-                        
-               <img style="border-radius:50%;width:60px;" src="http://tedxfukuoka.com/wp/wp-content/uploads/rika_shiiki_-562x562.jpg">
+            <div style="border-radius:10px;background-color:white;width:1000px;padding-left: 10px;">
+
+                <img style="border-radius:50%;width:60px; padding-top:5px;display: inline;" src="http://tedxfukuoka.com/wp/wp-content/uploads/rika_shiiki_-562x562.jpg">
                 <h2><b><a href="http://localhost:8000/groupForumdisplay/{{$post->id}}">{{$post->topic}}</a></b></h2>
                         Posted by : {{$post->username}}<br>
                         on :{{$post->datetime}}
                         <br><br><br>
-                        <div style="color:#333439;"><h4>{{$post->message}}</h4></div>
+                        <div style="color:#333439;"><h4>{{nl2br($post->message)}}</h4></div>
                         <br>
                         
                         <hr>
-                        <i class="fa fa-comment" aria-hidden="true"></i>&nbsp;<a href="http://localhost:8000/groupForumdisplay/{{$post->id}}">Reply</a>
-                              
+
+
+                            <form id="{{$post->id}}" action='' method='post' >
+                                <i class="fa fa-comment" aria-hidden="true"></i>&nbsp;<a href="http://localhost:8000/groupForumdisplay/{{$post->id}}">Reply</a>
+                                @if($post->username == $uname)
+                                <a href="{{ asset('editPost/'. $post->id) }}" class="edit_btn btn btn-primary btn-xs m-l-sm">Edit</a>
+
+                                <input type='hidden' name='toDelete'  value="{{$post->id}}">
+                                <input  type='submit'  onclick="postDelete()" name='delete'  value='delete' class="btn btn-danger  btn-primary btn-xs m-l-sm">
+                                <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                                    @endif
+                            </form>
+
+
                         <br><br>
                         
            
             </div>
-            </div>
+            <br><br>
             @empty
                         <p>No Posts Found</p>
                         <br>
                         <br>
                         
             @endforelse
-<!--        @endif-->
+            @endif
            
-    </div>
+
     
     
 <br><br>
@@ -154,20 +180,20 @@
 
         <div class="col-sm-10 form-group">
             <label>Topic</label>
-            <input name="topic" type="text" id="topics" class="form-control"/>
+            <input required name="topic" type="text" id="topics" class="form-control"/>
         </div>
         
         
          <div class="col-sm-10 form-group">
             <label>Message</label>
-            <textarea name="message" id="summernote" rows="7" columns="5" class="form-control"></textarea>
+            <textarea name="message" required style="white-space: pre-line;" id="summernote" rows="7" columns="5" class="form-control"></textarea>
         </div>
         
         
   
         <div class="form-group">
             <div class="col-md-4">
-                <button type="submit" name="addNotice" value="Submit" class="btn btn-w-m btn-primary">Post</button>
+                <button type="submit"  value="Submit" class="btn btn-w-m btn-primary">Post</button>
                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                 <input type="reset" name="Submit2" value="Reset" class="btn btn-w-m btn-primary">
             </div>
@@ -176,37 +202,28 @@
 
     </form>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-          $('#summernote').summernote();
-        });
-    </script>
-     
-        <!-- <script>
-
-            $(document).ready(function(){
-                $('.summernote').summernote({
-                    height: 200,                 // set editor height
-
-                    minHeight: null,             // set minimum height of editor
-                    maxHeight: null,             // set maximum height of editor
-
-                    focus: false                 // set focus to editable area after initializing summernote
-                });
-
-            });
-        </script> -->
-    
-<!--        <script type="text/javascript">
-        $(document).ready(function() {
-            $('#summernote').summernote({
-              height:300,
-            });
-        });
-        </script> -->
-<!--<script src="//cdnjs.cloudflare.com/ajax/libs/summernote/0.7.0/summernote.js"></script> -->
 
 @endsection
+
+<script>
+
+    function postDelete() {
+
+        swal({   title: "Are you sure?",
+            text: "Do You want to Delete Post ??",
+            type: "warning",   showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, Delete it!",
+            closeOnConfirm: true }
+
+        ).fail( function() {
+            alert( 'something wrong' );
+        });
+
+    }
+
+</script>
+
 
 <!-- <script>
     jQuery(document).ready(function() {

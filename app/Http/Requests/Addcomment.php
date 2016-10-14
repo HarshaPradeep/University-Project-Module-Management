@@ -23,7 +23,7 @@ class Addcomment extends Request {
 	{
 		return [
 			
-                        'message'=>'required'
+                        'message'=>'min:1'
 		];
 	}
 

@@ -31,11 +31,15 @@ class NoticeController extends Controller {
     {
         return view('Notices.addNotice');
     }
+
+
     public function editNoticeView($id)
     {
         $v=Notice::find($id);
         return view('Notices.editNotice',compact('v'));
     }
+
+
 
    public function  addNotice()
    {
@@ -112,6 +116,9 @@ class NoticeController extends Controller {
 
      }
 }
+
+
+
 
     public function  editNotice()
     {

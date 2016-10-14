@@ -120,11 +120,12 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
     Route::get('allProjects','RPCController@viewAllProjects');
     Route::get('rejectedSupervisors','RPCController@rejectedSupervisors');
 
+
     Route::post('viewNotice', 'NoticeController@notice_buttons');
     Route::get('viewNotice','NoticeController@viewLink');
     
     
-  /// Udani groupForum routes :)
+  /// Udani routes :)
 
 
     Route::get('updateModules','ModuleController@updateModindex');
@@ -133,16 +134,23 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
     Route::get('updateModuleDelete','ModuleController@deleteModuleindexstore');
     Route::get('modules','ModuleController@add');
     Route::post('modules',['as'=>'AddMod','uses'=>'ModuleController@store']);
-    Route::post('groupForum','ForumController@viewPost');
-    Route::post('groupForum',['as'=>'Addpost','uses'=>'ForumController@postQuestion']);
-    Route::post('groupForum','ForumController@viewPost');
+
+
+
+
+
     Route::get('groupForumdisplay/{id?}','ForumController@getComment');
     Route::get('groupForumdisplay/{id?}','ForumController@viewQuestion');
     Route::get('groupForum','ForumController@getPost');
-    Route::post('groupForum','ForumController@postQuestion');
-    //Route::post('groupForumdisplay/{id?}','ForumController@prevComments');
-    Route::post('groupForumdisplay/{id}',['as'=>'Addcomment','uses'=>'CommentsController@store']);
+    Route::post('groupForum','ForumController@deleteandgetpost');
+    Route::post('groupForumdisplay/{id?}','CommentsController@deleteandadd');
+    Route::get('editComment/{id}','CommentsController@editCommentView');
+    Route::post('editComment/{id}','CommentsController@editComment');
+    Route::get('editPost/{id}','ForumController@editPostView');
+    Route::post('editPost/{id}','ForumController@editPostN');
 
+
+//
  //Udani end   
     
     Route::get('addNotice','NoticeController@add_new_notice');
