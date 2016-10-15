@@ -182,15 +182,15 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label>Project Title</label>
-                            <input type="text" name="projectTitle" placeholder="Project Title" class="form-control required">
+                            <input type="text" name="projectTitle" placeholder="Project Title" >
                         </div>
 
                         <div class="form-group">
                             <label>Upload</label>
-                            <input name="txtFile" id="txtFile" type="file" class="form-control"/>
+                            <input name="txtFile" id="txtFile" type="file" />
                         </div>
 
-                        <textarea name="projectDescription" rows="4" cols="50" value="{{ old('projectDescription') }}" class="form-control required">
+                        <textarea name="projectDescription" rows="4" cols="50" value="{{ old('projectDescription') }}" >
                             Enter a short description of your project here
                         </textarea>
 
