@@ -64,48 +64,75 @@ class EvaluationController extends Controller {
 	 */
 	public function store()
         {
-            //dd(Request::get('marksformidpresentab1'));
-            EvaluationMarks::create([
-                
-                //Tab 1(LEADER)
-                'stugrpid' => Input::get('selectid'),
-                'stuid' => Request::get('cmntmem0'),
-                'proposalpresent' => Request::get('marksforproposalpresenttab1'),
-                'proposalreport' => Request::get('marksforproposalreporttab1'),
-                'srsreport' => Request::get('marksforsrstab1'),
-                'protopresent' => Request::get('marksforprototab1'),
-                'midpresent' => Request::get('marksformidpresentab1'),
-                'midreport' => Request::get('marksfomidreporttab1'),
-                'finalprsent' => Request::get('marksforfinalpresnttab1'),
-                'finalreport' => Request::get('marksforfinalreporttab1'),
-                'viva' => Request::get('marksforvivatab1'),
-                'researchbook' => Request::get('marksforresearchbooktab1'),
-                'researchpaper' => Request::get('marksforresearchpapertab1'),
-                'website' => Request::get('marksforwebsitetab1'),
-                'status' => Input::get('status')
-                //Tab 1 ends
+           // dd(Request::get('cmntmem'));
+            if(Request::get('cmntmem0') != null)
+            {        
+                EvaluationMarks::create([
+  
+                    'stugrpid' => Input::get('selectid'),
+                    'stuid' => Request::get('cmntmem0'),
+                    'proposalpresent' => Request::get('marksforproposalpresenttab1'),
+                    'proposalreport' => Request::get('marksforproposalreporttab1'),
+                    'srsreport' => Request::get('marksforsrstab1'),
+                    'protopresent' => Request::get('marksforprototab1'),
+                    'midpresent' => Request::get('marksformidpresentab1'),
+                    'midreport' => Request::get('marksfomidreporttab1'),
+                    'finalprsent' => Request::get('marksforfinalpresnttab1'),
+                    'finalreport' => Request::get('marksforfinalreporttab1'),
+                    'viva' => Request::get('marksforvivatab1'),
+                    'researchbook' => Request::get('marksforresearchbooktab1'),
+                    'researchpaper' => Request::get('marksforresearchpapertab1'),
+                    'website' => Request::get('marksforwebsitetab1'),
+                    'status' => Input::get('statustab1')
+
                ]);
+            }
             
-            EvaluationMarks::create([
-                
-                //Tab 1(LEADER)
-                'stugrpid' => Input::get('selectid'),
-                'stuid' => Request::get('cmntmem0'),
-//                'proposalpresent' => Request::get('marksforproposalpresenttab1'),
-//                'proposalreport' => Request::get('marksforproposalreporttab1'),
-//                'srsreport' => Request::get('marksforsrstab1'),
-//                'protopresent' => Request::get('marksforprototab1'),
-//                'midpresent' => Request::get('marksformidpresentab1'),
-//                'midreport' => Request::get('marksfomidreporttab1'),
-//                'finalprsent' => Request::get('marksforfinalpresnttab1'),
-//                'finalreport' => Request::get('marksforfinalreporttab1'),
-//                'viva' => Request::get('marksforvivatab1'),
-//                'researchbook' => Request::get('marksforresearchbooktab1'),
-//                'researchpaper' => Request::get('marksforresearchpapertab1'),
-//                'website' => Request::get('marksforwebsitetab1'),
-//                'status' => Input::get('status')
-                //Tab 1 ends
-               ]);
+            if(Request::get('cmntmem1') != null)
+            {
+                EvaluationMarks::create([
+
+                    'stugrpid' => Input::get('selectid'),
+                    'stuid' => Request::get('cmntmem1'),
+                    'proposalpresent' => Request::get('marksforproposalpresenttab2'),
+                    'proposalreport' => Request::get('marksforproposalreporttab2'),
+                    'srsreport' => Request::get('marksforsrstab2'),
+                    'protopresent' => Request::get('marksforprototab2'),
+                    'midpresent' => Request::get('marksformidpresentab2'),
+                    'midreport' => Request::get('marksfomidreporttab2'),
+                    'finalprsent' => Request::get('marksforfinalpresnttab2'),
+                    'finalreport' => Request::get('marksforfinalreporttab2'),
+                    'viva' => Request::get('marksforvivatab2'),
+                    'researchbook' => Request::get('marksforresearchbooktab2'),
+                    'researchpaper' => Request::get('marksforresearchpapertab2'),
+                    'website' => Request::get('marksforwebsitetab2'),
+                    'status' => Input::get('statustab2')
+
+                   ]);
+            }
+            
+            if(Request::get('cmntmem2') != null)
+            {
+//                EvaluationMarks::create([
+//
+//                    'stugrpid' => Input::get('selectid'),
+//                    'stuid' => Request::get('cmntmem1')
+////                    'proposalpresent' => Request::get('marksforproposalpresenttab2'),
+////                    'proposalreport' => Request::get('marksforproposalreporttab2'),
+////                    'srsreport' => Request::get('marksforsrstab2'),
+////                    'protopresent' => Request::get('marksforprototab2'),
+////                    'midpresent' => Request::get('marksformidpresentab2'),
+////                    'midreport' => Request::get('marksfomidreporttab2'),
+////                    'finalprsent' => Request::get('marksforfinalpresnttab2'),
+////                    'finalreport' => Request::get('marksforfinalreporttab2'),
+////                    'viva' => Request::get('marksforvivatab2'),
+////                    'researchbook' => Request::get('marksforresearchbooktab2'),
+////                    'researchpaper' => Request::get('marksforresearchpapertab2'),
+////                    'website' => Request::get('marksforwebsitetab2'),
+////                    'status' => Input::get('statustab2')
+
+//                   ]);
+            }
 
             return redirect('evaluationform');
         }
