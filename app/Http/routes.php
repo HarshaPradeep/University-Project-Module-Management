@@ -110,8 +110,10 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
     //Route::resource('addResearchArea/{id}', 'AddResearchArea@destroy');
     
     //evaluationform routes added by harsha///////////////////////////////
+    Route::post('evaluationform', 'EvaluationController@store');
     Route::get('evaluationform', 'EvaluationController@create');
     Route::get('/searchstudent', 'createUserController@searchforStudents');
+    
     
     Route::get('formsupervisor', 'supervisorevaluation@create');
     
