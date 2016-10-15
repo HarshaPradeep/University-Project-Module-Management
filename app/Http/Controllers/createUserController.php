@@ -144,11 +144,11 @@ class createUserController extends Controller {
     function searchforStudents() {
 
         $searchId = Input::get('sid');
-
+        
         /*get project title according to the student's id*/
 	//$protitle = \App\Evaluation::where('studentId', $searchId)->pluck('title');
         $protitle = DB::table('projects')
-                    ->where('studentId', $searchId)
+                    ->where('groupIDforTitle', $searchId)
                     ->Where('status', 'Approved')
                     ->pluck('title');
         
@@ -159,12 +159,38 @@ class createUserController extends Controller {
                     ->Where('status', 'Approved')
                     ->pluck('id');
         
-       /*get student name according to the student's id*/
-	$stuname = DB::table('students')
-                    ->where('id', $searchId)
-                    ->pluck('name');
-	      
-        $data = array("title" => $protitle, "pid" => $proid, "sname" => $stuname);
+        /*mail adds. of members in the group*/
+        $groupmails = DB::table('research_groups')
+                        ->where('groupID', $searchId)
+                        ->pluck('mails');
+        
+        $explodedemails = explode("/",$groupmails);
+        
+//        $idss= DB::table('students')
+//                        ->where('email', $explodedemails)
+//                        ->pluck('regId');
+
+        $sendids = '';
+        $sendnames = '';
+        foreach ($explodedemails as $mail)
+        {
+           $id = (DB::table('students')
+                   ->where('email', $mail)
+                   ->pluck('regId'));
+           
+           $sendids .= $id.'/'; 
+           
+           /*get student name according to the student's id*/
+            $stuname = (DB::table('students')
+                    ->where('email', $mail)
+                    ->pluck('name'));
+            $sendnames .= $stuname.'/'; 
+        }
+        
+        $explodedsendids = explode("/", rtrim($sendids, "/"));
+        $explodedsendnames = explode("/", rtrim($sendnames, "/"));
+
+        $data = array("title" => $protitle, "pid" => $proid, "sname" => $explodedsendnames, "noofstu" => sizeof($explodedemails), "ids" => $explodedsendids, "ledrid" => $explodedsendids[0]);
         return json_encode($data);
     }
 
