@@ -150,6 +150,7 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
         'Vinkla\Hashids\HashidsServiceProvider',
+		'Khill\Lavacharts\Laravel\LavachartsServiceProvider',
 
 	],
 
