@@ -23,6 +23,7 @@ class EvaluationMarks extends Model {
             'researchbook',
             'researchpaper',
             'website',
-            'status'
+            'status',
+            'total'
         ];
 }
