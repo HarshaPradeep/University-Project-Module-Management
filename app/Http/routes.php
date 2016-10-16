@@ -113,7 +113,8 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
     Route::post('evaluationform', 'EvaluationController@store');
     Route::get('evaluationform', 'EvaluationController@create');
     Route::get('/searchstudent', 'createUserController@searchforStudents');
-    
+    Route::get('viewprintmarks', 'EvaluationController@show');
+    Route::get('/searchmarks', 'EvaluationController@get');
     
     Route::get('formsupervisor', 'supervisorevaluation@create');
     
