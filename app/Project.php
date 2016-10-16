@@ -14,12 +14,7 @@ class Project extends Model {
      */
     protected $fillable =['id','title','description','url','supervisorId','studentId','status'];
 
-    public  static $rules=array(
-        'NewProject'=>'required',
-        'description'=>'required',
-
-
-    );
+ 
 
     public  static  function validate($data){
 
