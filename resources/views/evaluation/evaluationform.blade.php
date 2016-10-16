@@ -184,7 +184,7 @@
         <div align="right" style="padding-right: 42px">
             
             <input type="text"  placeholder="Total" style="width: 50px; height: 35px" disabled>  
-            <input type="text" name="total" id="mem1total" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
+            <input type="text" name="totaltab1" id="mem1total" style="width: 50px; height: 35px" readonly > <b>Marks</b></div>
 <br>
 <div><textarea name="cmntmem0" readonly rows="4" cols="80" placeholder="Comment" id="cmntmem0"></textarea></div><br>
 <div><select name="statustab1" ><option> Status </option>
@@ -286,7 +286,7 @@
         <div align="right" style="padding-right: 42px">
             
             <input type="text"  placeholder="Total" style="width: 50px; height: 35px" disabled>  
-            <input type="text" name="total" id="mem2total" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
+            <input type="text" name="totaltab2" id="mem2total" style="width: 50px; height: 35px" readonly > <b>Marks</b></div>
 <br>
         <div><textarea name="cmntmem1" rows="4" cols="80" placeholder="Comment" id="cmntmem1"></textarea></div><br>
         <div><select name="statustab2" ><option> Status </option>
@@ -390,7 +390,9 @@
             <input type="text" name="total" id="mem3total" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
         <div><textarea name="comment" disabled rows="4" cols="80" placeholder="Comment" id="cmntmem2"></textarea></div><br>
-        <div><select name="statustab3" disabled><option> Status </option></select></div>
+        <div><select name="statustab2" ><option> Status </option>
+                                            <option> Present </option>
+                                            <option> Absent </option></select></div>
         <div align="right" style="padding-right: 180px"> <input type='submit'  class="save_btn btn btn-primary btn-xl m-l-sm" name='editThesisFormMarks' align="right" id="member3sub">
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"></div>
 <!--    </form>-->
@@ -489,7 +491,9 @@
             <input type="text" name="total" id="mem4total" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
         <div><textarea name="comment" disabled rows="4" cols="80" placeholder="Comment" id="cmntmem3"></textarea></div><br>
-        <div><select name="status" disabled><option> Status </option></select></div>
+        <div><select name="statustab2" ><option> Status </option>
+                                            <option> Present </option>
+                                            <option> Absent </option></select></div>
         <div align="right" style="padding-right: 180px"> <input type='submit'  class="save_btn btn btn-primary btn-xl m-l-sm" name='editThesisFormMarks' align="right" id="member4sub">
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"></div>
 <!--    </form>-->
@@ -588,7 +592,9 @@
             <input type="text" name="total" id="mem5total" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
         <div><textarea name="comment" disabled rows="4" cols="80" placeholder="Comment" id="cmntmem4"></textarea></div><br>
-        <div><select name="status" disabled><option> Status </option></select></div>
+        <div><select name="statustab2" ><option> Status </option>
+                                            <option> Present </option>
+                                            <option> Absent </option></select></div>
         <div align="right" style="padding-right: 180px"> <input type='submit'  class="save_btn btn btn-primary btn-xl m-l-sm" name='editThesisFormMarks' align="right" id="member5sub">
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"></div>
    
@@ -628,7 +634,6 @@ function getselected(thisperson)
     javascriptLoader();
 }  
 
-/////FOR TAB 1////////
 function javascriptLoader()
 {
 //$(document).ready(function () {
@@ -744,7 +749,6 @@ function getTotal()
     $('#mem'+totviewfieldchange+'total').val((Math.round((first2 + second2 + third2 + forth1) * 10) / 10));
 }
 
-/////END FOR TAB 1////////
 
 //function getparent(thisperson)
 //{
@@ -769,7 +773,7 @@ function selectStudentDetails()
         
         }).done(function (data) {
 
-            totviewfieldchange = 1;
+            javascriptLoader();
             studentNames = data['sname'];
             document.getElementById('stuname').value = data['sname'][0];
             document.getElementById('protitle').value = data['title'];
