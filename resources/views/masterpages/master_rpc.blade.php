@@ -206,7 +206,7 @@
                     <li>
                         <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Final Evaluation</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li class="active"><a href="/form">Edit Form</a></li>
+<!--                            <li class="active"><a href="/form">Edit Form</a></li>-->
                             <li class="active"><a href="/viewInternalProjects">View evaluated finals</a></li>
                         </ul>
                     </li>
@@ -230,7 +230,11 @@
                     
                     <!--                Harsha added - add evaluation -->
                     <li>
-                        <a href="/evaluationform"><i class="fa fa-th-large"></i> <span class="nav-label">Evaluation</span></a>
+                        <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Evaluation</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li class="active"><a href="/evaluationform">Add Marks</a></li>
+                            <li ><a href="/viewprintmarks">View / Print</a></li>
+                        </ul>
                     </li>
                     <!--                end of add evaluation-->
 
