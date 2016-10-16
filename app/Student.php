@@ -28,8 +28,6 @@ class Student extends Model {
             'telephone.numeric' => 'Your telephone number should be numeric',
             'password.min:5' => 'Enter a password must have at least 5 letters',
             'supervisortype.required' => 'Select type of supervisor',
-            'projectTitle.required' => 'Select a supervisor',
-            'projectDescription.required' => 'Enter a short description of your project',
             'attempt.required' => 'Select your attempt'
         );
 
@@ -41,8 +39,6 @@ class Student extends Model {
             'telephone' => 'required|min:10',
             'password' => 'required|min:5',//|confirmed
             'confirm' => 'required',//|same:password
-            'projectTitle' => 'required',
-            'projectDescription' => 'required',
             'supervisortype' => 'required',
             'attempt' => 'required'
         );
