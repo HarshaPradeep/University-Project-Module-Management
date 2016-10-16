@@ -94,6 +94,9 @@
                 </li>
 
                 <li>
+                    <a href="/groupForum"><i class="fa fa-th-large"></i> <span class="nav-label">Student Forum</span> </a>
+
+                </li>
             </ul>
 
         </div>

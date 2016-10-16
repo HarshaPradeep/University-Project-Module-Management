@@ -2,6 +2,7 @@
 
 
 use Illuminate\Http\Requests;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\Addpost;
 use App\FreeSlots;
 use App\newsfeed;
@@ -143,48 +144,72 @@ class ForumController extends Controller {
 
 
          }
-       else{
+       else {
            $unique = true;
-
-
-           $topic=$post->topic;
-           $message=$post->message;
-           $breaks = array("<br />", "<br>", "<br/>", "<br />", "&lt;br /&gt;", "&lt;br/&gt;", "&lt;br&gt;");
-           $msg = str_ireplace($breaks, "\r\n",$message);
-           $posts=  newsfeed::all();
-           $names=$posts->lists('module_name');
-           $id=$posts->lists('module_id');
+           $topic = $post->topic;
+           $msg = $post->message;
            $dt = Carbon\Carbon::now();
            $username = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->username;
-
-
-           if ($unique){
-
-               newsfeed::create(['topic'=>$topic, 'message' => $msg,'datetime'=>$dt , 'username' => $username ]);
-               return View::make('groupForum')->with($username);
-
-               \Session::flash('message_success', 'Post Added Successfully!!');
-               return Redirect::to('/groupForum');
+           $file=Input::file('file');
 
 
 
-           }  else {
 
-               return view('Final.groupForum')->with('message', 'Error,adding the post !');
+           if($file!=null){
+
+                //check whether a file is choosen
+
+
+               $name = $file->getClientOriginalName();
+               $ext=$file->getClientOriginalExtension();
+               $destinationPath = '/uploads/forum/'. $name;
+               $file->move(public_path() .'/uploads/forum/',$name);
+
+
+               if($ext == 'docx' ||$ext == 'pdf' ||$ext == 'zip')
+               {
+
+                   newsfeed::create(['topic' => $topic, 'message' => $msg, 'link' => $destinationPath,'file_name'=>$name,'datetime' => $dt, 'username' => $username]);
+                   \Session::flash('message_success', 'Post Added Successfully!!');
+
+                   return Redirect::to("/groupForum");
+
+               }
+               elseif ($ext == 'png' ||$ext == 'jpg' ||$ext == 'JPG' ) {
+
+
+                   newsfeed::create(['topic' => $topic, 'message' => $msg, 'file' => $destinationPath, 'file_name'=>$name, 'datetime' => $dt, 'username' => $username]);
+                   \Session::flash('message_success', 'Post Added Successfully!!');
+                   return Redirect::to("/groupForum");
+
+               }
+
            }
 
-       }
+       else{
+
+
+              $dt = Carbon\Carbon::now();
+               $username = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->username;
+
+
+               newsfeed::create(['topic' => $topic, 'message' => $msg, 'datetime' => $dt, 'username' => $username]);
+               \Session::flash('message_success', 'Post Added Successfully!!');
+
+               return Redirect::to("/groupForum");
+
+
+           }
+           }
+
     }
 
-   public function checkUser()
-   {
+    public function search(){
+        $query = Input::get('search');
+        $search = DB::table('newsfeed')->where('topic', 'LIKE', '%' . $query . '%')->paginate(10);
+        return view('groupForum', compact('query', 'search'));
 
-
-       $username = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->username;
-        return View::make('groupForum')->with($username);
-
-
-   }
+    }
 
    /* public function destroy( $id, Request $request ) {
         $post = Product::findOrFail( $id );

@@ -91,6 +91,7 @@ class submissionsController extends Controller
 
                 if($file!=null)
                 {
+
                     $destinationPath = '/public/uploads/' . $curYear . '/' . $document . '/' . $regNo.'/';
                     $extension = $file->getClientOriginalExtension();
                     $fileName = Input::get('regNo') .'.'. $extension;

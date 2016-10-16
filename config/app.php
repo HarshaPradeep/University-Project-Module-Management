@@ -141,6 +141,7 @@ return [
         'Fenos\Notifynder\NotifynderServiceProvider',
 		'Barryvdh\DomPDF\ServiceProvider',
 
+
         /*
          * Application Service Providers...
          */
@@ -150,6 +151,7 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
         'Vinkla\Hashids\HashidsServiceProvider',
+
 
 	],
 
@@ -206,6 +208,8 @@ return [
         'Notifynder'    => 'Fenos\Notifynder\Facades\Notifynder',
         'Hashids' => 'Vinkla\Hashids\Facades\Hashids',
 		'PDF' => 'Barryvdh\DomPDF\Facade',
-	],
+
+
+    ],
 
 ];

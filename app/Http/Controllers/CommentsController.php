@@ -44,20 +44,45 @@ class CommentsController extends Controller
             $username = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->username;
             $url_last = (explode('/', $_SERVER['REQUEST_URI']));
             $url_lastpart = $url_last[2];
-            if ($unique) {
+
+            $file=Input::file('file');
+
+
+            if($file!=null){
+
+                $name = $file->getClientOriginalName();
+                $ext=$file->getClientOriginalExtension();
+                $destinationPath = '/uploads/forum/'. $name;
+                $file->move(public_path() .'/uploads/forum/',$name);
+
+                if($ext == 'docx' ||$ext == 'pdf' ||$ext == 'zip')
+                {
+                    comments::create(['username' => $username, 'timedate' => $dt, 'description' => $msg,'link' => $destinationPath,'file_name'=>$name, 'approved' => true, 'post_id' => $url_lastpart]);
+                    \Session::flash('message_comment', 'Thank you for your comment!!');
+                    $url_last = (explode('/', $_SERVER['REQUEST_URI']));
+                    $url_lastpart = $url_last[2];
+                    return Redirect::back();
+
+                }
+                elseif ($ext == 'png' ||$ext == 'jpg' ||$ext == 'JPG' ) {
+
+                    comments::create(['username' => $username, 'timedate' => $dt, 'description' => $msg,'file' => $destinationPath,'file_name'=>$name, 'approved' => true, 'post_id' => $url_lastpart]);
+                    \Session::flash('message_comment', 'Thank you for your comment!!');
+                    $url_last = (explode('/', $_SERVER['REQUEST_URI']));
+                    $url_lastpart = $url_last[2];
+                    return Redirect::back();
+                }
+            }
+            else{
+
                 comments::create(['username' => $username, 'timedate' => $dt, 'description' => $msg, 'approved' => true, 'post_id' => $url_lastpart]);
                 \Session::flash('message_comment', 'Thank you for your comment!!');
                 $url_last = (explode('/', $_SERVER['REQUEST_URI']));
                 $url_lastpart = $url_last[2];
-                return Redirect::to("/groupForumdisplay/$url_lastpart");
+                return Redirect::back();
 
-
-            } else {
-
-                return view('Final.groupForum')->with('message', 'Error,adding the comment !');
             }
-
-
+            
         }
     }
 

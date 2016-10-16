@@ -122,12 +122,28 @@
     @endif
     
 </div>
-    
 
 
 
+{!! Form::text('search', null,
+                                      array('required',
+                                           'class'=>'form-control',
+                                           'placeholder'=>'Search for a tutorial...')) !!}
+{!! Form::submit('Search',
+                           array('class'=>'btn btn-default')) !!}
+{!! Form::close() !!}
+
+
+{{--@if (count($search) === 0)--}}
+    {{--echo 'No articles found';--}}
+{{--@elseif (count($search) >= 1)--}}
+
+    {{--@foreach($search as $s)--}}
+        {{--print article--}}
+    {{--@endforeach--}}
+{{--@endif--}}
       
-<!--        @if(count($posts))-->
+
             @forelse($posts as $post)
 
 
@@ -135,11 +151,24 @@
             <div style="border-radius:10px;background-color:white;width:1000px;padding-left: 10px;">
 
                 <img style="border-radius:50%;width:60px; padding-top:5px;display: inline;" src="http://tedxfukuoka.com/wp/wp-content/uploads/rika_shiiki_-562x562.jpg">
+
+
+
                 <h2><b><a href="http://localhost:8000/groupForumdisplay/{{$post->id}}">{{$post->topic}}</a></b></h2>
                         Posted by : {{$post->username}}<br>
                         on :{{$post->datetime}}
                         <br><br><br>
-                        <div style="color:#333439;"><h4>{{nl2br($post->message)}}</h4></div>
+
+                        @if($post->file != null)
+
+                        <img src="{{$post->file}}" alt="" width="350" height="260">
+                            <br> <br>
+                       @elseif($post->link != null)
+
+                       <a href="{{$post->link}}" download="{{$post->link}}">{{$post->file_name}}</a>
+
+                        @endif
+                    <div style="color:#333439;"><h4>{!!($post->message)!!}</h4></div>
                         <br>
                         
                         <hr>
@@ -168,14 +197,14 @@
                         <br>
                         
             @endforelse
-            @endif
+
            
 
     
     
 <br><br>
 
-    <form id="form1" name="form1" method="post" action="" >
+    <form id="form1" name="form1" method="post" action="" enctype="multipart/form-data" >
 
 
         <div class="col-sm-10 form-group">
@@ -186,11 +215,17 @@
         
          <div class="col-sm-10 form-group">
             <label>Message</label>
-            <textarea name="message" required style="white-space: pre-line;" id="summernote" rows="7" columns="5" class="form-control"></textarea>
+            <textarea  name="message" id="input" class="form-control"></textarea>
         </div>
-        
-        
-  
+
+        <div class="col-sm-10 form-group">
+            <label>Choose File</label>
+            <input type="file" name="file" id="file" class="form-control"/>
+            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+
+        </div>
+
+
         <div class="form-group">
             <div class="col-md-4">
                 <button type="submit"  value="Submit" class="btn btn-w-m btn-primary">Post</button>
@@ -205,7 +240,46 @@
 
 @endsection
 
+<script src="{{URL::to('public_assets/tinymce/js/tinymce/tinymce.min.js')}}"></script>
+
 <script>
+    var editor_config={
+        path_absolute:"{{URL::to('/')}}/",
+        selector:"textarea",
+        plugins:[
+            "advlist autolink link image lists charmap print preview hr anchor pagebreak",
+            "spellchecker searchreplace wordcount visualblocks visualchars code fullscreen",
+            "insertdatetime media nonbreaking save table contextmenu directionality",
+            "emoticons template paste textcolor colorpicker textpattern"
+        ],
+        toolbar:"insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons",
+        relative_urls:false,
+        file_browser_callback: function(field_name, url, type, win){
+            var x=window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+            var y=window.innerHeight ||document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
+
+            var cmsURL =editor_config.path_absolute + 'laravel-filemanager?field_name' + field_name;
+            if(type=='image'){
+                cmsURL=cmsURL + "&type=Images";
+            }else{
+                cmsURL=cmsURL + "&type=Files";
+            }
+            tinyMCE.activeEditor.windowManager.open({
+                file:cmsURL,
+                title:'Filemanager',
+                width:x * 0.8,
+                height:y * 0.8,
+                resizable:"yes",
+                close_previous:"no"
+            });
+        }
+    };
+    tinymce.init(editor_config);
+
+</script>
+<script>
+
+
 
     function postDelete() {
 
@@ -225,44 +299,7 @@
 </script>
 
 
-<!-- <script>
-    jQuery(document).ready(function() {
-        jQuery('#message').summernote({
-            height: 250,
-            callbacks: {
-                onImageUpload: function(files, editor, $editable) {
-                    alert('evoked');
-                    sendFile(files[0],editor,$editable);
-                }
-            }
-        });
-        function sendFile(file,editor,welEditable) {
-            data = new FormData();
-            data.append("file", file);
-            jQuery.ajax({
-                url: "{{ URL::to('upload/image') }}",
-                data: data,
-                cache: false,
-                contentType: false,
-                processData: false,
-                type: 'POST',
-                success: function(s){
-                    jQuery('#message').summernote("insertImage", s);
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.log(textStatus+" "+errorThrown);
-                }
-            });<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
 
-        }
-    });
-</script>
 
  @section('ValidationJavaScript')
-  <script src="//cdn.ckeditor.com/4.5.4/standard/ckeditor.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('.summernote').ckeditor();
-        }); 
-    </script>
-    -->
+

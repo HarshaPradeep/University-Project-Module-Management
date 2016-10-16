@@ -15,7 +15,7 @@ class comments extends Model  {
      *
      * @var array
      */
-    protected $fillable = ['id','post_id','username','timedate','description','approved'];
+    protected $fillable = ['id','post_id','username','timedate','description','link','file_name','file','approved'];
 
         
         

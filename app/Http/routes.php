@@ -134,6 +134,7 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
     Route::get('updateModuleDelete','ModuleController@deleteModuleindexstore');
     Route::get('modules','ModuleController@add');
     Route::post('modules',['as'=>'AddMod','uses'=>'ModuleController@store']);
+    Route::get('groupForum','ForumController@search');
 
 
 
@@ -148,6 +149,8 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
     Route::post('editComment/{id}','CommentsController@editComment');
     Route::get('editPost/{id}','ForumController@editPostView');
     Route::post('editPost/{id}','ForumController@editPostN');
+
+
 
 
 //

@@ -143,7 +143,19 @@
                         Posted by : {{$p->username}}<br>
                         on :{{$p->datetime}}
                         <br><br><br>
-                        <h4>{{$p->message}}</h4>
+
+                @if($p->file != null)
+
+                    <img src="{{$p->file}}" alt="" width="350" height="260">
+                    <br> <br>
+                @elseif($p->link != null)
+
+                    <a href="{{$p->link}}" download="{{$p->link}}">{{$p->file_name}}</a>
+
+                @endif
+                <div style="color:#333439;"><h4>{!!($p->message)!!}</h4></div>
+                <br>
+
                         <br>
 
 
@@ -159,10 +171,26 @@
                         <div  class="jumbotran" style="border-radius:10px;background-color:white;width:1000px;padding-left: 100px;">
 
 
-                           <div style="color:#121A5B;" > Posted by :{{$comment->username}}<br>
-                           on :{{$comment->timedate}}
+                           <div style="color:#121A5B;" > Posted by :<b>{{$comment->username}}</b><br>
+                           on :<b>{{$comment->timedate}}</b>
                             <br><br>
-                            &emsp;<h3>{{$comment->description}}</h3></div>
+
+                               @if($comment->file != null)
+
+                                   <img src="{{$comment->file}}" alt="" width="250" height="160">
+                                   <br> <br>
+                               @elseif($comment->link != null)
+
+                                   <a href="{{$comment->link}}" download="{{$comment->link}}">{{$comment->file_name}}</a>
+
+                               @endif
+
+                               <div style="color:#333439;"><h4>{{$comment->description}}</h4></div>
+                               <br>
+
+
+
+                            &emsp;</div>
                             <br>
                             @if($comment->username == $uname)
                             <form id="{{$comment->id}}" action='' method='post' >
@@ -197,19 +225,23 @@
 
 
 
-    
 
 
 
-    <form id="form1" name="form1" method="post" action="" >
 
-
-
+    <form id="form1" name="form1" method="post" action=""  enctype="multipart/form-data">
 
 
         <div class="col-sm-10 form-group" style="padding-top:70px;">
             <label><h2>Type your idea ...</h2></label>
             <textarea required rows='6' columns='7' id='msg' name="message" class="form-control"></textarea>
+        </div>
+
+        <div class="col-sm-10 form-group">
+            <label>Choose File</label>
+            <input type="file" name="file" id="file" class="form-control"/>
+            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+
         </div>
 
 
@@ -228,6 +260,46 @@
 
 
 @endsection
+{{--
+
+<script src="{{URL::to('public_assets/tinymce/js/tinymce/tinymce.min.js')}}"></script>
+
+<script>
+    var editor_config={
+        path_absolute:"{{URL::to('/')}}/",
+        selector:"textarea",
+        plugins:[
+            "advlist autolink link image lists charmap print preview hr anchor pagebreak",
+            "spellchecker searchreplace wordcount visualblocks visualchars code fullscreen",
+            "insertdatetime media nonbreaking save table contextmenu directionality",
+            "emoticons template paste textcolor colorpicker textpattern"
+        ],
+        toolbar:"insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons",
+        relative_urls:false,
+        file_browser_callback: function(field_name, url, type, win){
+            var x=window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+            var y=window.innerHeight ||document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
+
+            var cmsURL =editor_config.path_absolute + 'laravel-filemanager?field_name' + field_name;
+            if(type=='image'){
+                cmsURL=cmsURL + "&type=Images";
+            }else{
+                cmsURL=cmsURL + "&type=Files";
+            }
+            tinyMCE.activeEditor.windowManager.open({
+                file:cmsURL,
+                title:'Filemanager',
+                width:x * 0.8,
+                height:y * 0.8,
+                resizable:"yes",
+                close_previous:"no"
+            });
+        }
+    };
+    tinymce.init(editor_config);
+
+</script>
+--}}
 
 <script>
     function deleteComment() {

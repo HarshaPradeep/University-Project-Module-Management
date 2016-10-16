@@ -19,6 +19,9 @@ class CreateCommentsTable extends Migration {
                         $table->string('username');
                         $table->datetime('timedate');
                         $table->text('description');
+                        $table->binary('file');
+                        $table->binary('link');
+                        $table->string('file_name');
                         $table->boolean('approved');
                         $table->timestamps();
                 });
