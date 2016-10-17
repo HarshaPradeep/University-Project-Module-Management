@@ -24,12 +24,12 @@
                   <div class=ibox-content" style="width: 250px; float: right">
                      
 
-                    <select name="selectid" id="stuIDs" onchange="selectStudentDetails()" style="width: 240px; height: 30px">
+<!--                    <select name="selectid" id="stuIDs" onchange="selectStudentDetails()" style="width: 240px; height: 30px">
                         <option selected disabled><strong>--Group ID--</strong></option>
                         @foreach ($groupids as $key=>$gid)
                                     <option value="{{$gid->groupID}}">{{$gid->groupID}}</option>
                         @endforeach
-                </select>
+                </select>-->
 
                 </div> 
               </div>
@@ -61,7 +61,7 @@
                           <tbody>
                               
                           @foreach($marksforall as $mrk)
-                              <tr class="gradeA even" role="row">
+                          <tr class="gradeA even" role="row" onclick="rowselection(this)">
                                   <td class="sorting_1">{{ $mrk->stugrpid}}</td>
                                   <td>{{ $mrk->stuid }}</td>                                  
                                   <td>{{ $mrk->proposalpresent }}</td>
@@ -108,50 +108,59 @@
               </div>
               
               
-<div class="col-lg-13">
-  <h2>Student's Exam Result Progress Charts</h2>
+              <div class="col-lg-13" style="margin-top: 10px">
   <div class="panel-group">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-            <a data-toggle="collapse" href="#collapse1" onclick="chartopner()">Open Charts</a>
+            <h3>Student's Exam Result Progress Charts</h3>
         </h4>
       </div>
-      <div id="collapse1" class="panel-collapse collapse">
+        <div id="collapse1" class="ibox-content">
         <ul class="list-group">
             <li class="list-group-item">
                  <h2 class="text-center" id="cchartid1" style="font-style: oblique"></h2>
                 <div class="text-center">
                     
-                            <canvas id="cchart1" height="300" width="1000"></canvas>
+                            <canvas id="cchart1" height="300" width="980"></canvas>
                         </div>
                 
             </li>
             <li class="list-group-item">
                 
                 <div class="text-center">
-                            <canvas id="cchart2" height="300" width="1000"></canvas>
+                            <canvas id="cbar" height="300" width="980"></canvas>
                         </div>
                 
             </li>
-            <li class="list-group-item">
-                
+        </ul>
+        <div class="panel-footer">Graph size can be changed according to your screen resolutions</div>
+      </div>
+    </div>
+  </div>
+</div>
+              
+ <div class="col-lg-13" style="margin-top: 10px">
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+            <h3>Overall</h3>
+        </h4>
+      </div>
+        <div id="collapse1" class="ibox-content">
+            <ul class="list-group" style="height: 320px">
+            <li class="list-group-item" style="float: left">
                 <div class="text-center">
-                            <canvas id="cchart3" height="300" width="1000"></canvas>
+                    
+                            <canvas id="cpie" height="300" width="470"></canvas>
                         </div>
                 
             </li>
-            <li class="list-group-item">
+            <li class="list-group-item" style="float: right">
                 
                 <div class="text-center">
-                            <canvas id="cchart4" height="300" width="1000"></canvas>
-                        </div>
-                
-            </li>
-            <li class="list-group-item">
-                
-                <div class="text-center">
-                            <canvas id="cchart5" height="300" width="1000"></canvas>
+                            <canvas id="cpie1" height="300" width="470"></canvas>
                         </div>
                 
             </li>
@@ -168,16 +177,111 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript">
-    
-$("#table tr").click(function(){
-    $(this).addClass('selected').siblings().removeClass('selected');    
-        var value=$(this).find('td:first').html();
-        alert(value);    
-     });
 
- $('.ok').on('click', function(e){
-     alert($("#table tr.selected td:first").html());
+$(document).ready(function () {
+        var pdata = [
+            {
+                value: 300,
+                color: "#46BFBD",
+                highlight: "#5AD3D1",
+                label: "A [90-100]"
+            },
+            {
+                value: 100,
+                color: "#FDB45C",
+                highlight: "#FFC870",
+                label: "B [80-89]"
+            },
+            {
+                value: 100,
+                color: "#FDB45C",
+                highlight: "#FFC870",
+                label: "C [70-79]"
+            },
+            {
+                value: 100,
+                color: "#FDB45C",
+                highlight: "#FFC870",
+                label: "D [60-69]"
+            },
+            {
+                value: 50,
+                color:"#F7464A",
+                highlight: "#FF5A5E",
+                label: "F [0-59]"
+            }
+        ];
+            var chartOptions = {
+
+                    };
+        var cpie = document.getElementById("cpie").getContext("2d");
+        new Chart(cpie).Pie(pdata, chartOptions);
+
+        //////////////////////////////////////////////////////////////////////
+
+        var pdata = [
+            {
+                value: 300,
+                color: "#46BFBD",
+                highlight: "#5AD3D1",
+                label: "A [90-100]"
+            },
+            {
+                value: 100,
+                color: "#FDB45C",
+                highlight: "#FFC870",
+                label: "B [80-89]"
+            },
+            {
+                value: 100,
+                color: "#FDB45C",
+                highlight: "#FFC870",
+                label: "C [70-79]"
+            },
+            {
+                value: 100,
+                color: "#FDB45C",
+                highlight: "#FFC870",
+                label: "D [60-69]"
+            },
+            {
+                value: 50,
+                color:"#F7464A",
+                highlight: "#FF5A5E",
+                label: "F [0-59]"
+            }
+        ];
+            var chartOptions = {
+
+                    };
+        var cpie = document.getElementById("cpie1").getContext("2d");
+        new Chart(cpie).Pie(pdata, chartOptions);
 });
+
+function rowselection(newthis)
+{
+    var table = document.getElementsByTagName("table")[0];
+    var tbody = table.getElementsByTagName("tbody")[0];
+    tbody.onclick = function (e) {
+        e = e || window.event;
+        var data = [];
+        var target = e.srcElement || e.target;
+        while (target && target.nodeName !== "TR") {
+            target = target.parentNode;
+        }
+        if (target) {
+            var cells = target.getElementsByTagName("td");
+            for (var i = 0; i < cells.length; i++) {
+                data.push(cells[i].innerHTML);
+            }
+        }
+        //alert(data[0]+" / "+data[1]);
+        chartopner(data[0],data[1],data[2],data[3],
+                   data[4],data[5],data[6],data[7],
+                   data[8],data[9],data[10],data[11],
+                   data[12],data[13],data[14]);
+    };
+}
         
 function selectStudentDetails()
 {
@@ -209,7 +313,7 @@ function selectStudentDetails()
             }
             //$('#DataTable').append(trHTML);
             //$('#DataTable').cleanData();
-            $('#DataTables_Table_0').append(
+            $('#table').append(
                 $.map(data.studentids, function (ignore, index) {
                     return '<tr>\n\
                                 <td>' + data.studentids[0].stuid + '</td>\n\
@@ -246,17 +350,17 @@ function selectStudentDetails()
          
 }
 
-function chartopner()
+function chartopner(gid,sid,a,b,c,d,e,f,g,h,i,j,k,l,m)
 {
-    document.getElementById('cchartid1').innerHTML = 'ID14104404';
+    document.getElementById('cchartid1').innerHTML = gid + " / " + sid;
     var lineChartData = {
-    labels : ["Proposal Presentation",
+    labels : ["Proposal Present.",
               "Proposal Report",
               "SRS Report",
-              "Prototype Presentation",
-              "Mid Presentation",
+              "Prototype Present.",
+              "Mid Present.",
               "Mid Report",
-              "Final Presentation",
+              "Final Present.",
               "Final Report",
               "Viva",
               "Research Book",
@@ -272,17 +376,17 @@ function chartopner()
             pointStrokeColor: "#fff",
             pointHighlightFill : "#fff",
             pointHighlightStroke : "rgba(6, 197, 172, 1)",
-            data : [65,59,80,81,56,55,40]
+            data : [0,10,20,30,40,50,60,70,80,90,100]
         },
         {
-            label: "My Second dataset",
-             fillColor: "rgba(151,187,205,0.2)",
+            label: "Student marks dataset",
+            fillColor: "rgba(151,187,205,0.2)",
             strokeColor: "rgba(151,187,205,1)",
             pointColor: "rgba(151,187,205,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill : "#fff",
             pointHighlightStroke : "rgba(244, 204, 11, 1)",
-            data : [28,48,40,19,86,27,90,100]
+            data : [a,b,c,d,e,f,g,h,i,j,k,l,m]
         }
     ]
 
@@ -293,147 +397,49 @@ var chartOptions = {
 
     var cline = document.getElementById("cchart1").getContext("2d");
     new Chart(cline).Line(lineChartData, chartOptions);
+
+//////////////////////////////////////////////////////////////////////
+
+var bdata = {
+        labels : ["Proposal Present.",
+              "Proposal Report",
+              "SRS Report",
+              "Prototype Present.",
+              "Mid Present.",
+              "Mid Report",
+              "Final Present.",
+              "Final Report",
+              "Viva",
+              "Research Book",
+              "Research Paper",
+              "Website",
+              "Total"],
+        datasets : [
+//            {
+//                fillColor: "rgba(220,220,220,0.5)",
+//                strokeColor: "rgba(220,220,220,0.8)",
+//                highlightFill: "rgba(220,220,220,0.75)",
+//                highlightStroke: "rgba(220,220,220,1)",
+//                data : [130,160,95,205,170,135,200]
+//            },
+            {
+               fillColor: "rgba(151,187,205,0.5)",
+                strokeColor: "rgba(151,187,205,0.8)",
+                highlightFill: "rgba(151,187,205,0.75)",
+                highlightStroke: "rgba(151,187,205,1)",
+                data : [a,b,c,d,e,f,g,h,i,j,k,l,m]
+            }
+        ]
+
+    };
     
-/////////////////////////////////////////////////////////////////////////    
-//    
-//    var lineChartData = {
-//    labels : ["January","February","March","April","May","June","July"],
-//    datasets : [
-//        {
-//            label: "My First dataset",
-//            fillColor: "rgba(220,220,220,0.2)",
-//            strokeColor: "rgba(220,220,220,1)",
-//            pointColor: "rgba(220,220,220,1)",
-//            pointStrokeColor: "#fff",
-//            pointHighlightFill : "#fff",
-//            pointHighlightStroke : "rgba(6, 197, 172, 1)",
-//            data : [65,59,80,81,56,55,40]
-//        },
-//        {
-//            label: "My Second dataset",
-//             fillColor: "rgba(151,187,205,0.2)",
-//            strokeColor: "rgba(151,187,205,1)",
-//            pointColor: "rgba(151,187,205,1)",
-//            pointStrokeColor: "#fff",
-//            pointHighlightFill : "#fff",
-//            pointHighlightStroke : "rgba(244, 204, 11, 1)",
-//            data : [28,48,40,19,86,27,90]
-//        }
-//    ]
-//
-//};
-//var chartOptions = {
-//
-//            };
-//
-//    var cline = document.getElementById("cchart2").getContext("2d");
-//    new Chart(cline).Line(lineChartData, chartOptions);
-//    
-////////////////////////////////////////////////////////////////////////////
-//
-//var lineChartData = {
-//    labels : ["January","February","March","April","May","June","July"],
-//    datasets : [
-//        {
-//            label: "My First dataset",
-//            fillColor: "rgba(220,220,220,0.2)",
-//            strokeColor: "rgba(220,220,220,1)",
-//            pointColor: "rgba(220,220,220,1)",
-//            pointStrokeColor: "#fff",
-//            pointHighlightFill : "#fff",
-//            pointHighlightStroke : "rgba(6, 197, 172, 1)",
-//            data : [65,59,80,81,56,55,40]
-//        },
-//        {
-//            label: "My Second dataset",
-//             fillColor: "rgba(151,187,205,0.2)",
-//            strokeColor: "rgba(151,187,205,1)",
-//            pointColor: "rgba(151,187,205,1)",
-//            pointStrokeColor: "#fff",
-//            pointHighlightFill : "#fff",
-//            pointHighlightStroke : "rgba(244, 204, 11, 1)",
-//            data : [28,48,40,19,86,27,90]
-//        }
-//    ]
-//
-//};
-//var chartOptions = {
-//
-//            };
-//
-//    var cline = document.getElementById("cchart3").getContext("2d");
-//    new Chart(cline).Line(lineChartData, chartOptions);
-//    
-/////////////////////////////////////////////////////////////////////////
-//
-//var lineChartData = {
-//    labels : ["January","February","March","April","May","June","July"],
-//    datasets : [
-//        {
-//            label: "My First dataset",
-//            fillColor: "rgba(220,220,220,0.2)",
-//            strokeColor: "rgba(220,220,220,1)",
-//            pointColor: "rgba(220,220,220,1)",
-//            pointStrokeColor: "#fff",
-//            pointHighlightFill : "#fff",
-//            pointHighlightStroke : "rgba(6, 197, 172, 1)",
-//            data : [65,59,80,81,56,55,40]
-//        },
-//        {
-//            label: "My Second dataset",
-//             fillColor: "rgba(151,187,205,0.2)",
-//            strokeColor: "rgba(151,187,205,1)",
-//            pointColor: "rgba(151,187,205,1)",
-//            pointStrokeColor: "#fff",
-//            pointHighlightFill : "#fff",
-//            pointHighlightStroke : "rgba(244, 204, 11, 1)",
-//            data : [28,48,40,19,86,27,90]
-//        }
-//    ]
-//
-//};
-//var chartOptions = {
-//
-//            };
-//
-//    var cline = document.getElementById("cchart4").getContext("2d");
-//    new Chart(cline).Line(lineChartData, chartOptions);
-//
-////////////////////////////////////////////////////////////////////////////// 
-//
-//var lineChartData = {
-//    labels : ["January","February","March","April","May","June","July"],
-//    datasets : [
-//        {
-//            label: "My First dataset",
-//            fillColor: "rgba(220,220,220,0.2)",
-//            strokeColor: "rgba(220,220,220,1)",
-//            pointColor: "rgba(220,220,220,1)",
-//            pointStrokeColor: "#fff",
-//            pointHighlightFill : "#fff",
-//            pointHighlightStroke : "rgba(6, 197, 172, 1)",
-//            data : [65,59,80,81,56,55,40]
-//        },
-//        {
-//            label: "My Second dataset",
-//             fillColor: "rgba(151,187,205,0.2)",
-//            strokeColor: "rgba(151,187,205,1)",
-//            pointColor: "rgba(151,187,205,1)",
-//            pointStrokeColor: "#fff",
-//            pointHighlightFill : "#fff",
-//            pointHighlightStroke : "rgba(244, 204, 11, 1)",
-//            data : [28,48,40,19,86,27,90]
-//        }
-//    ]
-//
-//};
-//var chartOptions = {
-//
-//            };
-//
-//    var cline = document.getElementById("cchart5").getContext("2d");
-//    new Chart(cline).Line(lineChartData, chartOptions);
-//    
+    var chartOptions = {
+
+            };
+    var cbar = document.getElementById("cbar").getContext("2d");
+    new Chart(cbar).Bar(bdata,chartOptions);
+
+//////////////////////////////////////////////////////////////////////
 }
 
         
