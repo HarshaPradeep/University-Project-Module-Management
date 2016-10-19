@@ -131,7 +131,17 @@
                     <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Evaluation</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         {{--<li class="active"><a href="#"></a></li>--}}
-                        <li ><a href="/propevaluation">Proposal Submission</a></li>
+                        <li >
+                            <a href="#">Proposal Submission<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="/propevaluation">Presentation</a>
+                                        </li>
+                                        <li>
+                                            <a href="/propreportevaluation">Report</a>
+                                        </li>
+                                    </ul>
+                        </li>
                         <li ><a href="/srsevaluation">SRS Submission</a></li>
                         <li ><a href="/protoevaluation">Prototype</a></li>
                         <li ><a href="/midevaluation">Mid Review</a></li>
