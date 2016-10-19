@@ -224,7 +224,12 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'panelmember'), func
     Route::post('/projectPool/{supId}', 'projectController@selectProjectPool');
     
     ///////////////////////////harsha////////////
-    Route::any('propevaluation', 'supevaluationController@create');
+    Route::any('propevaluation', 'supevaluationController@createproppresen');
+    Route::get('propsearchstudent', 'supevaluationController@searchforpropStudents');
+    
+    Route::any('propreportevaluation', 'supevaluationController@createproreport');
+    //Route::get('propsearchstudent', 'supevaluationController@searchforpropStudents');
+    
     Route::any('srsevaluation', 'supevaluationController@srscreate');
     Route::any('protoevaluation', 'supevaluationController@protocreate');
     Route::any('midevaluation', 'supevaluationController@midcreate');
