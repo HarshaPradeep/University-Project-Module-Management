@@ -140,6 +140,7 @@ return [
         'Cartalyst\Sentinel\Laravel\SentinelServiceProvider',
         'Fenos\Notifynder\NotifynderServiceProvider',
 		'Barryvdh\DomPDF\ServiceProvider',
+        'Collective\Html\HtmlServiceProvider',
 
 
         /*

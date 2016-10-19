@@ -21,7 +21,19 @@ class CommentsController extends Controller
 
     public function deleteandadd(Addcomment $id)
     {
-        if (isset($_POST['delete'])) {
+       if(isset($_POST['deletePost'])){
+
+           $u=newsfeed::find($_POST['toDelete']);
+           $u->delete();
+           \Session::flash('message_delete', 'Post Deleted Successfully!!');
+
+           return Redirect::to("/groupForum");
+
+
+
+       }
+
+        elseif (isset($_POST['delete'])) {
 
             $u = comments::find($_POST['toDelete']);
             $u->delete();
@@ -114,7 +126,7 @@ class CommentsController extends Controller
             $username = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->username;
 
             $p=newsfeed::find($c);
-            return view('groupForumdisplay',compact('p'))->with('com',$com)->with('uname',$username);
+            return redirect('/groupForumdisplay/'.$c);
 
 
 

@@ -128,7 +128,7 @@
 {!! Form::text('search', null,
                                       array('required',
                                            'class'=>'form-control',
-                                           'placeholder'=>'Search for a tutorial...')) !!}
+                                           'placeholder'=>'Search for a post...')) !!}
 {!! Form::submit('Search',
                            array('class'=>'btn btn-default')) !!}
 {!! Form::close() !!}
@@ -156,7 +156,7 @@
 
                 <h2><b><a href="http://localhost:8000/groupForumdisplay/{{$post->id}}">{{$post->topic}}</a></b></h2>
                         Posted by : {{$post->username}}<br>
-                        on :{{$post->datetime}}
+                        on :{{date('M j,Y h:ia',strtotime($post->datetime))}}
                         <br><br><br>
 
                         @if($post->file != null)
@@ -168,9 +168,13 @@
                        <a href="{{$post->link}}" download="{{$post->link}}">{{$post->file_name}}</a>
 
                         @endif
-                    <div style="color:#333439;"><h4>{!!($post->message)!!}</h4></div>
+                    <div style="color:#333439;"><h4>{!!str_limit($post->message,$limit=20,$end='...')!!}</h4></div>
                         <br>
-                        
+
+                <form action="http://localhost:8000/groupForumdisplay/{{$post->id}}">
+                    <input type="submit" class="btn  btn-m" value="Read more" />
+                </form>
+                <br><br>
                         <hr>
 
 
@@ -186,7 +190,7 @@
                             </form>
 
 
-                        <br><br>
+                <br><br>
                         
            
             </div>
@@ -198,11 +202,18 @@
                         
             @endforelse
 
-           
+<br>
+
+<div class="text-center" >
+    {!! $posts->render() !!}
+</div>
+
 
     
     
 <br><br>
+
+<h2>Type your post ...</h2><br><br>
 
     <form id="form1" name="form1" method="post" action="" enctype="multipart/form-data" >
 

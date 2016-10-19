@@ -141,7 +141,7 @@
                         
                 <div style="color:#121A5B;" ><h2><b>{{$p->topic}}</b></h2></div>
                         Posted by : {{$p->username}}<br>
-                        on :{{$p->datetime}}
+                        on :<b>{{date('M j,Y h:ia',strtotime($p->datetime))}}</b>
                         <br><br><br>
 
                 @if($p->file != null)
@@ -157,10 +157,18 @@
                 <br>
 
                         <br>
+                <form id="{{$p->id}}" action='' method='post' >
+                    @if($p->username == $uname)
+                        <a href="{{ asset('editPost/'. $p->id) }}" class="edit_btn btn btn-primary btn-xs m-l-sm">Edit</a>
 
+                        <input type='hidden' name='toDelete'  value="{{$p->id}}">
+                        <input  type='submit'  onclick="postDelete()" name='deletePost'  value='Delete' class="btn btn-danger  btn-primary btn-xs m-l-sm">
+                        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                    @endif
 
+                </form>
                 <hr>
-                   <div class="container" style="padding-left: 85px;color:black;"><h2><b>Comments</b></h2></div>
+                   <div class="container" style="padding-left: 85px;color:black;"><h2><b>Comments</b></h2></div><br>
 
 
 
@@ -172,7 +180,7 @@
 
 
                            <div style="color:#121A5B;" > Posted by :<b>{{$comment->username}}</b><br>
-                           on :<b>{{$comment->timedate}}</b>
+                           on :on :<b>{{date('M j,Y h:ia',strtotime($comment->timedate))}}</b>
                             <br><br>
 
                                @if($comment->file != null)
@@ -196,7 +204,7 @@
                             <form id="{{$comment->id}}" action='' method='post' >
                                 <a href="{{ asset('editComment/'. $comment->id) }}" class="edit_btn btn btn-primary btn-xs m-l-sm">Edit</a>
                                 <input type='hidden' name='toDelete'  value="{{$comment->id}}">
-                                <input  type='submit'  onclick="deleteComment()" name='delete'  value='delete' class="btn btn-danger  btn-primary btn-xs m-l-sm">
+                                <input  type='submit'  onclick="deleteComment()" name='delete'  value='Delete' class="btn btn-danger  btn-primary btn-xs m-l-sm">
                                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             </form>
                             @endif
@@ -248,7 +256,6 @@
 
         <div class="form-group">
             <div class="col-md-4">
-                <div><input type='hidden' name='toEdit'></div>
                 <button type="submit" name="addNotice" value="Submit" class="btn btn-w-m btn-primary">Submit</button>
                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                 <input type="reset" name="Submit2" value="Reset" class="btn btn-w-m btn-primary">

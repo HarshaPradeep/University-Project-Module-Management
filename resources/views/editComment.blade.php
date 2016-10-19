@@ -78,7 +78,7 @@
 
     <div class="row">
 
-        <form id="form1" name="form1" method="post" action="">
+        <form id="form1" name="form1" method="post" action="" enctype="multipart/form-data">
 
 
 
@@ -102,4 +102,5 @@
         </form>
     </div>
     </div>
+
 @endsection
