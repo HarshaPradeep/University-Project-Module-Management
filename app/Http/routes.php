@@ -45,7 +45,10 @@ Route::group(array('middleware' => 'auth'), function() {
 
 Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
 
-    
+    Route::get('message','InboxController@index');
+    Route::get('viewMessage/{sender}/{receiver}','ViewMessageController@index');
+    Route::get('deleteMessage/{sender}/{receiver}','ViewMessageController@deleteMessage');
+    Route::post('sendMessage','ViewMessageController@sendMessage');
     
     Route::get('LIC','LICController@view');
     Route::post('LIC','LICController@registerLectureInCharge');
@@ -137,9 +140,6 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
     Route::get('groupForum','ForumController@search');
 
 
-
-
-
     Route::get('groupForumdisplay/{id?}','ForumController@getComment');
     Route::get('groupForumdisplay/{id?}','ForumController@viewQuestion');
     Route::get('groupForum','ForumController@getPost');
@@ -150,6 +150,12 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
     Route::get('editPost/{id}','ForumController@editPostView');
     Route::post('editPost/{id}','ForumController@editPostN');
 
+    //Message routes
+
+    Route::get('message','InboxController@index');
+    Route::get('viewMessage/{sender}/{receiver}','ViewMessageController@index');
+    Route::get('deleteMessage/{sender}/{receiver}','ViewMessageController@deleteMessage');
+    Route::post('sendMessage','ViewMessageController@sendMessage');
 
 
 
@@ -288,6 +294,10 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'panelmember'), func
     //dashboards
     Route::get('panelmemberdashboard','PanelMemberController@showDashboard');
 
+    Route::get('message','InboxController@index');
+    Route::get('viewMessage/{sender}/{receiver}','ViewMessageController@index');
+    Route::get('deleteMessage/{sender}/{receiver}','ViewMessageController@deleteMessage');
+    Route::post('sendMessage','ViewMessageController@sendMessage');
 
 
     //download requestedProject Details
@@ -332,7 +342,11 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'panelmember'), func
 
 Route::group(array('middleware' => 'guest', 'middleware' => 'student'), function() {
 
-   
+    Route::get('message','InboxController@index');
+    Route::get('viewMessage/{sender}/{receiver}','ViewMessageController@index');
+    Route::get('deleteMessage/{sender}/{receiver}','ViewMessageController@deleteMessage');
+    Route::post('sendMessage','ViewMessageController@sendMessage');
+
 
     //view supervisor feedbacks
     Route::get('monthlyreports/student/feedbacks','StudentMonthlyReportController@showFeedbacks');

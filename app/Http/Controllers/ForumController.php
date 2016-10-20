@@ -58,15 +58,24 @@ class ForumController extends Controller {
     }
 
 
-
-
     public function viewQuestion($po)
     {
+
+        $p=newsfeed::find($po);
+        $v= DB::table('newsfeed')
+            ->select('views')
+            ->where('id',$p)
+            ->first();
+
+
+        $v++;
+        $p->views = $v;
+        $p->save();
         $com=comments::where('post_id',$po)->get();
         $username = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->username;
 
-        $p=newsfeed::find($po);
-        return view('groupForumdisplay',compact('p'))->with('com',$com)->with('uname',$username);
+
+      return view('groupForumdisplay',compact('p'))->with('com',$com)->with('uname',$username);
 
 
     }

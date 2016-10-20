@@ -25,6 +25,7 @@ class CreatenewsfeedTable extends Migration {
                     $table->binary('file');
                     $table->binary('link');
                     $table->string('file_name');
+                    $table->integer('views');
                     $table->timestamps();
             });
 	}
