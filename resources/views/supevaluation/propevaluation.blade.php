@@ -157,7 +157,7 @@ Below Average (6-0)">LO 5 * (15%)</td>
         <div align="right" style="padding-right: 42px">
             
             <input type="text"  placeholder="Total" style="width: 50px; height: 35px" disabled> / 
-            <input type="text" name="total" id="total" style="width: 50px; ; height: 35px" readonly placeholder="100"> <b>Marks</b></div>
+            <input type="text" name="total" id="totalmem1" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
         <div><textarea name="comment" disabled rows="4" cols="80" placeholder="Comment" id="cmntmem0"></textarea></div><br>
        <div><select name="statustab2" ><option> Status </option>
@@ -209,11 +209,11 @@ Below Average (6-0)">LO 5 * (15%)</td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"><strong>Marks : (100%)</strong></td>
-                    <td style="width: 1000px"><input type="text" style="width: 55px" name="propPresentation" class="lo1mem2"></td>
-                    <td style="width: 1000px"><input type="text" style="width: 55px" name="propPresentation" class="lo2mem2"></td>
-                    <td style="width: 1000px"><input type="text" style="width: 55px" name="propPresentation" class="lo3mem2"></td>
-                    <td style="width: 1000px"><input type="text" style="width: 55px" name="propPresentation" class="lo4mem2"></td>
-                    <td style="width: 1000px"><input type="text" style="width: 55px" name="propPresentation" class="lo5mem2"></td>
+                    <td style="width: 1000px"><input type="text" style="width: 55px" onclick="getlo(this)" id="lo1mem2" name="propPresentation" class="lo1mem2"></td>
+                    <td style="width: 1000px"><input type="text" style="width: 55px" onclick="getlo(this)" id="lo2mem2" name="propPresentation" class="lo2mem2"></td>
+                    <td style="width: 1000px"><input type="text" style="width: 55px" onclick="getlo(this)" id="lo3mem2" name="propPresentation" class="lo3mem2"></td>
+                    <td style="width: 1000px"><input type="text" style="width: 55px" onclick="getlo(this)" id="lo4mem2" name="propPresentation" class="lo4mem2"></td>
+                    <td style="width: 1000px"><input type="text" style="width: 55px" onclick="getlo(this)" id="lo5mem2" name="propPresentation" class="lo5mem2"></td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"><strong>Marks : </strong></td>
@@ -233,7 +233,7 @@ Below Average (6-0)">LO 5 * (15%)</td>
         <div align="right" style="padding-right: 42px">
             
             <input type="text"  placeholder="Total" style="width: 50px; height: 35px" disabled> / 
-            <input type="text" name="total" id="total" style="width: 50px; ; height: 35px" readonly placeholder="100"> <b>Marks</b></div>
+            <input type="text" name="total" id="totalmem2" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
         <div><textarea name="comment" disabled rows="4" cols="80" placeholder="Comment" id="cmntmem1"></textarea></div><br>
         <div><select name="statustab2" ><option> Status </option>
@@ -285,11 +285,11 @@ Below Average (6-0)">LO 5 * (15%)</td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"><strong>Marks : (100%)</strong></td>
-                    <td style="width: 1000px"><input type="text" style="width: 55px" name="propPresentation" class="lo1mem3"></td>
-                    <td style="width: 1000px"><input type="text" style="width: 55px" name="propPresentation" class="lo2mem3"></td>
-                    <td style="width: 1000px"><input type="text" style="width: 55px" name="propPresentation" class="lo3mem3"></td>
-                    <td style="width: 1000px"><input type="text" style="width: 55px" name="propPresentation" class="lo4mem3"></td>
-                    <td style="width: 1000px"><input type="text" style="width: 55px" name="propPresentation" class="lo5mem3"></td>
+                    <td style="width: 1000px"><input type="text" style="width: 55px" onclick="getlo(this)" id="lo1mem3" name="propPresentation" class="lo1mem3"></td>
+                    <td style="width: 1000px"><input type="text" style="width: 55px" onclick="getlo(this)" id="lo2mem3" name="propPresentation" class="lo2mem3"></td>
+                    <td style="width: 1000px"><input type="text" style="width: 55px" onclick="getlo(this)" id="lo3mem3" name="propPresentation" class="lo3mem3"></td>
+                    <td style="width: 1000px"><input type="text" style="width: 55px" onclick="getlo(this)" id="lo4mem3" name="propPresentation" class="lo4mem3"></td>
+                    <td style="width: 1000px"><input type="text" style="width: 55px" onclick="getlo(this)" id="lo5mem3" name="propPresentation" class="lo5mem3"></td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"><strong>Marks : </strong></td>
@@ -309,7 +309,7 @@ Below Average (6-0)">LO 5 * (15%)</td>
         <div align="right" style="padding-right: 42px">
             
             <input type="text"  placeholder="Total" style="width: 50px; height: 35px" disabled> / 
-            <input type="text" name="total" id="total" style="width: 50px; ; height: 35px" readonly placeholder="100"> <b>Marks</b></div>
+            <input type="text" name="total" id="totalmem3" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
         <div><textarea name="comment" disabled rows="4" cols="80" placeholder="Comment" id="cmntmem2"></textarea></div><br>
         <div><select name="statustab2" ><option> Status </option>
@@ -361,11 +361,11 @@ Below Average (6-0)">LO 5 * (15%)</td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"><strong>Marks : (100%)</strong></td>
-                    <td style="width: 1000px"><input type="text" style="width: 55px" name="propPresentation" class="lo1mem4"></td>
-                    <td style="width: 1000px"><input type="text" style="width: 55px" name="propPresentation" class="lo2mem4"></td>
-                    <td style="width: 1000px"><input type="text" style="width: 55px" name="propPresentation" class="lo3mem4"></td>
-                    <td style="width: 1000px"><input type="text" style="width: 55px" name="propPresentation" class="lo4mem4"></td>
-                    <td style="width: 1000px"><input type="text" style="width: 55px" name="propPresentation" class="lo5mem4"></td>
+                    <td style="width: 1000px"><input type="text" style="width: 55px" onclick="getlo(this)" id="lo1mem4" name="propPresentation" class="lo1mem4"></td>
+                    <td style="width: 1000px"><input type="text" style="width: 55px" onclick="getlo(this)" id="lo2mem4" name="propPresentation" class="lo2mem4"></td>
+                    <td style="width: 1000px"><input type="text" style="width: 55px" onclick="getlo(this)" id="lo3mem4" name="propPresentation" class="lo3mem4"></td>
+                    <td style="width: 1000px"><input type="text" style="width: 55px" onclick="getlo(this)" id="lo4mem4" name="propPresentation" class="lo4mem4"></td>
+                    <td style="width: 1000px"><input type="text" style="width: 55px" onclick="getlo(this)" id="lo5mem4" name="propPresentation" class="lo5mem4"></td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"><strong>Marks : </strong></td>
@@ -385,7 +385,7 @@ Below Average (6-0)">LO 5 * (15%)</td>
         <div align="right" style="padding-right: 42px">
             
             <input type="text"  placeholder="Total" style="width: 50px; height: 35px" disabled> / 
-            <input type="text" name="total" id="total" style="width: 50px; ; height: 35px" readonly placeholder="100"> <b>Marks</b></div>
+            <input type="text" name="total" id="totalmem4" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
         <div><textarea name="comment" disabled rows="4" cols="80" placeholder="Comment" id="cmntmem3"></textarea></div><br>
         <div><select name="statustab2" ><option> Status </option>
@@ -437,11 +437,11 @@ Below Average (6-0)">LO 5 * (15%)</td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"><strong>Marks : (100%)</strong></td>
-                    <td style="width: 1000px"><input type="text" style="width: 55px" name="propPresentation" class="lo1mem5"></td>
-                    <td style="width: 1000px"><input type="text" style="width: 55px" name="propPresentation" class="lo2mem5"></td>
-                    <td style="width: 1000px"><input type="text" style="width: 55px" name="propPresentation" class="lo3mem5"></td>
-                    <td style="width: 1000px"><input type="text" style="width: 55px" name="propPresentation" class="lo4mem5"></td>
-                    <td style="width: 1000px"><input type="text" style="width: 55px" name="propPresentation" class="lo5mem5"></td>
+                    <td style="width: 1000px"><input type="text" style="width: 55px" onclick="getlo(this)" id="lo1mem5" name="propPresentation" class="lo1mem5"></td>
+                    <td style="width: 1000px"><input type="text" style="width: 55px" onclick="getlo(this)" id="lo2mem5" name="propPresentation" class="lo2mem5"></td>
+                    <td style="width: 1000px"><input type="text" style="width: 55px" onclick="getlo(this)" id="lo3mem5" name="propPresentation" class="lo3mem5"></td>
+                    <td style="width: 1000px"><input type="text" style="width: 55px" onclick="getlo(this)" id="lo4mem5" name="propPresentation" class="lo4mem5"></td>
+                    <td style="width: 1000px"><input type="text" style="width: 55px" onclick="getlo(this)" id="lo5mem5" name="propPresentation" class="lo5mem5"></td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"><strong>Marks : </strong></td>
@@ -461,7 +461,7 @@ Below Average (6-0)">LO 5 * (15%)</td>
         <div align="right" style="padding-right: 42px">
             
             <input type="text"  placeholder="Total" style="width: 50px; height: 35px" disabled> / 
-            <input type="text" name="total" id="total" style="width: 50px; ; height: 35px" readonly placeholder="100"> <b>Marks</b></div>
+            <input type="text" name="total" id="totalmem5" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
 <div><textarea name="comment" disabled rows="4" cols="80" placeholder="Comment" id="cmntmem4"></textarea></div><br>
         <div><select name="statustab2" ><option> Status </option>
@@ -486,7 +486,8 @@ Below Average (6-0)">LO 5 * (15%)</td>
  var studentNames = '';
  var totviewfieldchange = 1;
  var objid;
- var lomarkid;
+ var whtlo = 'lo1';
+ var whtmem = 'mem1';
  
  function getselected(thisperson)
  {
@@ -503,7 +504,10 @@ Below Average (6-0)">LO 5 * (15%)</td>
  
  function getlo(clz)
  {
-     lomarkid = clz.id;
+     var lomarkid = clz.id;
+     whtlo = lomarkid.substring(0,3);
+     whtmem = lomarkid.substring(3,7);
+     javascriptLoader();
  }
         
  function javascriptLoader()
@@ -540,62 +544,62 @@ Below Average (6-0)">LO 5 * (15%)</td>
    // });
 
    // $(document).ready(function () {
-        $('.'+lomarkid).keyup(function () {
+        $('.lo1'+whtmem).keyup(function () {
             var total = 0;
-            $("."+lomarkid).each(function () {
-                var marks = (parseInt($(this).val())/100)*35;           ////not working start from here
+            $(".lo1"+whtmem).each(function () {
+                var marks = (parseInt($(this).val())/100)*35;          
                 total += !isNaN(marks) ? marks : 0;
 
             });
-            $('#finalmarksfor'+lomarkid).val(total);
+            $('#finalmarksforlo1'+whtmem).val(total);
         });
    // });
 
    // $(document).ready(function () {
-        $('.lo2').keyup(function () {
+        $('.lo2'+whtmem).keyup(function () {
             var total = 0;
-            $(".lo2").each(function () {
+            $(".lo2"+whtmem).each(function () {
                 var marks = (parseInt($(this).val())/100)*30;
                 total += !isNaN(marks) ? marks : 0;
 
             });
-            $('#finalmarksforlo2').val(total);
+            $('#finalmarksforlo2'+whtmem).val(total);
         });
    // });
 
    // $(document).ready(function () {
-        $('.lo3').keyup(function () {
+        $('.lo3'+whtmem).keyup(function () {
             var total = 0;
-            $(".lo3").each(function () {
+            $(".lo3"+whtmem).each(function () {
                 var marks = (parseInt($(this).val())/100)*5;
                 total += !isNaN(marks) ? marks : 0;
 
             });
-            $('#finalmarksforlo3').val(total);
+            $('#finalmarksforlo3'+whtmem).val(total);
         });
    // });
 
  //   $(document).ready(function () {
-        $('.lo4').keyup(function () {
+        $('.lo4'+whtmem).keyup(function () {
             var total = 0;
-            $(".lo4").each(function () {
+            $(".lo4"+whtmem).each(function () {
                 var marks = (parseInt($(this).val())/100)*15;
                 total += !isNaN(marks) ? marks : 0;
 
             });
-            $('#finalmarksforlo4').val(total);
+            $('#finalmarksforlo4'+whtmem).val(total);
         });
   //  });
 
   //  $(document).ready(function () {
-        $('.lo5').keyup(function () {
+        $('.lo5'+whtmem).keyup(function () {
             var total = 0;
-            $(".lo5").each(function () {
+            $(".lo5"+whtmem).each(function () {
                 var marks = (parseInt($(this).val())/100)*15;
                 total += !isNaN(marks) ? marks : 0;
 
             });
-            $('#finalmarksforlo5').val(total);
+            $('#finalmarksforlo5'+whtmem).val(total);
         });
    // });
  }
@@ -693,10 +697,13 @@ Below Average (6-0)">LO 5 * (15%)</td>
 
 function getTotal()
 {//add trnry operation, get 0 if null
-    var tot = parseFloat(document.getElementById("finalmarks").value) +
-              parseFloat(document.getElementById("finalmarksforsrs").value);
+    var first2 = parseFloat(document.getElementById("finalmarksforlo1"+whtmem).value) +
+              parseFloat(document.getElementById("finalmarksforlo2"+whtmem).value);
+      var second2 = parseFloat(document.getElementById("finalmarksforlo3"+whtmem).value) +
+              parseFloat(document.getElementById("finalmarksforlo4"+whtmem).value);
+      var third1 = parseFloat(document.getElementById("finalmarksforlo5"+whtmem).value);
 
-    $('#total').val((Math.round(tot * 10) / 10));
+    $('#total'+whtmem).val((Math.round((first2 + second2 + third1) * 10) / 10));
 }
 
 </script>
