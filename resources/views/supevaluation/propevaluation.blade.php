@@ -2,7 +2,7 @@
 @section('title')
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
-        <h2>Proposal Presentation Submission</h2>
+        <h2>Proposal Presentation</h2>
         <ol class="breadcrumb">
         </ol>
     </div>
@@ -159,7 +159,7 @@ Below Average (6-0)">LO 5 * (15%)</td>
             <input type="text"  placeholder="Total" style="width: 50px; height: 35px" disabled> / 
             <input type="text" name="total" id="totalmem1" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
-        <div><textarea name="comment" disabled rows="4" cols="80" placeholder="Comment" id="cmntmem0"></textarea></div><br>
+<div><textarea name="cmntmem0" disabled rows="4" cols="80" placeholder="Comment" id="cmntmem0"></textarea></div><br>
        <div><select name="statustab2" ><option> Status </option>
                                             <option> Present </option>
                                             <option> Absent </option></select></div>
@@ -235,7 +235,7 @@ Below Average (6-0)">LO 5 * (15%)</td>
             <input type="text"  placeholder="Total" style="width: 50px; height: 35px" disabled> / 
             <input type="text" name="total" id="totalmem2" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
-        <div><textarea name="comment" disabled rows="4" cols="80" placeholder="Comment" id="cmntmem1"></textarea></div><br>
+        <div><textarea name="cmntmem1" disabled rows="4" cols="80" placeholder="Comment" id="cmntmem1"></textarea></div><br>
         <div><select name="statustab2" ><option> Status </option>
                                             <option> Present </option>
                                             <option> Absent </option></select></div>
@@ -311,7 +311,7 @@ Below Average (6-0)">LO 5 * (15%)</td>
             <input type="text"  placeholder="Total" style="width: 50px; height: 35px" disabled> / 
             <input type="text" name="total" id="totalmem3" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
-        <div><textarea name="comment" disabled rows="4" cols="80" placeholder="Comment" id="cmntmem2"></textarea></div><br>
+        <div><textarea name="cmntmem2" disabled rows="4" cols="80" placeholder="Comment" id="cmntmem2"></textarea></div><br>
         <div><select name="statustab2" ><option> Status </option>
                                             <option> Present </option>
                                             <option> Absent </option></select></div>
@@ -387,7 +387,7 @@ Below Average (6-0)">LO 5 * (15%)</td>
             <input type="text"  placeholder="Total" style="width: 50px; height: 35px" disabled> / 
             <input type="text" name="total" id="totalmem4" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
-        <div><textarea name="comment" disabled rows="4" cols="80" placeholder="Comment" id="cmntmem3"></textarea></div><br>
+        <div><textarea name="cmntmem3" disabled rows="4" cols="80" placeholder="Comment" id="cmntmem3"></textarea></div><br>
         <div><select name="statustab2" ><option> Status </option>
                                             <option> Present </option>
                                             <option> Absent </option></select></div>
@@ -463,7 +463,7 @@ Below Average (6-0)">LO 5 * (15%)</td>
             <input type="text"  placeholder="Total" style="width: 50px; height: 35px" disabled> / 
             <input type="text" name="total" id="totalmem5" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
-<div><textarea name="comment" disabled rows="4" cols="80" placeholder="Comment" id="cmntmem4"></textarea></div><br>
+<div><textarea name="cmntmem4" disabled rows="4" cols="80" placeholder="Comment" id="cmntmem4"></textarea></div><br>
         <div><select name="statustab2" ><option> Status </option>
                                             <option> Present </option>
                                             <option> Absent </option></select></div>
@@ -612,7 +612,7 @@ Below Average (6-0)">LO 5 * (15%)</td>
     
         $.ajax({
         type: "GET",
-        url: 'propsearchstudent',
+        url: 'searchstudent',
         data: {"sid": searchID},
         dataType: 'json'
         
