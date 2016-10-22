@@ -154,7 +154,7 @@
                                         </li>
                                     </ul>
                         </li>
-                        <li ><a href="/">Final Presentation<span class="fa arrow"></span></a>
+                        <li ><a href="#">Final Submission<span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                                         <li>
                                             <a href="/finalprsentevaluation">Presentation</a>
@@ -165,7 +165,7 @@
                                     </ul>
                         </li>
                         <li ><a href="/vivavaluation">Viva</a></li>
-                        <li ><a href="/">Other Assessment<span class="fa arrow"></span></a>
+                        <li ><a href="#">Other Assessment<span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
                                         <li>
                                             <a href="#">Research Book</a>
