@@ -144,10 +144,40 @@
                         </li>
                         <li ><a href="/srsevaluation">SRS Submission</a></li>
                         <li ><a href="/protoevaluation">Prototype</a></li>
-                        <li ><a href="/midevaluation">Mid Review</a></li>
-                        <li ><a href="/">Final Presentation</a></li>
-                        <li ><a href="/">Viva</a></li>
-                        <li ><a href="/">Other Assessment</a></li>
+                        <li ><a href="#">Mid Review<span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="/midprsentevaluation">Presentation</a>
+                                        </li>
+                                        <li>
+                                            <a href="/midreportevaluation">Report</a>
+                                        </li>
+                                    </ul>
+                        </li>
+                        <li ><a href="/">Final Presentation<span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="/finalprsentevaluation">Presentation</a>
+                                        </li>
+                                        <li>
+                                            <a href="/finalreportevaluation">Report</a>
+                                        </li>
+                                    </ul>
+                        </li>
+                        <li ><a href="/vivavaluation">Viva</a></li>
+                        <li ><a href="/">Other Assessment<span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="#">Research Book</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Research Paper</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Website</a>
+                                        </li>
+                                    </ul>
+                        </li>
                     </ul>
                 </li>
             </ul>
