@@ -767,7 +767,7 @@ function selectStudentDetails()
     
         $.ajax({
         type: "GET",
-        url: '/searchstudent',
+        url: '/searchstudentform',
         data: {"sid": searchID},
         dataType: 'json'
         
