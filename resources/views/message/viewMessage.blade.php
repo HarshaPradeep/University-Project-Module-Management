@@ -45,6 +45,10 @@
                <div class="col-lg-1">
         </div>
     </div>
+    <br><br>
+    <form action="http://localhost:8000/message">
+        <input type="submit"  class="btn btn-w-m btn-primary" value="View Messages" />
+    </form>
 @endsection
 
 {{--@section('subheader')--}}
@@ -72,7 +76,7 @@
                         <div class="col-md-10 col-xs-10">
                             <div class="messages msg_sent">
                                 <p>{{$value->message }}</p>
-                                <time datetime="2009-11-13T20:00">  You </time>
+                                <time datetime="2009-11-13T20:00">You {{$value->date }}   </time>
                             </div>
                         </div>
                         <div class="col-md-2 col-xs-2 avatar">
@@ -87,7 +91,7 @@
                         <div class="col-md-10 col-xs-10">
                             <div class="messages msg_receive">
                                 <p>{{$value->message }}</p>
-                                <time datetime="2009-11-13T20:00">{{$value->receiver }}</time>
+                                <time datetime="2009-11-13T20:00">{{$value->receiver }} {{$value->date }} </time>
                             </div>
                         </div>
                     </div>

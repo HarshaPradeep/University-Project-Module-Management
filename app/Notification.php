@@ -2,12 +2,12 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Message extends Model {
+class Notification extends Model {
 
 	//
 
     //
-    protected $table = 'message';
+    protected $table = 'notification';
 
     /**
      * The attributes that are mass assignable.
@@ -15,6 +15,6 @@ class Message extends Model {
      * @var array
      */
 
-    protected $fillable = ['id','sender_id', 'receiver_id', 'message', 'parent','date'];
+    protected $fillable = ['id','sender_id', 'receiver_id'];
 
 }

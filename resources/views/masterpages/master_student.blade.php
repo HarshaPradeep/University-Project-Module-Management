@@ -11,13 +11,13 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
     <link href="{{asset('public_assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
-    <link href="{{asset('public_assets/css/plugins/toastr/toastr.min.css')}}" rel="stylesheet">
+    <!--link href="{{asset('public_assets/css/plugins/toastr/toastr.min.css')}}" rel="stylesheet"-->
     <link href="{{asset('public_assets/js/plugins/gritter/jquery.gritter.css')}}" rel="stylesheet">
     <link href="{{ asset('public_assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <script src="{{asset('public_assets/dist/summernote.min.css')}}"></script>
     <script src="{{asset('public_assets/dist/summernote.min.js')}}"></script>
     <link href="{{ asset('public_assets/css/plugins/iCheck/custom.css') }}" rel="stylesheet">
-    <link href="{{ asset('public_assets/css/plugins/steps/jquery.steps.css') }}" rel="stylesheet">
+    <!--link href="{{ asset('public_assets/css/plugins/steps/jquery.steps.css') }}" rel="stylesheet"-->
 
     <link href="{{ asset('public_assets/css/style.css') }}" rel="stylesheet">
     <script src="{{ asset('public_assets/sweetalert.min.js') }}"></script>
@@ -259,11 +259,10 @@
 
 <!--Form Wizad-->
 <!-- Mainly scripts -->
-<script src="{{ asset('public_assets/js/jquery-2.1.1.js') }}"></script>
+{{--<script src="{{ asset('public_assets/js/jquery-2.1.1.js') }}"></script>--}}
 <script src="{{ asset('public_assets/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('public_assets/js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
 <script src="{{ asset('public_assets/js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
-
 <!-- Custom and plugin javascript -->
 <script src="{{ asset('public_assets/js/inspinia.js') }}"></script>
 <script src="{{ asset('public_assets/js/plugins/pace/pace.min.js') }}"></script>
@@ -308,7 +307,7 @@
 <script src="{{ asset('public_assets/js/plugins/chartJs/Chart.min.js') }}"></script>
 <!-- Toastr -->
 {{--<script src="{{ asset('public_assets/js/plugins/toastr/toastr.min.js') }}"></script>--}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libis/bootbox.js/4.4.0/bootbox.min.js"></script>
 
 
 

@@ -14,7 +14,7 @@ class newsfeed extends Model {
      *
      * @var array
      */
-    protected $fillable = ['id','batch_id','group_id','username','datetime','topic','link','file_name','message','views','file'];
+    protected $fillable = ['id','topic_id','batch_id','group_id','username','datetime','topic','link','file_name','message','views','file'];
 
 
 

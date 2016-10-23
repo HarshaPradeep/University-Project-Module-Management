@@ -1,65 +1,45 @@
 @extends('masterpages.master_student')
 
 @section('css_links')
-<!-- include libraries(jQuery, bootstrap) -->
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
 
-<!-- include summernote css/js-->
-<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
 
-    
-  <link href="{{asset('public_assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
+    <link href="{{asset('public_assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
 
-<!--   Toastr style -->
-    <link href="{{asset('public_assets/css/plugins/toastr/toastr.min.css')}}" rel="stylesheet">
+    <!-- Toastr style -->
+    <!--link href="{{asset('public_assets/css/plugins/toastr/toastr.min.css')}}" rel="stylesheet"-->
 
-<!--     Gritter -->
+    <!-- Gritter -->
     <link href="{{asset('public_assets/js/plugins/gritter/jquery.gritter.css')}}" rel="stylesheet">
-
 
 
     <link href="{{ asset('public_assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('public_assets/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
     <link href="{{ asset('public_assets/css/plugins/iCheck/custom.css') }}" rel="stylesheet">
-    <link href="{{ asset('public_assets') }}" rel="stylesheet">
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet">
-    
-     <script>tinymce.init({ selector:'textarea' });</script>
-     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet"> 
-     
-    <style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0); background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style>
-    <style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0); background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style>
-    <style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0); background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style>
-    <style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0); background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style>
-    <style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0); background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style>
-    <style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0); background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style>
-    <style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0); background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style>
-    <style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0); background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style>
-    <style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0); background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style>
-    <style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0); background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style>
-    <style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0); background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style>
-
-@stop
+    <link href="{{ asset('public_assets/css/plugins/steps/jquery.steps.css') }}" rel="stylesheet">
+    <link href="{{ asset('public_assets/css/animate.css') }}" rel="stylesheet">
+    <link href="{{ asset('public_assets/css/style.css') }}" rel="stylesheet">
 
 
+    <link href="{{ asset('public_assets/css/animate.css')}}" rel="stylesheet">
+    <link href="{{ asset('public_assets/css/plugins/summernote/summernote.css')}}" rel="stylesheet">
+    <link href="{{ asset('public_assets/css/plugins/summernote/summernote-bs3.css')}}" rel="stylesheet">
+
+@endsection
 
 
 @section('title')
     <div class="row wrapper border-bottom white-bg page-heading">
-<!--        <div class="col-lg-10">-->
-<div><div style="font-size:15px;padding: 20px;color: #488475;background-color: #E1F1ED  ;">
-        Welcome to the workZone Forum! Come in, have a look around...</div>
-    <img style="padding-left:350px;" height="170px" src="http://sod208.fulton.asu.edu/forum-1/forum/image_preview">
+        <!--        <div class="col-lg-10">-->
+        <div><div style="font-size:15px;padding: 20px;color: #488475;background-color: #E1F1ED  ;">
+                Welcome to the workZone Forum! Come in, have a look around...</div>
+            <img style="padding-left:350px;" height="170px" src="http://sod208.fulton.asu.edu/forum-1/forum/image_preview">
 
 
-    </div>
-            <ol class="breadcrumb">
+        </div>
+        <ol class="breadcrumb">
 
-            </ol>
-<!--        </div>-->
+        </ol>
+        <!--        </div>-->
         <div class="col-lg--2">
 
         </div>
@@ -67,9 +47,8 @@
 
 @stop
 
-
 {{--@section('subheader')--}}
-    {{--<h5>Add New Notice</h5>--}}
+{{--<h5>Comment your idea here..</h5>--}}
 {{--@endsection--}}
 
 
@@ -77,34 +56,35 @@
 
 @section('content')
 
-<div class="row">
+    <div class="row">
 
-    @if (count($errors) > 0)
+        @if (count($errors) > 0)
 
-        <div class=" alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-    
-     @if(Session::has('message_success'))
+            <div class=" alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
-    <script>
-        swal("Post Added!", "{{ Session::get('message_success') }}", "success");
-    </script>
-    
-    <div class="alert alert-success" role="alert" id="divAlert" style="font-size: 14px">
-        <span class="glyphicon glyphicon-envelope"></span> {{Session::get('message_success') }}
-    </div>
-    @endif
+        @if(Session::has('message_success'))
+
+            <script>
+                swal("Record Altered!", "{{ Session::get('message_success') }}", "success");
+            </script>
+
+            <div class="alert alert-success" role="alert" id="divAlert" style="font-size: 14px">
+                <span class="glyphicon glyphicon-envelope"></span> {{Session::get('message_success') }}
+            </div>
+        @endif
+
 
         @if(Session::has('message_delete'))
 
             <script>
-                swal("Post Deleted!", "{{ Session::get('message_success') }}", "success");
+                swal("Comment deleted!", "{{ Session::get('message_success') }}", "success");
             </script>
 
             <div class="alert alert-success" role="alert" id="divAlert" style="font-size: 14px">
@@ -112,119 +92,99 @@
             </div>
         @endif
 
-    @if(Session::has('message_error'));
-    
-    <script>
-        swal("Error!", "{{ Session::get('message_error') }}", "error");
-    </script>
+        @if(Session::has('message_comment'))
 
-    
-    @endif
-    
-</div>
+            <script>
+                swal("Post Added!", "{{ Session::get('message_success') }}", "success");
+            </script>
 
-
-
-{!! Form::text('search', null,
-                                      array('required',
-                                           'class'=>'form-control',
-                                           'placeholder'=>'Search for a post...')) !!}
-{!! Form::submit('Search',
-                           array('class'=>'btn btn-default')) !!}
-{!! Form::close() !!}
+            <div class="alert alert-success" role="alert" id="divAlert" style="font-size: 14px">
+                <span class="glyphicon glyphicon-envelope"></span> {{Session::get('message_comment') }}
+            </div>
+        @endif
 
 
-{{--@if (count($search) === 0)--}}
-    {{--echo 'No articles found';--}}
-{{--@elseif (count($search) >= 1)--}}
+        @if(Session::has('message_error'));
 
-    {{--@foreach($search as $s)--}}
-        {{--print article--}}
-    {{--@endforeach--}}
-{{--@endif--}}
-      
-
-            @forelse($posts as $post)
+        <script>
+            swal("Error!", "{{ Session::get('message_error') }}", "error");
+        </script>
 
 
-               
-            <div style="border-radius:10px;background-color:white;width:1000px;padding-left: 10px;">
+        @endif
 
-                <img style="border-radius:50%;width:60px; padding-top:5px;display: inline;" src="http://tedxfukuoka.com/wp/wp-content/uploads/rika_shiiki_-562x562.jpg">
+    </div>
+
+    <form action="http://localhost:8000/viewTopics">
+        <input type="submit"  class="btn btn-w-m btn-primary" value="View Topics" />
+    </form>
+
+@foreach($pos as $post)
 
 
 
-                <h2><b><a href="http://localhost:8000/groupForumdisplay/{{$post->id}}">{{$post->topic}}</a></b></h2>
-                        Posted by : {{$post->username}}<br>
-                        on :{{date('M j,Y h:ia',strtotime($post->datetime))}}
-                        <br><br><br>
+            <div  class="container" style="border-color:#6C6D71;border-radius:10px;padding:20px;width:1000px;background-color:white;padding-right: 10px;padding-left: 10px;">
 
-                        @if($post->file != null)
+                <div style="color:#121A5B; display: inline;"><img style="border-radius:50%;width:60px; padding-top:5px;" src="http://tedxfukuoka.com/wp/wp-content/uploads/rika_shiiki_-562x562.jpg">
+                <h2><a href="http://localhost:8000/groupForumdisplay/{{$post->id}}">{{$post->topic}}</a></h2></div>
+                Posted by : {{$post->username}}<br>
+                on :<b>{{date('M j,Y h:ia',strtotime($post->datetime))}}</b>
+                <br><br><br>
 
-                        <img src="{{$post->file}}" alt="" width="350" height="260">
-                            <br> <br>
-                       @elseif($post->link != null)
+                @if($post->file != null)
 
-                       <a href="{{$post->link}}" download="{{$post->link}}">{{$post->file_name}}</a>
+                    <img src="{{$post->file}}" alt="" width="350" height="260">
+                    <br> <br>
+                @elseif($post->link != null)
 
-                        @endif
-                    <div style="color:#333439;"><h4>{!!str_limit($post->message,$limit=20,$end='...')!!}</h4></div>
-                        <br>
+                    <a href="{{$post->link}}" download="{{$post->link}}">{{$post->file_name}}</a>
+
+                @endif
+                <div style="color:#333439;"><h4>{!!str_limit($post->message,$limit=300,$end='.....')!!}</h4></div>
+                <br>  <br>
 
                 <form action="http://localhost:8000/groupForumdisplay/{{$post->id}}">
                     <input type="submit" class="btn  btn-m" value="Read more" />
                 </form>
-                <br><br>
-                        <hr>
+                <hr>
+                <form id="{{$post->id}}" action='' method='post' >
+                    <i class="fa fa-comment" aria-hidden="true"></i>&nbsp;<a href="http://localhost:8000/groupForumdisplay/{{$post->id}}">Reply</a>
+                    @if($post->username == $uname)
+                        <a href="{{ asset('editPost/'. $post->id) }}" class="edit_btn btn btn-primary btn-xs m-l-sm">Edit</a>
+
+                        <input type='hidden' name='toDelete'  value="{{$post->id}}">
+                        <input  type='submit'  onclick="postDelete()" name='deletePost'  value='Delete' class="btn btn-danger  btn-primary btn-xs m-l-sm">
+                        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                    @endif
+
+                </form>
 
 
-                            <form id="{{$post->id}}" action='' method='post' >
-                                <i class="fa fa-comment" aria-hidden="true"></i>&nbsp;<a href="http://localhost:8000/groupForumdisplay/{{$post->id}}">Reply</a>
-                                @if($post->username == $uname)
-                                <a href="{{ asset('editPost/'. $post->id) }}" class="edit_btn btn btn-primary btn-xs m-l-sm">Edit</a>
-
-                                <input type='hidden' name='toDelete'  value="{{$post->id}}">
-                                <input  type='submit'  onclick="postDelete()" name='delete'  value='delete' class="btn btn-danger  btn-primary btn-xs m-l-sm">
-                                <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                                    @endif
-                            </form>
 
 
-                <br><br>
-                        
-           
+
+
             </div>
             <br><br>
-            @empty
-                        <p>No Posts Found</p>
-                        <br>
-                        <br>
-                        
-            @endforelse
 
-<br>
-
-<div class="text-center" >
-    {!! $posts->render() !!}
-</div>
+        @endforeach
 
 
-    
-    
-<br><br>
 
-<h2>Type your post ...</h2><br><br>
 
-    <form id="form1" name="form1" method="post" action="" enctype="multipart/form-data" >
+
+    <h2>Type your post ...</h2><br><br>
+
+    <form id="form1" name="form1" method="post" action="" enctype="multipart/form-data"  >
 
 
         <div class="col-sm-10 form-group">
             <label>Topic</label>
             <input required name="topic" type="text" id="topics" class="form-control"/>
         </div>
-        
-        
-         <div class="col-sm-10 form-group">
+
+
+        <div class="col-sm-10 form-group">
             <label>Message</label>
             <textarea  name="message" id="input" class="form-control"></textarea>
         </div>
@@ -250,6 +210,40 @@
 
 
 @endsection
+
+
+<script>
+    function deleteComment() {
+
+        swal({   title: "Are you sure?",
+            text: "Do You want to Delete Comment ??",
+            type: "warning",   showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, Delete it!",
+            closeOnConfirm: true }
+
+        ).fail( function() {
+            alert( 'something wrong' );
+        });
+
+    }
+</script>
+
+<script>
+
+
+    //delete task and remove it from list
+    $.ajax({
+        url: '/groupForumdisplay/' + id,
+        data: { "_token": "{{ csrf_token() }}" },
+        type: 'DELETE',
+        success: function(result) {
+            console.log(result);
+        }
+    });
+
+</script>
+
 
 <script src="{{URL::to('public_assets/tinymce/js/tinymce/tinymce.min.js')}}"></script>
 
@@ -288,29 +282,3 @@
     tinymce.init(editor_config);
 
 </script>
-<script>
-
-
-
-    function postDelete() {
-
-        swal({   title: "Are you sure?",
-            text: "Do You want to Delete Post ??",
-            type: "warning",   showCancelButton: true,
-            confirmButtonColor: "#DD6B55",
-            confirmButtonText: "Yes, Delete it!",
-            closeOnConfirm: true }
-
-        ).fail( function() {
-            alert( 'something wrong' );
-        });
-
-    }
-
-</script>
-
-
-
-
- @section('ValidationJavaScript')
-

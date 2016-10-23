@@ -14,7 +14,7 @@ class CreateCommentsTable extends Migration {
 	{
 		Schema::create('comments', function(Blueprint $table)
 		{
-			$table->increments('id');
+			            $table->increments('id');
                         $table->integer('post_id')->unsigned();
                         $table->string('username');
                         $table->datetime('timedate');
@@ -42,8 +42,8 @@ class CreateCommentsTable extends Migration {
 	public function down()
 	{
 		Schema::drop('comments');
-                //Schema::dropForeign(['post_id']);
-	}
+    //Schema::dropForeign(['post_id']);
+}
         
       
 

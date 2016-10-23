@@ -45,6 +45,9 @@ Route::group(array('middleware' => 'auth'), function() {
 
 Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
 
+
+
+
     Route::get('message','InboxController@index');
     Route::get('viewMessage/{sender}/{receiver}','ViewMessageController@index');
     Route::get('deleteMessage/{sender}/{receiver}','ViewMessageController@deleteMessage');
@@ -129,6 +132,9 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
     
     
   /// Udani routes :)
+/*
+    Route::post('viewTopics','ForumController@deleteandgettopic');
+    Route::get('viewTopics','ForumController@getTopic');*/
 
 
     Route::get('updateModules','ModuleController@updateModindex');
@@ -137,7 +143,14 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
     Route::get('updateModuleDelete','ModuleController@deleteModuleindexstore');
     Route::get('modules','ModuleController@add');
     Route::post('modules',['as'=>'AddMod','uses'=>'ModuleController@store']);
-    Route::get('groupForum','ForumController@search');
+
+    Route::get('groupForum/{id?}','ForumController@viewPosts');
+    /*Route::post('viewTopics','ForumController@deleteandgettopic');
+    Route::get('viewTopics','ForumController@getTopic');*/
+
+
+    /*Route::get('groupForum','ForumController@search');*/
+
 
 
     Route::get('groupForumdisplay/{id?}','ForumController@getComment');
@@ -152,10 +165,7 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
 
     //Message routes
 
-    Route::get('message','InboxController@index');
-    Route::get('viewMessage/{sender}/{receiver}','ViewMessageController@index');
-    Route::get('deleteMessage/{sender}/{receiver}','ViewMessageController@deleteMessage');
-    Route::post('sendMessage','ViewMessageController@sendMessage');
+
 
 
 
@@ -278,7 +288,7 @@ Route::get('/searchSpecificFreeSlotByDate','FreeSlotController@searchSpecificSlo
 Route::get('viewProjects/{supId}','SupervisorController@viewProjects');
 Route::group(array('middleware' => 'guest', 'middleware' => 'panelmember'), function() {
 
-   
+
 
     //resourceful controller route for monthly reports
     Route::resource('monthlyreports/supervisor', 'SupervisorMonthlyReportController');
@@ -294,10 +304,6 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'panelmember'), func
     //dashboards
     Route::get('panelmemberdashboard','PanelMemberController@showDashboard');
 
-    Route::get('message','InboxController@index');
-    Route::get('viewMessage/{sender}/{receiver}','ViewMessageController@index');
-    Route::get('deleteMessage/{sender}/{receiver}','ViewMessageController@deleteMessage');
-    Route::post('sendMessage','ViewMessageController@sendMessage');
 
 
     //download requestedProject Details
@@ -342,10 +348,33 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'panelmember'), func
 
 Route::group(array('middleware' => 'guest', 'middleware' => 'student'), function() {
 
+
     Route::get('message','InboxController@index');
     Route::get('viewMessage/{sender}/{receiver}','ViewMessageController@index');
     Route::get('deleteMessage/{sender}/{receiver}','ViewMessageController@deleteMessage');
     Route::post('sendMessage','ViewMessageController@sendMessage');
+
+    Route::get('groupForum/{id?}','ForumController@viewPosts');
+    Route::post('viewTopics','ForumController@deleteandgettopic');
+    Route::get('viewTopics','ForumController@getTopic');
+    Route::post('groupForum/{id?}','ForumController@deleteandaddpost');
+    Route::get('groupForumdisplay/{id?}','ForumController@viewQuestion');
+    Route::post('groupForumdisplay/{id?}','CommentsController@deleteandadd');
+    Route::get('editPost/{id}','ForumController@editPostView');
+    Route::post('editPost/{id}','ForumController@editPostN');
+    Route::get('editComment/{id}','CommentsController@editCommentView');
+    Route::post('editComment/{id}','CommentsController@editComment');
+
+
+   /* Route::get('groupForumdisplay/{id?}','ForumController@getComment');
+    Route::get('groupForumdisplay/{id?}','ForumController@viewQuestion');
+    Route::get('groupForum','ForumController@getPost');
+    Route::post('groupForum','ForumController@deleteandgetpost');
+    Route::post('groupForumdisplay/{id?}','CommentsController@deleteandadd');
+    Route::get('editComment/{id}','CommentsController@editCommentView');
+    Route::post('editComment/{id}','CommentsController@editComment');
+    Route::get('editPost/{id}','ForumController@editPostView');
+    Route::post('editPost/{id}','ForumController@editPostN');*/
 
 
     //view supervisor feedbacks
@@ -390,9 +419,17 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'student'), function
 
 });
 //Student routes
+
+Route::get('message','InboxController@index');
+Route::get('viewMessage/{sender}/{receiver}','ViewMessageController@index');
+Route::get('deleteMessage/{sender}/{receiver}','ViewMessageController@deleteMessage');
+Route::post('sendMessage','ViewMessageController@sendMessage');
+
 Route::get('/upLinksView','uploadController@displayLinks');
 Route::get('/uploads/{linkId}','uploadController@uploadView');
 Route::post('/uploads/{linkId}','submissionsController@saveUpload');
+
+
 //Student routes
 
 Route::post('login', 'AuthenticationController@postLogin');

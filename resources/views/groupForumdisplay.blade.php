@@ -1,4 +1,4 @@
-@extends('masterpages.master_student')
+@extends('masterpages.master_rpc')
 
 @section('css_links')
 
@@ -45,7 +45,7 @@
 @section('title')
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10" style="padding-top: 20px;">
-            <button type="button" class="btn btn-w-m btn-primary" onclick="window.location='http://localhost:8000/groupForum'">View Posts</button>
+            <button type="button" class="btn btn-w-m btn-primary" onclick="window.location='http://localhost:8000/viewTopics'">View Topics</button>
 
             <ol class="breadcrumb">
 
@@ -168,7 +168,7 @@
 
                 </form>
                 <hr>
-                   <div class="container" style="padding-left: 85px;color:black;"><h2><b>Comments</b></h2></div><br>
+                   <div class="container" style="padding-left: 85px;color:black;"><h2><b>Replies</b></h2></div><br>
 
 
 

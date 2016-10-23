@@ -65,7 +65,12 @@
     @foreach($messagePool as $value)
      <tr >
       <td style="width: 80%"><a href="{{ url('viewMessage/'.$value->sender_id.'/'.$value->receiver_id) }}">{{$value->email }}</a></td>
-      <td><a href="{{ url('deleteMessage/'.$value->sender_id.'/'.$value->receiver_id) }}"><i class="glyphicon glyphicon-trash"> </i></a> </td>
+      <td><a href="{{ url('deleteMessage/'.$value->sender_id.'/'.$value->receiver_id) }}" ><i class="glyphicon glyphicon-trash" > </i></a> </td>
+      @if( $value->notification !=  null )
+      <td><i class="glyphicon glyphicon-envelope">  </i> </td>
+      @else 
+      <td><i class="fa fa-envelope-o"> </i> </td>
+      @endif
       </tr>
          @endforeach
 
@@ -91,14 +96,14 @@
         <label for="sel1">Select User:</label>
         <select class="form-control" name="receiver">
           @foreach($allUsers as $value)
-            <option value="{{$value->id}}">{{$value->email}}</option>
+            <option value="{{$value->id}}">{{$value->username}}</option>
           @endforeach
 
         </select>
       </div>
       <div class="form-group">
          <label for="comment">Message:</label>
-        <textarea class="form-control" rows="5" name="message"></textarea>
+        <textarea class="form-control" required rows="5" name="message"></textarea>
       </div>
       </div>
       <div class="modal-footer">
@@ -110,3 +115,16 @@
   </div>
 </div>
 @endsection
+
+<script>
+
+    function ConfirmDelete()
+    {
+        var x = confirm("Are you sure you want to delete?");
+        if (x)
+            return true;
+        else
+            return false;
+    }
+
+</script>
