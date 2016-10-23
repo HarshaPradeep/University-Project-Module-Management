@@ -15,13 +15,13 @@ class CreatenewsfeedTable extends Migration {
             Schema::create('newsfeed', function(Blueprint $table)
             {
             		$table->increments('id');
+                    $table->integer('topic_id')->unsigned();
                     $table->string('batch_id');
                     $table->string('group_id');
                     $table->string('username');
-                    $table->date('date');
-                    $table->time('time');
+                    $table->dateTime('datetime');
                     $table->string('topic');
-                    $table->string('description');
+                    $table->string('message');
                     $table->binary('file');
                     $table->binary('link');
                     $table->string('file_name');

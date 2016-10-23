@@ -308,17 +308,22 @@ class ForumController extends Controller {
 
 
 
-            $p=newsfeed::all();
+        $p=newsfeed::all();
         $topics=topics::orderBy('updated_at','desc')->paginate(10);
         $username = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->username;
-        $roles = DB::table('newsfeed')->lists('id');
+//dd($topics);
 
-        echo $p->topic_id;
-        $v = topics::select('views')->where('id',$topics)->pluck('views');
-        $t=newsfeed::count('id')->where('id',$p->topic_id)->get();
-        echo $t;
+        $nos=DB::table('newsfeed')->select( DB::raw('topic_id, COUNT(id) as count' ) )
+            ->groupBy('topic_id')->get();
 
-        return view('viewTopics', ['topics'=>$topics ],['uname'=>$username],['v'=>$v]);
+
+        $views=DB::table('topics')->select('id','views')->get();
+
+        //return $views;
+
+
+
+        return view('viewTopics',compact('topics','nos','views','username'));
 
     }
 

@@ -168,7 +168,7 @@
 
                 </form>
                 <hr>
-                   <div class="container" style="padding-left: 85px;color:black;"><h2><b>Replies</b></h2></div><br>
+                   <div class="container" style="color:black;"><h2><b>Replies</b></h2></div><br>
 
 
 
