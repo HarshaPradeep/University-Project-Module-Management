@@ -224,6 +224,14 @@
                     </li>
 
                     <li>
+                        <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Modules</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li class="active"><a href="/modules">Add Module</a></li>
+                            <li ><a href="/updateModules">Update Module</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
                         <a href="/viewSubmissions"><i class="fa fa-th-large"></i> <span class="nav-label">Student Submissions</span> </a>
 
                     </li>
@@ -233,6 +241,9 @@
                         <a href="/evaluationform"><i class="fa fa-th-large"></i> <span class="nav-label">Evaluation</span></a>
                     </li>
                     <!--                end of add evaluation-->
+                    <li>
+                        <a href="/message"><i class="fa fa-th-large"></i> <span class="nav-label">Messages</span></a>
+                    </li>
 
                 </ul>
 

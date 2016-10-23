@@ -94,7 +94,11 @@
                 </li>
 
                 <li>
-                    <a href="/groupForum"><i class="fa fa-th-large"></i> <span class="nav-label">Student Forum</span> </a>
+                    <a href="/viewTopics"><i class="fa fa-th-large"></i> <span class="nav-label">Student Forum</span> </a>
+
+                </li>
+                <li>
+                    <a href="/message"><i class="fa fa-th-large"></i> <span class="nav-label">Messages</span> </a>
 
                 </li>
             </ul>

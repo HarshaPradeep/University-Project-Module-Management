@@ -1,4 +1,4 @@
-@extends('masterpages.master_rpc')
+@extends('masterpages.master_student')
 
 @section('css_links')
 

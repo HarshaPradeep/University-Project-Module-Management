@@ -130,6 +130,10 @@
                 <li>
                     <a href="/downloadthesis"><i class="fa fa-th-large"></i> <span class="nav-label">Download Thesis Report</span> <span class="fa"></span></a>
                 </li>
+                <li>
+                    <a href="/message"><i class="fa fa-th-large"></i> <span class="nav-label">Messages</span> </a>
+
+                </li>
 
 
             </ul>
