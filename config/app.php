@@ -140,6 +140,9 @@ return [
         'Cartalyst\Sentinel\Laravel\SentinelServiceProvider',
         'Fenos\Notifynder\NotifynderServiceProvider',
 		'Barryvdh\DomPDF\ServiceProvider',
+		//'Intervention\Image\ImageServiceProvider::class',
+		'Intervention\Image\ImageServiceProvider',
+
 
         /*
          * Application Service Providers...
@@ -150,7 +153,7 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
         'Vinkla\Hashids\HashidsServiceProvider',
-		'Khill\Lavacharts\Laravel\LavachartsServiceProvider',
+
 
 	],
 
@@ -207,6 +210,9 @@ return [
         'Notifynder'    => 'Fenos\Notifynder\Facades\Notifynder',
         'Hashids' => 'Vinkla\Hashids\Facades\Hashids',
 		'PDF' => 'Barryvdh\DomPDF\Facade',
+		'Image' => 'Intervention\Image\Facades\Image'
+		//'Image' =>'Intervention\Image\Facades\Image::class',
+
 	],
 
 ];
