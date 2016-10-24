@@ -5,33 +5,33 @@ use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 
 //App\Http\Controllers\notificationController::GetAllUnreadNotification();
 
-Route::get('/', 'WelcomeController@index');
+    Route::get('/', 'WelcomeController@index');
 
-//Route::controllers([
-//    'auth' => 'Auth\AuthController',
-////	'password' => 'Auth\PasswordController',
-//]);
-//Route::get('report','ReportController@index');////////////////////////////////////////////////////////////////////////////////////////
-//Route::get('reportfile','fileController@view');
-//Route::post('report','ReportController@add');/////////////////////////////////////////////////////////////////////////////////
-//Route::get('reportfile', 'viewcontroller@ind');//////////////////////////////////////////////////////////////////////////////////////
+    //Route::controllers([
+    //    'auth' => 'Auth\AuthController',
+    ////	'password' => 'Auth\PasswordController',
+    //]);
+    //Route::get('report','ReportController@index');////////////////////////////////////////////////////////////////////////////////////////
+    //Route::get('reportfile','fileController@view');
+    //Route::post('report','ReportController@add');/////////////////////////////////////////////////////////////////////////////////
+    //Route::get('reportfile', 'viewcontroller@ind');//////////////////////////////////////////////////////////////////////////////////////
 
-Route::get('feed', 'viewcontroller@fb');
+    Route::get('feed', 'viewcontroller@fb');
 
-Route::post('feed', 'feedController@addfeed');
-Route::get('test33', 'projectController@test');
+    Route::post('feed', 'feedController@addfeed');
+    Route::get('test33', 'projectController@test');
 
-//notification
-Route::get('/viewSupervisorDetails/{projectId}/{id}', 'notificationController@showRpcNotification');
-//Route::get('actionExternalSupervisor/{supervisorid}','notificationController@accept');
-//Route::get('rejectsExternalSupervisor/{supervisorid}','notificationController@reject');
+    //notification
+    Route::get('/viewSupervisorDetails/{projectId}/{id}', 'notificationController@showRpcNotification');
+    //Route::get('actionExternalSupervisor/{supervisorid}','notificationController@accept');
+    //Route::get('rejectsExternalSupervisor/{supervisorid}','notificationController@reject');
 
 
-Route::group(array('middleware' => 'auth'), function() {
+    Route::group(array('middleware' => 'auth'), function() {
     Route::get('logout', 'AuthenticationController@logout');
 });
 
-Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
+    Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
 
 
     //ajax route for shifting the slot of the projects for thesis presentation
@@ -76,7 +76,6 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
     Route::get('saveUpdatedUser', 'createUserController@updateUserindexstore');
 
     Route::get('/searchUser', 'createUserController@search');
-    
     Route::get('addUser', 'createUserController@index');
     Route::get('/addUserNewAccount', 'createUserController@storeUser');
 
@@ -99,7 +98,7 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
 
     Route::get('addNotice', 'NoticeController@add_new_notice');
     Route::post('addNotice', 'NoticeController@addNotice');
-  
+
     //harsha added
     Route::get('addResearchArea', 'AddResearchArea@add_research_area');
     Route::post('addResearchArea', 'AddResearchArea@storeResearchArea');
@@ -109,39 +108,37 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
 
     //Route::resource('addResearchArea/{id}', 'AddResearchArea@destroy');
     
-    //evaluationform routes added by harsha///////////////////////////////
-    Route::post('evaluationform', 'EvaluationController@store');
+    //evaluationform routes added by harsha
     Route::get('evaluationform', 'EvaluationController@create');
-    Route::get('/searchstudentform', 'createUserController@searchforStudents');
-    Route::get('viewprintmarks', 'EvaluationController@show');
-    Route::get('/searchmarks', 'EvaluationController@get');
-    
     Route::get('formsupervisor', 'supervisorevaluation@create');
-    
     
     Route::get('editNotice/{id}', 'NoticeController@editNoticeView'); //------------------
     Route::post('editNotice/{id}', 'NoticeController@editNotice'); //--------------
     //notification
     Route::get('/viewSupervisorDetails/{projectId}/{notificationId}/{id}', 'notificationController@showRpcNotification');
     Route::get('/addSupervisorForProject', 'SupervisorController@SupervisorController');
+    Route::get('/addSupervisorForProject', 'SupervisorController@SupervisorController');
 
     Route::get('/viewProjectDetails/{studentId}/{notificationId}/{projectId}', 'projectController@showSpecificProjectDet');
     Route::get('/UnreadNotification', 'notificationController@UnreadNotification');
     Route::get('/confirmForSupervisor/{projectID}/{notificationID}/{InternalSupervisorId}', 'SupervisorController@confirmSupervisorRegistration');
     Route::get('/ExternalSupervisorConfirmView', 'SupervisorController@confirmproject');
-//download requestedProject Details
+
+
+
+    //download requestedProject Details
     Route::get('/downloadRequestedProject/{filename}', 'projectController@downloadRequestedProject');
-//external Supervisor Confirmation link
+    //external Supervisor Confirmation link
     Route::get('/externalSupervisorConfirmation/{stuentId}/{projectId}', 'projectController@externalSupervisorConfirmation');
 
-//Accept Supervisor
+    //Accept Supervisor
     Route::get('/acceptExternalSupervisor', 'SupervisorController@AcceptExternalSupervisor');
-//Reject Supervisor
+    //Reject Supervisor
     Route::get('/RejectExternalSupervisor', 'SupervisorController@RejectExternalSupervisor');
-//accept requested Project
+    //accept requested Project
     Route::get('/acceptProject', 'projectController@AcceptProject');
 
-//accept requested Project
+    //accept requested Project
     Route::get('/rejectProject', 'projectController@RejectProject');
     Route::get('rpcdashboard', 'RPCController@showDashboard');
     Route::get('/ExternalSup', 'SupervisorController@create');
@@ -158,6 +155,11 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
     Route::get('email/{mail}', 'RPCController@composeEmail');
     Route::post('email/{mail}', 'RPCController@sendEmail');
 
+//        hiru added*
+    Route::get('rpcdashboard', 'GroupManageController@manageGroups');
+
+//        /*end-hiru*/
+
     Route::get('form', 'thesisEvaluationController@editThesisForm');
     Route::post('form', 'thesisEvaluationController@editThesisFormMarks');
 
@@ -168,7 +170,7 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
     Route::post('viewInternalProposals', 'RPCProposalEvaluationController@filterSearch');
     Route::get('viewInternalProposals', 'RPCProposalEvaluationController@viewInternalProposalEvaluation');
 
-//    Route::get('addFreeSlot', 'FreeSlotController@store');
+    //    Route::get('addFreeSlot', 'FreeSlotController@store');
     Route::get('searchedFreeSlotDetails', 'FreeSlotController@getFreeSlotDetailsByEmail');
     Route::get('test6666', 'FreeSlotController@store');
     Route::get('/viewSupervisors', 'profileController@selectSupervisor');
@@ -189,19 +191,21 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
     Route::get('upload', 'uploadController@uploadLink');
     Route::post('upload', 'uploadController@createUploadLink');
 });
-Route::get('RPCViewOwnProject', 'RPCController@viewOwnProjects');
+    Route::get('RPCViewOwnProject', 'RPCController@viewOwnProjects');
 
-Route::get('freeSlotManager', 'FreeSlotController@index');
-Route::get('freeSlotManagerload', 'FreeSlotController@load');
-Route::get('/deleteAllFreeSlot', 'FreeSlotController@deleteAllFreeSlots');
-Route::get('/addFreeSlot', 'FreeSlotController@store');
-Route::get('/deleteFreeSlot', 'FreeSlotController@deleteSlot');
+    Route::get('freeSlotManager', 'FreeSlotController@index');
+    Route::get('freeSlotManagerload', 'FreeSlotController@load');
+    Route::get('/deleteAllFreeSlot', 'FreeSlotController@deleteAllFreeSlots');
+    Route::get('/addFreeSlot', 'FreeSlotController@store');
+    Route::get('/deleteFreeSlot', 'FreeSlotController@deleteSlot');
 
-Route::get('/updateFreeSlot', 'FreeSlotController@updateSpecificFreeSlot');
-Route::get('/searchSpecificFreeSlot', 'FreeSlotController@searchSpecificSlot');
-Route::get('/searchSpecificFreeSlotByDate', 'FreeSlotController@searchSpecificSlotByDate');
-Route::get('viewProjects/{supId}', 'SupervisorController@viewProjects');
-Route::group(array('middleware' => 'guest', 'middleware' => 'panelmember'), function() {
+    Route::get('/updateFreeSlot', 'FreeSlotController@updateSpecificFreeSlot');
+    Route::get('/searchSpecificFreeSlot', 'FreeSlotController@searchSpecificSlot');
+    Route::get('/searchSpecificFreeSlotByDate', 'FreeSlotController@searchSpecificSlotByDate');
+    Route::get('viewProjects/{supId}', 'SupervisorController@viewProjects');
+
+
+    Route::group(array('middleware' => 'guest', 'middleware' => 'panelmember'), function() {
 
     //resourceful controller route for monthly reports
     Route::resource('monthlyreports/supervisor', 'SupervisorMonthlyReportController');
@@ -216,56 +220,24 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'panelmember'), func
     Route::get('panelmemberdashboard', 'PanelMemberController@showDashboard');
 
     //download requestedProject Details
-//    Route::get('/downloadRequestedProject/{filename}','projectController@downloadRequestedProject');
-//view Specific Project Details
+    //    Route::get('/downloadRequestedProject/{filename}','projectController@downloadRequestedProject');
+    //view Specific Project Details
     Route::get('/viewProjectDetails/{studentId}/{projectId}', 'projectController@showSpecificProjectDet');
 
     Route::get('/projectPool/{supId}', 'projectController@showProjectPool');
     Route::post('/projectPool/{supId}', 'projectController@selectProjectPool');
     
     ///////////////////////////harsha////////////
-    /////////prposal presetation/////
-    Route::any('propevaluation', 'supevaluationController@createproppresen');
-    Route::get('searchstudent', 'supevaluationController@searchforStudents');//common for all
-    //Route::post('propevaluation','supevaluationController@storepropevaluation');//send markings to db
-    
-    /////////prposal report/////
-    Route::any('propreportevaluation', 'supevaluationController@createproreport');
-    //Route::get('propsearchstudent', 'supevaluationController@searchforStudents');
-    //Route::post('propevaluation','supevaluationController@storepropevaluation');//send markings to db
-    
-    /////////srs/////
+    Route::any('propevaluation', 'supevaluationController@create');
     Route::any('srsevaluation', 'supevaluationController@srscreate');
-    //Route::post('propevaluation','supevaluationController@storepropevaluation');//send markings to db
-    
-    ///////prototype////
     Route::any('protoevaluation', 'supevaluationController@protocreate');
-    //Route::post('propevaluation','supevaluationController@storepropevaluation');//send markings to db
-    
-    //////////mid presentation/////
-    Route::any('midprsentevaluation', 'supevaluationController@midprsentcreate');
-    //Route::post('propevaluation','supevaluationController@storepropevaluation');//send markings to db
-    
-    ///////////mid report////
-    Route::any('midreportevaluation', 'supevaluationController@midreportcreate');
-    //Route::post('propevaluation','supevaluationController@storepropevaluation');//send markings to db
-    
-    ////////final presentation//////
-    Route::any('finalprsentevaluation', 'supevaluationController@finalprsentcreate');
-    //Route::post('propevaluation','supevaluationController@storepropevaluation');//send markings to db
-    
-    ///////final report///////
-    Route::any('finalreportevaluation', 'supevaluationController@finalreportcreate');
-    //Route::post('propevaluation','supevaluationController@storepropevaluation');//send markings to db
-    
-    //////viva///////
-    Route::any('vivavaluation', 'supevaluationController@vivacreate');
-    //Route::post('propevaluation','supevaluationController@storepropevaluation');//send markings to db
+    Route::any('midevaluation', 'supevaluationController@midcreate');
     
     Route::get('thesisPresentations', 'thesisEvaluationController@viewPresentations');
+    
     Route::get('thesisEvaluationForm/{id}', 'thesisEvaluationController@viewThesisForm');
     Route::post('thesisEvaluationForm/{id}', 'thesisEvaluationController@evaluate');
-    Route::get('editThesis/{id2}', 'thesisEvaluationController@editThesisEvaluation');
+    Route::get('editThesis/{id2}', 'thesisEvdoRegistrationaluationController@editThesisEvaluation');
     Route::post('editThesis/{id2}', 'thesisEvaluationController@editForm');
 
     Route::get('ProposalEvaluationPresentations', 'ProposalEvaluationController@viewProposalPresentation');
@@ -285,8 +257,11 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'panelmember'), func
     Route::get('downloadthesis', 'reportController@downloadThesis');
 });
 
-Route::group(array('middleware' => 'guest', 'middleware' => 'student'), function() {
-
+    Route::group(array('middleware' => 'guest', 'middleware' => 'student'), function() {
+//
+//
+   /* notification*/
+    /*Route::get('Group/{invitingID}/{notificationId}/{inviteeID}', 'GroupController@confirmGroupInvitation');*/
     //view supervisor feedbacks
     Route::get('monthlyreports/student/feedbacks', 'StudentMonthlyReportController@showFeedbacks');
 
@@ -307,30 +282,35 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'student'), function
     Route::post('projectReRegistration', 'StudentProposalController@Registration');
     Route::get('report', 'reportController@index');
     Route::get('studentprofile', 'reportController@viewStudentProfile');
-    
+
+
+
     
     
     ////////////////////////diluni////////
-    Route::get('diaryhome', 'diaryController@create');
-    Route::get('tasks', 'diaryController@taskopen');
-    Route::post('tasks', 'diaryController@storeTasks');
-    
-    /*if decommented research are delete wont work*/
-//    Route::resource('DELETE', 'diaryController@destroy');
-//    Route::get('DELETE/{id}', 'diaryController@destroy');
-    
-    ////////////////////////hiru////////
-    Route::get('grouping', 'GroupController@viewPool');
+    Route::get('diarylink', 'diaryController@create');
 
-    Route::post('report', 'reportController@add');
+    Route::post('reportController@add', 'report');
     Route::get('reportfile', 'reportController@viewIntReport');
     Route::post('reportfile', 'reportController@deleterpt');
     Route::get('viewprogress', 'reportController@viewProgress');
-});
-//Student routes
-Route::get('/upLinksView', 'uploadController@displayLinks');
-Route::get('/uploads/{linkId}', 'uploadController@uploadView');
+
+
+    });
+    //Student routes
+    Route::get('/upLinksView', 'uploadController@displayLinks');
+    Route::get('/uploads/{linkId}', 'uploadController@uploadView');
 Route::post('/uploads/{linkId}', 'submissionsController@saveUpload');
+
+
+/////////////////////////hiruu////////
+/*grouping*/
+Route::get('grouping', 'GroupController@viewPool');
+
+
+/////////////////////////hiruu////////
+
+
 //Student routes
 
 Route::post('login', 'AuthenticationController@postLogin');
@@ -341,6 +321,34 @@ Route::get('forgotpassword', 'AuthenticationController@getForgotPassword');
 Route::post('forgotpassword', 'AuthenticationController@postForgotPassword');
 Route::get('password-recover/{code}', array('as' => 'password-recover', 'uses' => 'AuthenticationController@getRecoverPassword'));
 Route::post('resetpassword', 'AuthenticationController@postResetPassword');
+
+
+//---hiru-----
+/*invitations accept deny*/
+
+Route::post('invite', 'GroupController@storetoNotifiTable');
+
+Route::post('acceptRequest', 'RequestController@acceptRequest');
+Route::post('rejectRequest', 'RequestController@rejectRequest');
+Route::post('clearRequest', 'RequestController@clearRequest');
+
+Route::post('deleteMember', 'GroupController@deleteMember');
+
+Route::post('deleteMemberRequest', 'GroupController@deleteRequest');
+
+Route::post('clearNotification', 'GroupController@clearNotification');
+
+Route::post('groupDelete', 'GroupProfileController@deleteGroup');
+
+Route::post('profile', 'GroupProfileController@updateAvatar');
+
+Route::post('navigateProposal', 'GroupProfileController@navigateProposal');
+
+Route::post('grpSubmit', 'SubmitProposalController@submitProposal');
+//-----hiru----
+
+
+
 //supervisor Registration for the Accepted external supervisor
 Route::get('rejectsExternalSupervisor/{supervisorid}', 'SupervisorController@confirmSupervisorRegistration');
 
@@ -356,6 +364,10 @@ Route::get('ViewPrposal/{id2}', 'ProposalEvaluationController@viewProposalEvalua
 Route::get('testt', 'AuthenticationController@testFunction');
 Route::get('notificationForSupervisor/{projectID}/{notificationID}/{InternalSupervisorId}', 'SupervisorController@RegisteredNotification');
 
+
+
+//$invitingID, $notificationID, $inviteeID
+
 //add Event
 Route::get('addEventToTimeline/{validity}/{type}/{saveType}', 'EventController@addEvent');
 //deleted specific event
@@ -370,12 +382,16 @@ Route::get('getCurrentUserTimeLine', 'EventController@getCurrentUserTodayTimeLin
 //
 Route::get('justReadNotification/{notId}', 'notificationController@ReadNotification');
 
+
+
+
 Route::get('/test111', function() {
 
-    $events = ThesisPresentationPanel::join('projects', 'projects.id', '=', 'thesis_presentation_panels.projectId')
-            ->select('thesis_presentation_panels.id', 'projects.title', 'thesis_presentation_panels.date', 'thesis_presentation_panels.venue', 'thesis_presentation_panels.time_start', 'thesis_presentation_panels.time_end')
-            ->get();
-    return view('proposalpresentations.addPanelByCalander')->with('events', $events);
+//    $events = ThesisPresentationPanel::join('projects', 'projects.id', '=', 'thesis_presentation_panels.projectId')
+//            ->select('thesis_presentation_panels.id', 'projects.title', 'thesis_presentation_panels.date', 'thesis_presentation_panels.venue', 'thesis_presentation_panels.time_start', 'thesis_presentation_panels.time_end')
+//            ->get();
+//    return view('proposalpresentations.addPanelByCalander')->with('events', $events);
+    return View('notification.notification_about_group_invitation');
 });
 
 
