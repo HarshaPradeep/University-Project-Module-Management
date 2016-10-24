@@ -15,8 +15,7 @@
 		"hashids/hashids": "~1.0",
 		"vinkla/hashids": "~2.0",
 	  	"barryvdh/laravel-dompdf": "0.6.*",
-		"khill/lavacharts" : "3.0.*",
-		"nesbot/carbon": "^1.21"
+		"intervention/image": "dev-master"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",
@@ -53,4 +52,6 @@
 	"config": {
 		"preferred-install": "dist"
 	}
+
+
 }
