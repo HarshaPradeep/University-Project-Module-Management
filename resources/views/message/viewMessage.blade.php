@@ -1,5 +1,6 @@
 @extends('masterpages.master_rpc')
 
+
 @section('css_links')
 
 
@@ -75,22 +76,22 @@
                     <div class="row msg_container base_sent">
                         <div class="col-md-10 col-xs-10">
                             <div class="messages msg_sent">
-                                <p>{{$value->message }}</p>
+                                <p><h4>{{$value->message }}</h4></p>
                                 <time datetime="2009-11-13T20:00">You {{$value->date }}   </time>
                             </div>
                         </div>
                         <div class="col-md-2 col-xs-2 avatar">
-                            <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
+                            <img src="https://cdn4.iconfinder.com/data/icons/set-of-flat-vector-icons/290/Profile_male-512.png" class=" img-responsive ">
                         </div>
                     </div>
                     @else
                     <div class="row msg_container base_receive">
                         <div class="col-md-2 col-xs-2 avatar">
-                            <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
+                            <img src="https://cdn4.iconfinder.com/data/icons/set-of-flat-vector-icons/290/Profile_male-512.png" class=" img-responsive ">
                         </div>
                         <div class="col-md-10 col-xs-10">
                             <div class="messages msg_receive">
-                                <p>{{$value->message }}</p>
+                                <p><h4>{{$value->message }}</h4></p>
                                 <time datetime="2009-11-13T20:00">{{$value->receiver }} {{$value->date }} </time>
                             </div>
                         </div>
@@ -99,7 +100,7 @@
                      @endforeach
                   
                 </div>
- 
+
         </div>
         </div>
     </div>

@@ -66,14 +66,14 @@ class ForumController extends Controller {
 
         $p=topics::find($po);
         $pos=newsfeed::where('topic_id',$po)->get();
-        $username = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->username;
+        $uid = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->username;
 
         $v = topics::select('views')->where('id',$po)->pluck('views');
         $v++;
         $p->views = $v;
         $p->save();
 
-        return view('groupForum', ['pos'=>$pos ],['uname'=>$username]);
+        return view('groupForum', ['pos'=>$pos ],['uname'=>$uid]);
     }
 
     public function viewQuestion($po)
@@ -139,6 +139,30 @@ class ForumController extends Controller {
         return view('editPost',compact('p'));
     }
 
+    public function editTopicView($id){
+        $p=topics::find($id);
+        return view('editTopicView',compact('p'));
+    }
+
+    public function editTopic(){
+
+
+        $topic = Input::get('e_detail');
+
+
+
+        $postid=$_POST['toEdit'];
+        $t = topics::find($_POST['toEdit']);
+        $t->topic = $topic;
+
+
+        $t->save();
+        \Session::flash('message_success', 'Topic Updated Successfully!!');
+        $posts=newsfeed::orderBy('id','desc')->paginate(5);
+        $username = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->username;
+
+        return Redirect::to('/viewTopics');
+    }
 
    public function editPostN()
     {

@@ -180,7 +180,7 @@
 
 
                            <div style="color:#121A5B;" > Posted by :<b>{{$comment->username}}</b><br>
-                           on :on :<b>{{date('M j,Y h:ia',strtotime($comment->timedate))}}</b>
+                           on :<b>{{date('M j,Y h:ia',strtotime($comment->timedate))}}</b>
                             <br><br>
 
                                @if($comment->file != null)

@@ -133,11 +133,11 @@ class ModuleController extends Controller{
     function deleteModuleindexstore()
     {
         $name = Input::get('name');
-        
+
         $model=Modules::where('module_name',$name)->delete();
         $lecturers1 = PanelMember::lists('name','id');
         $categories1 =  Modules::lists('module_name','module_name');
-        
+
        //return view('updateModules',compact('categories1','lecturers1','user'))->with('delete_success','Module Deleted Successfully !');
     }
 }

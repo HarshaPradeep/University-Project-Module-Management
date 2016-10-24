@@ -213,6 +213,7 @@
 
 
 <script>
+
     function deleteComment() {
 
         swal({   title: "Are you sure?",
