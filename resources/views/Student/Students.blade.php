@@ -55,6 +55,8 @@
                 <div class="alert alert-danger">{{ Session::get('message') }}</div>
            @endif
 
+
+
 <div class="col-md-12">
  <div class="ibox-content">
 <table class="table ">
