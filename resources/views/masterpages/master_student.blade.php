@@ -43,20 +43,20 @@
 
                     </div>
                     <div class="logo-element">
-                       
+
                     </div>
                 </li>
                 <li>
                     <a href="/studentdashboard"><i class="fa fa-th-large"></i> <span class="nav-label">Student Dashboard</span> </a>
 
                 </li>
-                
+
                 <li>
-                    <a href="/grouping"><i class="fa fa-th-large"></i> <span class="nav-label">Form Group</span> </a>
+                    <a href="/grouping"><i class="fa fa-th-large"></i> <span class="nav-label">Group Profile</span> </a>
 
                 </li>
                 {{--<li>--}}
-                    {{--<a href="/forgotpassword"><i class="fa fa-th-large"></i> <span class="nav-label">Change Password</span> </a>--}}
+                {{--<a href="/forgotpassword"><i class="fa fa-th-large"></i> <span class="nav-label">Change Password</span> </a>--}}
                 {{--</li>--}}
                 <li>
                     <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Monthly Reports</span><span class="fa arrow"></span></a>
@@ -89,10 +89,10 @@
 
                 </li>
 
-                <li>
+                {{--<li>
                     <a href="/studentprofile"><i class="fa fa-th-large"></i> <span class="nav-label">Student Profile</span> </a>
 
-                </li>
+                </li>--}}
 
                 <li>
                     <a href="/diaryhome"><i class="fa fa-th-large"></i> <span class="nav-label">Project Diary</span> </a>
@@ -153,12 +153,23 @@
                                                 <li>
                                                     <div class="dropdown-messages-box" style="background-color: #ffffff">
 
-                                                        <a href="{{ $routeURL }}" class="pull-left" >
-                                                            <img alt="image" src="{{ asset('public_assets/img/a7.jpg') }}" href="{{ $routeURL }}" class="img-circle" src="#">
-                                                        </a>
+                                                        {{--hiru--}}
+                                                        @if($name=="GroupLeaderToInviteeGroupInvitation")
+                                                            <a href="#" class="pull-left" >
+                                                                <img alt="image" src="{{ asset('public_assets/img/a7.jpg') }}" href="#" class="img-circle" src="#">
+                                                            </a>
+                                                        @else
+                                                            <a href="{{ $routeURL }}" class="pull-left" >
+                                                                <img alt="image" src="{{ asset('public_assets/img/a7.jpg') }}" href="{{ $routeURL }}" class="img-circle" src="#">
+                                                            </a>
+                                                        @endif
+
+                                                        {{--hiru--}}
 
 
                                                         <div class="media-body" style="color: #000 ;">
+                                                            @if($name=="GroupLeaderToInviteeGroupInvitation")
+                                                                {{--comm--}}
                                                             <small class="pull-trigh"><?php $now = new DateTime();
                                                                 echo $now->diff($rpc->created_at)->format("%h");?>hr ago</small>
                                                             <strong > </strong>
@@ -166,43 +177,209 @@
                                                             <small class="text-muted"><?php $now = new DateTime();
                                                                 echo $now->diff($rpc->created_at)->format("%a");?> days ago at <?php echo date_format($rpc->created_at, 'g:i A');?> - <?php echo $newDate = date("Y/m/d", strtotime($rpc->created_at)); ?>
                                                             </small>
-                                                        </div>
+                                                                {{--comm--}}
+                                                                    <div>
+                                                                        {!! Form::open(array('url'=>'clearRequest','method'=>'POST',
+                                                                        'class'=>'wizard-big', 'id'=>'clearform', 'enctype'=>'multipart/form-data' )) !!}
+                                                                        <fieldset>
+                                                                            <button type="button"
+                                                                                    class="btn btn-default " rel="tooltip" title="Clear request"
+                                                                                    onclick="clearRequest()"><i class="fa fa-remove"><b>Clear</b></i></button>
+                                                                            <input id="clearnotification" type="hidden" name="clearnotification" value="{{$rpc->id}}">
+                                                                        </fieldset>
+                                                                        {!! Form::close() !!}
+                                                                    </div>
 
+                                                                    <script>
+                                                                        /*clear group invitation*/
+                                                                        function clearRequest() {
+                                                                            swal({
+                                                                                        title: "Are you sure?",
+                                                                                        text: "Do You want to clear this notification ??",
+                                                                                        type: "warning", showCancelButton: true,
+                                                                                        confirmButtonColor: "#DD6B55",
+                                                                                        confirmButtonText: "Yes, clear it!",
+                                                                                        closeOnConfirm: false},
+
+                                                                                    function (isConfirm) {
+                                                                                        if (isConfirm)
+                                                                                        {
+
+                                                                                            document.getElementById("clearform").submit();
+
+                                                                                        }
+                                                                                    }
+                                                                            )
+                                                                        }
+                                                                    </script>
+                                                            @else
+                                                                <small class="pull-trigh"><?php $now = new DateTime();
+                                                                    echo $now->diff($rpc->created_at)->format("%h");?>hr ago</small>
+                                                                <strong > </strong>
+                                                                {{$rpc->text }}<strong> by {{ $rpc->from_id }}</strong>. <br>
+                                                                <small class="text-muted"><?php $now = new DateTime();
+                                                                    echo $now->diff($rpc->created_at)->format("%a");?> days ago at <?php echo date_format($rpc->created_at, 'g:i A');?> - <?php echo $newDate = date("Y/m/d", strtotime($rpc->created_at)); ?>
+                                                                </small>
+                                                            @endif
+                                                        </div>
                                                     </div>
                                                 </li>
                                                 <li class="divider"></li>
-                                            @elseif($rpc->read==0)
 
+                                            @elseif($rpc->read==0)
                                                 <li>
                                                     <div class="dropdown-messages-box" style=" background-color: #ecf0f1">
-
-                                                        <a href="{{ $routeURL }}" class="pull-left" >
-                                                            <img alt="image" src="{{ asset('public_assets/img/a7.jpg') }}" href="{{ $routeURL }}" class="img-circle" src="#">
-                                                        </a>
-
+                                                        {{--hiru--}}
+                                                        @if($name=="GroupLeaderToInviteeGroupInvitation")
+                                                            <a href="#" class="pull-left" >
+                                                                <img alt="image" src="{{ asset('public_assets/img/a7.jpg') }}" href="#" class="img-circle" src="#">
+                                                            </a>
+                                                        @elseif($name=="InviteeToGroupLeaderAcceptInvitation" || $name=="InviteeToGroupLeaderRejectInvitation" || $name=="GroupLeaderToMemberRemoveMember" || $name="AddedToAResearchGroup")
+                                                            <a href="#" class="pull-left" >
+                                                                <img alt="image" src="{{ asset('public_assets/img/a7.jpg') }}" href="#" class="img-circle" src="#">
+                                                            </a>
+                                                        @else
+                                                            <a href="{{ $routeURL }}" class="pull-left" >
+                                                                <img alt="image" src="{{ asset('public_assets/img/a7.jpg') }}" href="{{ $routeURL }}" class="img-circle" src="#">
+                                                            </a>
+                                                        @endif
+                                                        {{--hiru--}}
                                                         <div class="media-body" style="color: #000 ;">
                                                             <small class="pull-right"><?php $now = new DateTime();
                                                                 echo $now->diff($rpc->created_at)->format("%h");?>hr ago</small>
                                                             <strong >{{ $rpc->from_id }}</strong>
                                                             {{$rpc->text }}<strong></strong>. <br>
                                                             <small class="text-muted"><?php $now = new DateTime();
-                                                                echo $now->diff($rpc->created_at)->format("%a");?> days ago at <?php echo date_format($rpc->created_at, 'g:i A');?> - <?php echo $newDate = date("Y/m/d", strtotime($rpc->created_at)); ?>
+                                                                echo $now->diff($rpc->created_at)->format("%a");?>
+                                                                days ago at <?php echo date_format($rpc->created_at, '
+                                                                g:i A');?> - <?php echo $newDate = date("Y/m/d", strtotime($rpc->created_at)); ?>
                                                             </small>
                                                             <br>
+
+                                                            {{--//hiru--}}
+
+                                                            @if($name=="GroupLeaderToInviteeGroupInvitation")
+                                                                <br>
+                                                                <div style="width:200px;">
+                                                                    <div style="width: 100px; margin-left: 0">
+                                                                        {!! Form::open(array('url'=>'acceptRequest','method'=>'POST',
+                                                                        'class'=>'wizard-big', 'id'=>'acceptform', 'enctype'=>'multipart/form-data' )) !!}
+                                                                        <fieldset>
+                                                                            <button style="margin-left: 0px" type="button"
+                                                                                class="btn btn-info " rel="tooltip" title="Accept request"
+                                                                                onclick="acceptRequest()"><i class="fa fa-check"><b>Accept</b></i></button>
+                                                                            <input id="acceptnotification" type="hidden" name="acceptnotification" value="{{$rpc->id}}">
+                                                                        </fieldset>
+                                                                        {!! Form::close() !!}
+                                                                    </div>
+                                                                    {{--buttons with forms--}}
+                                                                    <div style="width: 100px; margin-left: 80px; margin-top: -34px">
+                                                                        {!! Form::open(array('url'=>'rejectRequest','method'=>'POST',
+                                                                        'class'=>'wizard-big', 'id'=>'rejectform', 'enctype'=>'multipart/form-data' )) !!}
+                                                                            <fieldset>
+                                                                                <button style="margin-left: 15px" type="button"
+                                                                                    class="btn btn-warning " rel="tooltip" title="Deny request"
+                                                                                    onclick="rejectRequest()"><i class="fa fa-times"><b>Reject</b></i></button>
+                                                                                <input id="rejectnotification" type="hidden" name="rejectnotification" value="{{$rpc->id}}">
+                                                                            </fieldset>
+                                                                        {!! Form::close() !!}
+                                                                    </div>
+                                                                </div>
+                                                                <br>
+                                                            @elseif($name=="InviteeToGroupLeaderAcceptInvitation" || $name=="InviteeToGroupLeaderRejectInvitation" || $name=="GroupLeaderToMemberRemoveMember" || $name="AddedToAResearchGroup")
+                                                                <div>
+                                                                    {!! Form::open(array('url'=>'clearNotification','method'=>'POST',
+                                                                    'class'=>'wizard-big', 'id'=>'clearNotificationform', 'enctype'=>'multipart/form-data' )) !!}
+                                                                    <fieldset>
+                                                                        <button type="button"
+                                                                                class="btn btn-default " rel="tooltip" title="Clear notification"
+                                                                                onclick="clearNotification()"><i class="fa fa-remove"><b>Clear</b></i></button>
+                                                                        <input id="clearNotif" type="hidden" name="clearNotif" value="{{$rpc->id}}">
+                                                                    </fieldset>
+                                                                    {!! Form::close() !!}
+
+                                                                </div>
+
+                                                                <script>
+                                                                    /*clear notification*/
+                                                                    function clearNotification() {
+                                                                        swal({
+                                                                                    title: "Are you sure?",
+                                                                                    text: "Do You want to clear this notification ??",
+                                                                                    type: "warning", showCancelButton: true,
+                                                                                    confirmButtonColor: "#DD6B55",
+                                                                                    confirmButtonText: "Yes, clear it!",
+                                                                                    closeOnConfirm: false},
+
+                                                                                function (isConfirm) {
+                                                                                    if (isConfirm)
+                                                                                    {
+
+                                                                                        document.getElementById("clearNotificationform").submit();
+
+                                                                                    }
+                                                                                }
+                                                                        )
+                                                                    }
+                                                                </script>
+                                                            @endif
+                                                            <script type="text/javascript">
+                                                                $(document).ready(function(){
+                                                                    $("[rel=tooltip]").tooltip({ placement: top});
+                                                                });
+
+
+                                                                /*accept group invitation*/
+                                                                function acceptRequest() {
+                                                                    swal({
+                                                                                title: "Are you sure?",
+                                                                                text: "Do You want to accept this request ??",
+                                                                                type: "warning", showCancelButton: true,
+                                                                                confirmButtonColor: "#DD6B55",
+                                                                                confirmButtonText: "Yes, accept it!",
+                                                                                closeOnConfirm: false},
+
+                                                                            function (isConfirm) {
+                                                                                if (isConfirm)
+                                                                                {
+
+                                                                                        document.getElementById("acceptform").submit();
+
+                                                                                }
+                                                                            }
+                                                                    )
+                                                                }
+                                                                /*reject group invitation*/
+                                                                function rejectRequest() {
+                                                                    swal({
+                                                                                title: "Are you sure?",
+                                                                                text: "Do You want to reject this request ??",
+                                                                                type: "warning", showCancelButton: true,
+                                                                                confirmButtonColor: "#DD6B55",
+                                                                                confirmButtonText: "Yes, reject it!",
+                                                                                closeOnConfirm: false},
+
+                                                                            function (isConfirm) {
+                                                                                if (isConfirm)
+                                                                                {
+
+                                                                                    document.getElementById("rejectform").submit();
+
+                                                                                }
+                                                                            }
+                                                                    )
+                                                                }
+                                                            </script>
                                                         </div>
-                                                        
-                                                        <button style="margin-left: 78px" type="button" class="btn btn-info btn-foursquare"><i class="fa fa-check"></i></button> 
-                                                         
-                                                        <button style="margin-left: 24px" type="button" class="btn btn-warning btn-foursquare"><i class="fa fa-times"></i></button> 
-                                                    
-                                                        </div>
+                                                    </div>
                                                 </li>
-                                                <li class="divider"></li>
                                             @endif
-                                            @endforeach
+                                        @endforeach
                                     @endfor
                                 </ul>
                             </li>
+                            <li class="divider"></li>
+
                             <li>
                                 <div class="text-center link-block">
                                     <a href="#">
@@ -274,7 +451,6 @@
 
 <!-- Jquery Validate -->
 <script src="{{ asset('public_assets/js/plugins/validate/jquery.validate.min.js') }}"></script>
-
 
 
 @yield('ValidationJavaScript')
