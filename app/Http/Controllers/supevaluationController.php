@@ -268,6 +268,36 @@ class supevaluationController extends Controller {
             return view('supevaluation.finalreportevaluation', compact('students', 'supervisaornames', 'studentid', 'groupids'));
         }
         
+        public function finalstatuscreate()
+        {
+            /*Get all supervisor names acording to the supervisor id*/
+                $supervisaornames = DB::select("SELECT name,id 
+		 FROM panelmembers
+		 WHERE id = any (SELECT supervisorId 
+		 FROM projects
+		 WHERE status = 'Approved')");
+                
+                /*Get all group ids*/
+                $groupids = DB::select("SELECT groupID 
+		 FROM research_groups");
+ 
+                /*Get all student actual id acording to the auto generated id*/
+                $studentid = DB::select("SELECT id,regId 
+		 FROM students
+		 WHERE id = any (SELECT studentId 
+		 FROM projects
+		 WHERE status = 'Approved')");
+                                
+                /*filtering projects according to the groups*/
+		$students = DB::select("SELECT id,title,studentId,supervisorId 
+		 FROM projects
+		 WHERE status = 'Approved' and groupIDforTitle = any (SELECT groupID 
+		 FROM research_groups)");
+                
+                
+            return view('supevaluation.finalstatusevaluation', compact('students', 'supervisaornames', 'studentid', 'groupids'));
+        }
+        
         public function vivacreate()
         {
             /*Get all supervisor names acording to the supervisor id*/
@@ -296,6 +326,36 @@ class supevaluationController extends Controller {
                 
                 
             return view('supevaluation.vivavaluation', compact('students', 'supervisaornames', 'studentid', 'groupids'));
+        }
+        
+        public function othercreate()
+        {
+            /*Get all supervisor names acording to the supervisor id*/
+                $supervisaornames = DB::select("SELECT name,id 
+		 FROM panelmembers
+		 WHERE id = any (SELECT supervisorId 
+		 FROM projects
+		 WHERE status = 'Approved')");
+                
+                /*Get all group ids*/
+                $groupids = DB::select("SELECT groupID 
+		 FROM research_groups");
+ 
+                /*Get all student actual id acording to the auto generated id*/
+                $studentid = DB::select("SELECT id,regId 
+		 FROM students
+		 WHERE id = any (SELECT studentId 
+		 FROM projects
+		 WHERE status = 'Approved')");
+                                
+                /*filtering projects according to the groups*/
+		$students = DB::select("SELECT id,title,studentId,supervisorId 
+		 FROM projects
+		 WHERE status = 'Approved' and groupIDforTitle = any (SELECT groupID 
+		 FROM research_groups)");
+                
+                
+            return view('supevaluation.otherassess', compact('students', 'supervisaornames', 'studentid', 'groupids'));
         }
         
         function searchforStudents() {
