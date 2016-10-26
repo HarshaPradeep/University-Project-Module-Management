@@ -118,7 +118,7 @@
                                 <label id="members" style="display: none;" value="{{$memberCount}}">{{$memberCount}}</label>
 
                                 @if($invCount<5)
-
+                                <div style="float: left">
                                 @foreach ($students as $key=>$stu)
                                     <label>
                                         <input class="single-checkbox" type="checkbox" id="student_names[]"
@@ -127,17 +127,18 @@
 
                                     </label><br/>
                                 @endforeach
-
+                                </div>
                                 @endif
                                 <br clear="both" />
+                                <div style="margin-left: 500px; margin-top: -125px;">
+                                    <textarea  name="txt1" id="txt1" style="width:370px;height:200px;font-size:20px; resize: none;" rows="3" readonly> </textarea>
 
+                                </div>
 
 
                             </div>
-                        </div>  <div class="col-lg-10" style="float: right">
-                            <textarea  name="txt1" id="txt1" style="width:370px;height:200px;font-size:20px; margin: -255px 21px -26px 453px; resize: none;" rows="3" readonly> </textarea>
-
                         </div>
+
 
                     </div>
 
@@ -172,49 +173,48 @@
                                 <td style="color:<?php echo $status_colors[$inv->status];?> ">{{ $inv->status }}</td>
                                 <td style="display: none;">{{ $inv->notification_id }}</td>
                                 @if($inv->status  == "Pending")
+
+
                                     <td>
-
-                                        {!! Form::open(array('url'=>'deleteMemberRequest','method'=>'POST',
-                                                                        'class'=>'wizard-big', 'id'=>'cancelRequestform', 'enctype'=>'multipart/form-data' )) !!}
-                                        <fieldset>
-                                            <button type="button"
-                                                    class="btn btn-sm btn-warning" rel="tooltip" title="Cancel Request"
-                                                    onclick="cancelRequest()"><span class="glyphicon glyphicon-ban-circle"></span></button>
-                                            <input id="deleteRequest" type="hidden" name="deleteRequest" value="{{$inv->notification_id}}">
-                                        </fieldset>
-                                        {!! Form::close() !!}
-
+                                        <form action="{{ url('pendingDel/'.$inv->notification_id) }}" method="POST" >
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button type="submit" id="delete-member-{{ $inv->notification_id }}" class="btn btn-sm btn-warning" >
+                                                <span class="glyphicon glyphicon-ban-circle"></span></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 @endif
                                 @if($inv->status  == "Accepted")
+
                                     <td>
-                                        {!! Form::open(array('url'=>'deleteMember','method'=>'POST',
-                                                                        'class'=>'wizard-big', 'id'=>'deleteMemberform', 'enctype'=>'multipart/form-data' )) !!}
-                                        <fieldset>
-                                            <button type="button"
-                                                    class="btn btn-sm btn-primary" rel="tooltip" title="Remove Member"
-                                                    onclick="removeMember()"><span class="glyphicon glyphicon-remove"></span></button>
-                                            <input id="deleteMember" type="hidden" name="deleteMember" value="{{$inv->notification_id}}">
-                                        </fieldset>
-                                        {!! Form::close() !!}
+                                        <form action="{{ url('remMember/'.$inv->notification_id) }}" method="POST" >
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button type="submit" id="delete-member-{{ $inv->notification_id }}" class="btn btn-sm btn-primary" >
+                                                <span class="glyphicon glyphicon-remove"></span></i>
+                                            </button>
+                                        </form>
                                     </td>
+
                                 @endif
                                 @if($inv->status  == "Rejected")
+
                                     <td>
-                                    {!! Form::open(array('url'=>'deleteMemberRequest','method'=>'POST',
-                                            'class'=>'wizard-big', 'id'=>'deleteRejectedform', 'enctype'=>'multipart/form-data' )) !!}
-                                    <fieldset>
-                                    <button type="button"
-                                    class="btn btn-sm btn-danger" rel="tooltip" title="Delete Request"
-                                    onclick="deleteRejected()"><span class="glyphicon glyphicon-trash"></span></button>
-                                    <input id="deleteRequest" type="hidden" name="deleteRequest" value="{{$inv->notification_id}}">
-                                        </fieldset>
-                                        {!! Form::close() !!}
+                                        <form action="{{ url('pendingDel/'.$inv->notification_id) }}" method="POST" >
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button type="submit" id="delete-member-{{ $inv->notification_id }}" class="btn btn-sm btn-danger" >
+                                                <span class="glyphicon glyphicon-trash"></span></i>
+                                            </button>
+                                        </form>
                                     </td>
+
                                     @endif
 
                             </tr>
                         @endforeach
+
 
             </tbody>
             </table>
@@ -372,71 +372,7 @@
             )
         }
 
-        /*delete sent group invitations*/
-        function deleteRejected(){
 
-            swal({   title: "Are you sure?",
-                        text: "Do You want to delete the sent request??",
-                        type: "warning",   showCancelButton: true,
-                        confirmButtonColor: "#DD6B55",
-                        confirmButtonText: "Yes!",
-                        cancelButtonText: "No!",
-                        closeOnConfirm: true,
-                        closeOnCancel: true },
-                    function(isConfirm){
-
-                        if (isConfirm) {
-                            swal("Success!", "Deleted the rejected list.", "success");
-                            document.getElementById("deleteRejectedform").submit();
-                        }
-
-                    });
-
-        }
-
-        /*cancel sent group invitations*/
-        function cancelRequest(){
-
-            swal({   title: "Are you sure?",
-                        text: "Do You want to cancel the sent request??",
-                        type: "warning",   showCancelButton: true,
-                        confirmButtonColor: "#DD6B55",
-                        confirmButtonText: "Yes!",
-                        cancelButtonText: "No!",
-                        closeOnConfirm: true,
-                        closeOnCancel: true },
-                    function(isConfirm){
-
-                        if (isConfirm) {
-                            swal("Success!", "The request was cancelled.", "success");
-                            document.getElementById("cancelRequestform").submit();
-                        }
-
-                    });
-
-        }
-
-        /*remove the group member*/
-        function removeMember(){
-
-            swal({   title: "Are you sure?",
-                        text: "Do You want to remove this member from your group??",
-                        type: "warning",   showCancelButton: true,
-                        confirmButtonColor: "#DD6B55",
-                        confirmButtonText: "Yes!",
-                        cancelButtonText: "No!",
-                        closeOnConfirm: true,
-                        closeOnCancel: true },
-                    function(isConfirm){
-
-                        if (isConfirm) {
-                            swal("Success!", "Member was deleted.", "success");
-                            document.getElementById("deleteMemberform").submit();
-                        }
-
-                    });
-
-        }
 
         /*adding names to text area*/
         function addToList(checkObj, outputObjID)

@@ -9,7 +9,7 @@
 
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
-            <h2>Group Manage -LIC</h2>
+            <h2>Group Manage - LIC</h2>
             <ol class="breadcrumb">
 
             </ol>
@@ -24,7 +24,9 @@
 
 
 @section('content')
-
+    @if(Session::has('flash_message'))
+        <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('flash_message') !!}</em></div>
+    @endif
 
     <div class="wrapper wrapper-content animated fadeInRight">
 
@@ -46,49 +48,92 @@
                         <table class="table table-hover no-margins">
                             <thead>
                             <tr>
-                                <th>Status</th>
-                                <th>last Updated Date</th>
-                                <th>Student</th>
-                                <th>Project</th>
+                                <th>Group ID</th>
+                                <th>Group Status</th>
                             </tr>
                             </thead>
                             <tbody>
 
-                            @for($id=0;$id<count($projectDetails);$id++ )
-
+                            @foreach( $groups as $grp )
                                 <tr>
-                                    @if($projectDetails[$id]->status=='Pending')
-                                        <td><span class="label label-primary">Pending</span></td>
-                                    @elseif($projectDetails[$id]->status=='Rejected')
-                                        <td><span class="label label-danger">Rejected</span></td>
-                                    @elseif($projectDetails[$id]->status=='Approved')
-                                        <td><span class="label label-primary">Accepted</span></td>
-                                    @elseif($projectDetails[$id]->status=='Thesis Evaluated')
-                                        <td><span class="label label-default">Thesis Evaluated</span></td>
-                                    @elseif($projectDetails[$id]->status=='Proposal Evaluated')
-                                        <td><span class="label label-default">Proposal Evaluated</span></td>
-                                    @endif
-                                    <td><i class="fa fa-clock-o"></i> {{$projectDetails[$id]->updatedDate}}</td>
-                                    <td>{{$projectDetails[$id]->StudentRegId}}</td>
-                                    <td class="text-navy"> <i class="fa fa-level-up"></i> {{$projectDetails[$id]->projectTitle}} </td>
+                                    <?php $routeURL = ''; ?>
+                                    <td>{{ $grp->groupID }}</td>
+                                        @if($grp->status == "Closed")
+                                            <td style="color:#2ecc71 ">{{ $grp->status }}</td>
+                                        @elseif ($grp->status == "Open")
+                                            <td style="color: #f39c12">{{ $grp->status }}</td>
+                                        @endif
+
+                                    <td>
+                                        <a href="{{ asset('viewGroup/' . $grp->groupID) }}" class="edit_btn btn btn-primary btn-xs m-l-sm"><span class="glyphicon glyphicon-cog"></span>    Edit</a>
+
+                                    </td>
                                 </tr>
-                            @endfor
+                            @endforeach
 
                             </tbody>
                         </table>
                     </div>
                 </div>
+
+
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Create a Research Group</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+
+                        <div style="margin-left: 60px; margin-top: 0;">
+                            <h2>Available student pool:</h2><br>
+                            <font color="red">*Always select the leader first.</font>
+                            <br><br>
+                            {!! Form::open(array('url'=>'createGroup','method'=>'POST',
+                            'class'=>'wizard-big', 'id'=>'createGroupform', 'enctype'=>'multipart/form-data' )) !!}
+                            <fieldset>
+                                <div style="float: left">
+                                    @foreach ($students as $key=>$stu)
+                                        <label>
+                                            <input class="single-checkbox" type="checkbox" id="student_names[]"
+                                                   name="student_names[]" value= "{{$stu->regId}}" onClick="addToList(this,'txt1');" />
+                                            <span>{{$stu->name}} - <i>{{$stu->email}}</i> - <i>{{$stu->regId}}</i> -<i>{{$stu->courseField}}</i></span>
+
+                                        </label><br/>
+                                    @endforeach
+                                </div>
+                                <div style="margin-top: 0px;">
+                                    <textarea  name="txt1" id="txt1" style="width:370px;height:200px;font-size:20px; resize: none;" rows="3" readonly> </textarea>
+                                </div>
+                                <div style="margin-top: 0;">
+                                    <button class="btn btn-primary" id="invteBtn" type="button"
+                                            onclick="inviteMembers()" >Add</button>
+                                    <button class="btn btn-warning" id="rstBtn" type="reset" >Reset</button>
+                                </div>
+                            </fieldset>
+                            {!! Form::close() !!}
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
             <div class="col-lg-5">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5> Project Status Statistics </h5>
+                        <h5> Group Status Statistics </h5>
 
                         <div ibox-tools></div>
                     </div>
                     <div class="ibox-content">
                         <div class="text-center">
-                            <canvas id="doughnutChart1" height="200" width="200"></canvas>
+                            <canvas id="doughnutChart1" height="230" width="230"></canvas>
                         </div>
                     </div>
                 </div>
@@ -96,20 +141,14 @@
 
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5> Projects Overview </h5>
+                        <h5> Students Pool Statistics </h5>
 
                         <div ibox-tools></div>
                     </div>
                     <div class="ibox-content">
-                        <!--logeesd user calander-->
-
-                        <div class="row animated fadeInDown">
-                            {{--<div class="ibox-content">--}}
-                            <div class="col-lg-12">
-                                <div id="calendar" class="fc fc-ltr fc-unthemed"></div>
-                            </div>
+                        <div class="text-center">
+                            <canvas id="doughnutChart2" height="230" width="230"></canvas>
                         </div>
-
                     </div>
                 </div>
 
@@ -124,135 +163,135 @@
 
 @section('ValidationJavaScript')
 
+    <script>
+        /*adding names to text area*/
+        function addToList(checkObj, outputObjID)
+        {
+
+
+            var count = 0;
+            var checkGroup = checkObj.form[checkObj.name];
+            var checkGroupLen = checkGroup.length;
+            var valueList = new Array();
+            for (var i=0; i<checkGroupLen; i++)
+            {
+                if (checkGroup[i].checked)
+                {
+                    valueList[valueList.length] = checkGroup[i].value;
+                }
+            }
+            document.getElementById(outputObjID).value = valueList.join('\r\n');
+
+
+            var isTxtAreaFilled = $.trim( $('#txt1').val() );
+            if(isTxtAreaFilled) {
+
+                document.getElementById("invteBtn").disabled = false;
+                document.getElementById("rstBtn").disabled = false;
+
+            }else{
+
+                document.getElementById("invteBtn").disabled = true;
+                document.getElementById("rstBtn").disabled = true;
+            }
+
+            return;
+
+        }
+
+        function inviteMembers() {
+
+            swal({
+                        title: "Are you sure?",
+                        text: "Do you want create this research group ??",
+                        type: "warning", showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Yes!",
+                        closeOnConfirm: false},
+
+                    function (isConfirm) {
+
+                        if (isConfirm)
+                        {
+                            var atLeastOneIsChecked = $('input[name="student_names[]"]:checked').length > 0;
+
+                            if(atLeastOneIsChecked == false){
+
+                                swal("Failed", "Select members to invite.", "error");
+
+                            }
+
+                            else
+                            {
+                                document.getElementById("invteBtn").disabled = true;
+                                document.getElementById("rstBtn").disabled = true;
+
+
+                                document.getElementById("createGroupform").submit();
+                            }
+                        }
+                        else
+                        {
+                            swal("Failed", "Sending invitations was failed, try again.", "error");
+                        };
+
+                    }
+            )
+        }
+    </script>
+
 
     <script>
+        $(document).ready(function(){
 
-        $(document).ready(function () {
+            var ClosedGroupCount =   '<?php echo $ClosedGroupCount;?>';
+            var OpenGroupCount =   '<?php echo $OpenGroupCount;?>';
 
-            var ApprovedProjectCount =   '<?php echo $ApprovedProjectCount;?>';
-            var PendingProjectCount =   '<?php echo $PendingProjectCount;?>';
-            var RejectedProjectCount =   '<?php echo $RejectedProjectCount;?>';
-            var PEvaluatedProjectCount =   '<?php echo $PEvaluatedProjectCount;?>';
-            var TEvaluatedProjectCount =   '<?php echo $TEvaluatedProjectCount;?>';
-
-            var doughnutData = [
+            var doughnutData1 = [
                 {
-
-
-                    value: parseInt(PendingProjectCount),
-                    color: "#f39c12",
-                    highlight: "#1ab394",
-                    label: "Pending"
-                },
-                {
-                    value: parseInt(ApprovedProjectCount),
+                    value: parseInt(ClosedGroupCount),
                     color: "#2ecc71",
                     highlight: "#1ab394",
-                    label: "Accepted"
+                    label: "Group Status - Closed"
                 },
                 {
-                    value: parseInt(PEvaluatedProjectCount),
+                    value: parseInt(OpenGroupCount),
+                    color: "#f39c12",
+                    highlight: "#1ab394",
+                    label: "Group Status - Open"
+                }
+                    ];
+
+
+            var ctx1 = document.getElementById("doughnutChart1").getContext("2d");
+            var DoughnutChart1 = new Chart(ctx1).Doughnut(doughnutData1);
+
+            var GroupedStudentCount =   '<?php echo $GroupedStudentCount;?>';
+            var SingleStudentCount =   '<?php echo $SingleStudentCount;?>';
+
+            var doughnutData2 = [
+
+                {
+                    value: parseInt(GroupedStudentCount),
                     color: "#b5b8cf",
                     highlight: "#1ab394",
-                    label: "Proposal Evaluated"
+                    label: "Already grouped"
                 },
                 {
-                    value: parseInt(TEvaluatedProjectCount),
-                    color: "#b5b8cf",
-                    highlight: "#1ab394",
-                    label: "Thesis Evaluated"
-                },
-                {
-                    value: parseInt(RejectedProjectCount),
+                    value: parseInt(SingleStudentCount),
                     color: "#e74c3c",
                     highlight: "#1ab394",
-                    label: "Rejected"
+                    label: "Remaining"
                 }
             ];
 
-            var doughnutOptions = {
 
-            };
-            var ctx = document.getElementById("doughnutChart1").getContext("2d");
-            var DoughnutChart = new Chart(ctx).Doughnut(doughnutData, doughnutOptions);
-
-
-            /* initialize the external events
-             -----------------------------------------------------------------*/
-
-            /* Encode the array returned from the server as a json array */
-
-            var eventJson = <?php echo json_encode($all_events_belongs_to_current_RPC);?>
-
-                    $('#external-events div.external-event').each(function() {
-
-                // store data so the calendar knows to render an event upon drop
-                $(this).data('event', {
-                    title: $.trim($(this).text()), // use the element's text as the event title
-                    stick: true // maintain when user navigates
-                });
-
-                // make the event draggable
-                $(this).draggable({
-                    zIndex: 1111999,
-                    revert: true,      // will cause the event to go back to its
-                    revertDuration: 0  //  original position after the drag
-                });
-
-            });
-
-//            console.log(eventJson);
-            /* initialize the calendar
-             -----------------------------------------------------------------*/
-
-            var eventsArray = [];
-
-            //add event by event to the calendar
-            for( var i=0; i<eventJson.length; i++ ) {
-                var tdate = eventJson[i][0].date.substring(0,4)+'/'+ eventJson[i][0].date.substring(5,7)+'/'+ eventJson[i][0].date.substring(8,10)
-                var tempDate = new Date(tdate);
-
-                var d = tempDate.getDate();
-                var m = tempDate.getMonth();
-                var y = tempDate.getFullYear();
-
-                var events = {
-                    "title": eventJson[i].title,
-                    "start": new Date(y,m,d,eventJson[i][0].time.substring(0,2),eventJson[i][0].time.substring(3,5)),
-                    "end": new Date(y,m,d,eventJson[i][0].eTime.substring(0,2),eventJson[i][0].eTime.substring(3,5)),
-                    "allDay": false
-                };
-                eventsArray.push(events);
-            }
-
-            $('#calendar').fullCalendar({
-                header: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'month,agendaWeek,agendaDay'
-                },
-                editable: false,
-                droppable: false, // this allows things to be dropped onto the calendar
-                drop: function() {
-                    // is the "remove after drop" checkbox checked?
-                    if ($('#drop-remove').is(':checked')) {
-                        // if so, remove the element from the "Draggable Events" list
-                        $(this).remove();
-                    }
-                },
-
-                eventDrop: function(event, delta, revertFunc) {
-
-                },
-                events: eventsArray
-//                defaultTimedEventDuration: '00:30:00'
-            });
-
-
+            var ctx2 = document.getElementById("doughnutChart2").getContext("2d");
+            var DoughnutChart2 = new Chart(ctx2).Doughnut(doughnutData2);
 
         });
 
+
     </script>
-    <script src="{{ asset('public_assets/js/plugins/fullcalendar/moment.min.js')}}"></script>
-    <script src="{{ asset('public_assets/js/plugins/fullcalendar/fullcalendar.min.js')}}"></script>
+
 @endsection

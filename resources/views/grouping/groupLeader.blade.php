@@ -137,8 +137,8 @@
                                             <div style="margin-left: 283px; margin-top: -27px;">
                                                 <input type="submit" class="btn-sm btn-primary">
                                             </div>
-                                            <div> @if(Session::has('flash_message'))
-                                                    <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('flash_message') !!}</em></div>
+                                            <div> @if(Session::has('pro_suc'))
+                                                    <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('pro_suc') !!}</em></div>
                                                 @endif
                                                 @if (Session::has('error'))
                                                     <div class="alert alert-danger"><span class="glyphicon glyphicon-remove"></span>{{ Session::get('error') }}</div>
