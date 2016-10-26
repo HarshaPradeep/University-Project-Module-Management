@@ -140,7 +140,7 @@
                         
                         
                 <div style="color:#121A5B;" ><h2><b>{{$p->topic}}</b></h2></div>
-                        Posted by : {{$p->username}}<br>
+                        Posted by : {{$p->email}}<br>
                         on :<b>{{date('M j,Y h:ia',strtotime($p->datetime))}}</b>
                         <br><br><br>
 
@@ -158,7 +158,7 @@
 
                         <br>
                 <form id="{{$p->id}}" action='' method='post' >
-                    @if($p->username == $uname)
+                    @if($p->email == $email)
                         <a href="{{ asset('editPost/'. $p->id) }}" class="edit_btn btn btn-primary btn-xs m-l-sm">Edit</a>
 
                         <input type='hidden' name='toDelete'  value="{{$p->id}}">
@@ -179,7 +179,7 @@
                         <div  class="jumbotran" style="border-radius:10px;background-color:white;width:1000px;padding-left: 100px;">
 
 
-                           <div style="color:#121A5B;" > Posted by :<b>{{$comment->username}}</b><br>
+                           <div style="color:#121A5B;" > Posted by :<b>{{$comment->email}}</b><br>
                            on :<b>{{date('M j,Y h:ia',strtotime($comment->timedate))}}</b>
                             <br><br>
 
@@ -200,7 +200,7 @@
 
                             &emsp;</div>
                             <br>
-                            @if($comment->username == $uname)
+                            @if($comment->email == $email)
                             <form id="{{$comment->id}}" action='' method='post' >
                                 <a href="{{ asset('editComment/'. $comment->id) }}" class="edit_btn btn btn-primary btn-xs m-l-sm">Edit</a>
                                 <input type='hidden' name='toDelete'  value="{{$comment->id}}">

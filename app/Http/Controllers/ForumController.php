@@ -27,16 +27,6 @@ class ForumController extends Controller {
 
 
 
-/*    public function getPost(){
-
-
-        $posts=newsfeed::orderBy('datetime','desc')->paginate(5);
-        $username = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->username;
-
-        return view('groupForum', ['posts'=>$posts ],['uname'=>$username]);
-
-    }*/
-
     public function prevComments()
     {
         $com=comments::all();
@@ -66,14 +56,14 @@ class ForumController extends Controller {
 
         $p=topics::find($po);
         $pos=newsfeed::where('topic_id',$po)->get();
-        $uid = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->username;
+        $uid = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->email;
 
         $v = topics::select('views')->where('id',$po)->pluck('views');
         $v++;
         $p->views = $v;
         $p->save();
 
-        return view('groupForum', ['pos'=>$pos ],['uname'=>$uid]);
+        return view('groupForum', ['pos'=>$pos ],['email'=>$uid]);
     }
 
     public function viewQuestion($po)
@@ -90,10 +80,10 @@ class ForumController extends Controller {
         $p->save();
 
         $com=comments::where('post_id',$po)->get();
-        $username = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->username;
+        $email = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->email;
 
 
-      return view('groupForumdisplay',compact('p'))->with('com',$com)->with('uname',$username);
+      return view('groupForumdisplay',compact('p'))->with('com',$com)->with('email',$email);
 
 
     }
@@ -101,9 +91,9 @@ class ForumController extends Controller {
     public function editPost($po)
     {
 
-        $username = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->username;
+        $email = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->email;
 
-        if($po == $username){
+        if($po == $email){
             return true;
         }
         else
@@ -112,26 +102,7 @@ class ForumController extends Controller {
 
 
 
-  /*  public function viewPost(){
 
-
-        $posts=newsfeed::all();
-
-        return view('viewPost',['forum'=>$posts]);
-
-    }*/
-
-
-
-
-
-
-    /*public function add_new_post()
-    {
-
-        $posts=newsfeed::all();
-        return view('groupForum' , ['posts'=>$posts]);
-    }*/
 
    public function editPostView($id)
     {
@@ -159,7 +130,7 @@ class ForumController extends Controller {
         $t->save();
         \Session::flash('message_success', 'Topic Updated Successfully!!');
         $posts=newsfeed::orderBy('id','desc')->paginate(5);
-        $username = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->username;
+        $email = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->email;
 
         return Redirect::to('/viewTopics');
     }
@@ -196,9 +167,9 @@ class ForumController extends Controller {
                     $t->save();
                     \Session::flash('message_success', 'Post Updated Successfully!!');
                     $posts=newsfeed::orderBy('id','desc')->paginate(5);
-                    $username = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->username;
+                    $email = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->email;
 
-                    return view('groupForum', ['posts'=>$posts ],['uname'=>$username]);
+                    return view('groupForum', ['posts'=>$posts ],['email'=>$email]);
 
 
 
@@ -215,9 +186,9 @@ class ForumController extends Controller {
 
 
                     $posts=newsfeed::orderBy('id','desc')->paginate(5);
-                    $username = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->username;
+                    $email = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->email;
 
-                    return view('groupForum', ['posts'=>$posts ],['uname'=>$username]);
+                    return view('groupForum', ['posts'=>$posts ],['email'=>$email]);
 
                 }
 
@@ -231,7 +202,7 @@ class ForumController extends Controller {
                 $t->save();
                 \Session::flash('message_success', 'Post Updated Successfully!!');
                 $posts=newsfeed::orderBy('id','desc')->paginate(5);
-                $username = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->username;
+                $email = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->email;
 
                 return Redirect::to('/groupForumdisplay/'.$postid);
 
@@ -254,78 +225,6 @@ class ForumController extends Controller {
 
     }
 
-   /* public function deleteandgetpost(Addpost $post){
-
-
-
-       if (isset($_POST['delete'])) {
-
-            $u = newsfeed::find($_POST['toDelete']);
-            $u->delete();
-            \Session::flash('message_delete', 'Post Deleted Successfully!!');
-            return Redirect::to('/groupForum');
-
-
-        }
-
-
-//        $search = DB::table('newsfeed')->where('topic', 'LIKE', '%' . $query . '%')->paginate(10);
-//        return view('groupForum', compact('query', 'search'));
-
-        else {
-
-
-            $unique = true;
-            $topic = $post->topic;
-            $msg = $post->message;
-            $date = new DateTime("now", new DateTimeZone('Asia/Colombo') );
-            $username = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->username;
-            $file = Input::file('file');
-
-
-            if ($file != null) {
-
-                //check whether a file is choosen
-
-
-                $name = $file->getClientOriginalName();
-                $ext = $file->getClientOriginalExtension();
-                $destinationPath = '/uploads/forum/' . $name;
-                $file->move(public_path() . '/uploads/forum/', $name);
-
-
-                if ($ext == 'docx' || $ext == 'pdf' || $ext == 'zip') {
-
-                    newsfeed::create(['topic' => $topic, 'message' => $msg, 'link' => $destinationPath, 'file_name' => $name, 'datetime' => $date, 'username' => $username]);
-                    \Session::flash('message_success', 'Post Added Successfully!!');
-
-                    return Redirect::to("/groupForum");
-
-                } elseif ($ext == 'png' || $ext == 'jpg' || $ext == 'JPG') {
-
-
-                    newsfeed::create(['topic' => $topic, 'message' => $msg, 'file' => $destinationPath, 'file_name' => $name, 'datetime' => $date, 'username' => $username]);
-                    \Session::flash('message_success', 'Post Added Successfully!!');
-                    return Redirect::to("/groupForum");
-
-                }
-
-            } else {
-
-
-                $dt = Carbon\Carbon::now();
-                $username = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->username;
-
-
-                newsfeed::create(['topic' => $topic, 'message' => $msg, 'datetime' => $dt, 'username' => $username]);
-                \Session::flash('message_success', 'Post Added Successfully!!');
-
-                return Redirect::to("/groupForum");
-
-
-            }
-        }*/
-
 
 
     public function getTopic(){
@@ -333,8 +232,34 @@ class ForumController extends Controller {
 
 
         $p=newsfeed::all();
-        $topics=topics::orderBy('updated_at','desc')->paginate(10);
-        $username = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->username;
+        $email = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->email;
+
+      /*  $shares = DB::table('shares')
+            ->join('users', 'users.id', '=', 'shares.user_id')
+            ->join('follows', 'follows.user_id', '=', 'users.id')
+            ->where('follows.follower_id', '=', 3)
+            ->get();*/
+
+        /*$data = topics::orderBy('topics.updated_at', 'desc')
+            ->join('users', 'users.email', '=', 'students.email')
+            ->join('topics','topics.group_id','=','students.grouped')
+            ->select('*')
+            ->where('topics.group_id','=',$email)
+            ->get();*/
+        $topics=DB::table('topics')
+            ->join('topics','users.email','=','topics.email')
+            ->select('*')
+            ->where('topics.email','=',$email)
+            ->get();
+
+            return $topics;
+
+        //$topics=topics::orderBy('updated_at','desc')->paginate(5);
+        $email = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->email;
+
+
+
+
 //dd($topics);
 
         $nos=DB::table('newsfeed')->select( DB::raw('topic_id, COUNT(id) as count' ) )
@@ -347,7 +272,7 @@ class ForumController extends Controller {
 
 
 
-        return view('viewTopics',compact('topics','nos','views','username'));
+        //return view('viewTopics',compact('topics','nos','views','email'));
 
     }
 
@@ -372,14 +297,16 @@ class ForumController extends Controller {
 
             $unique = true;
             $topic = $topic->topic;
-            $username = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->username;
-            $username = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->username;
+            $em = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->email;
 
 
 
 
+            $query= DB::table('students')->select('grouped')->where('email','LIKE',$em)->pluck('grouped');
 
-                topics::create(['topic' => $topic,'username' => $username]);
+
+
+                topics::create(['topic' => $topic,'email' => $em,'group_id'=>$query]);
                 \Session::flash('message_success', 'Topic Added Successfully!!');
 
                 return Redirect::to("/viewTopics");
@@ -425,7 +352,7 @@ class ForumController extends Controller {
 
             $dt = Carbon\Carbon::now();
             $approved = true;
-            $username = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->username;
+            $email = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->email;
             $url_last = (explode('/', $_SERVER['REQUEST_URI']));
             $url_lastpart = $url_last[2];
 
@@ -443,7 +370,7 @@ class ForumController extends Controller {
                 {
 
 
-                    newsfeed::create(['topic' => $topic,'message' => $msg,'username' => $username, 'datetime' => $dt,
+                    newsfeed::create(['topic' => $topic,'message' => $msg,'email' => $email, 'datetime' => $dt,
                         'description' => $msg, 'link' => $destinationPath,'file_name'=>$name, 'topic_id' => $url_lastpart]);
                     \Session::flash('message_comment', 'Thank you for your post!!');
                     $url_last = (explode('/', $_SERVER['REQUEST_URI']));
@@ -453,7 +380,7 @@ class ForumController extends Controller {
                 }
                 elseif ($ext == 'png' ||$ext == 'jpg' ||$ext == 'JPG' ) {
 
-                    newsfeed::create(['topic' => $topic,'message' => $msg,'username' => $username, 'datetime' => $dt,
+                    newsfeed::create(['topic' => $topic,'message' => $msg,'email' => $email, 'datetime' => $dt,
                         'description' => $msg, 'file' => $destinationPath,'file_name'=>$name, 'topic_id' => $url_lastpart]);
                     \Session::flash('message_comment', 'Thank you for your post!!');
                     $url_last = (explode('/', $_SERVER['REQUEST_URI']));
@@ -463,7 +390,7 @@ class ForumController extends Controller {
             }
             else{
 
-                newsfeed::create(['topic' => $topic,'message' => $msg,'username' => $username, 'datetime' => $dt,
+                newsfeed::create(['topic' => $topic,'message' => $msg,'email' => $email, 'datetime' => $dt,
                     'description' => $msg,'topic_id' => $url_lastpart]);
                 \Session::flash('message_comment', 'Thank you for your post!!');
                 $url_last = (explode('/', $_SERVER['REQUEST_URI']));
@@ -480,24 +407,6 @@ class ForumController extends Controller {
 
 
 
-    /* public function search(){
-         $query = Input::get('search');
-
-         $search = DB::table('newsfeed')->where('topic', 'LIKE', '%' . $query . '%')->paginate(10);
-         return view('groupForum', compact('query', 'search'));
-
-     }*/
-
-    /* public function destroy( $id, Request $request ) {
-         $post = Product::findOrFail( $id );
-
-         if ( $request->ajax() ) {
-             $post->delete( $request->all() );
-
-             \Session::flash('message_success', 'Post Updated Successfully!!');
-         }
-         return response(['msg' => 'Failed deleting the product', 'status' => 'failed']);
-     }*/
 
 }
 

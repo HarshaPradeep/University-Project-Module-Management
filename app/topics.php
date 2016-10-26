@@ -15,6 +15,6 @@ class topics extends Model {
      * @var array
      */
 
-    protected $fillable = ['id','topic','username','views'];
+    protected $fillable = ['id','topic','email','group_id','views'];
 
 }

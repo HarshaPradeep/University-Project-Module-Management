@@ -127,7 +127,7 @@
 
                 <div style="color:#121A5B; display: inline;"><img style="border-radius:50%;width:60px; padding-top:5px;" src="http://tedxfukuoka.com/wp/wp-content/uploads/rika_shiiki_-562x562.jpg">
                 <h2><a href="http://localhost:8000/groupForumdisplay/{{$post->id}}">{{$post->topic}}</a></h2></div>
-                Posted by : {{$post->username}}<br>
+                Posted by : {{$post->email}}<br>
                 on :<b>{{date('M j,Y h:ia',strtotime($post->datetime))}}</b>
                 <br><br><br>
 
@@ -149,7 +149,7 @@
                 <hr>
                 <form id="{{$post->id}}" action='' method='post' >
                     <i class="fa fa-comment" aria-hidden="true"></i>&nbsp;<a href="http://localhost:8000/groupForumdisplay/{{$post->id}}">Reply</a>
-                    @if($post->username == $uname)
+                    @if($post->email == $email)
                         <a href="{{ asset('editPost/'. $post->id) }}" class="edit_btn btn btn-primary btn-xs m-l-sm">Edit</a>
 
                         <input type='hidden' name='toDelete'  value="{{$post->id}}">

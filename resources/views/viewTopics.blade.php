@@ -146,7 +146,7 @@
     @forelse($topics as $topic)
 
         <a href="http://localhost:8000/groupForum/{{$topic->id}}">
-        <div class="container" style="border-radius:10px;background-color:#FFFFFF;width:1000px;padding-left: 10px;">
+        <div class="container" style="border-radius:10px;background-color:#FFFFFF;width:1100px;padding-left: 10px;">
             <div class="row">
                 <div class="col-md-5">
                     <h2>{!!$topic->topic!!}</h2>
@@ -181,14 +181,14 @@
                     <img style="border-radius:50%;width:60px; padding-top:5px;display: inline;" src="http://www.findloveagain.co.za/pics/i1/19/prf/nopic2.gif">
                 </div>
                 <div class="col-md-2" style="padding-top: 12px;">
-                    Posted by : {{$topic->username}}<br>
+                    Posted by : {{$topic->email}}<br>
                     on :{{date('M j,Y h:ia',strtotime($topic->updated_at))}}
                 </div>
 
 
             </div>
             <form id="{{$topic->id}}" action='' method='post' >
-                @if($topic->username == $username)
+                @if($topic->email == $email)
                     <a href="{{ asset('editTopicView/'. $topic->id) }}" class="edit_btn btn btn-primary btn-xs m-l-sm">Edit</a>
 
                     <input type='hidden' name='toDelete'  value="{{$topic->id}}">

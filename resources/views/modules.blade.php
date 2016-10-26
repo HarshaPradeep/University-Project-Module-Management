@@ -10,7 +10,7 @@
     <link href="{{asset('public_assets/js/plugins/gritter/jquery.gritter.css')}}" rel="stylesheet">
 
 
-
+    <title>Add Module</title>
     <link href="{{ asset('public_assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('public_assets/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
     <link href="{{ asset('public_assets/css/plugins/iCheck/custom.css') }}" rel="stylesheet">

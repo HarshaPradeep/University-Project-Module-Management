@@ -22,7 +22,6 @@ Route::get('/', 'WelcomeController@index');
 
 Route::get('feed','viewcontroller@fb');
 
-
 Route::post('feed','feedController@addfeed');
 
 
@@ -45,21 +44,19 @@ Route::group(array('middleware' => 'auth'), function() {
 
 Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
 
-
-
+    Route::get('message','InboxController@index');
+    Route::get('viewMessage/{sender}/{receiver}','ViewMessageController@index');
+    Route::get('deleteMessage/{sender}/{receiver}','ViewMessageController@deleteMessage');
+    Route::post('sendMessage','ViewMessageController@sendMessage');  
 
     Route::get('LIC','LICController@view');
     Route::post('LIC','LICController@registerLectureInCharge');
     Route::get('UpdateLIC','LICController@update');
-
-
-    Route::get('message','InboxController@index');
-    Route::get('viewMessage/{sender}/{receiver}','ViewMessageController@index');
-    Route::get('deleteMessage/{sender}/{receiver}','ViewMessageController@deleteMessage');
-    Route::post('sendMessage','ViewMessageController@sendMessage');
-
     
-
+    Route::post('groupForum','ForumController@viewPost');
+    Route::post('groupForum',['as'=>'Addpost','uses'=>'ForumController@postQuestion']);
+    Route::get('modules','ModuleController@add');
+    Route::post('modules',['as'=>'AddMod','uses'=>'ModuleController@store']);
     //ajax route for shifting the slot of the projects for thesis presentation
     Route::get('getprojectdetail/{id}', 'ThesisPanelController@getProjectDetail');
 
@@ -111,12 +108,10 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
     Route::get('updateExternalSupervisorUpdate','SupervisorController@updateUserindexstore');
     Route::post('updateExternalSupervisorDelete','SupervisorController@deleteSup');
 
-
-
-    Route::get('message','InboxController@index');
-    Route::get('viewMessage/{sender}/{receiver}','ViewMessageController@index');
-    Route::get('deleteMessage/{sender}/{receiver}','ViewMessageController@deleteMessage');
-    Route::post('sendMessage','ViewMessageController@sendMessage');
+    Route::get('updateModules','ModuleController@updateModindex');
+    Route::get('updateModuleSearch','ModuleController@search');
+    Route::get('updateModuleUpdate','ModuleController@updateModelindexstore');
+    Route::get('updateModuleDelete','ModuleController@deleteModuleindexstore');
 
 
     Route::post('ViewPendingProjects','RPCController@approveRejectProjects');//
@@ -129,73 +124,16 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
     Route::get('projectDetail/{id}','RPCController@viewProjectDetails');//--------
     Route::get('approvedExternalSupervisors','RPCController@viewAllExternalSupervisors');
     Route::get('allProjects','RPCController@viewAllProjects');
-    Route::get('rejectedSupervisors','RPCController@rejectedSupervisors');
 
+    
+    Route::get('rejectedSupervisors','RPCController@rejectedSupervisors');
 
     Route::post('viewNotice', 'NoticeController@notice_buttons');
     Route::get('viewNotice','NoticeController@viewLink');
-
-
-
-
-    /// Udani routes :)
-/*
-    Route::post('viewTopics','ForumController@deleteandgettopic');
-    Route::get('viewTopics','ForumController@getTopic');*/
-
-
-    Route::get('message','InboxController@index');
-    Route::get('viewMessage/{sender}/{receiver}','ViewMessageController@index');
-    Route::get('deleteMessage/{sender}/{receiver}','ViewMessageController@deleteMessage');
-    Route::post('sendMessage','ViewMessageController@sendMessage');
-
-    Route::get('updateModules','ModuleController@updateModindex');
-    Route::get('updateModuleSearch','ModuleController@search');
-    Route::get('updateModuleUpdate','ModuleController@updateModelindexstore');
-    Route::get('updateModuleDelete','ModuleController@deleteModuleindexstore');
-    Route::get('modules','ModuleController@add');
-    Route::post('modules',['as'=>'AddMod','uses'=>'ModuleController@store']);
-
-    Route::get('groupForum/{id?}','ForumController@viewPosts');
-    /*Route::post('viewTopics','ForumController@deleteandgettopic');
-    Route::get('viewTopics','ForumController@getTopic');*/
-
-
-    /*Route::get('groupForum','ForumController@search');*/
-
-
-    Route::get('message','InboxController@index');
-    Route::get('viewMessage/{sender}/{receiver}','ViewMessageController@index');
-    Route::get('deleteMessage/{sender}/{receiver}','ViewMessageController@deleteMessage');
-    Route::post('sendMessage','ViewMessageController@sendMessage');
-
-    Route::get('groupForumdisplay/{id?}','ForumController@getComment');
-    Route::get('groupForumdisplay/{id?}','ForumController@viewQuestion');
-    Route::get('groupForum','ForumController@getPost');
-    Route::post('groupForum','ForumController@deleteandgetpost');
-    Route::post('groupForumdisplay/{id?}','CommentsController@deleteandadd');
-    Route::get('editComment/{id}','CommentsController@editCommentView');
-    Route::post('editComment/{id}','CommentsController@editComment');
-    Route::get('editPost/{id}','ForumController@editPostView');
-    Route::post('editPost/{id}','ForumController@editPostN');
-    Route::get('editTopicView/{id}','ForumController@editTopicView');
-    Route::post('editTopicView/{id}','ForumController@editTopic');
-
-
-
-    //Message routes
-
-
-    Route::get('message','InboxController@index');
-    Route::get('viewMessage/{sender}/{receiver}','ViewMessageController@index');
-    Route::get('deleteMessage/{sender}/{receiver}','ViewMessageController@deleteMessage');
-    Route::post('sendMessage','ViewMessageController@sendMessage');
-
-
-
-//
- //Udani end   
     
+    Route::get('groupForum','ForumController@getPost');
+    Route:post('groupForum','ForumController@postQuestion');
+
     Route::get('addNotice','NoticeController@add_new_notice');
     Route::post('addNotice','NoticeController@addNotice');
     
@@ -248,6 +186,8 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
 
 
 
+   
+
     Route::get('changeSupervisorRequest','RPCController@viewChangeRequestDetails');
     Route::get('changeSupervisorRequest/Reject/{id}','RPCController@Reject');
     Route::get('changeSupervisorRequest/Approve/{id}','RPCController@Approve');
@@ -265,11 +205,7 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
     Route::post('viewInternalProposals','RPCProposalEvaluationController@filterSearch');
     Route::get('viewInternalProposals','RPCProposalEvaluationController@viewInternalProposalEvaluation');
 
-
-    Route::get('message','InboxController@index');
-    Route::get('viewMessage/{sender}/{receiver}','ViewMessageController@index');
-    Route::get('deleteMessage/{sender}/{receiver}','ViewMessageController@deleteMessage');
-    Route::post('sendMessage','ViewMessageController@sendMessage');
+    
 
 
 
@@ -299,7 +235,14 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
  
     Route::get('upload','uploadController@uploadLink');
     Route::post('upload','uploadController@createUploadLink');
+
+ 
 });
+    Route::get('message','InboxController@index');
+    Route::get('viewMessage/{sender}/{receiver}','ViewMessageController@index');
+    Route::get('deleteMessage/{sender}/{receiver}','ViewMessageController@deleteMessage');
+    Route::post('sendMessage','ViewMessageController@sendMessage');  
+    
 Route::get('RPCViewOwnProject','RPCController@viewOwnProjects');
 
 Route::get('freeSlotManager','FreeSlotController@index');
@@ -314,8 +257,11 @@ Route::get('/searchSpecificFreeSlotByDate','FreeSlotController@searchSpecificSlo
 Route::get('viewProjects/{supId}','SupervisorController@viewProjects');
 Route::group(array('middleware' => 'guest', 'middleware' => 'panelmember'), function() {
 
-
-
+    Route::get('message','InboxController@index');
+    Route::get('viewMessage/{sender}/{receiver}','ViewMessageController@index');
+    Route::get('deleteMessage/{sender}/{receiver}','ViewMessageController@deleteMessage');
+    Route::post('sendMessage','ViewMessageController@sendMessage');  
+   
 
     //resourceful controller route for monthly reports
     Route::resource('monthlyreports/supervisor', 'SupervisorMonthlyReportController');
@@ -362,6 +308,7 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'panelmember'), func
     Route::get('/RequestSupervisorAsYou/{projectID}/{notificationID}/{studentId}','SupervisorController@RequestSupervisorAsPanelMember');
 
 
+
    
     Route::post('downloadthesis', 'reportcontroller@viewReport');
     Route::get('interimrpt/get/{filename}', array( 'as' => 'getentry', 'uses' => 'reportcontroller@get' ));
@@ -374,7 +321,13 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'panelmember'), func
 
 Route::group(array('middleware' => 'guest', 'middleware' => 'student'), function() {
 
+   
 
+    //view supervisor feedbacks
+    Route::get('monthlyreports/student/feedbacks','StudentMonthlyReportController@showFeedbacks');
+
+    //resourceful controller route for monthly reports
+    Route::resource('monthlyreports/student', 'StudentMonthlyReportController');
 
     Route::get('groupForum/{id?}','ForumController@viewPosts');
     Route::post('viewTopics','ForumController@deleteandgettopic');
@@ -389,31 +342,7 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'student'), function
 
 
 
-    Route::get('message','InboxController@index');
-    Route::get('viewMessage/{sender}/{receiver}','ViewMessageController@index');
-    Route::get('deleteMessage/{sender}/{receiver}','ViewMessageController@deleteMessage');
-    Route::post('sendMessage','ViewMessageController@sendMessage');
-   /* Route::get('groupForumdisplay/{id?}','ForumController@getComment');
-    Route::get('groupForumdisplay/{id?}','ForumController@viewQuestion');
-    Route::get('groupForum','ForumController@getPost');
-    Route::post('groupForum','ForumController@deleteandgetpost');
-    Route::post('groupForumdisplay/{id?}','CommentsController@deleteandadd');
-    Route::get('editComment/{id}','CommentsController@editCommentView');
-    Route::post('editComment/{id}','CommentsController@editComment');
-    Route::get('editPost/{id}','ForumController@editPostView');
-    Route::post('editPost/{id}','ForumController@editPostN');*/
 
-
-    //view supervisor feedbacks
-    Route::get('monthlyreports/student/feedbacks','StudentMonthlyReportController@showFeedbacks');
-
-    //resourceful controller route for monthly reports
-    Route::resource('monthlyreports/student', 'StudentMonthlyReportController');
-
-
-
-
- 
     Route::get('studentdashboard','StudentController@showDashboard');
     Route::get('viewNoticesForStudent','NoticeController@viewLinksForStudent');
 
@@ -433,6 +362,10 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'student'), function
     Route::get('projectReRegistration','StudentProposalController@viewRegistrationForm');
     Route::post('projectReRegistration','StudentProposalController@Registration');
 
+    Route::get('message','InboxController@index');
+    Route::get('viewMessage/{sender}/{receiver}','ViewMessageController@index');
+    Route::get('deleteMessage/{sender}/{receiver}','ViewMessageController@deleteMessage');
+    Route::post('sendMessage','ViewMessageController@sendMessage');
 
     Route::get('report','reportController@index');
     Route::get('studentprofile','reportController@viewStudentProfile');
@@ -446,15 +379,9 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'student'), function
 
 });
 //Student routes
-
-
-
-
 Route::get('/upLinksView','uploadController@displayLinks');
 Route::get('/uploads/{linkId}','uploadController@uploadView');
 Route::post('/uploads/{linkId}','submissionsController@saveUpload');
-
-
 //Student routes
 
 Route::post('login', 'AuthenticationController@postLogin');
@@ -484,6 +411,10 @@ Route::get('ViewPrposal/{id2}','ProposalEvaluationController@viewProposalEvaluat
 
 
 
+    Route::get('message','InboxController@index');
+    Route::get('viewMessage/{sender}/{receiver}','ViewMessageController@index');
+    Route::get('deleteMessage/{sender}/{receiver}','ViewMessageController@deleteMessage');
+    Route::post('sendMessage','ViewMessageController@sendMessage');
 
 
 
