@@ -140,6 +140,7 @@ return [
         'Cartalyst\Sentinel\Laravel\SentinelServiceProvider',
         'Fenos\Notifynder\NotifynderServiceProvider',
 		'Barryvdh\DomPDF\ServiceProvider',
+		'Intervention\Image\ImageServiceProvider',
 
         /*
          * Application Service Providers...
@@ -207,6 +208,7 @@ return [
         'Notifynder'    => 'Fenos\Notifynder\Facades\Notifynder',
         'Hashids' => 'Vinkla\Hashids\Facades\Hashids',
 		'PDF' => 'Barryvdh\DomPDF\Facade',
+		'Image' => 'Intervention\Image\Facades\Image'
 	],
 
 ];
