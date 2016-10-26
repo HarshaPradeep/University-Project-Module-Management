@@ -234,7 +234,7 @@
                                                             <a href="#" class="pull-left" >
                                                                 <img alt="image" src="{{ asset('public_assets/img/a7.jpg') }}" href="#" class="img-circle" src="#">
                                                             </a>
-                                                        @elseif($name=="InviteeToGroupLeaderAcceptInvitation" || $name=="InviteeToGroupLeaderRejectInvitation" || $name=="GroupLeaderToMemberRemoveMember" || $name="AddedToAResearchGroup")
+                                                        @elseif($name=="InviteeToGroupLeaderAcceptInvitation" || $name=="InviteeToGroupLeaderRejectInvitation" || $name=="GroupLeaderToMemberRemoveMember")
                                                             <a href="#" class="pull-left" >
                                                                 <img alt="image" src="{{ asset('public_assets/img/a7.jpg') }}" href="#" class="img-circle" src="#">
                                                             </a>
@@ -286,7 +286,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <br>
-                                                            @elseif($name=="InviteeToGroupLeaderAcceptInvitation" || $name=="InviteeToGroupLeaderRejectInvitation" || $name=="GroupLeaderToMemberRemoveMember" || $name="AddedToAResearchGroup")
+                                                            @elseif($name=="InviteeToGroupLeaderAcceptInvitation" || $name=="InviteeToGroupLeaderRejectInvitation" || $name=="GroupLeaderToMemberRemoveMember")
                                                                 <div>
                                                                     {!! Form::open(array('url'=>'clearNotification','method'=>'POST',
                                                                     'class'=>'wizard-big', 'id'=>'clearNotificationform', 'enctype'=>'multipart/form-data' )) !!}
