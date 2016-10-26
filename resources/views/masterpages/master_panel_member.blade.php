@@ -142,7 +142,16 @@
                                         </li>
                                     </ul>
                         </li>
-                        <li ><a href="/srsevaluation">SRS Submission</a></li>
+                        <li ><a href="#">SRS Submission<span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="/srsevaluation">SRS Document</a>
+                                        </li>
+                                        <li>
+                                            <a href="/srsstatusevaluation">Status Document</a>
+                                        </li>
+                                    </ul>
+                        </li>
                         <li ><a href="/protoevaluation">Prototype</a></li>
                         <li ><a href="#">Mid Review<span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">
@@ -162,21 +171,13 @@
                                         <li>
                                             <a href="/finalreportevaluation">Report</a>
                                         </li>
+                                        <li>
+                                            <a href="/finalstatusevaluation">Status Document</a>
+                                        </li>
                                     </ul>
                         </li>
                         <li ><a href="/vivavaluation">Viva</a></li>
-                        <li ><a href="#">Other Assessment<span class="fa arrow"></span></a>
-                        <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="#">Research Book</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Research Paper</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Website</a>
-                                        </li>
-                                    </ul>
+                        <li ><a href="/otherassess">Other Assessments</a>
                         </li>
                     </ul>
                 </li>
