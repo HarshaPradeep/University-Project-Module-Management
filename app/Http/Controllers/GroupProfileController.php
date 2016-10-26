@@ -54,25 +54,20 @@ class GroupProfileController extends Controller {
 	 */
 	public function deleteGroup()
 	{
-		/*getting current logged users email*/
-		$currentUserEmail = Sentinel::getUser()["email"];
+
 
 		$groupId = Input::get('groupID');
 
-		/*delete from invitings*/
-		DB::table('invitings')->where('leaderMail', '=', $currentUserEmail)->delete();
+		$leaderMail = Grouping::where('grouped','=',$groupId)->pluck('email');
 
-		/*getting mails of group members*/
-		$memberNames = ResearchGroups::where('mails','Like',$currentUserEmail.'%')->pluck('mails');
-		$string_version_names = preg_split("/\//", $memberNames);
+		/*delete from invitings*/
+		DB::table('invitings')->where('leaderMail', '=', $leaderMail)->delete();
 
 		/*updating members back to general*/
-		for($count=0; $count<sizeof($string_version_names);$count++){
 
 			DB::table('students')
-				->where('email', $string_version_names[$count])
+				->where('grouped', $groupId)
 				->update(['grouped' => NULL, 'role' => NULL ]);
-		}
 
 		/*delete from researchgrp*/
 		DB::table('research_groups')->where('groupID', '=', $groupId)->delete();
@@ -226,7 +221,7 @@ class GroupProfileController extends Controller {
 				DB::table('students')
 					->where('email', $currentUserEmail)
 					->update(['avatar' => $filename]);
-				\Session::flash('flash_message','	Profile Picture is updated.');
+				\Session::flash('pro_suc','	Profile Picture is updated.');
 				return $this->viewPool();
 
 			}

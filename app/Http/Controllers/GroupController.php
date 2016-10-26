@@ -205,7 +205,7 @@ class GroupController extends Controller {
 				$IDcount = 0;
 			}elseif ($groupCount>0){
 				/*getting name last group*/
-				$groupName= ResearchGroups ::orderBy('id', 'desc')->first()->pluck('groupID');
+				$groupName = ResearchGroups::whereRaw('id = (select max(`id`) from research_groups)')->pluck('groupID');
 				$grpId = explode("_", $groupName);
 
 				$ID = $grpId[1];
@@ -232,7 +232,7 @@ class GroupController extends Controller {
             }
 
             DB::table('research_groups')->insert(
-                ['groupID' => $groupId, 'mails' => $currentUserEmail]
+                ['groupID' => $groupId, 'mails' => $currentUserEmail, 'status' => 'Open']
             );
 
 			
