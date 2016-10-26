@@ -1,3 +1,4 @@
+
 @extends('masterpages.master_student')
 
 @section('cssLinks')
@@ -27,14 +28,14 @@
 
 @section('content')
 
- <!-- /.row -->
-            <div class="col-sm-12">
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
+                                <!-- /.row -->
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-lg-3 col-md-6">
+                                                <div class="panel panel-primary">
+                                                    <div class="panel-heading">
+                                                        <div class="row">
+                                                        <div class="col-xs-3">
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
@@ -111,7 +112,7 @@
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <a href="/defects"><span class="pull-left">View Details</span></a>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -121,13 +122,13 @@
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-lg-8">                    
-                    
-             
-                    
+                <div class="col-lg-8">
+
+
+
                    <!-- /.panel -->
-                                           
-                    
+
+
                     <ul class="timeline">
                         <li>
                             <div class="timeline-badge"><i class="fa fa-comments"></i>
@@ -196,12 +197,12 @@
                                 </div>
                                 <div class="timeline-body">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis minus modi quam ipsum alias at est molestiae excepturi delectus nesciunt, quibusdam debitis amet, beatae consequuntur impedit nulla qui! Laborum, atque.</p>
-                                    
-                                    
+
+
                                 </div>
                             </div>
                         </li>
-                        
+
                         <li class="timeline-inverted">
                             <div class="timeline-badge"><i class="fa fa-comments"></i>
                             </div>
@@ -217,10 +218,10 @@
                             </div>
                         </li>
                     </ul>
-                   
-                   
-                   
-                   
+
+
+
+
 @endsection
 
 

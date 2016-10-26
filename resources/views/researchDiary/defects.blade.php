@@ -13,7 +13,7 @@
 @section('title')
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
-        <h2>Tasks Schedule</h2>
+        <h2>Defects Schedule</h2>
         <ol class="breadcrumb">
 
         </ol>
@@ -45,7 +45,7 @@
             <div class="col-lg-12">
     <div class="ibox float-e-margins">
         <div class="ibox-title">
-            <h5>Tasks log</h5>
+            <h5>Defects log</h5>
             <div class="ibox-tools">
 
             </div>
@@ -59,46 +59,46 @@
                     <thead>
                         <tr role="row">
 <!--                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 100px;">Select</th>-->
-                            <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column descending" style="width: 100px;" aria-sort="ascending">Task No</th>
-                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 253px;">Task</th>
+                            <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column descending" style="width: 100px;" aria-sort="ascending">Defect No</th>
+                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 253px;">Defect</th>
                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 550px;">Description</th>
                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 250px;">Plan to Finish</th>
-                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 300px;">Task State</th>
+                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 300px;">Defect State</th>
                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 300px;">Start Date</th>
                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 300px;">End Date</th>
                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 200px;">Hours</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($Alltasks as $key=>$taskd)
+                        @foreach($Alldefects as $key=>$defectd)
                         <tr>
-                            <td> {{ $taskd->id }} </td>
-                            <td> {{ $taskd->task }} </td>
-                            <td> <?php echo wordwrap($taskd->description, 70, "\n", TRUE) ?></td>
-                            <td> {{ $taskd->plantofinish }} </td>
-                            <td> {{ $taskd->state }} </td>
-                            <td> {{ $taskd->sdate }} </td>
-                            <td> {{ $taskd->edate }} </td>
-                            <td> {{ $taskd->hours }} </td>
+                            <td> {{ $defectd->id }} </td>
+                            <td> {{ $defectd->defect }} </td>
+                            <td> <?php echo wordwrap($defectd->description, 70, "\n", TRUE) ?></td>
+                            <td> {{ $defectd->plantofinish }} </td>
+                            <td> {{ $defectd->state }} </td>
+                            <td> {{ $defectd->sdate }} </td>
+                            <td> {{ $defectd->edate }} </td>
+                            <td> {{ $defectd->hours }} </td>
                             <td>
-                                {!! Form::open(['method' => 'DELETE', 'id' => 'deleteForm', 'action' => ['diaryController@destroy', $taskd->id ]]) !!}
+                                {!! Form::open(['method' => 'DELETE', 'id' => 'deleteForm', 'action' => ['defectsController@destroy', $defectd->id ]]) !!}
                     <center>
                         <!--                        remove button-->
                         {!! Form::button( '<i class="fa fa-trash fa-lg" title="Delete"></i>',
                         ['onclick' => 'deleteresearcharea()',
                         'class' => 'delete text-danger deleteForm',
                         'id' => 'btnDeleteProduct',
-                        'data-id' => $taskd->id ] ) !!}
+                        'data-id' => $defectd->id ] ) !!}
                         <!--                        end remove button-->
 
                         
                         <!--                        update button-->
                         <!--<a onclick = "deletePresentationPanel()" id=""class="btn btn-sm btn-danger">Delete</a>-->
-                        {!! Form::button( '<i class="fa fa-edit fa-lg" style="color: blue"title="Edit"></i>',
+                        {!! Form::button( '<a href="/dupdate"><i class="fa fa-edit fa-lg" style="color: blue"title="Edit"></i></a>',
                         ['onclick' => 'editresearcharea()',
                         'class' => 'delete text-danger editeForm',
                         'id' => 'btnediteProduct',
-                        'data-id' => $taskd->id ] ) !!}
+                        'data-id' => $defectd->id ] ) !!}
                         <!--                        end update button-->
                     </center>
                     {!! Form::close() !!}
@@ -111,11 +111,11 @@
                     <tfoot>
                         <tr>
 <!--                        <th rowspan="1" colspan="1">Select</th>-->
-                            <th rowspan="1" colspan="1">Task No</th>
-                            <th rowspan="1" colspan="1">Task</th>
+                            <th rowspan="1" colspan="1">Defect No</th>
+                            <th rowspan="1" colspan="1">Defect</th>
                             <th rowspan="1" colspan="1">Description</th>
                             <th rowspan="1" colspan="1">Plan to Finish</th>
-                            <th rowspan="1" colspan="1">Task State</th>
+                            <th rowspan="1" colspan="1">Defect State</th>
                             <th rowspan="1" colspan="1">Start Date</th>
                             <th rowspan="1" colspan="1">End Date</th>
                             <th rowspan="1" colspan="1">Hours</th>                            
@@ -149,7 +149,7 @@
 
 
             <div class="form-group">
-                <input name="entertask" class="form-control" placeholder="Enter task" type="text" required>
+                <input name="entertask" class="form-control" placeholder="Enter Defect" type="text" required>
             </div>
             
             <div class="form-group">
@@ -161,7 +161,7 @@
             </div>
 			
             <div class="form-group">
-                <label>Task State</label>
+                <label>Defect State</label>
                 <div class="radio">
                     <label>
                         <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >Not Start
@@ -238,7 +238,7 @@
     {
         swal({
             title: "Are you sure?",
-            text: "You will not be able to recover this Task!",
+            text: "You will not be able to recover this Defect!",
             type: "warning",
             showCancelButton: true,
             confirmButtonColor: "#DD6B55",
@@ -251,21 +251,22 @@
             if (isConfirm)
             {
                 document.getElementById("deleteForm").submit();
-                swal("Deleted!", "Task is deleted!", "success");
+                swal("Deleted!", "Defect is deleted!", "success");
             }
             else
             {
-                swal("Cancelled", "Your task is safe :)", "error");
+                swal("Cancelled", "Your defect is safe :)", "error");
             }
         });
         return x;
-        confirm("Do you want to delete this Task");
+        confirm("Do you want to delete this defect");
     }
 
 //    edit the selected research area
     function editresearcharea() {
             
         swal("KEEP CALM!", "it's \n COMING SOON!", "success");
+
         //swal("Updated!!", "Research Area is Updated", "success");      
     }
 
