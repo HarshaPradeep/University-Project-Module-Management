@@ -216,12 +216,12 @@
 
 
 
-    <div class="text-center" >
-        {!! $topics->render() !!}
-    </div>
+    {{--<div class="text-center" >--}}
+        {{--{!! $topics->render() !!}--}}
+    {{--</div>--}}
 
 
-
+ 
 
     <br><br>
 

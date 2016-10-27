@@ -247,14 +247,14 @@ class ForumController extends Controller {
             ->where('topics.group_id','=',$email)
             ->get();*/
         $topics=DB::table('topics')
-            ->join('topics','users.email','=','topics.email')
             ->select('*')
+            ->join('users','users.email','=','topics.email')
             ->where('topics.email','=',$email)
             ->get();
+//dd($topics);
+//            return $topics;
 
-            return $topics;
-
-        //$topics=topics::orderBy('updated_at','desc')->paginate(5);
+//        $topics=topics::orderBy('updated_at','desc')->paginate(5);
         $email = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->email;
 
 
@@ -271,8 +271,7 @@ class ForumController extends Controller {
         //return $views;
 
 
-
-        //return view('viewTopics',compact('topics','nos','views','email'));
+        return view('viewTopics',compact('topics','nos','views','email'));
 
     }
 
