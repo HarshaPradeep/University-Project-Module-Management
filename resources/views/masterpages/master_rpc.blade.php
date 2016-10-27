@@ -135,6 +135,11 @@
                         <a href="/addResearchArea"><i class="fa fa-th-large"></i> <span class="nav-label">Add Research Area</span></a>
                     </li>
                     <!--                end of add research area-->
+                    <!--                Hiru added - add groupManage -->
+                    <li>
+                        <a href="/manageGroups"><i class="fa fa-th-large"></i> <span class="nav-label">Manage Groups</span></a>
+                    </li>
+                    <!--                end of add groupManage-->
                     <li>
                         <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Supervisor</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
