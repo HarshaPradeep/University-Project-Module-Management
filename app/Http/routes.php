@@ -3,6 +3,17 @@
 use Cartalyst\Sentinel\Laravel\Facades\Activation;
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 
+/*hiru added*/
+use App\Grouping;
+use App\ResearchGroups;
+use App\Notifications;
+use App\Http\Requests;
+use App\Student;
+use App\Invitations;
+use Fenos\Notifynder\Facades\Notifynder;
+
+/*hiru added end*/
+
 //App\Http\Controllers\notificationController::GetAllUnreadNotification();
 
 Route::get('/', 'WelcomeController@index');
@@ -157,6 +168,67 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
     Route::post('changeSupervisorRequest', 'RPCController@filterSearch');
     Route::get('email/{mail}', 'RPCController@composeEmail');
     Route::post('email/{mail}', 'RPCController@sendEmail');
+    
+    //        hiru added*
+    Route::get('manageGroups', 'GroupManageController@manageGroups');
+    Route::get('viewGroup/{groupId}', 'GroupManageController@viewGroup');
+    Route::post('updateStatus', 'GroupManageController@updateStatus');
+    Route::post('addToGroup', 'GroupManageController@addToGroup');
+    Route::post('createGroup', 'GroupManageController@createGroup');
+
+        Route::delete('/task/{id}', function ($id) {
+
+            $groupId = Grouping::where('email','=',$id)->pluck('grouped');
+            
+
+            /*remove member from the research group*/
+            $members = ResearchGroups::where('groupID','=',$groupId)->pluck('mails');
+            $myArray = preg_split("/\//", $members);
+            
+            for($count = 0; sizeof($myArray); $count++){
+
+                if($myArray[$count]==$id){
+                    $index = $count;
+                    break;
+                }
+            }
+
+            /*delete the specific member from the array*/
+            unset($myArray[$index]);
+
+            $newMembers = implode("/",$myArray);
+
+            /*update the members of the research group after deletion*/
+            DB::table('research_groups')
+                ->where('groupID', $groupId)
+                ->update(['mails' => $newMembers]);
+
+            $leadermail = Grouping::where('grouped','=',$groupId)
+                ->where('role','=','leader')
+                ->pluck('email');
+
+            $invitAvl = Invitations::where('leaderMail','=',$leadermail)
+            ->where('memberMail','=',$id)
+            ->get();
+
+            if (!$invitAvl->isEmpty()){
+                $Id = Invitations::where('leaderMail','=',$leadermail)
+                    ->where('memberMail','=',$id)->pluck('id');
+                DB::table('invitings')->where('id', '=', $Id)->delete();
+                }
+                
+                DB::table('students')
+                ->where('email', $id)
+                ->update(['grouped' => NULL,  'role' => NULL]);
+
+            return redirect()->action(
+                'GroupManageController@viewGroup', ['groupId' => $groupId]
+            )->with('flash_message', $id.' was removed successfully.');
+
+            
+        });
+
+//        /*end-hiru*/
 
     Route::get('form', 'thesisEvaluationController@editThesisForm');
     Route::post('form', 'thesisEvaluationController@editThesisFormMarks');
@@ -318,16 +390,37 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'student'), function
     
     
     ////////////////////////diluni////////
+     Route::get('dupdate', 'defectsController@createdef');
     Route::get('diaryhome', 'diaryController@create');
     Route::get('tasks', 'diaryController@taskopen');
     Route::post('tasks', 'diaryController@storeTasks');
+   
+    
+    Route::resource('DELETE', 'diaryController@destroy');
+    Route::get('DELETE/{id}', 'diaryController@destroy');
+	
+	
+    Route::get('diaryhome', 'defectsController@create');
+    Route::get('defects', 'defectsController@defectopen');
+    Route::post('defects', 'defectsController@storeDefects');
+    
+    Route::resource('DELETEdef', 'defectsController@destroy');
+    Route::get('DELETEdef/{id}', 'defectsController@destroy');
+    
+   
+    
+    
     
     /*if decommented research are delete wont work*/
 //    Route::resource('DELETE', 'diaryController@destroy');
 //    Route::get('DELETE/{id}', 'diaryController@destroy');
     
-    ////////////////////////hiru////////
-    Route::get('grouping', 'GroupController@viewPool');
+/////////////////////////hiruu////////
+/*grouping*/
+Route::get('grouping', 'GroupController@viewPool');
+
+
+/////////////////////////hiruu////////
 
     Route::post('report', 'reportController@add');
     Route::get('reportfile', 'reportController@viewIntReport');
@@ -348,6 +441,151 @@ Route::get('forgotpassword', 'AuthenticationController@getForgotPassword');
 Route::post('forgotpassword', 'AuthenticationController@postForgotPassword');
 Route::get('password-recover/{code}', array('as' => 'password-recover', 'uses' => 'AuthenticationController@getRecoverPassword'));
 Route::post('resetpassword', 'AuthenticationController@postResetPassword');
+
+//---hiru-----
+/*invitations accept deny*/
+
+Route::post('invite', 'GroupController@storetoNotifiTable');
+
+Route::post('acceptRequest', 'RequestController@acceptRequest');
+Route::post('rejectRequest', 'RequestController@rejectRequest');
+Route::post('clearRequest', 'RequestController@clearRequest');
+
+Route::post('deleteMember', 'GroupController@deleteMember');
+
+Route::post('deleteMemberRequest', 'GroupController@deleteRequest');
+
+Route::post('clearNotification', 'GroupController@clearNotification');
+
+Route::post('groupDelete', 'GroupProfileController@deleteGroup');
+
+Route::post('groupDelete', 'GroupManageController@deleteGroup');
+
+Route::post('profile', 'GroupProfileController@updateAvatar');
+
+Route::post('navigateProposal', 'GroupProfileController@navigateProposal');
+
+Route::post('grpSubmit', 'SubmitProposalController@submitProposal');
+
+
+Route::delete('/pendingDel/{id}', function ($id) {
+
+
+    DB::table('invitings')->where('notification_id', '=', $id)->delete();
+    DB::table('notifications')->where('id', '=', $id)->delete();
+    /*getting current logged users email*/
+    $currentUserEmail = Sentinel::getUser()["email"];
+
+    /*research id*/
+    $ID = ResearchGroups::where('mails','LIKE', $currentUserEmail.'%')->pluck('id');
+
+
+    $invCount = Invitations::where('leaderMail', '=', $currentUserEmail)->count();
+    $memberNames = ResearchGroups::where('mails','Like',$currentUserEmail.'%')->pluck('mails');
+
+
+    $string_version_names = preg_split("/\//", $memberNames);
+
+    $memberCount = sizeof($string_version_names);
+
+    if($invCount == 0 || $memberCount == 1){
+        DB::table('students')
+            ->where('email', $currentUserEmail)
+            ->update(['grouped' => NULL, 'role' => NULL ]);
+
+        DB::table('research_groups')->where('id', '=', $ID)->delete();
+
+    }
+
+    return redirect()->action('GroupController@viewPool')->with('flash_message', 'Successfully deleted');
+
+
+
+
+});
+
+ Route::delete('/remMember/{id}', function ($id) {
+     /*getting current logged users email*/
+     $currentUserEmail = Sentinel::getUser()["email"];
+
+     /*research id*/
+     $ID = ResearchGroups::where('mails','LIKE', $currentUserEmail.'%')->pluck('id');
+
+     /*research group ID*/
+     $groupId = ResearchGroups::where('mails','LIKE', $currentUserEmail.'%')->pluck('groupID');
+
+     /*getting member mail*/
+     $toMail = Notifications::where('id','=',$id)->pluck('to_id');
+
+     /*update member grouped status back to general*/
+     DB::table('students')
+         ->where('email', $toMail)
+         ->update(['grouped' => NULL, 'role' => NULL]);
+
+     /*delete from invitees*/
+     DB::table('invitings')->where('notification_id', '=', $id)->delete();
+
+
+     /*remove member from the research group*/
+     $members = ResearchGroups::where('mails','LIKE',$currentUserEmail.'%')->pluck('mails');
+     $myArray = preg_split("/\//", $members);
+
+     for($count = 0; sizeof($myArray); $count++){
+
+         if($myArray[$count]==$toMail){
+             $index = $count;
+             break;             
+         }
+     }
+
+     /*delete the specific member from the array*/
+     unset($myArray[$index]);
+
+     $newMembers = implode("/",$myArray);
+
+     /*update the members of the research group after deletion*/
+     DB::table('research_groups')
+         ->where('groupID', $ID)
+         ->update(['mails' => $newMembers]);
+
+     $memberNames = ResearchGroups::where('mails','Like',$currentUserEmail.'%')->pluck('mails');
+
+     $string_version_names = preg_split("/\//", $memberNames);
+
+     $invCount = Invitations::where('leaderMail', '=', $currentUserEmail)->count();
+
+     $memberCount = sizeof($string_version_names);
+
+     if($invCount == 0 && $memberCount == 1){
+         DB::table('students')
+             ->where('email', $currentUserEmail)
+             ->update(['grouped' => NULL, 'role' => NULL]);
+
+         DB::table('research_groups')->where('id', '=', $ID)->delete();
+
+     }
+
+     $fromRegID= Student::where('email','=',$currentUserEmail)->pluck('id');
+     $toRegID= Student::where('email','=',$toMail)->pluck('id');
+
+     $url ='/GroupLeaderToMemberRemoveMember/'.$fromRegID.'/'.$toRegID;
+     Notifynder::category('GroupLeaderToMemberRemoveMember')
+         ->from($currentUserEmail." - ".$groupId)
+         ->to($toMail)
+         ->url($url)
+         ->send();
+
+     return redirect()->action('GroupController@viewPool')->with('flash_message', 'Member was successfully deleted');
+
+
+
+ });
+
+
+
+
+//-----hiru----
+
 //supervisor Registration for the Accepted external supervisor
 Route::get('rejectsExternalSupervisor/{supervisorid}', 'SupervisorController@confirmSupervisorRegistration');
 
