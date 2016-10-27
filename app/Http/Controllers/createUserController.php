@@ -148,7 +148,7 @@ class createUserController extends Controller {
         /*get project title according to the student's id*/
 	//$protitle = \App\Evaluation::where('studentId', $searchId)->pluck('title');
         $protitle = DB::table('projects')
-                    ->where('groupIDforTitle', $searchId)
+                    ->where('groupID', $searchId)
                     ->Where('status', 'Approved')
                     ->pluck('title');
         
