@@ -69,13 +69,13 @@ class RequestController extends Controller {
 		$string_version_names = preg_split("/\//", $memberNames);
 
 		$memberCount = sizeof($string_version_names);
-
+		$invitingLeader = Invitations::where('notification_id','=',$notificationID)->pluck('leaderMail');
 		if($memberCount <3){
 			$notificationID = Input::get('acceptnotification');
 			//dd($notificationID);
 
 			$currentUserEmail = Sentinel::getUser()["email"];
-			$invitingLeader = Invitations::where('notification_id','=',$notificationID)->pluck('leaderMail');
+
 			$groupId= ResearchGroups::where('mails','LIKE',$invitingLeader.'%')->pluck('groupID');
 			$toID= Notifications::where('id','=',$notificationID)->pluck('to_id');
 
@@ -136,7 +136,7 @@ class RequestController extends Controller {
 			$groupId= ResearchGroups::where('mails','LIKE',$invitingLeader.'%')->pluck('groupID');
 			
 			$notificationID = Input::get('acceptnotification');
-			
+			DB::table('invitings')->where('status', '=', 'Pending')->where('leaderMail', '=', $invitingLeader)->delete();
 			$toID= Notifications::where('id','=',$notificationID)->pluck('to_id');
 
 			$currentUserEmail = Sentinel::getUser()["email"];
@@ -201,7 +201,7 @@ class RequestController extends Controller {
 			return view('grouping.groupMember',compact('groupMembers','leaderMail','memberCount','groupId','project','supervisor','user'));
 		
 		}else{
-			
+			DB::table('invitings')->where('status', '=', 'Pending')->where('leaderMail', '=', $invitingLeader)->delete();
 			Notifynder::readOne($notificationID);
 			notificationController::showNotificationAccordingToCurrentUser();
 			\Session::flash('error','	Sorry, \''.$groupId.'\' is closed now. You can not join this group.');
@@ -250,7 +250,7 @@ class RequestController extends Controller {
 				->update(['grouped' => NULL, 'role' => NULL ]);
 
 			DB::table('research_groups')->where('id', '=', $ID)->delete();
-
+			DB::table('invitings')->where('leaderMail', '=', $invitingLeader)->delete();
 		}
 		
 		Notifynder::readOne($notificationID);

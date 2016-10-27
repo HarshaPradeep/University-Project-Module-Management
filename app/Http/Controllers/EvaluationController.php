@@ -50,7 +50,7 @@ class EvaluationController extends Controller {
                 /*filtering projects according to the groups*/
 		$students = DB::select("SELECT id,title,studentId,supervisorId 
 		 FROM projects
-		 WHERE status = 'Approved' and groupIDforTitle = any (SELECT groupID 
+		 WHERE status = 'Approved' and groupID = any (SELECT groupID 
 		 FROM research_groups)");
                 
               

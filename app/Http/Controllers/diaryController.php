@@ -3,8 +3,8 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
 use Illuminate\Http\Request as Request2;
+use Request;
 
 class diaryController extends Controller {
 
@@ -47,23 +47,18 @@ class diaryController extends Controller {
         
 	public function storeTasks(Request2 $reques)
         {
-                        dd('yeee');
-            // validation without request clz
-            $this->validate($reques, ['entertask' => 'required']);
-            $this->validate($reques, ['plantof' => 'required']);
-            $this->validate($reques, ['spenthours' => 'required']);
 
             \App\schedule::create([
                 'task' => Request::get('entertask'),
-                'description' => Request::get('desc'),    
+                'description' => Request::get('desc'),
                 'plantofinish' => Request::get('plantof'),
                 'sdate' => Request::get('start'),
-                'edate' => Request::get('end'),
+               'edate' => Request::get('end'),
                 'hours' => Request::get('spenthours')
 
                 ]);
 
-            return redirect('researchDiary/tasks');
+            return redirect('tasks');
         }
         
         public function destroy($id)
@@ -95,25 +90,27 @@ class diaryController extends Controller {
 	 * @return Response
 	 */
 	public function edit($id)
-	{
-		//
-	}
+    {
+        //
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
+        /**
+         * Update the specified resource in storage.
+         *
+         * @param  int $id
+         * @return Response
+         */
+    }
+        public function update($id)
+    {
+        //
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+
+        /**
+         * Remove the specified resource from storage.
+         *
+         * @param  int  $id
+         * @return Response
+         */
+    }
+
 }

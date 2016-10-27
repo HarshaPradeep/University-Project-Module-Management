@@ -53,7 +53,7 @@ class supevaluationController extends Controller {
                 /*filtering projects according to the groups*/
 		$students = DB::select("SELECT id,title,studentId,supervisorId 
 		 FROM projects
-		 WHERE status = 'Approved' and groupIDforTitle = any (SELECT groupID 
+		 WHERE status = 'Approved' and groupID = any (SELECT groupID 
 		 FROM research_groups)");
                 
                 
@@ -83,7 +83,7 @@ class supevaluationController extends Controller {
                 /*filtering projects according to the groups*/
 		$students = DB::select("SELECT id,title,studentId,supervisorId 
 		 FROM projects
-		 WHERE status = 'Approved' and groupIDforTitle = any (SELECT groupID 
+		 WHERE status = 'Approved' and groupID = any (SELECT groupID 
 		 FROM research_groups)");
                 
               
@@ -113,7 +113,7 @@ class supevaluationController extends Controller {
                 /*filtering projects according to the groups*/
 		$students = DB::select("SELECT id,title,studentId,supervisorId 
 		 FROM projects
-		 WHERE status = 'Approved' and groupIDforTitle = any (SELECT groupID 
+		 WHERE status = 'Approved' and groupID = any (SELECT groupID 
 		 FROM research_groups)");
                 
             return view('supevaluation.srsevaluation', compact('students', 'supervisaornames', 'studentid', 'groupids'));
@@ -142,7 +142,7 @@ class supevaluationController extends Controller {
                 /*filtering projects according to the groups*/
 		$students = DB::select("SELECT id,title,studentId,supervisorId 
 		 FROM projects
-		 WHERE status = 'Approved' and groupIDforTitle = any (SELECT groupID 
+		 WHERE status = 'Approved' and groupID = any (SELECT groupID 
 		 FROM research_groups)");
                 
             return view('supevaluation.protoevaluation', compact('students', 'supervisaornames', 'studentid', 'groupids'));
@@ -171,7 +171,7 @@ class supevaluationController extends Controller {
                 /*filtering projects according to the groups*/
 		$students = DB::select("SELECT id,title,studentId,supervisorId 
 		 FROM projects
-		 WHERE status = 'Approved' and groupIDforTitle = any (SELECT groupID 
+		 WHERE status = 'Approved' and groupID = any (SELECT groupID 
 		 FROM research_groups)");
                 
                 
@@ -201,7 +201,7 @@ class supevaluationController extends Controller {
                 /*filtering projects according to the groups*/
 		$students = DB::select("SELECT id,title,studentId,supervisorId 
 		 FROM projects
-		 WHERE status = 'Approved' and groupIDforTitle = any (SELECT groupID 
+		 WHERE status = 'Approved' and groupID = any (SELECT groupID 
 		 FROM research_groups)");
                 
                 
@@ -231,7 +231,7 @@ class supevaluationController extends Controller {
                 /*filtering projects according to the groups*/
 		$students = DB::select("SELECT id,title,studentId,supervisorId 
 		 FROM projects
-		 WHERE status = 'Approved' and groupIDforTitle = any (SELECT groupID 
+		 WHERE status = 'Approved' and groupID = any (SELECT groupID 
 		 FROM research_groups)");
                 
                 
@@ -261,7 +261,7 @@ class supevaluationController extends Controller {
                 /*filtering projects according to the groups*/
 		$students = DB::select("SELECT id,title,studentId,supervisorId 
 		 FROM projects
-		 WHERE status = 'Approved' and groupIDforTitle = any (SELECT groupID 
+		 WHERE status = 'Approved' and groupID = any (SELECT groupID 
 		 FROM research_groups)");
                 
                 
@@ -291,7 +291,7 @@ class supevaluationController extends Controller {
                 /*filtering projects according to the groups*/
 		$students = DB::select("SELECT id,title,studentId,supervisorId 
 		 FROM projects
-		 WHERE status = 'Approved' and groupIDforTitle = any (SELECT groupID 
+		 WHERE status = 'Approved' and groupID = any (SELECT groupID 
 		 FROM research_groups)");
                 
                 
@@ -321,7 +321,7 @@ class supevaluationController extends Controller {
                 /*filtering projects according to the groups*/
 		$students = DB::select("SELECT id,title,studentId,supervisorId 
 		 FROM projects
-		 WHERE status = 'Approved' and groupIDforTitle = any (SELECT groupID 
+		 WHERE status = 'Approved' and groupID = any (SELECT groupID 
 		 FROM research_groups)");
                 
                 
@@ -351,7 +351,7 @@ class supevaluationController extends Controller {
                 /*filtering projects according to the groups*/
 		$students = DB::select("SELECT id,title,studentId,supervisorId 
 		 FROM projects
-		 WHERE status = 'Approved' and groupIDforTitle = any (SELECT groupID 
+		 WHERE status = 'Approved' and groupID = any (SELECT groupID 
 		 FROM research_groups)");
                 
                 
@@ -365,7 +365,7 @@ class supevaluationController extends Controller {
         /*get project title according to the student's id*/
 	//$protitle = \App\Evaluation::where('studentId', $searchId)->pluck('title');
         $protitle = DB::table('projects')
-                    ->where('groupIDforTitle', $searchId)
+                    ->where('groupID', $searchId)
                     ->Where('status', 'Approved')
                     ->pluck('title');
         
