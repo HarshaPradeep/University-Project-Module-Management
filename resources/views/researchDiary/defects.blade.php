@@ -81,7 +81,7 @@
                             <td> {{ $defectd->edate }} </td>
                             <td> {{ $defectd->hours }} </td>
                             <td>
-                                {!! Form::open(['method' => 'DELETE', 'id' => 'deleteForm', 'action' => ['defectsController@destroy', $defectd->id ]]) !!}
+                                {!! Form::open(['method' => 'DELETEdef', 'id' => 'deleteForm', 'action' => ['defectsController@destroy', $defectd->id ]]) !!}
                     <center>
                         <!--                        remove button-->
                         {!! Form::button( '<i class="fa fa-trash fa-lg" title="Delete"></i>',
@@ -95,8 +95,7 @@
                         <!--                        update button-->
                         <!--<a onclick = "deletePresentationPanel()" id=""class="btn btn-sm btn-danger">Delete</a>-->
                         {!! Form::button( '<a href="/dupdate"><i class="fa fa-edit fa-lg" style="color: blue"title="Edit"></i></a>',
-                        ['onclick' => 'editresearcharea()',
-                        'class' => 'delete text-danger editeForm',
+                        ['class' => 'delete text-danger editeForm',
                         'id' => 'btnediteProduct',
                         'data-id' => $defectd->id ] ) !!}
                         <!--                        end update button-->
@@ -263,12 +262,7 @@
     }
 
 //    edit the selected research area
-    function editresearcharea() {
-            
-        swal("KEEP CALM!", "it's \n COMING SOON!", "success");
-
-        //swal("Updated!!", "Research Area is Updated", "success");      
-    }
+    
 
 </script>
 

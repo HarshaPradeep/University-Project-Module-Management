@@ -129,95 +129,25 @@
                    <!-- /.panel -->
 
 
-                    <ul class="timeline">
-                        <li>
-                            <div class="timeline-badge"><i class="fa fa-comments"></i>
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4 class="timeline-title">This is 1st post</h4>
-                                    <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago</small>
-                                    </p>
-                                </div>
-                                <div class="timeline-body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero laboriosam dolor perspiciatis omnis exercitationem. Beatae, officia pariatur? Est cum veniam excepturi. Maiores praesentium, porro voluptas suscipit facere rem dicta, debitis.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-badge"><i class="fa fa-comments"></i>
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4 class="timeline-title">This is 2nd post</h4>
-									<p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago</small>
-                                    </p>
-                                </div>
-                                <div class="timeline-body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolorem quibusdam, tenetur commodi provident cumque magni voluptatem libero, quis rerum. Fugiat esse debitis optio, tempore. Animi officiis alias, officia repellendus.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="timeline-badge"><i class="fa fa-comments"></i>
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4 class="timeline-title">This is 3rd post</h4>
-									<p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago</small>
-                                    </p>
-                                </div>
-                                <div class="timeline-body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus numquam facilis enim eaque, tenetur nam id qui vel velit similique nihil iure molestias aliquam, voluptatem totam quaerat, magni commodi quisquam.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-						<div class="timeline-badge"><i class="fa fa-comments"></i>
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4 class="timeline-title">This is 4th post</h4>
-									<p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago</small>
-                                    </p>
-                                </div>
-                                <div class="timeline-body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates est quaerat asperiores sapiente, eligendi, nihil. Itaque quos, alias sapiente rerum quas odit! Aperiam officiis quidem delectus libero, omnis ut debitis!</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="timeline-badge"><i class="fa fa-comments"></i>
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4 class="timeline-title">This is 5th post</h4>
-									<p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago</small>
-                                    </p>
-                                </div>
-                                <div class="timeline-body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis minus modi quam ipsum alias at est molestiae excepturi delectus nesciunt, quibusdam debitis amet, beatae consequuntur impedit nulla qui! Laborum, atque.</p>
+       <div id="collapse1" class="ibox-content">
+            <ul class="list-group" style="height: 320px">
+            <li class="list-group-item" style="float: left">
+                <div class="text-center">
+                    
+                            <canvas id="cpie" height="200" width="470"></canvas>
+                        </div>
+                
+            </li>
 
-
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="timeline-inverted">
-                            <div class="timeline-badge"><i class="fa fa-comments"></i>
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4 class="timeline-title">This is 6th post</h4>
-									<p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago</small>
-                                    </p>
-                                </div>
-                                <div class="timeline-body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt obcaecati, quaerat tempore officia voluptas debitis consectetur culpa amet, accusamus dolorum fugiat, animi dicta aperiam, enim incidunt quisquam maxime neque eaque.</p>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+            <li class="list-group-item" style="float: right">
+                
+                <div class="text-center">
+                            <canvas id="cpie1" height="200" width="470"></canvas>
+                        </div>
+                
+            </li>
+        </ul>
+      </div>
 
 
 
@@ -226,5 +156,90 @@
 
 
 @section('ValidationJavaScript')
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function () {
+        var pdata = [
+            {
+                value: 300,
+                color: "#46BFBD",
+                highlight: "#5AD3D1",
+                label: "A [90-100]"
+            },
+            {
+                value: 100,
+                color: "#FDB45C",
+                highlight: "#FFC870",
+                label: "B [80-89]"
+            },
+            {
+                value: 100,
+                color: "#FDB45C",
+                highlight: "#FFC870",
+                label: "C [70-79]"
+            },
+            {
+                value: 100,
+                color: "#FDB45C",
+                highlight: "#FFC870",
+                label: "D [60-69]"
+            },
+            {
+                value: 50,
+                color:"#F7464A",
+                highlight: "#FF5A5E",
+                label: "F [0-59]"
+            }
+        ];
+            var chartOptions = {
+
+                    };
+        var cpie = document.getElementById("cpie").getContext("2d");
+        new Chart(cpie).Pie(pdata, chartOptions);
+
+        //////////////////////////////////////////////////////////////////////
+
+        var pdata = [
+            {
+                value: 300,
+                color: "#46BFBD",
+                highlight: "#5AD3D1",
+                label: "A [90-100]"
+            },
+            {
+                value: 100,
+                color: "#FDB45C",
+                highlight: "#FFC870",
+                label: "B [80-89]"
+            },
+            {
+                value: 100,
+                color: "#FDB45C",
+                highlight: "#FFC870",
+                label: "C [70-79]"
+            },
+            {
+                value: 100,
+                color: "#FDB45C",
+                highlight: "#FFC870",
+                label: "D [60-69]"
+            },
+            {
+                value: 50,
+                color:"#F7464A",
+                highlight: "#FF5A5E",
+                label: "F [0-59]"
+            }
+        ];
+            var chartOptions = {
+
+                    };
+        var cpie = document.getElementById("cpie1").getContext("2d");
+        new Chart(cpie).Pie(pdata, chartOptions);
+});
+
+</script>
 
 @endsection
