@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTopicsTable extends Migration {
+class CreateNewstopicTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,19 +12,19 @@ class CreateTopicsTable extends Migration {
 	 */
 	public function up()
 	{
-        Schema::create('topics', function(Blueprint $table)
+        Schema::create('newstopic', function(Blueprint $table)
         {
             $table->increments('id');
             $table->integer('post_id')->unsigned();
             $table->text('topic');
             $table->timestamps();
-    });
+        });
 
-    Schema::create('topics', function($table)
-    {
+        Schema::create('newstopic', function($table)
+        {
 
-        $table->foreign('post_id')->references('id')->on('newsfeed')->onDelete('cascade');
-    });
+            $table->foreign('post_id')->references('id')->on('newsposts')->onDelete('cascade');
+        });
 	}
 
 	/**
@@ -34,8 +34,7 @@ class CreateTopicsTable extends Migration {
 	 */
 	public function down()
 	{
-        Schema::drop('topics');
-
+        Schema::drop('newstopic');
 	}
 
 }

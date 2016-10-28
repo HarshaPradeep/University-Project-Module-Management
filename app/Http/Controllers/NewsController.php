@@ -9,9 +9,9 @@ use App\Http\Requests\Addpost;
 use App\Http\Requests\Addtopic;
 use App\Http\Requests\Addcomment;
 use App\FreeSlots;
-use App\newsfeed;
-use App\topics;
-use App\comments;
+use App\news_posts;
+use App\news_topic;
+use App\news_comments;
 use App\PanelMember;
 use App\PresentationPanel;
 use App\Project;
@@ -23,15 +23,14 @@ use Carbon;
 
 
 
-class ForumController extends Controller {
+class NewsController extends Controller {
 
 
 
     public function prevComments()
     {
-        $com=comments::all();
+        $com=news_comments::all();
         return $com;
-        //return view('groupForumdisplay/{id}')->with('comments',$com);
 
 
     }
@@ -43,52 +42,53 @@ class ForumController extends Controller {
     }
 
 
-  public function getComment(){
+    public function getComment(){
 
-        $comments=comments::all();
+        $comments=news_comments::all();
 
-        return view('groupForum{id?}',['comments'=>$comments]);
 
     }
 
     public function viewPosts($po){
 
 
-        $p=topics::find($po);
-        $pos=newsfeed::where('topic_id',$po)->get();
+        $p=news_topic::find($po);
+        $t=$p->topic;
+        $pos=news_posts::where('topic_id',$po)->orderBy('id','desc')->paginate(5);
         $uid = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->email;
 
-        $v = topics::select('views')->where('id',$po)->pluck('views');
-       $v++;
-       $p->views = $v;
+        $v = news_topic::select('views')->where('id',$po)->pluck('views');
+        $v++;
+        $p->views = $v;
         $p->save();
 
-        return view('groupForum', ['pos'=>$pos ],['email'=>$uid]);
+
+        return view('newsforum/newsForum', ['pos'=>$pos ],['email'=>$uid], compact('t'));
     }
 
     public function viewQuestion($po)
     {
 
-        $p=newsfeed::find($po);
+        $p=news_posts::find($po);
 
 
-        $v = newsfeed::select('views')->where('id',$po)->pluck('views');
+        $v = news_posts::select('views')->where('id',$po)->pluck('views');
 
         $v++;
 
         $p->views = $v;
         $p->save();
 
-        $com=comments::where('post_id',$po)->get();
+        $com=news_comments::where('post_id',$po)->get();
         $email = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->email;
 
 
-      return view('groupForumdisplay',compact('p'))->with('com',$com)->with('email',$email);
+        return view('newsforum/newsForumdisplay',compact('p'))->with('com',$com)->with('email',$email);
 
 
     }
 
-    public function editPost($po)
+    public function editPostNews($po)
     {
 
         $email = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->email;
@@ -104,15 +104,15 @@ class ForumController extends Controller {
 
 
 
-   public function editPostView($id)
+    public function editPostView($id)
     {
-       $p = newsfeed::find($id);
-        return view('editPost',compact('p'));
+        $p = news_posts::find($id);
+        return view('/newsforum/editPostNews',compact('p'));
     }
 
     public function editTopicView($id){
-        $p=topics::find($id);
-        return view('editTopicView',compact('p'));
+        $p=news_topic::find($id);
+        return view('/newsforum/editTopicViewNews',compact('p'));
     }
 
     public function editTopic(){
@@ -123,19 +123,19 @@ class ForumController extends Controller {
 
 
         $postid=$_POST['toEdit'];
-        $t = topics::find($_POST['toEdit']);
+        $t = news_topic::find($_POST['toEdit']);
         $t->topic = $topic;
 
 
         $t->save();
         \Session::flash('message_success', 'Topic Updated Successfully!!');
-        $posts=newsfeed::orderBy('id','desc')->paginate(5);
+        $posts=news_posts::orderBy('id','desc')->paginate(5);
         $email = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->email;
 
-        return Redirect::to('/viewTopics');
+        return Redirect::to('/viewNewsTopics');
     }
 
-   public function editPostN()
+    public function editPostN()
     {
         if (isset($_POST['toEdit'])) {
 
@@ -158,7 +158,7 @@ class ForumController extends Controller {
 
                 if ($ext == 'docx' || $ext == 'pdf' || $ext == 'zip') {
 
-                    $t = newsfeed::find($_POST['toEdit']);
+                    $t = news_posts::find($_POST['toEdit']);
                     $t->topic = $topic;
                     $t->message=$msg;
                     $t->datetime=$date;
@@ -166,16 +166,16 @@ class ForumController extends Controller {
                     $t->file_name=$name;
                     $t->save();
                     \Session::flash('message_success', 'Post Updated Successfully!!');
-                    $posts=newsfeed::orderBy('id','desc')->paginate(5);
+                    $posts=news_posts::orderBy('id','desc')->paginate(5);
                     $email = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->email;
 
-                    return view('groupForum', ['posts'=>$posts ],['email'=>$email]);
+                    return view('/newsForum', ['posts'=>$posts ],['email'=>$email]);
 
 
 
                 } elseif ($ext == 'png' || $ext == 'jpg' || $ext == 'JPG') {
 
-                    $t = newsfeed::find($_POST['toEdit']);
+                    $t = news_posts::find($_POST['toEdit']);
                     $t->topic = $topic;
                     $t->message=$msg;
                     $t->datetime=$date;
@@ -185,26 +185,26 @@ class ForumController extends Controller {
                     \Session::flash('message_success', 'Post Updated Successfully!!');
 
 
-                    $posts=newsfeed::orderBy('id','desc')->paginate(5);
+                    $posts=news_posts::orderBy('id','desc')->paginate(5);
                     $email = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->email;
 
-                    return view('groupForum', ['posts'=>$posts ],['email'=>$email]);
+                    return view('/newsForum', ['posts'=>$posts ],['email'=>$email]);
 
                 }
 
             } else {
 
                 $postid=$_POST['toEdit'];
-                $t = newsfeed::find($_POST['toEdit']);
+                $t = news_posts::find($_POST['toEdit']);
                 $t->topic = $topic;
                 $t->message=$msg;
                 $t->datetime=$date;
                 $t->save();
                 \Session::flash('message_success', 'Post Updated Successfully!!');
-                $posts=newsfeed::orderBy('id','desc')->paginate(5);
+                $posts=news_posts::orderBy('id','desc')->paginate(5);
                 $email = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->email;
 
-                return Redirect::to('/groupForumdisplay/'.$postid);
+                return Redirect::to('/newsForumdisplay/'.$postid);
 
 
             }
@@ -214,11 +214,11 @@ class ForumController extends Controller {
         elseif (isset($_POST['delete'])) {
             $postid=$_POST['toEdit'];
 
-            $u = comments::find($_POST['toDelete']);
+            $u = news_comments::find($_POST['toDelete']);
             $u->delete();
             \Session::flash('message_delete', 'Post Deleted Successfully!!');
 
-            return Redirect::to("/groupForumdisplay/".$postid);
+            return Redirect::to("/newsForumdisplay/".$postid);
 
 
         }
@@ -231,30 +231,24 @@ class ForumController extends Controller {
 
 
 
-        $p=newsfeed::all();
+        $p=news_posts::all();
         $email = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->email;
 
 
-        $topics=DB::table('topics')
-            ->select('*')
-            ->join('users','users.email','=','topics.email')
-            ->where('topics.email','=',$email)
-            ->get();
+
+       $topics=news_topic::orderBy('updated_at','desc')->paginate(5);
 
 
-//        $topics=topics::orderBy('updated_at','desc')->paginate(5);
-
-
-        $nos=DB::table('newsfeed')->select( DB::raw('topic_id, COUNT(id) as count' ) )
+        $nos=DB::table('news_posts')->select( DB::raw('topic_id, COUNT(id) as count' ) )
             ->groupBy('topic_id')->get();
 
 
-        $views=DB::table('topics')->select('id','views')->get();
+        $views=DB::table('news_topic')->select('id','views')->get();
 
         //return $views;
 
 
-        return view('viewTopics',compact('topics','nos','views','email'));
+        return view('newsforum/viewNewsTopics',compact('topics','nos','views','email'));
 
     }
 
@@ -265,11 +259,11 @@ class ForumController extends Controller {
 
         if (isset($_POST['delete'])) {
 
-            $u = topics::find($_POST['toDelete']);
+            $u = news_topic::find($_POST['toDelete']);
             $u->delete();
 
             \Session::flash('message_delete', 'Topic Deleted Successfully!!');
-            return Redirect::to('/viewTopics');
+            return Redirect::to('/viewNewsTopics');
 
 
         }
@@ -288,10 +282,10 @@ class ForumController extends Controller {
 
 
 
-                topics::create(['topic' => $topic,'email' => $em,'group_id'=>$query]);
-                \Session::flash('message_success', 'Topic Added Successfully!!');
+            news_topic::create(['topic' => $topic,'email' => $em,'group_id'=>$query]);
+            \Session::flash('message_success', 'Topic Added Successfully!!');
 
-                return Redirect::to("/viewTopics");
+            return Redirect::to("viewNewsTopics");
 
 
 
@@ -303,11 +297,11 @@ class ForumController extends Controller {
     {
         if(isset($_POST['deletePost'])){
 
-            $u=newsfeed::find($_POST['toDelete']);
+            $u=news_posts::find($_POST['toDelete']);
             $u->delete();
             \Session::flash('message_delete', 'Post Deleted Successfully!!');
 
-            return Redirect::to("/groupForum");
+            return Redirect::to("/newsForum");
 
 
 
@@ -315,19 +309,19 @@ class ForumController extends Controller {
 
         elseif (isset($_POST['delete'])) {
 
-            $u = newsfeed::find($_POST['toDelete']);
+            $u = news_posts::find($_POST['toDelete']);
             $u->delete();
             \Session::flash('message_delete', 'Comment Deleted Successfully!!');
             $url_last = (explode('/', $_SERVER['REQUEST_URI']));
             $url_lastpart = $url_last[2];
-            return Redirect::to("/groupForumdisplay/$url_lastpart");
+            return Redirect::to("/newsForumdisplay/$url_lastpart");
 
 
         } else {
 
             $unique = true;
-            $topics = topics::find('$id');
-            $posts = newsfeed::all();
+            $topics = news_topic::find('$id');
+            $posts = news_posts::all();
             $topic = $id->topic;
             $msg = $id->message;
             //$des = $comments->lists('description');
@@ -352,7 +346,7 @@ class ForumController extends Controller {
                 {
 
 
-                    newsfeed::create(['topic' => $topic,'message' => $msg,'email' => $email, 'datetime' => $dt,
+                    news_posts::create(['topic' => $topic,'message' => $msg,'email' => $email, 'datetime' => $dt,
                         'description' => $msg, 'link' => $destinationPath,'file_name'=>$name, 'topic_id' => $url_lastpart]);
                     \Session::flash('message_comment', 'Thank you for your post!!');
                     $url_last = (explode('/', $_SERVER['REQUEST_URI']));
@@ -362,7 +356,7 @@ class ForumController extends Controller {
                 }
                 elseif ($ext == 'png' ||$ext == 'jpg' ||$ext == 'JPG' ) {
 
-                    newsfeed::create(['topic' => $topic,'message' => $msg,'email' => $email, 'datetime' => $dt,
+                    news_posts::create(['topic' => $topic,'message' => $msg,'email' => $email, 'datetime' => $dt,
                         'description' => $msg, 'file' => $destinationPath,'file_name'=>$name, 'topic_id' => $url_lastpart]);
                     \Session::flash('message_comment', 'Thank you for your post!!');
                     $url_last = (explode('/', $_SERVER['REQUEST_URI']));
@@ -372,7 +366,7 @@ class ForumController extends Controller {
             }
             else{
 
-                newsfeed::create(['topic' => $topic,'message' => $msg,'email' => $email, 'datetime' => $dt,
+                news_posts::create(['topic' => $topic,'message' => $msg,'email' => $email, 'datetime' => $dt,
                     'description' => $msg,'topic_id' => $url_lastpart]);
                 \Session::flash('message_comment', 'Thank you for your post!!');
                 $url_last = (explode('/', $_SERVER['REQUEST_URI']));
