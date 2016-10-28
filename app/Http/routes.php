@@ -545,7 +545,7 @@ Route::delete('/pendingDel/{id}', function ($id) {
 
      /*update the members of the research group after deletion*/
      DB::table('research_groups')
-         ->where('groupID', $ID)
+         ->where('groupID', $groupId)
          ->update(['mails' => $newMembers]);
 
      $memberNames = ResearchGroups::where('mails','Like',$currentUserEmail.'%')->pluck('mails');
