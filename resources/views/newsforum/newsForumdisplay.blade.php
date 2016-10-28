@@ -2,12 +2,12 @@
 
 @section('css_links')
 
-  <link href="{{asset('public_assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
+    <link href="{{asset('public_assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
 
-<!--     Toastr style -->
+    <!--     Toastr style -->
     <link href="{{asset('public_assets/css/plugins/toastr/toastr.min.css')}}" rel="stylesheet">
 
-<!--     Gritter -->
+    <!--     Gritter -->
     <link href="{{asset('public_assets/js/plugins/gritter/jquery.gritter.css')}}" rel="stylesheet">
 
 
@@ -21,8 +21,8 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/summernote/0.7.0/summernote.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet">
-    
-     <script>tinymce.init({ selector:'textarea' });</script>
+
+    <script>tinymce.init({ selector:'textarea' });</script>
     <script src="{{asset('public_assets/dist/summernote.min.css')}}"></script>
     <script src="{{asset('public_assets/dist/summernote.min.js')}}"></script>
     <style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0); background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style>
@@ -45,7 +45,7 @@
 @section('title')
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10" style="padding-top: 20px;">
-            <button type="button" class="btn btn-w-m btn-primary" onclick="window.location='http://localhost:8000/viewTopics'">View Topics</button>
+            <button type="button" class="btn btn-w-m btn-primary" onclick="window.location='http://localhost:8000/viewNewsTopics'">View Topics</button>
 
             <ol class="breadcrumb">
 
@@ -60,7 +60,7 @@
 
 
 {{--@section('subheader')--}}
-    {{--<h5>Comment your idea here..</h5>--}}
+{{--<h5>Comment your idea here..</h5>--}}
 {{--@endsection--}}
 
 
@@ -68,29 +68,29 @@
 
 @section('content')
 
-<div class="row">
+    <div class="row">
 
-    @if (count($errors) > 0)
+        @if (count($errors) > 0)
 
-        <div class=" alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-    
-     @if(Session::has('message_success'))
+            <div class=" alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
-    <script>
-        swal("Record Altered!", "{{ Session::get('message_success') }}", "success");
-    </script>
-    
-    <div class="alert alert-success" role="alert" id="divAlert" style="font-size: 14px">
-        <span class="glyphicon glyphicon-envelope"></span> {{Session::get('message_success') }}
-    </div>
-    @endif
+        @if(Session::has('message_success'))
+
+            <script>
+                swal("Record Altered!", "{{ Session::get('message_success') }}", "success");
+            </script>
+
+            <div class="alert alert-success" role="alert" id="divAlert" style="font-size: 14px">
+                <span class="glyphicon glyphicon-envelope"></span> {{Session::get('message_success') }}
+            </div>
+        @endif
 
 
         @if(Session::has('message_delete'))
@@ -114,35 +114,35 @@
                 <span class="glyphicon glyphicon-envelope"></span> {{Session::get('message_comment') }}
             </div>
         @endif
-    
-    
-    @if(Session::has('message_error'));
-    
-    <script>
-        swal("Error!", "{{ Session::get('message_error') }}", "error");
-    </script>
 
-    
-    @endif
-    
-</div>
-    
+
+        @if(Session::has('message_error'));
+
+        <script>
+            swal("Error!", "{{ Session::get('message_error') }}", "error");
+        </script>
+
+
+        @endif
+
+    </div>
+
     <div class="container">
         {{--@can('editPost',$val)
             <a href="{{action('ForumController@editPost', $val}}">Edit post</a>
         @endcan--}}
-      
 
-           
-            <div class="row">  
-               
+
+
+        <div class="row">
+
             <div  class="jumbotran" style="border-color:#6C6D71;border-radius:10px;padding:20px;width:1000px;background-color:white;padding-right: 10px;padding-left: 10px;">
-                        
-                        
+
+
                 <div style="color:#121A5B;" ><h2><b>{{$p->topic}}</b></h2></div>
-                        Posted by : {{$p->email}}<br>
-                        on :<b>{{date('M j,Y h:ia',strtotime($p->datetime))}}</b>
-                        <br><br><br>
+                Posted by : {{$p->email}}<br>
+                on :<b>{{date('M j,Y h:ia',strtotime($p->datetime))}}</b>
+                <br><br><br>
 
                 @if($p->file != null)
 
@@ -156,10 +156,10 @@
                 <div style="color:#333439;"><h4>{!!($p->message)!!}</h4></div>
                 <br>
 
-                        <br>
+                <br>
                 <form id="{{$p->id}}" action='' method='post' >
                     @if($p->email == $email)
-                        <a href="{{ asset('editPost/'. $p->id) }}" class="edit_btn btn btn-primary btn-xs m-l-sm">Edit</a>
+                        <a href="{{ asset('editPostNews/'. $p->id) }}" class="edit_btn btn btn-primary btn-xs m-l-sm">Edit</a>
 
                         <input type='hidden' name='toDelete'  value="{{$p->id}}">
                         <input  type='submit'  onclick="postDelete()" name='deletePost'  value='Delete' class="btn btn-danger  btn-primary btn-xs m-l-sm">
@@ -168,7 +168,7 @@
 
                 </form>
                 <hr>
-                   <div class="container" style="color:black;"><h2><b>Replies</b></h2></div><br>
+                <div class="container" style="color:black;"><h2><b>Replies</b></h2></div><br>
 
 
 
@@ -176,55 +176,56 @@
                 @foreach($com as $comment)
                     {{--<div class="row">--}}
 
-                        <div  class="jumbotran" style="border-radius:10px;background-color:white;width:1000px;padding-left: 100px;">
+                    <div  class="jumbotran" style="border-radius:10px;background-color:white;width:900px;padding-left: 100px;">
 
 
-                           <div style="color:#121A5B;" > Posted by :<b>{{$comment->email}}</b><br>
-                           on :<b>{{date('M j,Y h:ia',strtotime($comment->timedate))}}</b>
+                        <div style="color:#121A5B;" > Posted by :<b>{{$comment->email}}</b><br>
+                            on :<b>{{date('M j,Y h:ia',strtotime($comment->timedate))}}</b>
                             <br><br>
 
-                               @if($comment->file != null)
+                            @if($comment->file != null)
 
-                                   <img src="{{$comment->file}}" alt="" width="250" height="160">
-                                   <br> <br>
-                               @elseif($comment->link != null)
+                                <img src="{{$comment->file}}" alt="" width="250" height="160">
+                                <br> <br>
+                            @elseif($comment->link != null)
 
-                                   <a href="{{$comment->link}}" download="{{$comment->link}}">{{$comment->file_name}}</a>
+                                <a href="{{$comment->link}}" download="{{$comment->link}}">{{$comment->file_name}}</a>
 
-                               @endif
+                            @endif
 
-                               <div style="color:#333439;"><h4>{{$comment->description}}</h4></div>
-                               <br>
+                            <div style="color:#333439;"><h4>{{$comment->description}}</h4></div>
+                            <br>
 
 
 
                             &emsp;</div>
-                            <br>
-                            @if($comment->email == $email)
+                        <br>
+
+                        @if($comment->email === $email)
                             <form id="{{$comment->id}}" action='' method='post' >
-                                <a href="{{ asset('editComment/'. $comment->id) }}" class="edit_btn btn btn-primary btn-xs m-l-sm">Edit</a>
+                                <a href="{{ asset('/editCommentNews/'. $comment->id) }}" class="edit_btn btn btn-primary btn-xs m-l-sm">Edit</a>
                                 <input type='hidden' name='toDelete'  value="{{$comment->id}}">
                                 <input  type='submit'  onclick="deleteComment()" name='delete'  value='Delete' class="btn btn-danger  btn-primary btn-xs m-l-sm">
                                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                             </form>
-                            @endif
+                        @endif
 
-                            <hr>
-                            <br><br>
+                        <hr>
+                        <br><br>
 
 
 
-                        </div>
+                    </div>
                     {{--</div>--}}
 
 
                 @endforeach
-           
-            </div>
-            </div>
-           
 
-           
+            </div>
+        </div>
+
+
+
     </div>
 
     <hr>
@@ -330,7 +331,7 @@
 
     //delete task and remove it from list
     $.ajax({
-        url: '/groupForumdisplay/' + id,
+        url: '/newsForumdisplay/' + id,
         data: { "_token": "{{ csrf_token() }}" },
         type: 'DELETE',
         success: function(result) {

@@ -351,6 +351,9 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'student'), function
     Route::post('editPostNews/{id}','NewsController@editPostN');
     Route::get('editTopicViewNews/{id}','NewsController@editTopicView');
     Route::post('editTopicViewNews/{id}','NewsController@editTopic');
+    Route::get('editCommentNews/{id}','newsCommentsController@editCommentView');
+    Route::post('editCommentNews/{id}','newsCommentsController@editComment');
+
 
 
 

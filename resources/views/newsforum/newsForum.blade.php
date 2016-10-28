@@ -32,7 +32,7 @@
         <!--        <div class="col-lg-10">-->
         <div><div style="font-size:15px;padding: 20px;color: #488475;background-color: #E1F1ED  ;">
                 Welcome to the workZone Forum! Come in, have a look around...</div>
-            <img style="padding-left:350px;" height="170px" src="http://sod208.fulton.asu.edu/forum-1/forum/image_preview">
+            <img style="padding-left:350px;" height="240px" src="http://wsiaxon.com/wp-content/uploads/2016/10/online_community.jpg">
 
 
         </div>
@@ -115,60 +115,63 @@
 
     </div>
 
-    <form action="http://localhost:8000/viewTopics">
+    <form action="http://localhost:8000/viewNewsTopics">
         <input type="submit"  class="btn btn-w-m btn-primary" value="View Topics" />
     </form>
 
-@foreach($pos as $post)
+    <div class="">
 
 
 
-            <div  class="container" style="border-color:#6C6D71;border-radius:10px;padding:20px;width:1000px;background-color:white;padding-right: 10px;padding-left: 10px;">
+    </div>
 
-                <div style="color:#121A5B; display: inline;"><img style="border-radius:50%;width:60px; padding-top:5px;" src="http://tedxfukuoka.com/wp/wp-content/uploads/rika_shiiki_-562x562.jpg">
-                <h2><a href="http://localhost:8000/groupForumdisplay/{{$post->id}}">{{$post->topic}}</a></h2></div>
-                Posted by : {{$post->email}}<br>
-                on :<b>{{date('M j,Y h:ia',strtotime($post->datetime))}}</b>
-                <br><br><br>
-
-                @if($post->file != null)
-
-                    <img src="{{$post->file}}" alt="" width="350" height="260">
-                    <br> <br>
-                @elseif($post->link != null)
-
-                    <a href="{{$post->link}}" download="{{$post->link}}">{{$post->file_name}}</a>
-
-                @endif
-                <div style="color:#333439;"><h4>{!!str_limit($post->message,$limit=300,$end='.....')!!}</h4></div>
-                <br>  <br>
-
-                <form action="http://localhost:8000/groupForumdisplay/{{$post->id}}">
-                    <input type="submit" class="btn  btn-m" value="Read more" />
-                </form>
-                <hr>
-                <form id="{{$post->id}}" action='' method='post' >
-                    <i class="fa fa-comment" aria-hidden="true"></i>&nbsp;<a href="http://localhost:8000/groupForumdisplay/{{$post->id}}">Reply</a>
-                    @if($post->email == $email)
-                        <a href="{{ asset('editPost/'. $post->id) }}" class="edit_btn btn btn-primary btn-xs m-l-sm">Edit</a>
-
-                        <input type='hidden' name='toDelete'  value="{{$post->id}}">
-                        <input  type='submit'  onclick="postDelete()" name='deletePost'  value='Delete' class="btn btn-danger  btn-primary btn-xs m-l-sm">
-                        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                    @endif
-
-                </form>
+    @foreach($pos as $post)
 
 
+
+        <div  class="container" style="border-color:#6C6D71;border-radius:10px;padding:20px;width:1000px;background-color:white;padding-right: 10px;padding-left: 10px;">
+
+            <div style="color:#121A5B; display: inline;"><img style="border-radius:50%;width:60px; padding-top:5px;" src="http://uploads.webflow.com/54531f96c36a098a31121c05/54c21dc77bbf1d8c4cfd5ef1_CEM%20icons-01.png">
+                <h2><a href="http://localhost:8000/newsForumdisplay/{{$post->id}}">{{$post->topic}}</a></h2></div>
+            Posted by : {{$post->email}}<br>
+            on :<b>{{date('M j,Y h:ia',strtotime($post->datetime))}}</b>
+            <br><br><br>
+
+            @if($post->file != null)
+
+                <img src="{{$post->file}}" alt="" width="350" height="260">
+                <br> <br>
+            @elseif($post->link != null)
+
+                <a href="{{$post->link}}" download="{{$post->link}}">{{$post->file_name}}</a>
+
+            @endif
+            <div style="color:#333439;"><h4>{!!str_limit($post->message,$limit=300,$end='.....')!!}</h4></div>
+            <br>  <br>
+
+            <form action="http://localhost:8000/newsForumdisplay/{{$post->id}}">
+                <input type="submit" class="btn  btn-m" value="Read more" />
+            </form>
+            <hr>
+            <form id="{{$post->id}}" action='' method='post' >
+                <i class="fa fa-comment" aria-hidden="true"></i>&nbsp;<a href="http://localhost:8000/newsForumdisplay/{{$post->id}}">Reply</a>
+
+
+            </form>
 
 
 
 
-            </div>
-            <br><br>
 
-        @endforeach
 
+        </div>
+        <br><br>
+
+    @endforeach
+
+    <div class="text-center" >
+        {!! $pos->render() !!}
+    </div>
 
 
 
@@ -235,7 +238,7 @@
 
     //delete task and remove it from list
     $.ajax({
-        url: '/groupForumdisplay/' + id,
+        url: '/newsForumdisplay/' + id,
         data: { "_token": "{{ csrf_token() }}" },
         type: 'DELETE',
         success: function(result) {
