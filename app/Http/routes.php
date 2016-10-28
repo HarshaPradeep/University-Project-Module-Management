@@ -341,6 +341,18 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'student'), function
     Route::post('editTopicView/{id}','ForumController@editTopic');
 
 
+    Route::get('newsForum/{id?}','NewsController@viewPosts');
+    Route::post('viewNewsTopics','NewsController@deleteandgettopic');
+    Route::get('viewNewsTopics','NewsController@getTopic');
+    Route::post('newsForum/{id?}','NewsController@deleteandaddpost');
+    Route::get('newsForumdisplay/{id?}','NewsController@viewQuestion');
+    Route::post('newsForumdisplay/{id?}','newsCommentsController@deleteandadd');
+    Route::get('editPostNews/{id}','NewsController@editPostView');
+    Route::post('editPostNews/{id}','NewsController@editPostN');
+    Route::get('editTopicViewNews/{id}','NewsController@editTopicView');
+    Route::post('editTopicViewNews/{id}','NewsController@editTopic');
+
+
 
 
     Route::get('studentdashboard','StudentController@showDashboard');
