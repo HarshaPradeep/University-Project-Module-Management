@@ -339,6 +339,8 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'student'), function
     Route::post('editPost/{id}','ForumController@editPostN');
     Route::get('editTopicView/{id}','ForumController@editTopicView');
     Route::post('editTopicView/{id}','ForumController@editTopic');
+    Route::get('editComment/{id}','CommentsController@editCommentView');
+    Route::post('editComment/{id}','CommentsController@editComment');
 
 
     Route::get('newsForum/{id?}','NewsController@viewPosts');

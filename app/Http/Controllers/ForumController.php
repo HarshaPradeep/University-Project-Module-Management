@@ -59,11 +59,11 @@ class ForumController extends Controller {
         $uid = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->email;
 
         $v = topics::select('views')->where('id',$po)->pluck('views');
-       $v++;
-       $p->views = $v;
-        $p->save();
+//        $v++;
+//        $p->views = $v;
+//        $p->save();
 
-        return view('groupForum', ['pos'=>$pos ],['email'=>$uid]);
+        return view('groupforum/groupForum', ['pos'=>$pos ],['email'=>$uid]);
     }
 
     public function viewQuestion($po)
@@ -83,7 +83,7 @@ class ForumController extends Controller {
         $email = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->email;
 
 
-      return view('groupForumdisplay',compact('p'))->with('com',$com)->with('email',$email);
+      return view('groupforum/groupForumdisplay',compact('p'))->with('com',$com)->with('email',$email);
 
 
     }
@@ -107,12 +107,12 @@ class ForumController extends Controller {
    public function editPostView($id)
     {
        $p = newsfeed::find($id);
-        return view('editPost',compact('p'));
+        return view('groupforum/editPost',compact('p'));
     }
 
     public function editTopicView($id){
         $p=topics::find($id);
-        return view('editTopicView',compact('p'));
+        return view('groupforum/editTopicView',compact('p'));
     }
 
     public function editTopic(){
@@ -254,7 +254,7 @@ class ForumController extends Controller {
         //return $views;
 
 
-        return view('viewTopics',compact('topics','nos','views','email'));
+        return view('groupforum/viewTopics',compact('topics','nos','views','email'));
 
     }
 

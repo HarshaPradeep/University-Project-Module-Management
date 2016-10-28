@@ -103,7 +103,7 @@ class CommentsController extends Controller
         function editCommentView($id)
         {
             $c = comments::find($id);
-            return view('editComment', compact('c'));
+            return view('groupforum/editComment', compact('c'));
         }
 
 
