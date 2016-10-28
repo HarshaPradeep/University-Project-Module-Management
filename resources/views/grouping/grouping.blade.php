@@ -179,7 +179,7 @@
                                         <form action="{{ url('pendingDel/'.$inv->notification_id) }}" method="POST" >
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                             <input type="hidden" name="_method" value="DELETE">
-                                            <button type="submit" id="delete-member-{{ $inv->notification_id }}" class="btn btn-sm btn-warning" >
+                                            <button type="submit" id="delete-member-{{ $inv->notification_id }}" rel="tooltip" title="REMOVE request" class="btn btn-sm btn-warning" >
                                                 <span class="glyphicon glyphicon-ban-circle"></span></i>
                                             </button>
                                         </form>
@@ -191,7 +191,7 @@
                                         <form action="{{ url('remMember/'.$inv->notification_id) }}" method="POST" >
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                             <input type="hidden" name="_method" value="DELETE">
-                                            <button type="submit" id="delete-member-{{ $inv->notification_id }}" class="btn btn-sm btn-primary" >
+                                            <button type="submit" id="delete-member-{{ $inv->notification_id }}" rel="tooltip" title="REMOVE member" class="btn btn-sm btn-primary" >
                                                 <span class="glyphicon glyphicon-remove"></span></i>
                                             </button>
                                         </form>
@@ -204,7 +204,7 @@
                                         <form action="{{ url('pendingDel/'.$inv->notification_id) }}" method="POST" >
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                             <input type="hidden" name="_method" value="DELETE">
-                                            <button type="submit" id="delete-member-{{ $inv->notification_id }}" class="btn btn-sm btn-danger" >
+                                            <button type="submit" id="delete-member-{{ $inv->notification_id }}" rel="tooltip" title="DELETE request" class="btn btn-sm btn-danger" >
                                                 <span class="glyphicon glyphicon-trash"></span></i>
                                             </button>
                                         </form>
@@ -214,7 +214,6 @@
 
                             </tr>
                         @endforeach
-
 
             </tbody>
             </table>
