@@ -273,6 +273,7 @@ Route::get('/updateFreeSlot', 'FreeSlotController@updateSpecificFreeSlot');
 Route::get('/searchSpecificFreeSlot', 'FreeSlotController@searchSpecificSlot');
 Route::get('/searchSpecificFreeSlotByDate', 'FreeSlotController@searchSpecificSlotByDate');
 Route::get('viewProjects/{supId}', 'SupervisorController@viewProjects');
+
 Route::group(array('middleware' => 'guest', 'middleware' => 'panelmember'), function() {
 
     //resourceful controller route for monthly reports
