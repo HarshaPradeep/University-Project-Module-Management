@@ -86,7 +86,7 @@
                 </li>
 
                 <li class="active">
-                    <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span> <span class="fa"></span></a>
+                    <a href="/panelmemberdashboard"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span> <span class="fa"></span></a>
                 </li>
 
                 <li>
