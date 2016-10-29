@@ -111,8 +111,8 @@
                         
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforprotab1" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforproposalpresenttab1" class="marksforproposaltab1"  > Marks <br>
-                        <input type="text"  style="width: 40px; margin-top: 2px" name="marksforproposalreporttab1" class="marksforproposaltab1"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforproposalpresenttab1" class="marksforproposaltab1"  > Marks <br>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforproposalreporttab1" class="marksforproposaltab1"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -122,7 +122,7 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforsrstab1" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforsrstab1" class="marksforsrstab1"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrstab1" class="marksforsrstab1"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -132,7 +132,7 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforprotypetab1" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforprototab1" class="marksforprototypetab1"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforprototab1" class="marksforprototypetab1"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -142,8 +142,8 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksformidtab1" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksformidpresentab1" class="marksformidreviewtab1"  > Marks <br>
-                        <input type="text"  style="width: 40px; margin-top: 2px" name="marksfomidreporttab1" class="marksformidreviewtab1"> marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksformidpresentab1" class="marksformidreviewtab1"  > Marks <br>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksfomidreporttab1" class="marksformidreviewtab1"> marks</p></td>
                </tr>
                
                <tr>
@@ -153,8 +153,8 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforpresentationtab1" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforfinalpresnttab1" class="marksforfinalpresentationtab1"  > Marks <br>
-                        <input type="text"  style="width: 40px; margin-top: 2px" name="marksforfinalreporttab1" class="marksforfinalpresentationsecondtab1"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalpresnttab1" class="marksforfinalpresentationtab1"  > Marks <br>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforfinalreporttab1" class="marksforfinalpresentationsecondtab1"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -163,7 +163,7 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforvivatab1" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforvivatab1" class="marksforvivatab1"  > Marks <br></p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforvivatab1" class="marksforvivatab1"  > Marks <br></p></td>
                </tr>
                
                <tr>
@@ -174,9 +174,9 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforotherstab1" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforresearchbooktab1" class="marksforothertab1"  > Marks <br>
-                        <input type="text"  style="width: 40px; margin-top: 2px" name="marksforresearchpapertab1" class="marksforothertab1"  > Marks <br>
-                        <input type="text"  style="width: 40px; margin-top: 2px" name="marksforwebsitetab1" class="marksforothertab1"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforresearchbooktab1" class="marksforothertab1"  > Marks <br>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforresearchpapertab1" class="marksforothertab1"  > Marks <br>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforwebsitetab1" class="marksforothertab1"  > Marks</p></td>
                </tr>
             </tbody>
         </table>
@@ -187,8 +187,7 @@
             <input type="text" name="totaltab1" id="mem1total" style="width: 50px; height: 35px" readonly > <b>Marks</b></div>
 <br>
 <div><textarea name="cmntmem0" readonly rows="4" cols="80" placeholder="Comment" id="cmntmem0"></textarea></div><br>
-<div><select name="statustab1" ><option> Status </option>
-                                            <option> Present </option>
+<div><select name="statustab1" ><option> Present </option>
                                             <option> Absent </option></select></div>
         <div align="right" style="padding-right: 180px"> <input type='submit'  class="save_btn btn btn-primary btn-xl m-l-sm" name='editThesisFormMarks' align="right" id="member1sub">
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"></div>
@@ -213,8 +212,8 @@
                         
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforprotab2" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforproposalpresenttab2" class="marksforproposaltab2"  > Marks <br>
-                        <input type="text"  style="width: 40px; margin-top: 2px" name="marksforproposalreporttab2" class="marksforproposaltab2"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforproposalpresenttab2" class="marksforproposaltab2"  > Marks <br>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforproposalreporttab2" class="marksforproposaltab2"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -224,7 +223,7 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforsrstab2" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforsrstab2" class="marksforsrstab2"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrstab2" class="marksforsrstab2"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -234,7 +233,7 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforprotypetab2" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforprototab2" class="marksforprototypetab2"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforprototab2" class="marksforprototypetab2"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -244,8 +243,8 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksformidtab2" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksformidpresentab2" class="marksformidreviewtab2"  > Marks <br>
-                        <input type="text"  style="width: 40px; margin-top: 2px" name="marksfomidreporttab2" class="marksformidreviewtab2"> marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksformidpresentab2" class="marksformidreviewtab2"  > Marks <br>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksfomidreporttab2" class="marksformidreviewtab2"> marks</p></td>
                </tr>
                
                <tr>
@@ -255,8 +254,8 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforpresentationtab2" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforfinalpresnttab2" class="marksforfinalpresentationtab2"  > Marks <br>
-                        <input type="text"  style="width: 40px; margin-top: 2px" name="marksforfinalreporttab2" class="marksforfinalpresentationsecondtab2"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalpresnttab2" class="marksforfinalpresentationtab2"  > Marks <br>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforfinalreporttab2" class="marksforfinalpresentationsecondtab2"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -265,7 +264,7 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforvivatab2" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforvivatab2" class="marksforvivatab2"  > Marks <br></p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforvivatab2" class="marksforvivatab2"  > Marks <br></p></td>
                </tr>
                
                <tr>
@@ -276,9 +275,9 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforotherstab2" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforresearchbooktab2" class="marksforothertab2"  > Marks <br>
-                        <input type="text"  style="width: 40px; margin-top: 2px" name="marksforresearchpapertab2" class="marksforothertab2"  > Marks <br>
-                        <input type="text"  style="width: 40px; margin-top: 2px" name="marksforwebsitetab2" class="marksforothertab2"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforresearchbooktab2" class="marksforothertab2"  > Marks <br>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforresearchpapertab2" class="marksforothertab2"  > Marks <br>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforwebsitetab2" class="marksforothertab2"  > Marks</p></td>
                </tr>
             </tbody>
         </table>
@@ -289,8 +288,7 @@
             <input type="text" name="totaltab2" id="mem2total" style="width: 50px; height: 35px" readonly > <b>Marks</b></div>
 <br>
         <div><textarea name="cmntmem1" rows="4" cols="80" placeholder="Comment" id="cmntmem1"></textarea></div><br>
-        <div><select name="statustab2" ><option> Status </option>
-                                            <option> Present </option>
+        <div><select name="statustab2" ><option> Present </option>
                                             <option> Absent </option></select></div>
         <div align="right" style="padding-right: 180px"> <input type='submit'  class="save_btn btn btn-primary btn-xl m-l-sm" name='editThesisFormMarks' align="right" id="member2sub">
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"></div>
@@ -314,8 +312,8 @@
                         
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforprotab3" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforproposalpresenttab3" class="marksforproposaltab3"  > Marks <br>
-                        <input type="text"  style="width: 40px; margin-top: 2px" name="marksforproposalreporttab3" class="marksforproposaltab3"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforproposalpresenttab3" class="marksforproposaltab3"  > Marks <br>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforproposalreporttab3" class="marksforproposaltab3"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -325,7 +323,7 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforsrstab3" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforsrstab3" class="marksforsrstab3"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrstab3" class="marksforsrstab3"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -335,7 +333,7 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforprotypetab3" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforprototab3" class="marksforprototypetab3"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforprototab3" class="marksforprototypetab3"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -345,8 +343,8 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksformidtab3" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksformidpresentab3" class="marksformidreviewtab3"  > Marks <br>
-                        <input type="text"  style="width: 40px; margin-top: 2px" name="marksfomidreporttab3" class="marksformidreviewtab3"> marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksformidpresentab3" class="marksformidreviewtab3"  > Marks <br>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksfomidreporttab3" class="marksformidreviewtab3"> marks</p></td>
                </tr>
                
                <tr>
@@ -356,8 +354,8 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforpresentationtab3" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforfinalpresnttab3" class="marksforfinalpresentationtab3"  > Marks <br>
-                        <input type="text"  style="width: 40px; margin-top: 2px" name="marksforfinalreporttab3" class="marksforfinalpresentationsecondtab3"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalpresnttab3" class="marksforfinalpresentationtab3"  > Marks <br>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforfinalreporttab3" class="marksforfinalpresentationsecondtab3"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -366,7 +364,7 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforvivatab3" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforvivatab3" class="marksforvivatab3"  > Marks <br></p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforvivatab3" class="marksforvivatab3"  > Marks <br></p></td>
                </tr>
                
                <tr>
@@ -377,9 +375,9 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforotherstab3" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforresearchbooktab3" class="marksforothertab3"  > Marks <br>
-                        <input type="text"  style="width: 40px; margin-top: 2px" name="marksforresearchpapertab3" class="marksforothertab3"  > Marks <br>
-                        <input type="text"  style="width: 40px; margin-top: 2px" name="marksforwebsitetab3" class="marksforothertab3"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforresearchbooktab3" class="marksforothertab3"  > Marks <br>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforresearchpapertab3" class="marksforothertab3"  > Marks <br>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforwebsitetab3" class="marksforothertab3"  > Marks</p></td>
                </tr>
             </tbody>
         </table>
@@ -387,11 +385,10 @@
         <div align="right" style="padding-right: 42px">
             
             <input type="text"  placeholder="Total" style="width: 50px; height: 35px" disabled>  
-            <input type="text" name="total" id="mem3total" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
+            <input type="text" name="totaltab3" id="mem3total" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
-        <div><textarea name="comment" disabled rows="4" cols="80" placeholder="Comment" id="cmntmem2"></textarea></div><br>
-        <div><select name="statustab2" ><option> Status </option>
-                                            <option> Present </option>
+        <div><textarea name="cmntmem2" readonly rows="4" cols="80" placeholder="Comment" id="cmntmem2"></textarea></div><br>
+        <div><select name="statustab3" ><option> Present </option>
                                             <option> Absent </option></select></div>
         <div align="right" style="padding-right: 180px"> <input type='submit'  class="save_btn btn btn-primary btn-xl m-l-sm" name='editThesisFormMarks' align="right" id="member3sub">
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"></div>
@@ -415,8 +412,8 @@
                         
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforprotab4" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforproposalpresenttab4" class="marksforproposaltab4"  > Marks <br>
-                        <input type="text"  style="width: 40px; margin-top: 2px" name="marksforproposalreporttab4" class="marksforproposaltab4"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforproposalpresenttab4" class="marksforproposaltab4"  > Marks <br>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforproposalreporttab4" class="marksforproposaltab4"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -426,7 +423,7 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforsrstab4" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforsrstab4" class="marksforsrstab4"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrstab4" class="marksforsrstab4"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -436,7 +433,7 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforprotypetab4" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforprototab4" class="marksforprototypetab4"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforprototab4" class="marksforprototypetab4"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -446,8 +443,8 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksformidtab4" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksformidpresentab4" class="marksformidreviewtab4"  > Marks <br>
-                        <input type="text"  style="width: 40px; margin-top: 2px" name="marksfomidreporttab4" class="marksformidreviewtab4"> marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksformidpresentab4" class="marksformidreviewtab4"  > Marks <br>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksfomidreporttab4" class="marksformidreviewtab4"> marks</p></td>
                </tr>
                
                <tr>
@@ -457,8 +454,8 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforpresentationtab4" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforfinalpresnttab4" class="marksforfinalpresentationtab4"  > Marks <br>
-                        <input type="text"  style="width: 40px; margin-top: 2px" name="marksforfinalreporttab4" class="marksforfinalpresentationsecondtab4"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalpresnttab4" class="marksforfinalpresentationtab4"  > Marks <br>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforfinalreporttab4" class="marksforfinalpresentationsecondtab4"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -467,7 +464,7 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforvivatab4" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforvivatab4" class="marksforvivatab4"  > Marks <br></p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforvivatab4" class="marksforvivatab4"  > Marks <br></p></td>
                </tr>
                
                <tr>
@@ -478,9 +475,9 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforotherstab4" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforresearchbooktab4" class="marksforothertab4"  > Marks <br>
-                        <input type="text"  style="width: 40px; margin-top: 2px" name="marksforresearchpapertab4" class="marksforothertab4"  > Marks <br>
-                        <input type="text"  style="width: 40px; margin-top: 2px" name="marksforwebsitetab4" class="marksforothertab4"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforresearchbooktab4" class="marksforothertab4"  > Marks <br>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforresearchpapertab4" class="marksforothertab4"  > Marks <br>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforwebsitetab4" class="marksforothertab4"  > Marks</p></td>
                </tr>
             </tbody>
         </table>
@@ -488,11 +485,10 @@
         <div align="right" style="padding-right: 42px">
             
             <input type="text"  placeholder="Total" style="width: 50px; height: 35px" disabled>  
-            <input type="text" name="total" id="mem4total" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
+            <input type="text" name="totaltab4" id="mem4total" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
-        <div><textarea name="comment" disabled rows="4" cols="80" placeholder="Comment" id="cmntmem3"></textarea></div><br>
-        <div><select name="statustab2" ><option> Status </option>
-                                            <option> Present </option>
+        <div><textarea name="cmntmem3" readonly rows="4" cols="80" placeholder="Comment" id="cmntmem3"></textarea></div><br>
+        <div><select name="statustab4" ><option> Present </option>
                                             <option> Absent </option></select></div>
         <div align="right" style="padding-right: 180px"> <input type='submit'  class="save_btn btn btn-primary btn-xl m-l-sm" name='editThesisFormMarks' align="right" id="member4sub">
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"></div>
@@ -516,8 +512,8 @@
                         
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforprotab5" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforproposalpresenttab5" class="marksforproposaltab5"  > Marks <br>
-                        <input type="text"  style="width: 40px; margin-top: 2px" name="marksforproposalreporttab5" class="marksforproposaltab5"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforproposalpresenttab5" class="marksforproposaltab5"  > Marks <br>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforproposalreporttab5" class="marksforproposaltab5"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -527,7 +523,7 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforsrstab5" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforsrstab5" class="marksforsrstab5"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrstab5" class="marksforsrstab5"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -537,7 +533,7 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforprotypetab5" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforprototab5" class="marksforprototypetab5"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforprototab5" class="marksforprototypetab5"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -547,8 +543,8 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksformidtab5" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksformidpresentab5" class="marksformidreviewtab5"  > Marks <br>
-                        <input type="text"  style="width: 40px; margin-top: 2px" name="marksfomidreporttab5" class="marksformidreviewtab5"> marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksformidpresentab5" class="marksformidreviewtab5"  > Marks <br>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksfomidreporttab5" class="marksformidreviewtab5"> marks</p></td>
                </tr>
                
                <tr>
@@ -558,8 +554,8 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforpresentationtab5" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforfinalpresnttab5" class="marksforfinalpresentationtab5"  > Marks <br>
-                        <input type="text"  style="width: 40px; margin-top: 2px" name="marksforfinalreporttab5" class="marksforfinalpresentationsecondtab5"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalpresnttab5" class="marksforfinalpresentationtab5"  > Marks <br>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforfinalreporttab5" class="marksforfinalpresentationsecondtab5"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -568,7 +564,7 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforvivatab5" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforvivatab5" class="marksforvivatab5"  > Marks <br></p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforvivatab5" class="marksforvivatab5"  > Marks <br></p></td>
                </tr>
                
                <tr>
@@ -579,9 +575,9 @@
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforotherstab5" placeholder="0" disabled style="width: 80px">
-                        <p><input type="text"  style="width: 40px; margin-top: 5px" name="marksforresearchbooktab5" class="marksforothertab5"  > Marks <br>
-                        <input type="text"  style="width: 40px; margin-top: 2px" name="marksforresearchpapertab5" class="marksforothertab5"  > Marks <br>
-                        <input type="text"  style="width: 40px; margin-top: 2px" name="marksforwebsitetab5" class="marksforothertab5"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforresearchbooktab5" class="marksforothertab5"  > Marks <br>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforresearchpapertab5" class="marksforothertab5"  > Marks <br>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforwebsitetab5" class="marksforothertab5"  > Marks</p></td>
                </tr>
             </tbody>
         </table>
@@ -589,11 +585,10 @@
         <div align="right" style="padding-right: 42px">
             
             <input type="text"  placeholder="Total" style="width: 50px; height: 35px" disabled>  
-            <input type="text" name="total" id="mem5total" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
+            <input type="text" name="totaltab5" id="mem5total" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
-        <div><textarea name="comment" disabled rows="4" cols="80" placeholder="Comment" id="cmntmem4"></textarea></div><br>
-        <div><select name="statustab2" ><option> Status </option>
-                                            <option> Present </option>
+        <div><textarea name="cmntmem4" readonly rows="4" cols="80" placeholder="Comment" id="cmntmem4"></textarea></div><br>
+        <div><select name="statustab5" ><option> Present </option>
                                             <option> Absent </option></select></div>
         <div align="right" style="padding-right: 180px"> <input type='submit'  class="save_btn btn btn-primary btn-xl m-l-sm" name='editThesisFormMarks' align="right" id="member5sub">
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"></div>
