@@ -55,15 +55,16 @@ class ForumController extends Controller {
 
 
         $p=topics::find($po);
-        $pos=newsfeed::where('topic_id',$po)->get();
-        $uid = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->email;
+        $viewtopic=$p->topic;
+        $pos=newsfeed::where('topic_id',$po)->orderBy('id','desc')->paginate(5);
+        $email = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->email;
 
         $v = topics::select('views')->where('id',$po)->pluck('views');
-//        $v++;
-//        $p->views = $v;
-//        $p->save();
+        $v++;
+        $p->views = $v;
+        $p->save();
 
-        return view('groupforum/groupForum', ['pos'=>$pos ],['email'=>$uid]);
+        return view('groupforum/groupForum',compact('pos','email','viewtopic'));
     }
 
     public function viewQuestion($po)
@@ -236,12 +237,12 @@ class ForumController extends Controller {
 
 
         $topics=DB::table('topics')
-            ->select('*')
+            ->select(array('topics.id as topic_id','topics.updated_at as updated_at', 'topics.topic as topic_name','topics.email as email'))
             ->join('users','users.email','=','topics.email')
             ->where('topics.email','=',$email)
-            ->get();
+            ->orderBy('updated_at','desc')->paginate(5);
 
-
+        //dd($topics);
 //        $topics=topics::orderBy('updated_at','desc')->paginate(5);
 
 

@@ -119,11 +119,14 @@
         <input type="submit"  class="btn btn-w-m btn-primary" value="View Topics" />
     </form>
 
-    <div class="">
 
+    <div style="border-color:#6C6D71;padding:8px;width:1080px;background-color:white;padding-left: 50px;">
 
+        <b><h1 style="color:#75787b;">{{ $viewtopic }}</h1></b>
 
     </div>
+    <br><br>
+
 
     @foreach($pos as $post)
 

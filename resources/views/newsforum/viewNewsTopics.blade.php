@@ -142,35 +142,39 @@
     {{--print article--}}
     {{--@endforeach--}}
     {{--@endif--}}
-
     @forelse($topics as $topic)
 
-        <a href="http://localhost:8000/newsForum/{{$topic->id}}">
+
+
+        <a href="http://localhost:8000/newsForum/{{$topic->topic_id}}">
             <div class="container" style="border-radius:10px;background-color:#FFFFFF;width:1100px;padding-left: 10px;">
                 <div class="row">
                     <div class="col-md-5">
-                        <h2>{!!$topic->topic!!}</h2>
+                        <h2>{!!$topic->topic_name!!}</h2>
                     </div>
 
                     <div class="col-md-2" style="padding-top: 2px;">
+                        <?php $count = 0;?>
                         @foreach($nos as $no)
-                            @if($no->topic_id === $topic->id)
-                                <h1>{{$no->count}}</h1>
-                                Posts
-
+                            @if($no->topic_id == $topic->topic_id)
+                                <p style="font-size: 30px;">{{$no->count}}</p>
+                                <?php $count = $no->count?>
+                                <h3>Posts</h3>
                             @endif
-
-
                         @endforeach
+                        @if($count===0)
+                            <p style="font-size: 30px;">0</p>
+                            <h3>Posts</h3>
+                        @endif
 
 
                     </div>
 
                     <div class="col-md-2" style="padding-top: 2px;">
                         @foreach($views as $view)
-                            @if($view->id === $topic->id)
-                                <h1>{{$view->views}}</h1>
-                                Views
+                            @if($view->id === $topic->topic_id)
+                                <p style="font-size: 30px;">{{$view->views}}</p>
+                                <h3>Views</h3>
                             @endif
                         @endforeach
 
@@ -187,11 +191,11 @@
 
 
                 </div>
-                <form id="{{$topic->id}}" action='' method='post' >
+                <form id="{{$topic->topic_id}}" action='' method='post' >
                     @if($topic->email == $email)
-                        <a href="{{ asset('editTopicViewNews/'. $topic->id) }}" class="edit_btn btn btn-primary btn-xs m-l-sm">Edit</a>
+                        <a href="{{ asset('editTopicViewNews/'. $topic->topic_id) }}" class="edit_btn btn btn-primary btn-xs m-l-sm">Edit</a>
 
-                        <input type='hidden' name='toDelete'  value="{{$topic->id}}">
+                        <input type='hidden' name='toDelete'  value="{{$topic->topic_id}}">
                         <input  type='submit'  onclick="if (confirm('Are you sure you want to delete?')) commentDelete(1); return false" name='delete'  value='delete' class="btn btn-danger  btn-primary btn-xs m-l-sm">
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                     @endif

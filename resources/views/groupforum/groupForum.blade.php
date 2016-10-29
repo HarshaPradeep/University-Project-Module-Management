@@ -32,7 +32,7 @@
         <!--        <div class="col-lg-10">-->
         <div><div style="font-size:15px;padding: 20px;color: #488475;background-color: #E1F1ED  ;">
                 Welcome to the workZone Forum! Come in, have a look around...</div>
-            <img style="padding-left:350px;" height="170px" src="http://forex-ecole.com/wp-content/uploads/2015/12/EOG_Forum_Members_Opinions.png">
+            <img style="padding-left:350px;" height="240px" src="http://forex-ecole.com/wp-content/uploads/2015/12/EOG_Forum_Members_Opinions.png">
 
 
         </div>
@@ -118,6 +118,13 @@
     <form action="http://localhost:8000/viewTopics">
         <input type="submit"  class="btn btn-w-m btn-primary" value="View Topics" />
     </form>
+
+    <div style="border-color:#6C6D71;padding:8px;width:1080px;background-color:white;padding-left: 50px;">
+
+        <b><h1 style="color:#75787b;">{{ $viewtopic }}</h1></b>
+
+    </div>
+    <br><br>
 
 @foreach($pos as $post)
 

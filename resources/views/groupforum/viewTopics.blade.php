@@ -52,7 +52,7 @@
         <!--        <div class="col-lg-10">-->
         <div><div style="font-size:15px;padding: 20px;color: #488475;background-color: #E1F1ED  ;">
                 Welcome to the workZone Forum! Come in, have a look around...</div>
-            <img style="padding-left:350px;" height="170px" src="http://forex-ecole.com/wp-content/uploads/2015/12/EOG_Forum_Members_Opinions.png">
+            <img style="padding-left:350px;" height="240px" src="http://forex-ecole.com/wp-content/uploads/2015/12/EOG_Forum_Members_Opinions.png">
 
 
         </div>
@@ -149,28 +149,33 @@
         <div class="container" style="border-radius:10px;background-color:#FFFFFF;width:1100px;padding-left: 10px;">
             <div class="row">
                 <div class="col-md-5">
-                    <h2>{!!$topic->topic!!}</h2>
+                    <h2>{!!$topic->name!!}</h2>
                 </div>
 
                 <div class="col-md-2" style="padding-top: 2px;">
+                    <?php $count = 0;?>
                     @foreach($nos as $no)
-                        @if($no->topic_id === $topic->id)
-                            <h1>{{$no->count}}</h1>
-                               Posts
-
+                        @if($no->topic_id == $topic->topic_id)
+                                <p style="font-size: 30px;">{{$no->count}}</p>
+                                <?php $count = $no->count?>
+                                <h3>Posts</h3>
+                        @endif
+                    @endforeach
+                    @if($count===0)
+                        <p style="font-size: 30px;">0</p>
+                        <h3>Posts</h3>
                         @endif
 
 
-                    @endforeach
 
 
                 </div>
 
                 <div class="col-md-2" style="padding-top: 2px;">
                     @foreach($views as $view)
-                        @if($view->id === $topic->id)
-                            <h1>{{$view->views}}</h1>
-                            Views
+                        @if($view->id === $topic->topic_id)
+                            <p style="font-size: 30px;">{{$view->views}}</p>
+                            <h3>Views</h3>
                         @endif
                     @endforeach
 
@@ -187,11 +192,11 @@
 
 
             </div>
-            <form id="{{$topic->id}}" action='' method='post' >
+            <form id="{{$topic->topic_id}}" action='' method='post' >
                 @if($topic->email == $email)
-                    <a href="{{ asset('editTopicView/'. $topic->id) }}" class="edit_btn btn btn-primary btn-xs m-l-sm">Edit</a>
+                    <a href="{{ asset('editTopicView/'. $topic->topic_id) }}" class="edit_btn btn btn-primary btn-xs m-l-sm">Edit</a>
 
-                    <input type='hidden' name='toDelete'  value="{{$topic->id}}">
+                    <input type='hidden' name='toDelete'  value="{{$topic->topic_id}}">
                     <input  type='submit'  onclick="if (confirm('Are you sure you want to delete?')) commentDelete(1); return false" name='delete'  value='delete' class="btn btn-danger  btn-primary btn-xs m-l-sm">
                     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                 @endif
@@ -216,9 +221,9 @@
 
 
 
-    {{--<div class="text-center" >--}}
-        {{--{!! $topics->render() !!}--}}
-    {{--</div>--}}
+    <div class="text-center" >
+        {!! $topics->render() !!}
+    </div>
 
 
  

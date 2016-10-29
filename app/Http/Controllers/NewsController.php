@@ -53,18 +53,18 @@ class NewsController extends Controller {
 
 
         $p=news_topic::find($po);
-        $t=$p->topic;
+        $viewtopic=$p->topic;
         $pos=news_posts::where('topic_id',$po)->orderBy('id','desc')->paginate(5);
-        $uid = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->email;
+        $email = \Cartalyst\Sentinel\Laravel\Facades\Sentinel::check()->email;
 
         $v = news_topic::select('views')->where('id',$po)->pluck('views');
         $v++;
         $p->views = $v;
         $p->save();
 
-
-        return view('newsforum/newsForum', ['pos'=>$pos ],['email'=>$uid], compact('t'));
+        return view('newsforum/newsForum',compact('pos','email','viewtopic'));
     }
+
 
     public function viewQuestion($po)
     {
@@ -236,7 +236,9 @@ class NewsController extends Controller {
 
 
 
-       $topics=news_topic::orderBy('updated_at','desc')->paginate(5);
+       $topics=DB::table('news_topic')
+           ->select(array('id as topic_id','updated_at as updated_at', 'topic as topic_name','email as email'))
+        ->orderBy('updated_at','desc')->paginate(5);
 
 
         $nos=DB::table('news_posts')->select( DB::raw('topic_id, COUNT(id) as count' ) )
