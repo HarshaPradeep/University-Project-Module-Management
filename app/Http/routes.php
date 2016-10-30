@@ -304,32 +304,31 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'panelmember'), func
     
     /////////prposal report/////
     Route::any('propreportevaluation', 'supevaluationController@createproreport');
-    //Route::get('propsearchstudent', 'supevaluationController@searchforStudents');
-    //Route::post('propevaluation','supevaluationController@storepropevaluation');//send markings to db
+    Route::post('propreportevaluation','supevaluationController@storepropreportevaluation');//send markings to db
     
     /////////srs/////
     Route::any('srsevaluation', 'supevaluationController@srscreate');
-    //Route::post('propevaluation','supevaluationController@storepropevaluation');//send markings to db
+    Route::post('srsevaluation','supevaluationController@storesrsevaluation');//send markings to db
     
     ///////prototype////
     Route::any('protoevaluation', 'supevaluationController@protocreate');
-    //Route::post('propevaluation','supevaluationController@storepropevaluation');//send markings to db
+    Route::post('protoevaluation','supevaluationController@storeprotovaluation');//send markings to db
     
     //////////mid presentation/////
     Route::any('midprsentevaluation', 'supevaluationController@midprsentcreate');
-    //Route::post('propevaluation','supevaluationController@storepropevaluation');//send markings to db
+    Route::post('midprsentevaluation','supevaluationController@storemidprsentevaluation');//send markings to db
     
     ///////////mid report////
     Route::any('midreportevaluation', 'supevaluationController@midreportcreate');
-    //Route::post('propevaluation','supevaluationController@storepropevaluation');//send markings to db
+    Route::post('midreportevaluation','supevaluationController@storemidreportvaluation');//send markings to db
     
     ////////final presentation//////
     Route::any('finalprsentevaluation', 'supevaluationController@finalprsentcreate');
-    //Route::post('propevaluation','supevaluationController@storepropevaluation');//send markings to db
+    Route::post('finalprsentevaluation','supevaluationController@storefinalpresentvaluation');//send markings to db
     
     ///////final report///////
     Route::any('finalreportevaluation', 'supevaluationController@finalreportcreate');
-    //Route::post('propevaluation','supevaluationController@storepropevaluation');//send markings to db
+    Route::post('finalreportevaluation','supevaluationController@storefinalreportevaluation');//send markings to db
     
     ///////final status doc///////
     Route::any('finalstatusevaluation', 'supevaluationController@finalstatuscreate');
@@ -337,10 +336,11 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'panelmember'), func
     
     //////viva///////
     Route::any('vivavaluation', 'supevaluationController@vivacreate');
-    //Route::post('propevaluation','supevaluationController@storepropevaluation');//send markings to db
+    Route::post('vivavaluation','supevaluationController@storevivaevaluation');//send markings to db
     
     //////other assessments//////
     Route::any('otherassess', 'supevaluationController@othercreate');
+    Route::post('otherassess','supevaluationController@storeotherevaluation');//send markings to db
     
     Route::get('thesisPresentations', 'thesisEvaluationController@viewPresentations');
     Route::get('thesisEvaluationForm/{id}', 'thesisEvaluationController@viewThesisForm');

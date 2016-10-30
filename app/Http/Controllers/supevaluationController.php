@@ -1,9 +1,12 @@
 <?php namespace App\Http\Controllers;
 
+use App\EvaluationMarks;
 use App\Http\Controllers\Controller;
+use App\Project;
 use DB;
-use Request;
 use Input;
+use Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class supevaluationController extends Controller {
 
@@ -416,129 +419,1160 @@ class supevaluationController extends Controller {
 	 *
 	 * @return Response
 	 */
+    
+         /* Proposal Prsentataion*/
 	public function storepropevaluation()
 	{
-            if(Request::get('cmntmem0') != null)
+            if(Request::get('cmntmem0') != null && Input::get('statustab1') != "Absent")
             {        
-                EvaluationMarks::create([
-  
-                    'stugrpid' => Input::get('selectid'),
-                    'stuid' => Request::get('cmntmem0'),
-                    'proposalpresent' => Request::get('marksforproposalpresenttab1'),
-                    'proposalreport' => Request::get('marksforproposalreporttab1'),
-                    'srsreport' => Request::get('marksforsrstab1'),
-                    'protopresent' => Request::get('marksforprototab1'),
-                    'midpresent' => Request::get('marksformidpresentab1'),
-                    'midreport' => Request::get('marksfomidreporttab1'),
-                    'finalprsent' => Request::get('marksforfinalpresnttab1'),
-                    'finalreport' => Request::get('marksforfinalreporttab1'),
-                    'viva' => Request::get('marksforvivatab1'),
-                    'researchbook' => Request::get('marksforresearchbooktab1'),
-                    'researchpaper' => Request::get('marksforresearchpapertab1'),
-                    'website' => Request::get('marksforwebsitetab1'),
-                    'status' => Input::get('statustab1'),
-                    'total' => Request::get('totaltab1')
-
-               ]);
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem0'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem0')
+                    ]);    
+                }
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem0'))
+                    ->update([
+                        'proposalpresent' => Request::get('marksforproposalpresenttab1'),
+                        'status' => Input::get('statustab1'),
+                        'total' => Request::get('marksforproposalpresenttab1')
+                            ]);                             
             }
             
-            if(Request::get('cmntmem1') != null)
-            {
-                EvaluationMarks::create([
-
-                    'stugrpid' => Input::get('selectid'),
-                    'stuid' => Request::get('cmntmem1'),
-                    'proposalpresent' => Request::get('marksforproposalpresenttab2'),
-                    'proposalreport' => Request::get('marksforproposalreporttab2'),
-                    'srsreport' => Request::get('marksforsrstab2'),
-                    'protopresent' => Request::get('marksforprototab2'),
-                    'midpresent' => Request::get('marksformidpresentab2'),
-                    'midreport' => Request::get('marksfomidreporttab2'),
-                    'finalprsent' => Request::get('marksforfinalpresnttab2'),
-                    'finalreport' => Request::get('marksforfinalreporttab2'),
-                    'viva' => Request::get('marksforvivatab2'),
-                    'researchbook' => Request::get('marksforresearchbooktab2'),
-                    'researchpaper' => Request::get('marksforresearchpapertab2'),
-                    'website' => Request::get('marksforwebsitetab2'),
-                    'status' => Input::get('statustab2'),
-                    'total' => Request::get('totaltab2')
-
-                   ]);
+            if(Request::get('cmntmem1') != null && Input::get('statustab2') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem1'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem1')
+                    ]);    
+                }
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem1'))
+                    ->update([
+                        'proposalpresent' => Request::get('marksforproposalpresenttab2'),
+                        'status' => Input::get('statustab2'),
+                        'total' => Request::get('marksforproposalpresenttab2')    
+                            ]);                             
             }
             
-            if(Request::get('cmntmem2') != null)
-            {
-                EvaluationMarks::create([
-
-                    'stugrpid' => Input::get('selectid'),
-                    'stuid' => Request::get('cmntmem2'),
-                    'proposalpresent' => Request::get('marksforproposalpresenttab3'),
-                    'proposalreport' => Request::get('marksforproposalreporttab3'),
-                    'srsreport' => Request::get('marksforsrstab3'),
-                    'protopresent' => Request::get('marksforprototab3'),
-                    'midpresent' => Request::get('marksformidpresentab3'),
-                    'midreport' => Request::get('marksfomidreporttab3'),
-                    'finalprsent' => Request::get('marksforfinalpresnttab3'),
-                    'finalreport' => Request::get('marksforfinalreporttab3'),
-                    'viva' => Request::get('marksforvivatab3'),
-                    'researchbook' => Request::get('marksforresearchbooktab3'),
-                    'researchpaper' => Request::get('marksforresearchpapertab3'),
-                    'website' => Request::get('marksforwebsitetab3'),
-                    'status' => Input::get('statustab3'),
-                    'total' => Request::get('totaltab3')
-
-                   ]);
+            if(Request::get('cmntmem2') != null && Input::get('statustab3') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem2'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem2')
+                    ]);    
+                }
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem2'))
+                    ->update([
+                        'proposalpresent' => Request::get('marksforproposalpresenttab3'),
+                        'status' => Input::get('statustab3'),
+                        'total' => Request::get('marksforproposalpresenttab3')                            
+                            ]);                             
             }
             
-            if(Request::get('cmntmem3') != null)
-            {
-                EvaluationMarks::create([
-
-                    'stugrpid' => Input::get('selectid'),
-                    'stuid' => Request::get('cmntmem3'),
-                    'proposalpresent' => Request::get('marksforproposalpresenttab4'),
-                    'proposalreport' => Request::get('marksforproposalreporttab4'),
-                    'srsreport' => Request::get('marksforsrstab4'),
-                    'protopresent' => Request::get('marksforprototab4'),
-                    'midpresent' => Request::get('marksformidpresentab4'),
-                    'midreport' => Request::get('marksfomidreporttab4'),
-                    'finalprsent' => Request::get('marksforfinalpresnttab4'),
-                    'finalreport' => Request::get('marksforfinalreporttab4'),
-                    'viva' => Request::get('marksforvivatab4'),
-                    'researchbook' => Request::get('marksforresearchbooktab4'),
-                    'researchpaper' => Request::get('marksforresearchpapertab4'),
-                    'website' => Request::get('marksforwebsitetab4'),
-                    'status' => Input::get('statustab4'),
-                    'total' => Request::get('totaltab4')
-
-                   ]);
+            if(Request::get('cmntmem3') != null && Input::get('statustab4') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem3'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem3')
+                    ]);    
+                }
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem3'))
+                    ->update([
+                        'proposalpresent' => Request::get('marksforproposalpresenttab4'),
+                        'status' => Input::get('statustab4'),
+                        'total' => Request::get('marksforproposalpresenttab4')                            
+                            ]);                             
             }
             
-            if(Request::get('cmntmem4') != null)
-            {
-                EvaluationMarks::create([
-
-                    'stugrpid' => Input::get('selectid'),
-                    'stuid' => Request::get('cmntmem4'),
-                    'proposalpresent' => Request::get('marksforproposalpresenttab5'),
-                    'proposalreport' => Request::get('marksforproposalreporttab5'),
-                    'srsreport' => Request::get('marksforsrstab5'),
-                    'protopresent' => Request::get('marksforprototab5'),
-                    'midpresent' => Request::get('marksformidpresentab5'),
-                    'midreport' => Request::get('marksfomidreporttab5'),
-                    'finalprsent' => Request::get('marksforfinalpresnttab5'),
-                    'finalreport' => Request::get('marksforfinalreporttab5'),
-                    'viva' => Request::get('marksforvivatab5'),
-                    'researchbook' => Request::get('marksforresearchbooktab5'),
-                    'researchpaper' => Request::get('marksforresearchpapertab5'),
-                    'website' => Request::get('marksforwebsitetab5'),
-                    'status' => Input::get('statustab5'),
-                    'total' => Request::get('totaltab5')
-
-                   ]);
+            if(Request::get('cmntmem4') != null && Input::get('statustab5') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem4'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem4')
+                    ]);    
+                }
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem4'))
+                    ->update([
+                        'proposalpresent' => Request::get('marksforproposalpresenttab5'),
+                        'status' => Input::get('statustab5'),
+                        'total' => Request::get('marksforproposalpresenttab5')                            
+                            ]);                             
             }
+ 
+            return redirect('propevaluation')->with("success", 'Marks Successfully Added!');
 	}
 
+        /*proposal Report*/
+        public function storepropreportevaluation()
+	{
+            if(Request::get('cmntmem0') != null && Input::get('statustab1') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem0'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem0')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem0'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem0'))
+                    ->update([
+                        'proposalreport' => Request::get('marksforproposalreporttab1'),
+                        'status' => Input::get('statustab1'),
+                        'total' => ($totmrk + Request::get('marksforproposalreporttab1'))
+                            ]);                             
+            }
+            
+            if(Request::get('cmntmem1') != null && Input::get('statustab2') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem1'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem1')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem1'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem1'))
+                    ->update([
+                        'proposalreport' => Request::get('marksforproposalreporttab2'),
+                        'status' => Input::get('statustab2'),
+                        'total' => ($totmrk + Request::get('marksforproposalreporttab2'))
+                            ]);                                       
+            }
+            
+            if(Request::get('cmntmem2') != null && Input::get('statustab3') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem2'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem2')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem2'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem2'))
+                    ->update([
+                        'proposalreport' => Request::get('marksforproposalreporttab3'),
+                        'status' => Input::get('statustab3'),
+                        'total' => ($totmrk + Request::get('marksforproposalreporttab3'))
+                            ]);                           
+            }
+            
+            if(Request::get('cmntmem3') != null && Input::get('statustab4') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem3'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem3')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem3'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem3'))
+                    ->update([
+                        'proposalreport' => Request::get('marksforproposalreporttab4'),
+                        'status' => Input::get('statustab4'),
+                        'total' => ($totmrk + Request::get('marksforproposalreporttab4'))
+                            ]);                                 
+            }
+            
+            if(Request::get('cmntmem4') != null && Input::get('statustab5') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem4'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem4')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem4'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem4'))
+                    ->update([
+                        'proposalreport' => Request::get('marksforproposalreporttab5'),
+                        'status' => Input::get('statustab5'),
+                        'total' => ($totmrk + Request::get('marksforproposalreporttab5'))
+                            ]);                              
+            }
+ 
+            return redirect('propreportevaluation')->with("success", 'Marks Successfully Added!');
+	}
+        
+         /*SRS*/
+        public function storesrsevaluation()
+	{
+            if(Request::get('cmntmem0') != null && Input::get('statustab1') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem0'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem0')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem0'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem0'))
+                    ->update([
+                        'srsreport' => Request::get('marksforsrstab1'),
+                        'status' => Input::get('statustab1'),
+                        'total' => ($totmrk + Request::get('marksforsrstab1'))
+                            ]);                             
+            }
+            
+            if(Request::get('cmntmem1') != null && Input::get('statustab2') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem1'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem1')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem1'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem1'))
+                    ->update([
+                        'srsreport' => Request::get('marksforsrstab2'),
+                        'status' => Input::get('statustab2'),
+                        'total' => ($totmrk + Request::get('marksforsrstab2'))
+                            ]);                                       
+            }
+            
+            if(Request::get('cmntmem2') != null && Input::get('statustab3') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem2'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem2')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem2'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem2'))
+                    ->update([
+                        'srsreport' => Request::get('marksforsrstab3'),
+                        'status' => Input::get('statustab3'),
+                        'total' => ($totmrk + Request::get('marksforsrstab3'))
+                            ]);                           
+            }
+            
+            if(Request::get('cmntmem3') != null && Input::get('statustab4') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem3'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem3')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem3'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem3'))
+                    ->update([
+                        'srsreport' => Request::get('marksforsrstab4'),
+                        'status' => Input::get('statustab4'),
+                        'total' => ($totmrk + Request::get('marksforsrstab4'))
+                            ]);                                 
+            }
+            
+            if(Request::get('cmntmem4') != null && Input::get('statustab5') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem4'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem4')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem4'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem4'))
+                    ->update([
+                        'srsreport' => Request::get('marksforsrstab5'),
+                        'status' => Input::get('statustab5'),
+                        'total' => ($totmrk + Request::get('marksforsrstab5'))
+                            ]);                              
+            }
+ 
+            return redirect('srsevaluation')->with("success", 'Marks Successfully Added!');
+	}
+        
+         /*Prototype*/
+        public function storeprotovaluation()
+	{
+            if(Request::get('cmntmem0') != null && Input::get('statustab1') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem0'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem0')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem0'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem0'))
+                    ->update([
+                        'protopresent' => Request::get('marksforprototab1'),
+                        'status' => Input::get('statustab1'),
+                        'total' => ($totmrk + Request::get('marksforprototab1'))
+                            ]);
+                
+                Project::where('groupID', Input::get('selectid'))
+                    ->update(['nbqsa' => Request::get('recmendornot')]);                
+            }
+            
+            if(Request::get('cmntmem1') != null && Input::get('statustab2') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem1'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem1')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem1'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem1'))
+                    ->update([
+                        'protopresent' => Request::get('marksforprototab2'),
+                        'status' => Input::get('statustab2'),
+                        'total' => ($totmrk + Request::get('marksforprototab2'))
+                            ]);                                       
+            }
+            
+            if(Request::get('cmntmem2') != null && Input::get('statustab3') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem2'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem2')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem2'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem2'))
+                    ->update([
+                        'protopresent' => Request::get('marksforprototab3'),
+                        'status' => Input::get('statustab3'),
+                        'total' => ($totmrk + Request::get('marksforprototab3'))
+                            ]);                           
+            }
+            
+            if(Request::get('cmntmem3') != null && Input::get('statustab4') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem3'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem3')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem3'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem3'))
+                    ->update([
+                        'protopresent' => Request::get('marksforprototab4'),
+                        'status' => Input::get('statustab4'),
+                        'total' => ($totmrk + Request::get('marksforprototab4'))
+                            ]);                                 
+            }
+            
+            if(Request::get('cmntmem4') != null && Input::get('statustab5') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem4'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem4')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem4'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem4'))
+                    ->update([
+                        'protopresent' => Request::get('marksforprototab5'),
+                        'status' => Input::get('statustab5'),
+                        'total' => ($totmrk + Request::get('marksforprototab5'))
+                            ]);                              
+            }
+ 
+            return redirect('protoevaluation')->with("success", 'Marks Successfully Added!');
+	}
+        
+         /*mid prsentation*/
+        public function storemidprsentevaluation()
+	{
+            if(Request::get('cmntmem0') != null && Input::get('statustab1') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem0'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem0')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem0'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem0'))
+                    ->update([
+                        'midpresent' => Request::get('marksformidpresenttab1'),
+                        'status' => Input::get('statustab1'),
+                        'total' => ($totmrk + Request::get('marksformidpresenttab1'))
+                            ]);             
+            }
+            
+            if(Request::get('cmntmem1') != null && Input::get('statustab2') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem1'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem1')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem1'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem1'))
+                    ->update([
+                        'midpresent' => Request::get('marksformidpresenttab2'),
+                        'status' => Input::get('statustab2'),
+                        'total' => ($totmrk + Request::get('marksformidpresenttab2'))
+                            ]);                                       
+            }
+            
+            if(Request::get('cmntmem2') != null && Input::get('statustab3') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem2'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem2')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem2'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem2'))
+                    ->update([
+                        'midpresent' => Request::get('marksformidpresenttab3'),
+                        'status' => Input::get('statustab3'),
+                        'total' => ($totmrk + Request::get('marksformidpresenttab3'))
+                            ]);                           
+            }
+            
+            if(Request::get('cmntmem3') != null && Input::get('statustab4') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem3'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem3')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem3'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem3'))
+                    ->update([
+                        'midpresent' => Request::get('marksformidpresenttab4'),
+                        'status' => Input::get('statustab4'),
+                        'total' => ($totmrk + Request::get('marksformidpresenttab4'))
+                            ]);                                 
+            }
+            
+            if(Request::get('cmntmem4') != null && Input::get('statustab5') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem4'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem4')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem4'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem4'))
+                    ->update([
+                        'midpresent' => Request::get('marksformidpresenttab5'),
+                        'status' => Input::get('statustab5'),
+                        'total' => ($totmrk + Request::get('marksformidpresenttab5'))
+                            ]);                              
+            }
+ 
+            return redirect('midprsentevaluation')->with("success", 'Marks Successfully Added!');
+	}
+        
+         /*mid report*/
+        public function storemidreportvaluation()
+	{
+            if(Request::get('cmntmem0') != null && Input::get('statustab1') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem0'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem0')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem0'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem0'))
+                    ->update([
+                        'midreport' => Request::get('marksformidreporttab1'),
+                        'status' => Input::get('statustab1'),
+                        'total' => ($totmrk + Request::get('marksformidreporttab1'))
+                            ]);             
+            }
+            
+            if(Request::get('cmntmem1') != null && Input::get('statustab2') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem1'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem1')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem1'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem1'))
+                    ->update([
+                        'midreport' => Request::get('marksformidreporttab2'),
+                        'status' => Input::get('statustab2'),
+                        'total' => ($totmrk + Request::get('marksformidreporttab2'))
+                            ]);                                       
+            }
+            
+            if(Request::get('cmntmem2') != null && Input::get('statustab3') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem2'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem2')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem2'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem2'))
+                    ->update([
+                        'midreport' => Request::get('marksformidreporttab3'),
+                        'status' => Input::get('statustab3'),
+                        'total' => ($totmrk + Request::get('marksformidreporttab3'))
+                            ]);                           
+            }
+            
+            if(Request::get('cmntmem3') != null && Input::get('statustab4') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem3'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem3')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem3'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem3'))
+                    ->update([
+                        'midreport' => Request::get('marksformidreporttab4'),
+                        'status' => Input::get('statustab4'),
+                        'total' => ($totmrk + Request::get('marksformidreporttab4'))
+                            ]);                                 
+            }
+            
+            if(Request::get('cmntmem4') != null && Input::get('statustab5') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem4'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem4')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem4'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem4'))
+                    ->update([
+                        'midreport' => Request::get('marksformidreporttab5'),
+                        'status' => Input::get('statustab5'),
+                        'total' => ($totmrk + Request::get('marksformidreporttab5'))
+                            ]);                              
+            }
+ 
+            return redirect('midreportevaluation')->with("success", 'Marks Successfully Added!');
+	}
+        
+         /*final prsentation*/
+        public function storefinalpresentvaluation()
+	{
+            if(Request::get('cmntmem0') != null && Input::get('statustab1') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem0'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem0')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem0'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem0'))
+                    ->update([
+                        'finalprsent' => Request::get('marksforfinalprsenttab1'),
+                        'status' => Input::get('statustab1'),
+                        'total' => ($totmrk + Request::get('marksforfinalprsenttab1'))
+                            ]);             
+            }
+            
+            if(Request::get('cmntmem1') != null && Input::get('statustab2') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem1'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem1')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem1'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem1'))
+                    ->update([
+                        'finalprsent' => Request::get('marksforfinalprsenttab2'),
+                        'status' => Input::get('statustab2'),
+                        'total' => ($totmrk + Request::get('marksforfinalprsenttab2'))
+                            ]);                                       
+            }
+            
+            if(Request::get('cmntmem2') != null && Input::get('statustab3') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem2'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem2')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem2'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem2'))
+                    ->update([
+                        'finalprsent' => Request::get('marksforfinalprsenttab3'),
+                        'status' => Input::get('statustab3'),
+                        'total' => ($totmrk + Request::get('marksforfinalprsenttab3'))
+                            ]);                           
+            }
+            
+            if(Request::get('cmntmem3') != null && Input::get('statustab4') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem3'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem3')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem3'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem3'))
+                    ->update([
+                        'finalprsent' => Request::get('marksforfinalprsenttab4'),
+                        'status' => Input::get('statustab4'),
+                        'total' => ($totmrk + Request::get('marksforfinalprsenttab4'))
+                            ]);                                 
+            }
+            
+            if(Request::get('cmntmem4') != null && Input::get('statustab5') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem4'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem4')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem4'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem4'))
+                    ->update([
+                        'finalprsent' => Request::get('marksforfinalprsenttab5'),
+                        'status' => Input::get('statustab5'),
+                        'total' => ($totmrk + Request::get('marksforfinalprsenttab5'))
+                            ]);                              
+            }
+ 
+            return redirect('finalprsentevaluation')->with("success", 'Marks Successfully Added!');
+	}
+                
+         /*final report*/
+        public function storefinalreportevaluation()
+	{
+            if(Request::get('cmntmem0') != null && Input::get('statustab1') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem0'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem0')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem0'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem0'))
+                    ->update([
+                        'finalreport' => Request::get('marksforfinalreporttab1'),
+                        'status' => Input::get('statustab1'),
+                        'total' => ($totmrk + Request::get('marksforfinalreporttab1'))
+                            ]);             
+            }
+            
+            if(Request::get('cmntmem1') != null && Input::get('statustab2') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem1'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem1')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem1'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem1'))
+                    ->update([
+                        'finalreport' => Request::get('marksforfinalreporttab2'),
+                        'status' => Input::get('statustab2'),
+                        'total' => ($totmrk + Request::get('marksforfinalreporttab2'))
+                            ]);                                       
+            }
+            
+            if(Request::get('cmntmem2') != null && Input::get('statustab3') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem2'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem2')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem2'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem2'))
+                    ->update([
+                        'finalreport' => Request::get('marksforfinalreporttab3'),
+                        'status' => Input::get('statustab3'),
+                        'total' => ($totmrk + Request::get('marksforfinalreporttab3'))
+                            ]);                           
+            }
+            
+            if(Request::get('cmntmem3') != null && Input::get('statustab4') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem3'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem3')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem3'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem3'))
+                    ->update([
+                        'finalreport' => Request::get('marksforfinalreporttab4'),
+                        'status' => Input::get('statustab4'),
+                        'total' => ($totmrk + Request::get('marksforfinalreporttab4'))
+                            ]);                                 
+            }
+            
+            if(Request::get('cmntmem4') != null && Input::get('statustab5') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem4'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem4')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem4'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem4'))
+                    ->update([
+                        'finalreport' => Request::get('marksforfinalreporttab5'),
+                        'status' => Input::get('statustab5'),
+                        'total' => ($totmrk + Request::get('marksforfinalreporttab5'))
+                            ]);                              
+            }
+ 
+            return redirect('finalreportevaluation')->with("success", 'Marks Successfully Added!');
+	}
+        
+         /*viva*/
+        public function storevivaevaluation()
+	{
+            if(Request::get('cmntmem0') != null && Input::get('statustab1') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem0'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem0')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem0'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem0'))
+                    ->update([
+                        'viva' => Request::get('marksforvivatab1'),
+                        'status' => Input::get('statustab1'),
+                        'total' => ($totmrk + Request::get('marksforvivatab1'))
+                            ]);             
+            }
+            
+            if(Request::get('cmntmem1') != null && Input::get('statustab2') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem1'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem1')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem1'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem1'))
+                    ->update([
+                        'viva' => Request::get('marksforvivatab2'),
+                        'status' => Input::get('statustab2'),
+                        'total' => ($totmrk + Request::get('marksforvivatab2'))
+                            ]);                                       
+            }
+            
+            if(Request::get('cmntmem2') != null && Input::get('statustab3') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem2'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem2')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem2'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem2'))
+                    ->update([
+                        'viva' => Request::get('marksforvivatab3'),
+                        'status' => Input::get('statustab3'),
+                        'total' => ($totmrk + Request::get('marksforvivatab3'))
+                            ]);                           
+            }
+            
+            if(Request::get('cmntmem3') != null && Input::get('statustab4') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem3'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem3')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem3'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem3'))
+                    ->update([
+                        'viva' => Request::get('marksforvivatab4'),
+                        'status' => Input::get('statustab4'),
+                        'total' => ($totmrk + Request::get('marksforvivatab4'))
+                            ]);                                 
+            }
+            
+            if(Request::get('cmntmem4') != null && Input::get('statustab5') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem4'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem4')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem4'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem4'))
+                    ->update([
+                        'viva' => Request::get('marksforvivatab5'),
+                        'status' => Input::get('statustab5'),
+                        'total' => ($totmrk + Request::get('marksforvivatab5'))
+                            ]);                              
+            }
+ 
+            return redirect('vivavaluation')->with("success", 'Marks Successfully Added!');
+	}
+        
+         /*Other assessments*/
+        public function storeotherevaluation()
+	{
+            if(Request::get('cmntmem0') != null && Input::get('statustab1') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem0'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem0')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem0'))
+                   ->pluck('total'));
+
+                EvaluationMarks::where('stuid', Request::get('cmntmem0'))
+                    ->update([
+                        'researchbook' => Request::get('finalmarksforlo1mem1'),
+                        'researchpaper' => Request::get('finalmarksforlo2mem1'),
+                        'website' => Request::get('finalmarksforlo3mem1'),
+                        'status' => Input::get('statustab1'),
+                        'total' => ($totmrk + Request::get('marksforothertab1'))
+                            ]);        
+            }
+            
+            if(Request::get('cmntmem1') != null && Input::get('statustab2') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem1'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem1')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem1'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem1'))
+                    ->update([
+                        'researchbook' => Request::get('finalmarksforlo1mem2'),
+                        'researchpaper' => Request::get('finalmarksforlo2mem2'),
+                        'website' => Request::get('finalmarksforlo3mem2'),
+                        'status' => Input::get('statustab2'),
+                        'total' => ($totmrk + Request::get('marksforothertab2'))
+                            ]);                                       
+            }
+            
+            if(Request::get('cmntmem2') != null && Input::get('statustab3') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem2'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem2')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem2'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem2'))
+                    ->update([
+                        'researchbook' => Request::get('finalmarksforlo1mem3'),
+                        'researchpaper' => Request::get('finalmarksforlo2mem3'),
+                        'website' => Request::get('finalmarksforlo3mem3'),
+                        'status' => Input::get('statustab3'),
+                        'total' => ($totmrk + Request::get('marksforothertab3'))
+                            ]);                           
+            }
+            
+            if(Request::get('cmntmem3') != null && Input::get('statustab4') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem3'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem3')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem3'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem3'))
+                    ->update([
+                        'researchbook' => Request::get('finalmarksforlo1mem4'),
+                        'researchpaper' => Request::get('finalmarksforlo2mem4'),
+                        'website' => Request::get('finalmarksforlo3mem4'),
+                        'status' => Input::get('statustab4'),
+                        'total' => ($totmrk + Request::get('marksforothertab4'))
+                            ]);                                 
+            }
+            
+            if(Request::get('cmntmem4') != null && Input::get('statustab5') != "Absent")
+            {        
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem4'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                        'stuid' => Request::get('cmntmem4')
+                    ]);    
+                }
+                
+                $totmrk = (DB::table('evaluation_mark')
+                   ->where('stuid', Request::get('cmntmem4'))
+                   ->pluck('total'));
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem4'))
+                    ->update([
+                        'researchbook' => Request::get('finalmarksforlo1mem5'),
+                        'researchpaper' => Request::get('finalmarksforlo2mem5'),
+                        'website' => Request::get('finalmarksforlo3mem5'),
+                        'status' => Input::get('statustab5'),
+                        'total' => ($totmrk + Request::get('marksforothertab5'))
+                            ]);                              
+            }
+ 
+            return redirect('otherassess')->with("success", 'Marks Successfully Added!');
+	}
+        
 	/**
 	 * Display the specified resource.
 	 *

@@ -2,8 +2,10 @@
 
 use App\EvaluationMarks;
 use DB;
-use Request;
 use Input;
+use Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
 class EvaluationController extends Controller {
 
 	/**
@@ -62,11 +64,11 @@ class EvaluationController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
         {
             //dd(Request::get('totaltab1'));
-            if(Request::get('cmntmem0') != null)
-            {        
+            if(Request::get('cmntmem0') != null && Input::get('statustab1') != "Absent")
+            {
                 EvaluationMarks::create([
   
                     'stugrpid' => Input::get('selectid'),
@@ -89,7 +91,7 @@ class EvaluationController extends Controller {
                ]);
             }
             
-            if(Request::get('cmntmem1') != null)
+            if(Request::get('cmntmem1') != null && Input::get('statustab2') != "Absent")
             {
                 EvaluationMarks::create([
 
@@ -113,7 +115,7 @@ class EvaluationController extends Controller {
                    ]);
             }
             
-            if(Request::get('cmntmem2') != null)
+            if(Request::get('cmntmem2') != null && Input::get('statustab3') != "Absent")
             {
                 EvaluationMarks::create([
 
@@ -137,7 +139,7 @@ class EvaluationController extends Controller {
                    ]);
             }
             
-            if(Request::get('cmntmem3') != null)
+            if(Request::get('cmntmem3') != null && Input::get('statustab4') != "Absent")
             {
                 EvaluationMarks::create([
 
@@ -161,7 +163,7 @@ class EvaluationController extends Controller {
                    ]);
             }
             
-            if(Request::get('cmntmem4') != null)
+            if(Request::get('cmntmem4') != null && Input::get('statustab5') != "Absent")
             {
                 EvaluationMarks::create([
 
@@ -184,8 +186,7 @@ class EvaluationController extends Controller {
 
                    ]);
             }
-
-            return redirect('evaluationform');
+            return redirect('evaluationform')->with("success", 'Marks Successfully Added!');
         }
 
 	/**
