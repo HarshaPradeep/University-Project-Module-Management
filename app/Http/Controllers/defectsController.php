@@ -33,11 +33,6 @@ class defectsController extends Controller {
 	{
 		return view('researchDiary/diaryhome');
 	}
-        
-        public function createdef()
-	{
-		return view('researchDiary/dupdate');
-	}
 
 	/**
 	 * Store a newly created resource in storage.
