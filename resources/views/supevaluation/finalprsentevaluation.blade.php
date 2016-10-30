@@ -132,7 +132,7 @@ Below Average (7-0)">LO 5 * (20%)</td>
                     <td ><input type="text" style="width: 120px" id="cmnt5member1" onblur="getValue(this)" class="hh"></td>
                 </tr> 
                 <tr>
-                    <td style="width: 1000px"><strong>Marks : (100%)</strong><input type="checkbox" id="hundredmrks" onchange="disabledBoxchangedforhund()" checked style="float: right"></td>
+                    <td style="width: 1000px"><strong>Marks : (100%)</strong><input type="checkbox" id="hundredmrks1" onchange="disabledBoxchangedforhund()" checked style="float: right"></td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo1mem1" name="propPresentation" class="lo1mem1"></td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo2mem1" name="propPresentation" class="lo2mem1"></td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo3mem1" name="propPresentation" class="lo3mem1"></td>
@@ -140,12 +140,12 @@ Below Average (7-0)">LO 5 * (20%)</td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo5mem1" name="propPresentation" class="lo5mem1"></td>
                 </tr> 
                 <tr>
-                    <td style="width: 1000px"><strong>Marks : </strong><input type="checkbox" id="convmarks" onchange="disabledBoxchangedforconv()" style="float: right"></td>
-                    <td style="width: 1000px"><input type="text" id="finalmarksforlo1mem1" style="width: 55px"></td>
-                    <td style="width: 1000px"><input type="text" id="finalmarksforlo2mem1" style="width: 55px"></td>
-                    <td style="width: 1000px"><input type="text" id="finalmarksforlo3mem1" style="width: 55px"></td>
-                    <td style="width: 1000px"><input type="text" id="finalmarksforlo4mem1" style="width: 55px"></td>
-                    <td style="width: 1000px"><input type="text" id="finalmarksforlo5mem1" style="width: 55px"></td>
+                    <td style="width: 1000px"><strong>Marks : </strong><input type="checkbox" id="convmarks1" onchange="disabledBoxchangedforconv()" style="float: right"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo1mem1" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo2mem1" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo3mem1" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo4mem1" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo5mem1" disabled style="width: 65px"></td>
                 </tr> 
             </tbody>
         </table>
@@ -161,10 +161,10 @@ Below Average (7-0)">LO 5 * (20%)</td>
         &nbsp;
             <div align="right" style="padding-right: 42px">
         <input type="text"  placeholder="Total (10%)" style="width: 100px; height: 35px" disabled> / 
-            <input type="text" name="total" id="totalconmem1" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
+            <input type="text" name="marksforfinalprsenttab1" id="totalconmem1" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
-<div><textarea name="cmntmem0" disabled rows="4" cols="80" placeholder="Comment" id="cmntmem0"></textarea></div><br>
-       <div><select name="statustab2" ><option> Present </option>
+<div><textarea name="cmntmem0" rows="4" cols="80" placeholder="Comment" id="cmntmem0"></textarea></div><br>
+       <div><select name="statustab1" ><option> Present </option>
                                             <option> Absent </option></select></div>
         <div id="member1sub" align="right" style="padding-right: 180px"> <input type='submit'  class="save_btn btn btn-primary btn-xl m-l-sm" name='editThesisFormMarks' align="right">
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"></div>
@@ -211,7 +211,7 @@ Below Average (7-0)">LO 5 * (20%)</td>
                     <td ><input type="text" style="width: 120px" id="cmnt5member2" onblur="getValue(this)" class="hh"></td>
                 </tr> 
                 <tr>
-                    <td style="width: 1000px"><strong>Marks : (100%)</strong></td>
+                    <td style="width: 1000px"><strong>Marks : (100%)</strong><input type="checkbox" id="hundredmrks2" onchange="disabledBoxchangedforhund()" checked style="float: right"></td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo1mem2" name="propPresentation" class="lo1mem2"></td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo2mem2" name="propPresentation" class="lo2mem2"></td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo3mem2" name="propPresentation" class="lo3mem2"></td>
@@ -219,12 +219,12 @@ Below Average (7-0)">LO 5 * (20%)</td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo5mem2" name="propPresentation" class="lo5mem2"></td>
                 </tr> 
                 <tr>
-                    <td style="width: 1000px"><strong>Marks : </strong></td>
-                    <td style="width: 1000px"><input type="text" id="finalmarksforlo1mem2" disabled style="width: 55px"></td>
-                    <td style="width: 1000px"><input type="text" id="finalmarksforlo2mem2" disabled style="width: 55px"></td>
-                    <td style="width: 1000px"><input type="text" id="finalmarksforlo3mem2" disabled style="width: 55px"></td>
-                    <td style="width: 1000px"><input type="text" id="finalmarksforlo4mem2" disabled style="width: 55px"></td>
-                    <td style="width: 1000px"><input type="text" id="finalmarksforlo5mem2" disabled style="width: 55px"></td>
+                    <td style="width: 1000px"><strong>Marks : </strong><input type="checkbox" id="convmarks2" onchange="disabledBoxchangedforconv()" style="float: right"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo1mem2" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo2mem2" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo3mem2" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo4mem2" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo5mem2" disabled style="width: 65px"></td>
                 </tr> 
             </tbody>
         </table>
@@ -240,9 +240,9 @@ Below Average (7-0)">LO 5 * (20%)</td>
         &nbsp;
             <div align="right" style="padding-right: 42px">
         <input type="text"  placeholder="Total (10%)" style="width: 100px; height: 35px" disabled> / 
-            <input type="text" name="total" id="totalconmem2" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
+            <input type="text" name="marksforfinalprsenttab2" id="totalconmem2" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
-        <div><textarea name="cmntmem1" disabled rows="4" cols="80" placeholder="Comment" id="cmntmem1"></textarea></div><br>
+        <div><textarea name="cmntmem1" rows="4" cols="80" placeholder="Comment" id="cmntmem1"></textarea></div><br>
         <div><select name="statustab2" ><option> Present </option>
                                             <option> Absent </option></select></div>
         <div id="member2sub" align="right" style="padding-right: 180px"> <input type='submit'  class="save_btn btn btn-primary btn-xl m-l-sm" name='editThesisFormMarks' align="right">
@@ -290,7 +290,7 @@ Below Average (7-0)">LO 5 * (20%)</td>
                     <td ><input type="text" style="width: 120px" id="cmnt5member3" onblur="getValue(this)" class="hh"></td>
                 </tr> 
                 <tr>
-                    <td style="width: 1000px"><strong>Marks : (100%)</strong></td>
+                    <td style="width: 1000px"><strong>Marks : (100%)</strong><input type="checkbox" id="hundredmrks3" onchange="disabledBoxchangedforhund()" checked style="float: right"></td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo1mem3" name="propPresentation" class="lo1mem3"></td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo2mem3" name="propPresentation" class="lo2mem3"></td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo3mem3" name="propPresentation" class="lo3mem3"></td>
@@ -298,12 +298,12 @@ Below Average (7-0)">LO 5 * (20%)</td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo5mem3" name="propPresentation" class="lo5mem3"></td>
                 </tr> 
                 <tr>
-                    <td style="width: 1000px"><strong>Marks : </strong></td>
-                    <td style="width: 1000px"><input type="text" id="finalmarksforlo1mem3" disabled style="width: 55px"></td>
-                    <td style="width: 1000px"><input type="text" id="finalmarksforlo2mem3" disabled style="width: 55px"></td>
-                    <td style="width: 1000px"><input type="text" id="finalmarksforlo3mem3" disabled style="width: 55px"></td>
-                    <td style="width: 1000px"><input type="text" id="finalmarksforlo4mem3" disabled style="width: 55px"></td>
-                    <td style="width: 1000px"><input type="text" id="finalmarksforlo5mem3" disabled style="width: 55px"></td>
+                    <td style="width: 1000px"><strong>Marks : </strong><input type="checkbox" id="convmarks3" onchange="disabledBoxchangedforconv()" style="float: right"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo1mem3" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo2mem3" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo3mem3" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo4mem3" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo5mem3" disabled style="width: 65px"></td>
                 </tr> 
             </tbody>
         </table>
@@ -319,10 +319,10 @@ Below Average (7-0)">LO 5 * (20%)</td>
         &nbsp;
             <div align="right" style="padding-right: 42px">
         <input type="text"  placeholder="Total (10%)" style="width: 100px; height: 35px" disabled> / 
-            <input type="text" name="total" id="totalconmem3" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
+            <input type="text" name="marksforfinalprsenttab3" id="totalconmem3" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
-        <div><textarea name="cmntmem2" disabled rows="4" cols="80" placeholder="Comment" id="cmntmem2"></textarea></div><br>
-        <div><select name="statustab2" ><option> Present </option>
+        <div><textarea name="cmntmem2" rows="4" cols="80" placeholder="Comment" id="cmntmem2"></textarea></div><br>
+        <div><select name="statustab3" ><option> Present </option>
                                             <option> Absent </option></select></div>
         <div id="member3sub" align="right" style="padding-right: 180px"> <input type='submit'  class="save_btn btn btn-primary btn-xl m-l-sm" name='editThesisFormMarks' align="right">
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"></div>
@@ -369,7 +369,7 @@ Below Average (7-0)">LO 5 * (20%)</td>
                     <td ><input type="text" style="width: 120px" id="cmnt5member4" onblur="getValue(this)" class="hh"></td>
                 </tr> 
                 <tr>
-                    <td style="width: 1000px"><strong>Marks : (100%)</strong></td>
+                    <td style="width: 1000px"><strong>Marks : (100%)</strong><input type="checkbox" id="hundredmrks4" onchange="disabledBoxchangedforhund()" checked style="float: right"></td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo1mem4" name="propPresentation" class="lo1mem4"></td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo2mem4" name="propPresentation" class="lo2mem4"></td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo3mem4" name="propPresentation" class="lo3mem4"></td>
@@ -377,12 +377,12 @@ Below Average (7-0)">LO 5 * (20%)</td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo5mem4" name="propPresentation" class="lo5mem4"></td>
                 </tr> 
                 <tr>
-                    <td style="width: 1000px"><strong>Marks : </strong></td>
-                    <td style="width: 1000px"><input type="text" id="finalmarksforlo1mem4" disabled style="width: 55px"></td>
-                    <td style="width: 1000px"><input type="text" id="finalmarksforlo2mem4" disabled style="width: 55px"></td>
-                    <td style="width: 1000px"><input type="text" id="finalmarksforlo3mem4" disabled style="width: 55px"></td>
-                    <td style="width: 1000px"><input type="text" id="finalmarksforlo4mem4" disabled style="width: 55px"></td>
-                    <td style="width: 1000px"><input type="text" id="finalmarksforlo5mem4" disabled style="width: 55px"></td>
+                    <td style="width: 1000px"><strong>Marks : </strong><input type="checkbox" id="convmarks4" onchange="disabledBoxchangedforconv()" style="float: right"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo1mem4" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo2mem4" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo3mem4" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo4mem4" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo5mem4" disabled style="width: 65px"></td>
                 </tr> 
             </tbody>
         </table>
@@ -398,10 +398,10 @@ Below Average (7-0)">LO 5 * (20%)</td>
         &nbsp;
             <div align="right" style="padding-right: 42px">
         <input type="text"  placeholder="Total (10%)" style="width: 100px; height: 35px" disabled> / 
-            <input type="text" name="total" id="totalconmem4" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
+            <input type="text" name="marksforfinalprsenttab4" id="totalconmem4" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
-        <div><textarea name="cmntmem3" disabled rows="4" cols="80" placeholder="Comment" id="cmntmem3"></textarea></div><br>
-        <div><select name="statustab2" ><option> Present </option>
+        <div><textarea name="cmntmem3" rows="4" cols="80" placeholder="Comment" id="cmntmem3"></textarea></div><br>
+        <div><select name="statustab4" ><option> Present </option>
                                             <option> Absent </option></select></div>
         <div id="member4sub" align="right" style="padding-right: 180px"> <input type='submit'  class="save_btn btn btn-primary btn-xl m-l-sm" name='editThesisFormMarks' align="right">
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"></div>
@@ -448,7 +448,7 @@ Below Average (7-0)">LO 5 * (20%)</td>
                     <td ><input type="text" style="width: 120px" id="cmnt5member5" onblur="getValue(this)" class="hh"></td>
                 </tr> 
                 <tr>
-                    <td style="width: 1000px"><strong>Marks : (100%)</strong></td>
+                    <td style="width: 1000px"><strong>Marks : (100%)</strong><input type="checkbox" id="hundredmrks5" onchange="disabledBoxchangedforhund()" checked style="float: right"></td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo1mem5" name="propPresentation" class="lo1mem5"></td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo2mem5" name="propPresentation" class="lo2mem5"></td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo3mem5" name="propPresentation" class="lo3mem5"></td>
@@ -456,12 +456,12 @@ Below Average (7-0)">LO 5 * (20%)</td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo5mem5" name="propPresentation" class="lo5mem5"></td>
                 </tr> 
                 <tr>
-                    <td style="width: 1000px"><strong>Marks : </strong></td>
-                    <td style="width: 1000px"><input type="text" id="finalmarksforlo1mem5" disabled style="width: 55px"></td>
-                    <td style="width: 1000px"><input type="text" id="finalmarksforlo2mem5" disabled style="width: 55px"></td>
-                    <td style="width: 1000px"><input type="text" id="finalmarksforlo3mem5" disabled style="width: 55px"></td>
-                    <td style="width: 1000px"><input type="text" id="finalmarksforlo4mem5" disabled style="width: 55px"></td>
-                    <td style="width: 1000px"><input type="text" id="finalmarksforlo5mem5" disabled style="width: 55px"></td>
+                    <td style="width: 1000px"><strong>Marks : </strong><input type="checkbox" id="convmarks5" onchange="disabledBoxchangedforconv()" style="float: right"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo1mem5" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo2mem5" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo3mem5" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo4mem5" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo5mem5" disabled style="width: 65px"></td>
                 </tr> 
             </tbody>
         </table>
@@ -477,10 +477,10 @@ Below Average (7-0)">LO 5 * (20%)</td>
         &nbsp;
             <div align="right" style="padding-right: 42px">
         <input type="text"  placeholder="Total (10%)" style="width: 100px; height: 35px" disabled> / 
-            <input type="text" name="total" id="totalconmem5" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
+            <input type="text" name="marksforfinalprsenttab5" id="totalconmem5" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
-<div><textarea name="cmntmem4" disabled rows="4" cols="80" placeholder="Comment" id="cmntmem4"></textarea></div><br>
-        <div><select name="statustab2" ><option> Present </option>
+<div><textarea name="cmntmem4" rows="4" cols="80" placeholder="Comment" id="cmntmem4"></textarea></div><br>
+        <div><select name="statustab5" ><option> Present </option>
                                             <option> Absent </option></select></div>
         <div id="member5sub" align="right" style="padding-right: 180px"> <input type='submit'  class="save_btn btn btn-primary btn-xl m-l-sm" name='editThesisFormMarks' align="right">
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"></div>
@@ -520,8 +520,16 @@ Below Average (7-0)">LO 5 * (20%)</td>
  function getlo(clz)
  {
      var lomarkid = clz.id;
-     whtlo = lomarkid.substring(0,3);
-     whtmem = lomarkid.substring(3,7);
+     if(lomarkid.substring(0,3) === "fin")
+     {
+        whtlo = lomarkid.substring(13,16);
+        whtmem = lomarkid.substring(16,20);
+     }
+     else
+     {
+        whtlo = lomarkid.substring(0,3);
+        whtmem = lomarkid.substring(3,7);
+     }
      javascriptLoader();
  }
         
@@ -735,31 +743,31 @@ function getTotal()
 
 function disabledBoxchangedforconv()
 {
-    if(document.getElementById("hundredmrks").checked === true)
+    if(document.getElementById("hundredmrks"+ totviewfieldchange).checked === true)
     {
-            document.getElementById("hundredmrks").checked = false;
-            document.getElementById("convmarks").checked = true;
+        document.getElementById("hundredmrks"+ totviewfieldchange).checked = false;
+        document.getElementById("convmarks"+ totviewfieldchange).checked = true;
     }
 
     for(h = 1; h < 6; h++)
     {
-        document.getElementById("finalmarksforlo"+ h +"mem1").disabled = false;
-        document.getElementById("lo"+ h +"mem1").disabled = true;
+        document.getElementById("finalmarksforlo"+ h +"mem"+ totviewfieldchange).disabled = false;
+        document.getElementById("lo"+ h +"mem"+ totviewfieldchange).disabled = true;
     }
 }
 
 function disabledBoxchangedforhund()
 {    
-    if(document.getElementById("convmarks").checked === true)
+    if(document.getElementById("convmarks"+ totviewfieldchange).checked === true)
     {
-            document.getElementById("convmarks").checked = false;
-            document.getElementById("hundredmrks").checked = true;
+        document.getElementById("convmarks"+ totviewfieldchange).checked = false;
+        document.getElementById("hundredmrks"+ totviewfieldchange).checked = true;
     }
     
     for(k = 1; k < 6; k++)
     {
-        document.getElementById("finalmarksforlo"+ k +"mem1").disabled = true;
-        document.getElementById("lo"+ k +"mem1").disabled = false;
+        document.getElementById("finalmarksforlo"+ k +"mem"+ totviewfieldchange).disabled = true;
+        document.getElementById("lo"+ k +"mem"+ totviewfieldchange).disabled = false;
     }
 }
 
