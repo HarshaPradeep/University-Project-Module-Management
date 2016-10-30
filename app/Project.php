@@ -12,7 +12,7 @@ class Project extends Model {
      *
      * @var array
      */
-    protected $fillable =['id','title','description','url','supervisorId','studentId','status'];
+    protected $fillable =['id','title','description','url','supervisorId','studentId','status','nbqsa'];
 
  
 
