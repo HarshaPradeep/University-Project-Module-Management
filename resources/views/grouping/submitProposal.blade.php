@@ -40,7 +40,12 @@
 
 @section('content')
 
-
+    @if (count($errors) > 0)
+        <div class="alert alert-danger" role="alert" id="divAlert" style="font-size: 14px">
+            @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </div>
 
     @if(Session::has('flash_message'))
         <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('flash_message') !!}</em></div>
