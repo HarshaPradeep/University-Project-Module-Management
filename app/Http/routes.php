@@ -471,7 +471,7 @@ Route::post('navigateProposal', 'GroupProfileController@navigateProposal');
 Route::post('grpSubmit', 'SubmitProposalController@submitProposal');
 
 /*new*/
-Route::get('navigateProposal', 'SubmitProposalController@viewProposal');
+Route::get('renavigateProposal', 'SubmitProposalController@viewProposal');
 /**/
 
 Route::delete('/pendingDel/{id}', function ($id) {

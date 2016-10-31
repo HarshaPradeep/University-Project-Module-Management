@@ -51,7 +51,7 @@ class SubmitProposalController extends Controller
 
 		if ($validation->fails()) {
 
-			return redirect('navigateProposal')
+			return redirect('renavigateProposal')
 				->withErrors($validation)
 				->withInput();
 		}
