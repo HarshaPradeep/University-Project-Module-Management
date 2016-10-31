@@ -1,56 +1,21 @@
 <?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Input;
+use Validator;
 class Proposal extends Model {
 
-	//
-
-    //protected $table = 'students';
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    //protected $fillable = ['id','name', 'email', 'phone','courseField','attempt','username', 'regId'];
+	
+    public  static $rules=array(
+        'projectTitle' => 'required',
+        'projectDescription' => 'required',
+        'supervisortype' => 'required',
 
 
-    public static function validateFields(){
+    );
 
-        $messages = array(
-//            'regId.required' => 'Registration Number is required',
-//            'regId.unique' => 'Registration Number should be unique',
-//            'studentname.required' => 'Your name is required',
-//            'studentname.alpha' => 'Your name should contain only letters',
-//            'email.required' => 'Your email address is required',
-//            'telephone.required' => 'Your telephone number is required',
-//            'telephone.numeric' => 'Your telephone number should be numeric',
-//            'password.min:5' => 'Enter a password must have at least 5 letters',
-            'supervisortype.required' => 'Select type of supervisor',
-            'projectTitle.required' => 'Select a supervisor',
-            'projectDescription.required' => 'Enter a short description of your project',
-//            'attempt.required' => 'Select your attempt'
-        );
+    public  static  function validate($data){
 
-
-        $rules = array(
-//            'regId' => 'required|unique:students',
-//            'studentname' => 'required|alpha',
-//            'email' => 'required|email|unique:students',
-//            'telephone' => 'required|min:10',
-//            'password' => 'required|min:5',//|confirmed
-//            'confirm' => 'required',//|same:password
-            'projectTitle' => 'required',
-            'projectDescription' => 'required',
-            'supervisortype' => 'required',
-//            'attempt' => 'required'
-        );
-
-        return \Validator::make(Input::all(), $rules, $messages);
-
-
-
+        return Validator::make($data,static::$rules);
     }
 
 }
