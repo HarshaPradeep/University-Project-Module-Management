@@ -129,6 +129,8 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
     
     Route::get('formsupervisor', 'supervisorevaluation@create');
     
+    Route::get('searchmarksforcharts', 'EvaluationController@forcharts');// data for pie charts
+    
     
     Route::get('editNotice/{id}', 'NoticeController@editNoticeView'); //------------------
     Route::post('editNotice/{id}', 'NoticeController@editNotice'); //--------------
