@@ -47,13 +47,14 @@ class SubmitProposalController extends Controller
 
 	public function submitProposal()
 	{
-		$validator = Proposal::validateFields();
-		if ($validator->fails()) 
-		{
-			return Redirect::back()
-				->withErrors($validator)
+		$validation = Proposal::validate(Input::all());
+
+		if ($validation->fails()) {
+
+			return redirect('navigateProposal')
+				->withErrors($validation)
 				->withInput();
-		} 
+		}
 		else 
 		{
 
@@ -173,6 +174,18 @@ class SubmitProposalController extends Controller
 
 		}
 
+	}
+	
+	/**
+	 *re navigate to charter submit page with errors
+	 */
+	public function viewProposal()
+	{
+		$groupId = Grouping::where('id','=',Sentinel::getUser()->id)->pluck('grouped');
+
+		$supervisors = PanelMember::where('type','=','Internal Supervisor')->select('name','id')->get();
+
+		return view('grouping.submitProposal',compact('groupId','supervisors'));
 	}
 
 	public  function downloadFile($filename){
