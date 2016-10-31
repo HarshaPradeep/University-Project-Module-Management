@@ -178,37 +178,44 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript">
 
-$(document).ready(function () {
-        var pdata = [
+$(document).ready(function () {    
+        $.ajax({
+        type: "GET",
+        url: 'searchmarksforcharts',
+        dataType: 'json'
+        
+        }).done(function (data) { 
+            
+            var pdata = [
             {
-                value: 300,
+                value: data.whogotA,
                 color: "#46BFBD",
                 highlight: "#5AD3D1",
-                label: "A [90-100]"
+                label: "A [85-100]"
             },
             {
-                value: 100,
+                value: data.whogotB,
+                color: "#9ACD32",
+                highlight: "#c0cd32",
+                label: "B [75-84]"
+            },
+            {
+                value: data.whogotC,
                 color: "#FDB45C",
                 highlight: "#FFC870",
-                label: "B [80-89]"
+                label: "C [65-74]"
             },
             {
-                value: 100,
-                color: "#FDB45C",
-                highlight: "#FFC870",
-                label: "C [70-79]"
+                value: data.whogotD,
+                color: "#FF4500",
+                highlight: "#ff2a00",
+                label: "D [50-64]"
             },
             {
-                value: 100,
-                color: "#FDB45C",
-                highlight: "#FFC870",
-                label: "D [60-69]"
-            },
-            {
-                value: 50,
-                color:"#F7464A",
+                value: data.whogotF,
+                color:"#ff0000",
                 highlight: "#FF5A5E",
-                label: "F [0-59]"
+                label: "F [0-49]"
             }
         ];
             var chartOptions = {
@@ -218,6 +225,12 @@ $(document).ready(function () {
         new Chart(cpie).Pie(pdata, chartOptions);
 
         //////////////////////////////////////////////////////////////////////
+            
+        }).fail(function (data) {
+            swal("Failed", "Something Wrong! :)", "error");
+        });       
+   
+        
 
         var pdata = [
             {
