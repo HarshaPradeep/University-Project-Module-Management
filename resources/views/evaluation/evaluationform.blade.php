@@ -635,6 +635,8 @@ function javascriptLoader()
     $('.marksforproposaltab'+totviewfieldchange).keyup(function () {
         var total = 0;
         $(".marksforproposaltab"+totviewfieldchange).each(function () {
+            if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
+                    swal("Failed", "This Value Cannot be Accepted! :)", "error");
             var marks = (parseInt($(this).val())/100)*5;
             total += !isNaN(marks) ? marks : 0;
 
@@ -647,6 +649,8 @@ function javascriptLoader()
     $('.marksforsrstab'+totviewfieldchange).keyup(function () {
         var total = 0;
         $(".marksforsrstab"+totviewfieldchange).each(function () {
+            if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
+                    swal("Failed", "This Value Cannot be Accepted! :)", "error");
             var marks = (parseInt($(this).val())/100)*10;
             total += !isNaN(marks) ? marks : 0;
 
@@ -659,6 +663,8 @@ function javascriptLoader()
     $('.marksforprototypetab'+totviewfieldchange).keyup(function () {
         var total = 0;
         $(".marksforprototypetab"+totviewfieldchange).each(function () {
+            if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
+                    swal("Failed", "This Value Cannot be Accepted! :)", "error");
             var marks = (parseInt($(this).val())/100)*15;
             total += !isNaN(marks) ? marks : 0;
 
@@ -671,6 +677,8 @@ function javascriptLoader()
     $('.marksformidreviewtab'+totviewfieldchange).keyup(function () {
         var total = 0;
         $(".marksformidreviewtab"+totviewfieldchange).each(function () {
+            if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
+                    swal("Failed", "This Value Cannot be Accepted! :)", "error");
             var marks = (parseInt($(this).val())/100)*10;
             total += !isNaN(marks) ? marks : 0;
 
@@ -683,6 +691,8 @@ function javascriptLoader()
     $('.marksforfinalpresentationtab'+totviewfieldchange).keyup(function () {
         var total = 0;
         $(".marksforfinalpresentationtab"+totviewfieldchange).each(function () {
+            if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
+                    swal("Failed", "This Value Cannot be Accepted! :)", "error");
             var marks = (parseInt($(this).val())/100)*10;
             total += !isNaN(marks) ? marks : 0;
              
@@ -696,6 +706,8 @@ function javascriptLoader()
     $('.marksforfinalpresentationsecondtab'+totviewfieldchange).keyup(function () {
         var total = 0;
         $(".marksforfinalpresentationsecondtab"+totviewfieldchange).each(function () {
+            if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
+                    swal("Failed", "This Value Cannot be Accepted! :)", "error");
             var marks = (parseInt($(this).val())/100)*5;
             total += !isNaN(marks) ? marks : 0;
              
@@ -710,6 +722,8 @@ function javascriptLoader()
     $('.marksforvivatab'+totviewfieldchange).keyup(function () {
         var total = 0;
         $(".marksforvivatab"+totviewfieldchange).each(function () {
+            if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
+                    swal("Failed", "This Value Cannot be Accepted! :)", "error");
             var marks = (parseInt($(this).val())/100)*15;
             total += !isNaN(marks) ? marks : 0;
 
@@ -722,6 +736,8 @@ function javascriptLoader()
     $('.marksforothertab'+totviewfieldchange).keyup(function () {
         var total = 0;
         $(".marksforothertab"+totviewfieldchange).each(function () {
+            if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
+                    swal("Failed", "This Value Cannot be Accepted! :)", "error");
             var marks = (parseInt($(this).val())/100)*5;
             total += !isNaN(marks) ? marks : 0;
 
