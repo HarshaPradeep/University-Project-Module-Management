@@ -65,30 +65,55 @@ class EvaluationController extends Controller {
 	 * @return Response
 	 */
 	public function store(Request $request)
-        {
-            //dd(Request::get('totaltab1'));
+        {            
             if(Request::get('cmntmem0') != null && Input::get('statustab1') != "Absent")
             {
-                EvaluationMarks::create([
-  
-                    'stugrpid' => Input::get('selectid'),
-                    'stuid' => Request::get('cmntmem0'),
-                    'proposalpresent' => Request::get('marksforproposalpresenttab1'),
-                    'proposalreport' => Request::get('marksforproposalreporttab1'),
-                    'srsreport' => Request::get('marksforsrstab1'),
-                    'protopresent' => Request::get('marksforprototab1'),
-                    'midpresent' => Request::get('marksformidpresentab1'),
-                    'midreport' => Request::get('marksfomidreporttab1'),
-                    'finalprsent' => Request::get('marksforfinalpresnttab1'),
-                    'finalreport' => Request::get('marksforfinalreporttab1'),
-                    'viva' => Request::get('marksforvivatab1'),
-                    'researchbook' => Request::get('marksforresearchbooktab1'),
-                    'researchpaper' => Request::get('marksforresearchpapertab1'),
-                    'website' => Request::get('marksforwebsitetab1'),
-                    'status' => Input::get('statustab1'),
-                    'total' => Request::get('totaltab1')
-
-               ]);
+                if(!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem0'))->exists()))
+                {
+                    EvaluationMarks::create([
+                        'stugrpid' => Input::get('selectid'),
+                    'stuid' => Request::get('cmntmem0')
+                    ]);    
+                }
+                
+                EvaluationMarks::where('stuid', Request::get('cmntmem0'))
+                    ->update([
+                        'proposalpresent' => Request::get('marksforproposalpresenttab1'),
+                        'proposalreport' => Request::get('marksforproposalreporttab1'),
+                        'srsreport' => Request::get('marksforsrstab1'),
+                        'protopresent' => Request::get('marksforprototab1'),
+                        'midpresent' => Request::get('marksformidpresentab1'),
+                        'midreport' => Request::get('marksfomidreporttab1'),
+                        'finalprsent' => Request::get('marksforfinalpresnttab1'),
+                        'finalreport' => Request::get('marksforfinalreporttab1'),
+                        'viva' => Request::get('marksforvivatab1'),
+                        'researchbook' => Request::get('marksforresearchbooktab1'),
+                        'researchpaper' => Request::get('marksforresearchpapertab1'),
+                        'website' => Request::get('marksforwebsitetab1'),
+                        'status' => Input::get('statustab1'),
+                        'total' => Request::get('totaltab1')
+                            ]);          
+                
+//                EvaluationMarks::create([
+//  
+//                    'stugrpid' => Input::get('selectid'),
+//                    'stuid' => Request::get('cmntmem0'),
+//                    'proposalpresent' => Request::get('marksforproposalpresenttab1'),
+//                    'proposalreport' => Request::get('marksforproposalreporttab1'),
+//                    'srsreport' => Request::get('marksforsrstab1'),
+//                    'protopresent' => Request::get('marksforprototab1'),
+//                    'midpresent' => Request::get('marksformidpresentab1'),
+//                    'midreport' => Request::get('marksfomidreporttab1'),
+//                    'finalprsent' => Request::get('marksforfinalpresnttab1'),
+//                    'finalreport' => Request::get('marksforfinalreporttab1'),
+//                    'viva' => Request::get('marksforvivatab1'),
+//                    'researchbook' => Request::get('marksforresearchbooktab1'),
+//                    'researchpaper' => Request::get('marksforresearchpapertab1'),
+//                    'website' => Request::get('marksforwebsitetab1'),
+//                    'status' => Input::get('statustab1'),
+//                    'total' => Request::get('totaltab1')
+//
+//               ]);
             }
             
             if(Request::get('cmntmem1') != null && Input::get('statustab2') != "Absent")
