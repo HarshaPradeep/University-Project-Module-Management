@@ -58,6 +58,19 @@ class EvaluationController extends Controller {
               
             return view('evaluation.evaluationform', compact('students', 'supervisaornames', 'studentid', 'groupids'));
 	}
+        
+        public function forcharts() 
+        {
+            /*Get count of students who got A grade for the module*/
+            $whogotA = EvaluationMarks::where('total','>','84')->count();
+            $whogotB = EvaluationMarks::where('total','>','74')->count();
+            $whogotC = EvaluationMarks::where('total','>','64')->count();
+            $whogotD = EvaluationMarks::where('total','>','49')->count();
+            $whogotF = EvaluationMarks::where('total','<','50')->count();
+            
+            $data = array("whogotA" => $whogotA, "whogotB" => $whogotB, "whogotC" => $whogotC, "whogotD" => $whogotD, "whogotF" => $whogotF);
+            return json_encode($data);
+        }
 
 	/**
 	 * Store a newly created resource in storage.
