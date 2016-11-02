@@ -94,9 +94,8 @@
                         
                         <!--                        update button-->
                         <!--<a onclick = "deletePresentationPanel()" id=""class="btn btn-sm btn-danger">Delete</a>-->
-                        {!! Form::button( '<i class="fa fa-edit fa-lg" style="color: blue"title="Edit"></i>',
-                        ['onclick' => 'editresearcharea()',
-                        'class' => 'delete text-danger editeForm',
+                        {!! Form::button( '<a href="/tupdate"><i class="fa fa-edit fa-lg" style="color: blue"title="Edit"></i></a>',
+                        ['class' => 'delete text-danger editeForm',
                         'id' => 'btnediteProduct',
                         'data-id' => $taskd->id ] ) !!}
                         <!--                        end update button-->
@@ -260,13 +259,6 @@
         });
         return x;
         confirm("Do you want to delete this Task");
-    }
-
-//    edit the selected research area
-    function editresearcharea() {
-            
-        swal("KEEP CALM!", "it's \n COMING SOON!", "success");
-        //swal("Updated!!", "Research Area is Updated", "success");      
     }
 
 </script>

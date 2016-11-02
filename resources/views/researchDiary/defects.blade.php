@@ -91,13 +91,16 @@
                         'data-id' => $defectd->id ] ) !!}
                         <!--                        end remove button-->
 
-                        
+                        {{--<button class="btn btn-sm btn-danger"><a href="/defects/{{$defectd->id}}"><i class="fa fa-edit fa-lg" style="color: blue"title="Edit"></i></a></button>--}}
+
+                        <a href="defects/{{$defectd->id}}">dsafsdf</a>
                         <!--                        update button-->
                         <!--<a onclick = "deletePresentationPanel()" id=""class="btn btn-sm btn-danger">Delete</a>-->
-                        {!! Form::button( '<a href="/dupdate"><i class="fa fa-edit fa-lg" style="color: blue"title="Edit"></i></a>',
-                        ['class' => 'delete text-danger editeForm',
-                        'id' => 'btnediteProduct',
-                        'data-id' => $defectd->id ] ) !!}
+                        {{--{!! Form::button( '<a href="/defects/"'.$defectd->id.'"><i class="fa fa-edit fa-lg" style="color: blue"title="Edit"></i></a>',--}}
+                        {{--['class' => 'delete text-danger editeForm',--}}
+                        {{--//'id' => 'btnediteProduct',--}}
+                        {{--//'data-id' => $defectd->id--}}
+                        {{--] ) !!}--}}
                         <!--                        end update button-->
                     </center>
                     {!! Form::close() !!}
@@ -163,7 +166,7 @@
                 <label>Defect State</label>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >Not Start
+                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="Not Start" >Not Start
                     </label>
                 </div>
                 <div class="radio">
