@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 
+use Illuminate\Http\Request;
 use Illuminate\Http\Requests;
 use DateTime;
 use DateTimeZone;
@@ -87,6 +88,8 @@ class NewsController extends Controller {
 
 
     }
+
+
 
     public function editPostNews($po)
     {
@@ -224,6 +227,30 @@ class NewsController extends Controller {
         }
 
     }
+
+
+
+    //Search
+//
+//    public function search(Request $request)
+//    {
+//
+//        if ($request->ajax())
+//        {
+//            $output="";
+//            $topics=DB::table('news_topic')->where('topic','LIKE','%',$request->search.'%')->get();
+//
+//        }
+//        if($topics)
+//        {
+//            foreach ($variable as $key=>$topics){
+//                $output
+//        }
+//        }
+//
+//    }
+
+
 
 
 

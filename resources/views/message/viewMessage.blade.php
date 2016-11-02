@@ -1,5 +1,4 @@
-@extends('masterpages.master_student')
-
+@extends('masterpages.master_rpc')
 
 @section('css_links')
 
@@ -46,10 +45,6 @@
                <div class="col-lg-1">
         </div>
     </div>
-    <br><br>
-    <form action="http://localhost:8000/message">
-        <input type="submit"  class="btn btn-w-m btn-primary" value="View Messages" />
-    </form>
 @endsection
 
 {{--@section('subheader')--}}
@@ -76,23 +71,23 @@
                     <div class="row msg_container base_sent">
                         <div class="col-md-10 col-xs-10">
                             <div class="messages msg_sent">
-                                <p><h4>{{$value->message }}</h4></p>
-                                <time datetime="2009-11-13T20:00">You {{$value->date }}   </time>
+                                <p>{{$value->message }}</p>
+                                <time datetime="2009-11-13T20:00">  You </time>
                             </div>
                         </div>
                         <div class="col-md-2 col-xs-2 avatar">
-                            <img src="https://cdn4.iconfinder.com/data/icons/set-of-flat-vector-icons/290/Profile_male-512.png" class=" img-responsive ">
+                            <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
                         </div>
                     </div>
                     @else
                     <div class="row msg_container base_receive">
                         <div class="col-md-2 col-xs-2 avatar">
-                            <img src="https://cdn4.iconfinder.com/data/icons/set-of-flat-vector-icons/290/Profile_male-512.png" class=" img-responsive ">
+                            <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
                         </div>
                         <div class="col-md-10 col-xs-10">
                             <div class="messages msg_receive">
-                                <p><h4>{{$value->message }}</h4></p>
-                                <time datetime="2009-11-13T20:00">{{$value->receiver }} {{$value->date }} </time>
+                                <p>{{$value->message }}</p>
+                                <time datetime="2009-11-13T20:00">{{$value->receiver }}</time>
                             </div>
                         </div>
                     </div>
@@ -100,7 +95,7 @@
                      @endforeach
                   
                 </div>
-
+ 
         </div>
         </div>
     </div>

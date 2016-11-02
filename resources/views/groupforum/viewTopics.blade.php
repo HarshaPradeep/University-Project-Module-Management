@@ -145,11 +145,11 @@
 
     @forelse($topics as $topic)
 
-        <a href="http://localhost:8000/groupForum/{{$topic->id}}">
+        <a href="http://localhost:8000/groupForum/{{$topic->topic_id}}">
         <div class="container" style="border-radius:10px;background-color:#FFFFFF;width:1100px;padding-left: 10px;">
             <div class="row">
                 <div class="col-md-5">
-                    <h2>{!!$topic->name!!}</h2>
+                    <h2>{!!$topic->topic_name!!}</h2>
                 </div>
 
                 <div class="col-md-2" style="padding-top: 2px;">
