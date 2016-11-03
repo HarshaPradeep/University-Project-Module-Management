@@ -142,7 +142,7 @@ Below Average (3-0)">LO 4 * (10%)</td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo2mem1" disabled style="width: 65px"></td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo3mem1" disabled style="width: 65px"></td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo4mem1" disabled style="width: 65px"></td>
-                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo5mem1" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo5mem1" name="srsstatusdocmrkstab1"  style="width: 65px"></td>
                 </tr> 
             </tbody>
         </table>
@@ -218,7 +218,7 @@ Below Average (3-0)">LO 4 * (10%)</td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo2mem2" disabled style="width: 65px"></td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo3mem2" disabled style="width: 65px"></td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo4mem2" disabled style="width: 65px"></td>
-                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo5mem2" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo5mem2" name="srsstatusdocmrkstab2" style="width: 65px"></td>
                 </tr> 
             </tbody>
         </table>
@@ -294,7 +294,7 @@ Below Average (3-0)">LO 4 * (10%)</td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo2mem3" disabled style="width: 65px"></td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo3mem3" disabled style="width: 65px"></td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo4mem3" disabled style="width: 65px"></td>
-                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo5mem3" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo5mem3" name="srsstatusdocmrkstab3" style="width: 65px"></td>
                 </tr> 
             </tbody>
         </table>
@@ -370,7 +370,7 @@ Below Average (3-0)">LO 4 * (10%)</td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo2mem4" disabled style="width: 65px"></td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo3mem4" disabled style="width: 65px"></td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo4mem4" disabled style="width: 65px"></td>
-                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo5mem4" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo5mem4" name="srsstatusdocmrkstab4" style="width: 65px"></td>
                 </tr> 
             </tbody>
         </table>
@@ -446,7 +446,7 @@ Below Average (3-0)">LO 4 * (10%)</td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo2mem5" disabled style="width: 65px"></td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo3mem5" disabled style="width: 65px"></td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo4mem5" disabled style="width: 65px"></td>
-                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo5mem5" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo5mem5" name="srsstatusdocmrkstab5" style="width: 65px"></td>
                 </tr> 
             </tbody>
         </table>

@@ -122,6 +122,7 @@ Below Average (9-0)">LO 4 * (25%)</td>
 Good (11-9)
 Average (8-6)
 Below Average (5-0)">LO 5 * (15%)</td>
+                    <td style="width: 1000px">Status Document (2%)</td>
                 </tr>
                 <tr>
                     <td style="width: 1000px"><strong>Comment :</strong></td>
@@ -130,6 +131,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
                     <td ><input type="text" style="width: 120px" id="cmnt3member1" onblur="getValue(this)" class="hh"></td>
                     <td ><input type="text" style="width: 120px" id="cmnt4member1" onblur="getValue(this)" class="hh"></td>
                     <td ><input type="text" style="width: 120px" id="cmnt5member1" onblur="getValue(this)" class="hh"></td>
+                    <td ><input type="text" style="width: 120px" id="cmnt6member1" onblur="getValue(this)" class="hh"></td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"><strong>Marks : (100%)</strong><input type="checkbox" id="hundredmrks1" onchange="disabledBoxchangedforhund()" checked style="float: right"></td>
@@ -138,6 +140,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo3mem1" name="propPresentation" class="lo3mem1"></td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo4mem1" name="propPresentation" class="lo4mem1"></td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo5mem1" name="propPresentation" class="lo5mem1"></td>
+                    <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo6mem1" name="propPresentation" class="lo6mem1"></td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"><strong>Marks : </strong><input type="checkbox" id="convmarks1" onchange="disabledBoxchangedforconv()" style="float: right"></td>
@@ -146,6 +149,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo3mem1" disabled style="width: 65px"></td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo4mem1" disabled style="width: 65px"></td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo5mem1" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo6mem1" name="finalstatusdocmrkstab1" style="width: 65px"></td>
                 </tr> 
             </tbody>
         </table>
@@ -201,6 +205,7 @@ Below Average (9-0)">LO 4 * (25%)</td>
 Good (11-9)
 Average (8-6)
 Below Average (5-0)">LO 5 * (15%)</td>
+                    <td style="width: 1000px">Status Document (2%)</td>
                 </tr>
                 <tr>
                     <td style="width: 1000px"><strong>Comment :</strong></td>
@@ -209,6 +214,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
                     <td ><input type="text" style="width: 120px" id="cmnt3member2" onblur="getValue(this)" class="hh"></td>
                     <td ><input type="text" style="width: 120px" id="cmnt4member2" onblur="getValue(this)" class="hh"></td>
                     <td ><input type="text" style="width: 120px" id="cmnt5member2" onblur="getValue(this)" class="hh"></td>
+                    <td ><input type="text" style="width: 120px" id="cmnt6member2" onblur="getValue(this)" class="hh"></td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"><strong>Marks : (100%)</strong><input type="checkbox" id="hundredmrks2" onchange="disabledBoxchangedforhund()" checked style="float: right"></td>
@@ -217,6 +223,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo3mem2" name="propPresentation" class="lo3mem2"></td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo4mem2" name="propPresentation" class="lo4mem2"></td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo5mem2" name="propPresentation" class="lo5mem2"></td>
+                    <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo6mem2" name="propPresentation" class="lo6mem2"></td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"><strong>Marks : </strong><input type="checkbox" id="convmarks2" onchange="disabledBoxchangedforconv()" style="float: right"></td>
@@ -225,6 +232,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo3mem2" disabled style="width: 65px"></td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo4mem2" disabled style="width: 65px"></td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo5mem2" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo6mem2" name="finalstatusdocmrkstab2" style="width: 65px"></td>
                 </tr> 
             </tbody>
         </table>
@@ -280,6 +288,7 @@ Below Average (9-0)">LO 4 * (25%)</td>
 Good (11-9)
 Average (8-6)
 Below Average (5-0)">LO 5 * (15%)</td>
+                    <td style="width: 1000px">Status Document (2%)</td>
                 </tr>
                 <tr>
                     <td style="width: 1000px"><strong>Comment :</strong></td>
@@ -288,6 +297,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
                     <td ><input type="text" style="width: 120px" id="cmnt3member3" onblur="getValue(this)" class="hh"></td>
                     <td ><input type="text" style="width: 120px" id="cmnt4member3" onblur="getValue(this)" class="hh"></td>
                     <td ><input type="text" style="width: 120px" id="cmnt5member3" onblur="getValue(this)" class="hh"></td>
+                    <td ><input type="text" style="width: 120px" id="cmnt6member3" onblur="getValue(this)" class="hh"></td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"><strong>Marks : (100%)</strong><input type="checkbox" id="hundredmrks3" onchange="disabledBoxchangedforhund()" checked style="float: right"></td>
@@ -296,6 +306,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo3mem3" name="propPresentation" class="lo3mem3"></td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo4mem3" name="propPresentation" class="lo4mem3"></td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo5mem3" name="propPresentation" class="lo5mem3"></td>
+                    <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo6mem3" name="propPresentation" class="lo6mem3"></td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"><strong>Marks : </strong><input type="checkbox" id="convmarks3" onchange="disabledBoxchangedforconv()" style="float: right"></td>
@@ -304,6 +315,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo3mem3" disabled style="width: 65px"></td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo4mem3" disabled style="width: 65px"></td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo5mem3" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo6mem3" name="finalstatusdocmrkstab3" style="width: 65px"></td>
                 </tr> 
             </tbody>
         </table>
@@ -359,6 +371,7 @@ Below Average (9-0)">LO 4 * (25%)</td>
 Good (11-9)
 Average (8-6)
 Below Average (5-0)">LO 5 * (15%)</td>
+                    <td style="width: 1000px">Status Document (2%)</td>
                 </tr>
                 <tr>
                     <td style="width: 1000px"><strong>Comment :</strong></td>
@@ -367,6 +380,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
                     <td ><input type="text" style="width: 120px" id="cmnt3member4" onblur="getValue(this)" class="hh"></td>
                     <td ><input type="text" style="width: 120px" id="cmnt4member4" onblur="getValue(this)" class="hh"></td>
                     <td ><input type="text" style="width: 120px" id="cmnt5member4" onblur="getValue(this)" class="hh"></td>
+                    <td ><input type="text" style="width: 120px" id="cmnt6member4" onblur="getValue(this)" class="hh"></td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"><strong>Marks : (100%)</strong><input type="checkbox" id="hundredmrks4" onchange="disabledBoxchangedforhund()" checked style="float: right"></td>
@@ -375,6 +389,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo3mem4" name="propPresentation" class="lo3mem4"></td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo4mem4" name="propPresentation" class="lo4mem4"></td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo5mem4" name="propPresentation" class="lo5mem4"></td>
+                    <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo6mem4" name="propPresentation" class="lo6mem4"></td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"><strong>Marks : </strong><input type="checkbox" id="convmarks4" onchange="disabledBoxchangedforconv()" style="float: right"></td>
@@ -383,6 +398,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo3mem4" disabled style="width: 65px"></td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo4mem4" disabled style="width: 65px"></td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo5mem4" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo6mem4" name="finalstatusdocmrkstab4" style="width: 65px"></td>
                 </tr> 
             </tbody>
         </table>
@@ -438,6 +454,7 @@ Below Average (9-0)">LO 4 * (25%)</td>
 Good (11-9)
 Average (8-6)
 Below Average (5-0)">LO 5 * (15%)</td>
+                    <td style="width: 1000px">Status Document (2%)</td>
                 </tr>
                 <tr>
                     <td style="width: 1000px"><strong>Comment :</strong></td>
@@ -446,6 +463,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
                     <td ><input type="text" style="width: 120px" id="cmnt3member5" onblur="getValue(this)" class="hh"></td>
                     <td ><input type="text" style="width: 120px" id="cmnt4member5" onblur="getValue(this)" class="hh"></td>
                     <td ><input type="text" style="width: 120px" id="cmnt5member5" onblur="getValue(this)" class="hh"></td>
+                    <td ><input type="text" style="width: 120px" id="cmnt6member5" onblur="getValue(this)" class="hh"></td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"><strong>Marks : (100%)</strong><input type="checkbox" id="hundredmrks5" onchange="disabledBoxchangedforhund()" checked style="float: right"></td>
@@ -454,6 +472,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo3mem5" name="propPresentation" class="lo3mem5"></td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo4mem5" name="propPresentation" class="lo4mem5"></td>
                     <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo5mem5" name="propPresentation" class="lo5mem5"></td>
+                    <td style="width: 1000px"><input type="number" style="width: 65px" onclick="getlo(this)" id="lo6mem5" name="propPresentation" class="lo6mem5"></td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"><strong>Marks : </strong><input type="checkbox" id="convmarks5" onchange="disabledBoxchangedforconv()" style="float: right"></td>
@@ -462,6 +481,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo3mem5" disabled style="width: 65px"></td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo4mem5" disabled style="width: 65px"></td>
                     <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo5mem5" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" id="finalmarksforlo6mem5" name="finalstatusdocmrkstab5" style="width: 65px"></td>
                 </tr> 
             </tbody>
         </table>
@@ -635,6 +655,20 @@ Below Average (5-0)">LO 5 * (15%)</td>
             $('#finalmarksforlo5'+whtmem).val(total);
         });
    // });
+   
+     //  $(document).ready(function () {
+        $('.lo6'+whtmem).keyup(function () {
+            var total = 0;
+            $(".lo6"+whtmem).each(function () {
+                if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
+                    swal("Failed", "This Value Cannot be Accepted! :)", "error");
+                var marks = (parseInt($(this).val())/100)*2;
+                total += !isNaN(marks) ? marks : 0;
+
+            });
+            $('#finalmarksforlo6'+whtmem).val(total);
+        });
+   // });
  }
 
  function selectStudentDetails()
@@ -749,7 +783,7 @@ function disabledBoxchangedforconv()
         document.getElementById("convmarks"+ totviewfieldchange).checked = true;
     }
 
-    for(h = 1; h < 6; h++)
+    for(h = 1; h < 7; h++)
     {
         document.getElementById("finalmarksforlo"+ h +"mem"+ totviewfieldchange).disabled = false;
         document.getElementById("lo"+ h +"mem"+ totviewfieldchange).disabled = true;
@@ -764,7 +798,7 @@ function disabledBoxchangedforhund()
         document.getElementById("hundredmrks"+ totviewfieldchange).checked = true;
     }
     
-    for(k = 1; k < 6; k++)
+    for(k = 1; k < 7; k++)
     {
         document.getElementById("finalmarksforlo"+ k +"mem"+ totviewfieldchange).disabled = true;
         document.getElementById("lo"+ k +"mem"+ totviewfieldchange).disabled = false;

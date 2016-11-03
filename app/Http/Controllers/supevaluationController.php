@@ -1240,6 +1240,7 @@ class supevaluationController extends Controller {
                 EvaluationMarks::where('stuid', Request::get('cmntmem0'))
                     ->update([
                         'finalreport' => Request::get('marksforfinalreporttab1'),
+                        'finalstatusdoc' => Request::get('finalstatusdocmrkstab1'),
                         'status' => Input::get('statustab1'),
                         'total' => ($totmrk + Request::get('marksforfinalreporttab1'))
                             ]);             
@@ -1262,6 +1263,7 @@ class supevaluationController extends Controller {
                 EvaluationMarks::where('stuid', Request::get('cmntmem1'))
                     ->update([
                         'finalreport' => Request::get('marksforfinalreporttab2'),
+                        'finalstatusdoc' => Request::get('finalstatusdocmrkstab2'),
                         'status' => Input::get('statustab2'),
                         'total' => ($totmrk + Request::get('marksforfinalreporttab2'))
                             ]);                                       
@@ -1284,6 +1286,7 @@ class supevaluationController extends Controller {
                 EvaluationMarks::where('stuid', Request::get('cmntmem2'))
                     ->update([
                         'finalreport' => Request::get('marksforfinalreporttab3'),
+                        'finalstatusdoc' => Request::get('finalstatusdocmrkstab3'),
                         'status' => Input::get('statustab3'),
                         'total' => ($totmrk + Request::get('marksforfinalreporttab3'))
                             ]);                           
@@ -1306,6 +1309,7 @@ class supevaluationController extends Controller {
                 EvaluationMarks::where('stuid', Request::get('cmntmem3'))
                     ->update([
                         'finalreport' => Request::get('marksforfinalreporttab4'),
+                        'finalstatusdoc' => Request::get('finalstatusdocmrkstab4'),
                         'status' => Input::get('statustab4'),
                         'total' => ($totmrk + Request::get('marksforfinalreporttab4'))
                             ]);                                 
@@ -1328,6 +1332,7 @@ class supevaluationController extends Controller {
                 EvaluationMarks::where('stuid', Request::get('cmntmem4'))
                     ->update([
                         'finalreport' => Request::get('marksforfinalreporttab5'),
+                        'finalstatusdoc' => Request::get('finalstatusdocmrkstab5'),
                         'status' => Input::get('statustab5'),
                         'total' => ($totmrk + Request::get('marksforfinalreporttab5'))
                             ]);                              
