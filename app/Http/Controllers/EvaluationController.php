@@ -71,6 +71,12 @@ class EvaluationController extends Controller {
             $data = array("whogotA" => $whogotA, "whogotB" => $whogotB, "whogotC" => $whogotC, "whogotD" => $whogotD, "whogotF" => $whogotF);
             return json_encode($data);
         }
+        
+        public function settings()
+        {
+            
+            return view('evaluation.settings');
+        }
 
 	/**
 	 * Store a newly created resource in storage.
