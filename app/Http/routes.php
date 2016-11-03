@@ -131,8 +131,8 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
     
     Route::get('searchmarksforcharts', 'EvaluationController@forcharts');// data for pie charts
     
-    Route::get('settings', 'EvaluationController@settings');
-    
+    Route::get('settings', 'EvaluationController@settingscreat');
+    Route::post('settings', 'EvaluationController@settingsupdate');    
     
     Route::get('editNotice/{id}', 'NoticeController@editNoticeView'); //------------------
     Route::post('editNotice/{id}', 'NoticeController@editNotice'); //--------------
