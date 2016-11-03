@@ -147,9 +147,9 @@
                                         <li>
                                             <a href="/srsevaluation">SRS Document</a>
                                         </li>
-                                        <li>
+<!--                                        <li>
                                             <a href="/srsstatusevaluation">Status Document</a>
-                                        </li>
+                                        </li>-->
                                     </ul>
                         </li>
                         <li ><a href="/protoevaluation">Prototype</a></li>
@@ -171,9 +171,9 @@
                                         <li>
                                             <a href="/finalreportevaluation">Report</a>
                                         </li>
-                                        <li>
+<!--                                        <li>
                                             <a href="/finalstatusevaluation">Status Document</a>
-                                        </li>
+                                        </li>-->
                                     </ul>
                         </li>
                         <li ><a href="/vivavaluation">Viva</a></li>
