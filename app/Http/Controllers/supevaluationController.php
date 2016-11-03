@@ -652,6 +652,7 @@ class supevaluationController extends Controller {
                 EvaluationMarks::where('stuid', Request::get('cmntmem0'))
                     ->update([
                         'srsreport' => Request::get('marksforsrstab1'),
+                        'srsstatusdoc' => Request::get('srsstatusdocmrkstab1'),
                         'status' => Input::get('statustab1'),
                         'total' => ($totmrk + Request::get('marksforsrstab1'))
                             ]);                             
@@ -674,6 +675,7 @@ class supevaluationController extends Controller {
                 EvaluationMarks::where('stuid', Request::get('cmntmem1'))
                     ->update([
                         'srsreport' => Request::get('marksforsrstab2'),
+                        'srsstatusdoc' => Request::get('srsstatusdocmrkstab2'),
                         'status' => Input::get('statustab2'),
                         'total' => ($totmrk + Request::get('marksforsrstab2'))
                             ]);                                       
@@ -696,6 +698,7 @@ class supevaluationController extends Controller {
                 EvaluationMarks::where('stuid', Request::get('cmntmem2'))
                     ->update([
                         'srsreport' => Request::get('marksforsrstab3'),
+                        'srsstatusdoc' => Request::get('srsstatusdocmrkstab3'),
                         'status' => Input::get('statustab3'),
                         'total' => ($totmrk + Request::get('marksforsrstab3'))
                             ]);                           
@@ -718,6 +721,7 @@ class supevaluationController extends Controller {
                 EvaluationMarks::where('stuid', Request::get('cmntmem3'))
                     ->update([
                         'srsreport' => Request::get('marksforsrstab4'),
+                        'srsstatusdoc' => Request::get('srsstatusdocmrkstab4'),
                         'status' => Input::get('statustab4'),
                         'total' => ($totmrk + Request::get('marksforsrstab4'))
                             ]);                                 
@@ -740,6 +744,7 @@ class supevaluationController extends Controller {
                 EvaluationMarks::where('stuid', Request::get('cmntmem4'))
                     ->update([
                         'srsreport' => Request::get('marksforsrstab5'),
+                        'srsstatusdoc' => Request::get('srsstatusdocmrkstab5'),
                         'status' => Input::get('statustab5'),
                         'total' => ($totmrk + Request::get('marksforsrstab5'))
                             ]);                              
