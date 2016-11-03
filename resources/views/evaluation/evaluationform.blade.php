@@ -116,13 +116,15 @@
                </tr>
                
                <tr>
-                    <td style="width: 1000px"><strong>SRS Submission</strong> (10%)
-                        <br><p style="padding-top: 10px">&emsp; Report (10%)
+                    <td style="width: 1000px"><strong>SRS Submission</strong> (9%)
+                        <br><p style="padding-top: 10px">&emsp; Report (9%)
+                            <br>&emsp; Status Document (2%)
                         </p></td>
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforsrstab1" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrstab1" class="marksforsrstab1"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrstab1" class="marksforsrstab1"  > Marks
+                        <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrsstatusdoctab1" class="marksforstatusdoctab1"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -147,14 +149,17 @@
                </tr>
                
                <tr>
-                    <td style="width: 1000px"><strong>Final Presentation</strong> (15%)
+                    <td style="width: 1000px"><strong>Final Submission</strong> (15%)
                         <br><p style="padding-top: 10px">&emsp; Presentation (10%) 
-                        <br>&emsp; Report (5%)</p></td>
+                        <br>&emsp; Report (5%)
+                        <br>&emsp; Status Document (2%)</p></td>
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforpresentationtab1" placeholder="0" disabled style="width: 80px">
                         <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalpresnttab1" class="marksforfinalpresentationtab1"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforfinalreporttab1" class="marksforfinalpresentationsecondtab1"  > Marks</p></td>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforfinalreporttab1" class="marksforfinalpresentationsecondtab1"  > Marks
+                        <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalstatusdoctab1" class="marksforfinalstatusdoctab1"  > Marks
+                        </p></td>
                </tr>
                
                <tr>
@@ -168,9 +173,9 @@
                
                <tr>
                     <td style="width: 1000px"><strong>Other Assessment</strong> (15%)
-                        <br><p style="padding-top: 11px">&emsp; Research Book (5%)
-                        <br>&emsp; Research Paper (5%)
-                        <br>&emsp; Website (5%)</p></td>
+                        <br><p style="padding-top: 11px">&emsp; Research Book (4%)
+                        <br>&emsp; Research Paper (4%)
+                        <br>&emsp; Website (4%)</p></td>
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforotherstab1" placeholder="0" disabled style="width: 80px">
@@ -219,11 +224,13 @@
                <tr>
                     <td style="width: 1000px"><strong>SRS Submission</strong> (10%)
                         <br><p style="padding-top: 10px">&emsp; Report (10%)
+                            <br>&emsp; Status Document (2%)
                         </p></td>
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforsrstab2" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrstab2" class="marksforsrstab2"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrstab2" class="marksforsrstab2"  > Marks
+                        <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrsstatusdoctab2" class="marksforstatusdoctab2"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -248,14 +255,18 @@
                </tr>
                
                <tr>
-                    <td style="width: 1000px"><strong>Final Presentation</strong> (15%)
+                    <td style="width: 1000px"><strong>Final Submission</strong> (15%)
                         <br><p style="padding-top: 10px">&emsp; Presentation (10%) 
-                        <br>&emsp; Report (5%)</p></td>
+                        <br>&emsp; Report (5%)
+                        <br>&emsp; Status Document (2%)
+                        </p></td>
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforpresentationtab2" placeholder="0" disabled style="width: 80px">
                         <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalpresnttab2" class="marksforfinalpresentationtab2"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforfinalreporttab2" class="marksforfinalpresentationsecondtab2"  > Marks</p></td>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforfinalreporttab2" class="marksforfinalpresentationsecondtab2"  > Marks
+                        <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalstatusdoctab2" class="marksforfinalstatusdoctab2"  > Marks
+                        </p></td>
                </tr>
                
                <tr>
@@ -319,11 +330,13 @@
                <tr>
                     <td style="width: 1000px"><strong>SRS Submission</strong> (10%)
                         <br><p style="padding-top: 10px">&emsp; Report (10%)
+                            <br>&emsp; Status Document (2%)
                         </p></td>
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforsrstab3" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrstab3" class="marksforsrstab3"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrstab3" class="marksforsrstab3"  > Marks
+                        <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrsstatusdoctab3" class="marksforstatusdoctab3"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -348,14 +361,17 @@
                </tr>
                
                <tr>
-                    <td style="width: 1000px"><strong>Final Presentation</strong> (15%)
+                    <td style="width: 1000px"><strong>Final Submission</strong> (15%)
                         <br><p style="padding-top: 10px">&emsp; Presentation (10%) 
-                        <br>&emsp; Report (5%)</p></td>
+                        <br>&emsp; Report (5%)
+                        <br>&emsp; Status Document (2%)
+                        </p></td>
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforpresentationtab3" placeholder="0" disabled style="width: 80px">
                         <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalpresnttab3" class="marksforfinalpresentationtab3"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforfinalreporttab3" class="marksforfinalpresentationsecondtab3"  > Marks</p></td>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforfinalreporttab3" class="marksforfinalpresentationsecondtab3"  > Marks
+                        <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalstatusdoctab3" class="marksforfinalstatusdoctab3"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -419,11 +435,13 @@
                <tr>
                     <td style="width: 1000px"><strong>SRS Submission</strong> (10%)
                         <br><p style="padding-top: 10px">&emsp; Report (10%)
+                            <br>&emsp; Status Document (2%)
                         </p></td>
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforsrstab4" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrstab4" class="marksforsrstab4"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrstab4" class="marksforsrstab4"  > Marks
+                        <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrsstatusdoctab4" class="marksforstatusdoctab4"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -448,14 +466,17 @@
                </tr>
                
                <tr>
-                    <td style="width: 1000px"><strong>Final Presentation</strong> (15%)
+                    <td style="width: 1000px"><strong>Final Submission</strong> (15%)
                         <br><p style="padding-top: 10px">&emsp; Presentation (10%) 
-                        <br>&emsp; Report (5%)</p></td>
+                        <br>&emsp; Report (5%)
+                        <br>&emsp; Status Document (2%)
+                        </p></td>
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforpresentationtab4" placeholder="0" disabled style="width: 80px">
                         <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalpresnttab4" class="marksforfinalpresentationtab4"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforfinalreporttab4" class="marksforfinalpresentationsecondtab4"  > Marks</p></td>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforfinalreporttab4" class="marksforfinalpresentationsecondtab4"  > Marks
+                        <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalstatusdoctab4" class="marksforfinalstatusdoctab4"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -470,8 +491,8 @@
                <tr>
                     <td style="width: 1000px"><strong>Other Assessment</strong> (15%)
                         <br><p style="padding-top: 11px">&emsp; Research Book (5%)
-                        <br>&emsp; Research Paper (5%)
-                        <br>&emsp; Website (5%)</p></td>
+                        <br>&emsp; Research Paper (4%)
+                        <br>&emsp; Website (4%)</p></td>
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforotherstab4" placeholder="0" disabled style="width: 80px">
@@ -517,13 +538,15 @@
                </tr>
                
                <tr>
-                    <td style="width: 1000px"><strong>SRS Submission</strong> (10%)
+                    <td style="width: 1000px"><strong>SRS Submission</strong> (12%)
                         <br><p style="padding-top: 10px">&emsp; Report (10%)
+                            <br>&emsp; Status Document (2%)
                         </p></td>
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforsrstab5" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrstab5" class="marksforsrstab5"  > Marks</p></td>
+                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrstab5" class="marksforsrstab5"  > Marks
+                        <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrsstatusdoctab5" class="marksforstatusdoctab5"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -548,14 +571,17 @@
                </tr>
                
                <tr>
-                    <td style="width: 1000px"><strong>Final Presentation</strong> (15%)
+                    <td style="width: 1000px"><strong>Final Submission</strong> (17%)
                         <br><p style="padding-top: 10px">&emsp; Presentation (10%) 
-                        <br>&emsp; Report (5%)</p></td>
+                        <br>&emsp; Report (5%)
+                        <br>&emsp; Status Document (2%)
+                        </p></td>
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforpresentationtab5" placeholder="0" disabled style="width: 80px">
                         <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalpresnttab5" class="marksforfinalpresentationtab5"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforfinalreporttab5" class="marksforfinalpresentationsecondtab5"  > Marks</p></td>
+                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforfinalreporttab5" class="marksforfinalpresentationsecondtab5"  > Marks
+                        <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalstatusdoctab5" class="marksforfinalstatusdoctab5"  > Marks</p></td>
                </tr>
                
                <tr>
@@ -568,10 +594,10 @@
                </tr>
                
                <tr>
-                    <td style="width: 1000px"><strong>Other Assessment</strong> (15%)
-                        <br><p style="padding-top: 11px">&emsp; Research Book (5%)
-                        <br>&emsp; Research Paper (5%)
-                        <br>&emsp; Website (5%)</p></td>
+                    <td style="width: 1000px"><strong>Other Assessment</strong> (12%)
+                        <br><p style="padding-top: 11px">&emsp; Research Book (4%)
+                        <br>&emsp; Research Paper (4%)
+                        <br>&emsp; Website (4%)</p></td>
 
                     <td style="width: 200px">
                         <input type="text" id="finalmarksforotherstab5" placeholder="0" disabled style="width: 80px">
@@ -659,6 +685,19 @@ function javascriptLoader()
     });
 //});
 
+$('.marksforstatusdoctab'+totviewfieldchange).keyup(function () {
+        var total = 0;
+        $(".marksforstatusdoctab"+totviewfieldchange).each(function () {
+            if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
+                    swal("Failed", "This Value Cannot be Accepted! :)", "error");
+            var marks = (parseInt($(this).val())/100)*2;
+            total += !isNaN(marks) ? marks : 0;
+
+        });
+        var temp3 = (parseInt($('#finalmarksforsrstab'+totviewfieldchange).val()));
+        $('#finalmarksforsrstab'+totviewfieldchange).val(temp3 + total);
+    });
+
 //$(document).ready(function () {
     $('.marksforprototypetab'+totviewfieldchange).keyup(function () {
         var total = 0;
@@ -717,6 +756,20 @@ function javascriptLoader()
         $('#finalmarksforpresentationtab'+totviewfieldchange).val(temp2 + total);
     });        
 //});
+
+$('.marksforfinalstatusdoctab'+totviewfieldchange).keyup(function () {
+        var total = 0;
+        $(".marksforfinalstatusdoctab"+totviewfieldchange).each(function () {
+            if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
+                    swal("Failed", "This Value Cannot be Accepted! :)", "error");
+            var marks = (parseInt($(this).val())/100)*2;
+            total += !isNaN(marks) ? marks : 0;
+
+        });
+        var temp3 = (parseInt($('#finalmarksforpresentationtab'+totviewfieldchange).val()));
+        $('#finalmarksforpresentationtab'+totviewfieldchange).val(temp3 + total);
+    });
+    
 ////////////////////////////////////////////////////////////////////
 //$(document).ready(function () {
     $('.marksforvivatab'+totviewfieldchange).keyup(function () {
