@@ -102,7 +102,7 @@
                 
                 <tr>
                     <td style="width: 1000px"><strong>Proposal Submission</strong> (10%)
-                        <br><p style="padding-top: 10px">&emsp; Presentation (5%) 
+                        <br><p style="padding-top: 10px">&emsp; Presentation ({{$los->proplo1}}%) 
                         <br>&emsp; Report (5%)
                         
                         </p>

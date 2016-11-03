@@ -105,23 +105,23 @@
                     <td style="width: 1000px" title="Excellent (35-28)
 Good (28-21)
 Average (21-14)
-Below Average (14-0)">LO 1 * (35%)</td>
+Below Average (14-0)">LO 1 * ({{$los->proplo1}}%)</td>
                     <td style="width: 1000px" title="Excellent (30-24)
 Good (24-18)
 Average (18-12)
-Below Average (12-0)">LO 2 * (30%)</td>
+Below Average (12-0)">LO 2 * ({{$los->proplo2}}%)</td>
                     <td style="width: 1000px" title="Excellent (5-4)
 Good (4-3)
 Average (3-2)
-Below Average (2-0)">LO 3 * (5%)</td>
+Below Average (2-0)">LO 3 * ({{$los->proplo3}}%)</td>
                     <td style="width: 1000px" title="Excellent (15-12)
 Good (12-9)
 Average (9-6)
-Below Average (6-0)">LO 4 * (15%)</td>
+Below Average (6-0)">LO 4 * ({{$los->proplo4}}%)</td>
                     <td style="width: 1000px" title="Excellent (15-12)
 Good (12-9)
 Average (9-6)
-Below Average (6-0)">LO 5 * (15%)</td>
+Below Average (6-0)">LO 5 * ({{$los->proplo5}}%)</td>
                 </tr>
                 <tr>
                     <td style="width: 1000px"><strong>Comment :</strong></td>
@@ -503,6 +503,7 @@ Below Average (6-0)">LO 5 * (15%)</td>
  var objid;
  var whtlo = 'lo1';
  var whtmem = 'mem1';
+ var lo1val;
  
  function getselected(thisperson)
  {
@@ -572,7 +573,7 @@ Below Average (6-0)">LO 5 * (15%)</td>
             $(".lo1"+whtmem).each(function () {
                 if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-                var marks = (parseInt($(this).val())/100)*35;          
+                var marks = (parseInt($(this).val())/100)* lo1val;          
                 total += !isNaN(marks) ? marks : 0;
 
             });
@@ -657,7 +658,8 @@ Below Average (6-0)">LO 5 * (15%)</td>
             document.getElementById('protitle').value = data['title'];
             document.getElementById('proid').value = data['pid'];
             document.getElementById('stuid').value = data['ledrid'];
-            
+            lo1val = data['los']['proplo1']; //////////////////// start from here add more variables
+           
 //            if(data['ids'].length === 4)
 //            {
 //                document.getElementById("remveclz").className = "ui-tabs-na";
