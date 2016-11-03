@@ -55,8 +55,9 @@ class EvaluationController extends Controller {
 		 WHERE status = 'Approved' and groupID = any (SELECT groupID 
 		 FROM research_groups)");
                 
+                $los = DB::table('settings')->first();                
               
-            return view('evaluation.evaluationform', compact('students', 'supervisaornames', 'studentid', 'groupids'));
+            return view('evaluation.evaluationform', compact('students', 'supervisaornames', 'studentid', 'groupids', 'los'));
 	}
         
         public function forcharts() 
