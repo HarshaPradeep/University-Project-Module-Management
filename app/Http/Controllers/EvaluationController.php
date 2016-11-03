@@ -1,11 +1,11 @@
 <?php namespace App\Http\Controllers;
 
 use App\EvaluationMarks;
+use App\setting;
 use DB;
 use Input;
 use Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\Session;
 class EvaluationController extends Controller {
 
 	/**
@@ -72,10 +72,142 @@ class EvaluationController extends Controller {
             return json_encode($data);
         }
         
-        public function settings()
+        public function settingscreat()
         {
+            $los = DB::table('settings')->first();
+    
+            return view('evaluation.settings', compact('los'));
+        }
+        
+        public function settingsupdate()
+        {
+            if(!(setting::where('id', '=', '1')->exists()))
+                {
+                    setting::create([
+                        'id' => '1'                        
+                    ]);    
+                }
+                
+            if(Request::get('lo1mem1') != null)
+            {                
+                setting::where('id', '1')
+                    ->update([
+                        'proplo1' => Request::get('lo1mem1'),
+                        'proplo2' => Request::get('lo2mem1'),
+                        'proplo3' => Request::get('lo3mem1'),
+                        'proplo4' => Request::get('lo4mem1'),
+                        'proplo5' => Request::get('lo5mem1')
+                            ]);
+            }
             
-            return view('evaluation.settings');
+            if(Request::get('lo1mem2') != null)
+            {                
+                setting::where('id', '1')
+                    ->update([
+                        'propreportlo1' => Request::get('lo1mem2'),
+                        'propreportlo2' => Request::get('lo2mem2'),
+                        'propreportlo3' => Request::get('lo3mem2'),
+                        'propreportlo4' => Request::get('lo4mem2'),
+                        'propreportlo5' => Request::get('lo5mem2')
+                            ]);
+            }
+            
+            if(Request::get('lo1mem3') != null)
+            {                
+                setting::where('id', '1')
+                    ->update([
+                        'srslo1' => Request::get('lo1mem3'),
+                        'srslo2' => Request::get('lo2mem3'),
+                        'srslo3' => Request::get('lo3mem3'),
+                        'srslo4' => Request::get('lo4mem3'),
+                        'srsstatus' => Request::get('lo5mem3')
+                            ]);
+            }
+            
+            if(Request::get('lo1mem4') != null)
+            {                
+                setting::where('id', '1')
+                    ->update([
+                        'protolo1' => Request::get('lo1mem4'),
+                        'protolo2' => Request::get('lo2mem4'),
+                        'protolo3' => Request::get('lo3mem4'),
+                        'protolo4' => Request::get('lo4mem4'),
+                        'protolo5' => Request::get('lo5mem4')
+                            ]);
+            }
+            
+            if(Request::get('lo1mem5') != null)
+            {                
+                setting::where('id', '1')
+                    ->update([
+                        'midprelo1' => Request::get('lo1mem5'),
+                        'midprelo2' => Request::get('lo2mem5'),
+                        'midprelo3' => Request::get('lo3mem5'),
+                        'midprelo4' => Request::get('lo4mem5'),
+                        'midprelo5' => Request::get('lo5mem5')
+                            ]);
+            }
+            
+            if(Request::get('lo1mem6') != null)
+            {                
+                setting::where('id', '1')
+                    ->update([
+                        'midrepo1' => Request::get('lo1mem6'),
+                        'midrepo2' => Request::get('lo2mem6'),
+                        'midrepo3' => Request::get('lo3mem6'),
+                        'midrepo4' => Request::get('lo4mem6'),
+                        'midrepo5' => Request::get('lo5mem6')
+                            ]);
+            }
+            
+            if(Request::get('lo1mem7') != null)
+            {                
+                setting::where('id', '1')
+                    ->update([
+                        'finalprelo1' => Request::get('lo1mem7'),
+                        'finalprelo2' => Request::get('lo2mem7'),
+                        'finalprelo3' => Request::get('lo3mem7'),
+                        'finalprelo4' => Request::get('lo4mem7'),
+                        'finalprelo5' => Request::get('lo5mem7')
+                            ]);
+            }
+            
+            if(Request::get('lo1mem8') != null)
+            {                
+                setting::where('id', '1')
+                    ->update([
+                        'finalrepolo1' => Request::get('lo1mem8'),
+                        'finalrepolo2' => Request::get('lo2mem8'),
+                        'finalrepolo3' => Request::get('lo3mem8'),
+                        'finalrepolo4' => Request::get('lo4mem8'),
+                        'finalrepolo5' => Request::get('lo5mem8'),
+                        'finalstatusdoc' => Request::get('lo6mem8')
+                            ]);
+            }
+            
+            if(Request::get('lo1mem9') != null)
+            {                
+                setting::where('id', '1')
+                    ->update([
+                        'vivalo1' => Request::get('lo1mem9'),
+                        'vivalo2' => Request::get('lo2mem9'),
+                        'vivalo3' => Request::get('lo3mem9'),
+                        'vivalo4' => Request::get('lo4mem9'),
+                        'vivalo5' => Request::get('lo5mem9')
+                            ]);
+            }
+            
+            if(Request::get('lo1mem10') != null)
+            {                
+                setting::where('id', '1')
+                    ->update([
+                        'researchbook' => Request::get('lo1mem10'),
+                        'researchpaper' => Request::get('lo2mem10'),
+                        'website' => Request::get('lo3mem10')
+                            ]);
+            }
+            
+            return redirect('settings')->with("success", 'Successfully Changed!');
         }
 
 	/**
