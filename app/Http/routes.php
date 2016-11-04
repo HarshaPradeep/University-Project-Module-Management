@@ -462,7 +462,7 @@ Route::post('deleteMemberRequest', 'GroupController@deleteRequest');
 
 Route::post('clearNotification', 'GroupController@clearNotification');
 
-Route::post('groupDelete', 'GroupProfileController@deleteGroup');
+Route::post('groupDeleteLead', 'GroupProfileController@deleteGroup');
 
 Route::post('groupDelete', 'GroupManageController@deleteGroup');
 
