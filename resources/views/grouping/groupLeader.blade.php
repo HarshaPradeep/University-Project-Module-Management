@@ -100,7 +100,7 @@
 
 <br><br>
             <div style="float: left; margin-left: 836px;margin-top: 0">
-                {!! Form::open(array('url'=>'groupDelete','method'=>'POST',
+                {!! Form::open(array('url'=>'groupDeleteLead','method'=>'POST',
                 'class'=>'wizard-big', 'id'=>'groupDeleteform', 'enctype'=>'multipart/form-data' )) !!}
                 <fieldset>
                     <button type="button"
