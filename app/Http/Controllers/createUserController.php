@@ -189,8 +189,10 @@ class createUserController extends Controller {
         
         $explodedsendids = explode("/", rtrim($sendids, "/"));
         $explodedsendnames = explode("/", rtrim($sendnames, "/"));
+        
+        $los = DB::table('settings')->first();
 
-        $data = array("title" => $protitle, "pid" => $proid, "sname" => $explodedsendnames, "noofstu" => sizeof($explodedemails), "ids" => $explodedsendids, "ledrid" => $explodedsendids[0]);
+        $data = array("title" => $protitle, "pid" => $proid, "sname" => $explodedsendnames, "noofstu" => sizeof($explodedemails), "ids" => $explodedsendids, "ledrid" => $explodedsendids[0], "los" => $los);
         return json_encode($data);
     }
 

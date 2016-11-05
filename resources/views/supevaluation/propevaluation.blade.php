@@ -98,7 +98,7 @@
         <table class="table table-bordered">
             <tbody style="font-size: 15">                
                 <tr>
-                    <td style="width: 1000px"><strong>Proposal Presentation</strong> (5%)</td>
+                    <td style="width: 1000px"><strong>Proposal Presentation</strong> ({{$los->proposalpresent}}%)</td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"></td>
@@ -160,7 +160,7 @@ Below Average (6-0)">LO 5 * ({{$los->proplo5}}%)</td>
             <input type="text" name="total" id="totalmem1" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
         &nbsp;
             <div align="right" style="padding-right: 42px">
-        <input type="text"  placeholder="Total (5%)" style="width: 100px; height: 35px" disabled> / 
+        <input type="text"  placeholder="Total ({{$los->proposalpresent}}%)" style="width: 100px; height: 35px" disabled> / 
             <input type="text" name="marksforproposalpresenttab1" id="totalconmem1" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
 <div><textarea name="cmntmem0" readonly rows="4" cols="80" placeholder="Comment" id="cmntmem0"></textarea></div><br>
@@ -177,30 +177,30 @@ Below Average (6-0)">LO 5 * ({{$los->proplo5}}%)</td>
         <table class="table table-bordered">
             <tbody style="font-size: 15">                
                 <tr>
-                    <td style="width: 1000px"><strong>Proposal Presentation</strong> (5%)</td>
+                    <td style="width: 1000px"><strong>Proposal Presentation</strong> ({{$los->proposalpresent}}%)</td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"></td>
                     <td style="width: 1000px" title="Excellent (35-28)
 Good (28-21)
 Average (21-14)
-Below Average (14-0)">LO 1 * (35%)</td>
+Below Average (14-0)">LO 1 * ({{$los->proplo1}}%)</td>
                     <td style="width: 1000px" title="Excellent (30-24)
 Good (24-18)
 Average (18-12)
-Below Average (12-0)">LO 2 * (30%)</td>
+Below Average (12-0)">LO 2 * ({{$los->proplo2}}%)</td>
                     <td style="width: 1000px" title="Excellent (5-4)
 Good (4-3)
 Average (3-2)
-Below Average (2-0)">LO 3 * (5%)</td>
+Below Average (2-0)">LO 3 * ({{$los->proplo3}}%)</td>
                     <td style="width: 1000px" title="Excellent (15-12)
 Good (12-9)
 Average (9-6)
-Below Average (6-0)">LO 4 * (15%)</td>
+Below Average (6-0)">LO 4 * ({{$los->proplo4}}%)</td>
                     <td style="width: 1000px" title="Excellent (15-12)
 Good (12-9)
 Average (9-6)
-Below Average (6-0)">LO 5 * (15%)</td>
+Below Average (6-0)">LO 5 * ({{$los->proplo5}}%)</td>
                 </tr>
                 <tr>
                     <td style="width: 1000px"><strong>Comment :</strong></td>
@@ -239,7 +239,7 @@ Below Average (6-0)">LO 5 * (15%)</td>
             <input type="text" name="total" id="totalmem2" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
         &nbsp;
             <div align="right" style="padding-right: 42px">
-        <input type="text"  placeholder="Total (5%)" style="width: 100px; height: 35px" disabled> / 
+        <input type="text"  placeholder="Total ({{$los->proposalpresent}}%)" style="width: 100px; height: 35px" disabled> / 
             <input type="text" name="marksforproposalpresenttab2" id="totalconmem2" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
 <div><textarea name="cmntmem1" readonly rows="4" cols="80" placeholder="Comment" id="cmntmem1"></textarea></div><br>
@@ -256,30 +256,30 @@ Below Average (6-0)">LO 5 * (15%)</td>
         <table class="table table-bordered">
             <tbody style="font-size: 15">                
                 <tr>
-                    <td style="width: 1000px"><strong>Proposal Presentation</strong> (5%)</td>
+                    <td style="width: 1000px"><strong>Proposal Presentation</strong> ({{$los->proposalpresent}}%)</td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"></td>
                     <td style="width: 1000px" title="Excellent (35-28)
 Good (28-21)
 Average (21-14)
-Below Average (14-0)">LO 1 * (35%)</td>
+Below Average (14-0)">LO 1 * ({{$los->proplo1}}%)</td>
                     <td style="width: 1000px" title="Excellent (30-24)
 Good (24-18)
 Average (18-12)
-Below Average (12-0)">LO 2 * (30%)</td>
+Below Average (12-0)">LO 2 * ({{$los->proplo2}}%)</td>
                     <td style="width: 1000px" title="Excellent (5-4)
 Good (4-3)
 Average (3-2)
-Below Average (2-0)">LO 3 * (5%)</td>
+Below Average (2-0)">LO 3 * ({{$los->proplo3}}%)</td>
                     <td style="width: 1000px" title="Excellent (15-12)
 Good (12-9)
 Average (9-6)
-Below Average (6-0)">LO 4 * (15%)</td>
+Below Average (6-0)">LO 4 * ({{$los->proplo4}}%)</td>
                     <td style="width: 1000px" title="Excellent (15-12)
 Good (12-9)
 Average (9-6)
-Below Average (6-0)">LO 5 * (15%)</td>
+Below Average (6-0)">LO 5 * ({{$los->proplo5}}%)</td>
                 </tr>
                 <tr>
                     <td style="width: 1000px"><strong>Comment :</strong></td>
@@ -318,7 +318,7 @@ Below Average (6-0)">LO 5 * (15%)</td>
             <input type="text" name="total" id="totalmem3" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
         &nbsp;
             <div align="right" style="padding-right: 42px">
-        <input type="text"  placeholder="Total (5%)" style="width: 100px; height: 35px" disabled> / 
+        <input type="text"  placeholder="Total ({{$los->proposalpresent}}%)" style="width: 100px; height: 35px" disabled> / 
             <input type="text" name="marksforproposalpresenttab3" id="totalconmem3" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
         <div><textarea name="cmntmem2" readonly rows="4" cols="80" placeholder="Comment" id="cmntmem2"></textarea></div><br>
@@ -335,30 +335,30 @@ Below Average (6-0)">LO 5 * (15%)</td>
         <table class="table table-bordered">
             <tbody style="font-size: 15">                
                 <tr>
-                    <td style="width: 1000px"><strong>Proposal Presentation</strong> (5%)</td>
+                    <td style="width: 1000px"><strong>Proposal Presentation</strong> ({{$los->proposalpresent}}%)</td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"></td>
                     <td style="width: 1000px" title="Excellent (35-28)
 Good (28-21)
 Average (21-14)
-Below Average (14-0)">LO 1 * (35%)</td>
+Below Average (14-0)">LO 1 * ({{$los->proplo1}}%)</td>
                     <td style="width: 1000px" title="Excellent (30-24)
 Good (24-18)
 Average (18-12)
-Below Average (12-0)">LO 2 * (30%)</td>
+Below Average (12-0)">LO 2 * ({{$los->proplo2}}%)</td>
                     <td style="width: 1000px" title="Excellent (5-4)
 Good (4-3)
 Average (3-2)
-Below Average (2-0)">LO 3 * (5%)</td>
+Below Average (2-0)">LO 3 * ({{$los->proplo3}}%)</td>
                     <td style="width: 1000px" title="Excellent (15-12)
 Good (12-9)
 Average (9-6)
-Below Average (6-0)">LO 4 * (15%)</td>
+Below Average (6-0)">LO 4 * ({{$los->proplo4}}%)</td>
                     <td style="width: 1000px" title="Excellent (15-12)
 Good (12-9)
 Average (9-6)
-Below Average (6-0)">LO 5 * (15%)</td>
+Below Average (6-0)">LO 5 * ({{$los->proplo5}}%)</td>
                 </tr>
                 <tr>
                     <td style="width: 1000px"><strong>Comment :</strong></td>
@@ -397,7 +397,7 @@ Below Average (6-0)">LO 5 * (15%)</td>
             <input type="text" name="total" id="totalmem4" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
         &nbsp;
             <div align="right" style="padding-right: 42px">
-        <input type="text"  placeholder="Total (5%)" style="width: 100px; height: 35px" disabled> / 
+        <input type="text"  placeholder="Total ({{$los->proposalpresent}}%)" style="width: 100px; height: 35px" disabled> / 
             <input type="text" name="marksforproposalpresenttab4" id="totalconmem4" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
         <div><textarea name="cmntmem3" readonly rows="4" cols="80" placeholder="Comment" id="cmntmem3"></textarea></div><br>
@@ -414,30 +414,30 @@ Below Average (6-0)">LO 5 * (15%)</td>
         <table class="table table-bordered">
             <tbody style="font-size: 15">                
                 <tr>
-                    <td style="width: 1000px"><strong>Proposal Presentation</strong> (5%)</td>
+                    <td style="width: 1000px"><strong>Proposal Presentation</strong> ({{$los->proposalpresent}}%)</td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"></td>
                     <td style="width: 1000px" title="Excellent (35-28)
 Good (28-21)
 Average (21-14)
-Below Average (14-0)">LO 1 * (35%)</td>
+Below Average (14-0)">LO 1 * ({{$los->proplo1}}%)</td>
                     <td style="width: 1000px" title="Excellent (30-24)
 Good (24-18)
 Average (18-12)
-Below Average (12-0)">LO 2 * (30%)</td>
+Below Average (12-0)">LO 2 * ({{$los->proplo2}}%)</td>
                     <td style="width: 1000px" title="Excellent (5-4)
 Good (4-3)
 Average (3-2)
-Below Average (2-0)">LO 3 * (5%)</td>
+Below Average (2-0)">LO 3 * ({{$los->proplo3}}%)</td>
                     <td style="width: 1000px" title="Excellent (15-12)
 Good (12-9)
 Average (9-6)
-Below Average (6-0)">LO 4 * (15%)</td>
+Below Average (6-0)">LO 4 * ({{$los->proplo4}}%)</td>
                     <td style="width: 1000px" title="Excellent (15-12)
 Good (12-9)
 Average (9-6)
-Below Average (6-0)">LO 5 * (15%)</td>
+Below Average (6-0)">LO 5 * ({{$los->proplo5}}%)</td>
                 </tr>
                 <tr>
                     <td style="width: 1000px"><strong>Comment :</strong></td>
@@ -476,7 +476,7 @@ Below Average (6-0)">LO 5 * (15%)</td>
             <input type="text" name="total" id="totalmem5" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
         &nbsp;
             <div align="right" style="padding-right: 42px">
-        <input type="text"  placeholder="Total (5%)" style="width: 100px; height: 35px" disabled> / 
+        <input type="text"  placeholder="Total ({{$los->proposalpresent}}%)" style="width: 100px; height: 35px" disabled> / 
             <input type="text" name="marksforproposalpresenttab5" id="totalconmem5" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
 <div><textarea name="cmntmem4" readonly rows="4" cols="80" placeholder="Comment" id="cmntmem4"></textarea></div><br>
@@ -504,6 +504,11 @@ Below Average (6-0)">LO 5 * (15%)</td>
  var whtlo = 'lo1';
  var whtmem = 'mem1';
  var lo1val;
+ var lo2val;
+ var lo3val;
+ var lo4val;
+ var lo5val;
+ var proposalpresent;
  
  function getselected(thisperson)
  {
@@ -587,7 +592,7 @@ Below Average (6-0)">LO 5 * (15%)</td>
             $(".lo2"+whtmem).each(function () {
                 if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-                var marks = (parseInt($(this).val())/100)*30;
+                var marks = (parseInt($(this).val())/100)* lo2val;
                 total += !isNaN(marks) ? marks : 0;
 
             });
@@ -601,7 +606,7 @@ Below Average (6-0)">LO 5 * (15%)</td>
             $(".lo3"+whtmem).each(function () {
                 if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-                var marks = (parseInt($(this).val())/100)*5;
+                var marks = (parseInt($(this).val())/100)* lo3val;
                 total += !isNaN(marks) ? marks : 0;
 
             });
@@ -615,7 +620,7 @@ Below Average (6-0)">LO 5 * (15%)</td>
             $(".lo4"+whtmem).each(function () {
                 if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-                var marks = (parseInt($(this).val())/100)*15;
+                var marks = (parseInt($(this).val())/100)* lo4val;
                 total += !isNaN(marks) ? marks : 0;
 
             });
@@ -629,7 +634,7 @@ Below Average (6-0)">LO 5 * (15%)</td>
             $(".lo5"+whtmem).each(function () {
                 if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-                var marks = (parseInt($(this).val())/100)*15;
+                var marks = (parseInt($(this).val())/100)* lo5val;
                 total += !isNaN(marks) ? marks : 0;
 
             });
@@ -658,7 +663,13 @@ Below Average (6-0)">LO 5 * (15%)</td>
             document.getElementById('protitle').value = data['title'];
             document.getElementById('proid').value = data['pid'];
             document.getElementById('stuid').value = data['ledrid'];
-            lo1val = data['los']['proplo1']; //////////////////// start from here add more variables
+            lo1val = data['los']['proplo1'];
+            lo2val = data['los']['proplo2'];
+            lo3val = data['los']['proplo3'];
+            lo4val = data['los']['proplo4'];
+            lo5val = data['los']['proplo5'];
+            proposalpresent = data['los']['proposalpresent'];
+
            
 //            if(data['ids'].length === 4)
 //            {
@@ -740,7 +751,7 @@ function getTotal()
 
     $('#total'+whtmem).val((Math.round((first2 + second2 + third1) * 10) / 10));
     
-    $('#totalcon'+whtmem).val(((first2 + second2 + third1) / 100) * 5);
+    $('#totalcon'+whtmem).val(((first2 + second2 + third1) / 100) * proposalpresent);
 }
 
 function disabledBoxchangedforconv()

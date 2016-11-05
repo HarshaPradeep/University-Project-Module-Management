@@ -32,599 +32,582 @@
 @endif
 <div>
     <form method="post" id="formform">
-<div class="ibox-content" style="height: 220px; margin-bottom: 10px">
-    <div class=ibox-content" style="width: 400px; float: left">
-<!--                   <select name="filter_sup" style="margin-right: 5px; width: 200px; height: 30px">
-                        <option selected disabled>--Supervisors--</option>
-                            @foreach ($supervisaornames as $key=>$supvisor)
-                            <option value={{$supvisor->id}}>{{$supvisor->name}}</option>
-                            @endforeach
-                           </select>-->
+        <div class="ibox-content" style="height: 220px; margin-bottom: 10px">
+            <div class=ibox-content" style="width: 400px; float: left">
+        <!--                   <select name="filter_sup" style="margin-right: 5px; width: 200px; height: 30px">
+                                <option selected disabled>--Supervisors--</option>
+                                    @foreach ($supervisaornames as $key=>$supvisor)
+                                    <option value={{$supvisor->id}}>{{$supvisor->name}}</option>
+                                    @endforeach
+                                   </select>-->
 
-        <select name="selectid" id="stuIDs" onchange="selectStudentDetails()" style="margin-right: 5px; margin-left: 13px; width: 200px; height: 30px">
-            <option selected disabled><strong>--Group ID--</strong></option>
-            @foreach ($groupids as $key=>$gid)
-                        <option value="{{$gid->groupID}}">{{$gid->groupID}}</option>
-            @endforeach
-    </select>
-   
-    </div> 
-    
-    <div class="form-group" style="float: right">
-        <label class="col-sm-2 control-label" style="width: 150px">Student Name</label>
+                <select name="selectid" id="stuIDs" onchange="selectStudentDetails()" style="margin-right: 5px; margin-left: 13px; width: 200px; height: 30px">
+                    <option selected disabled><strong>--Group ID--</strong></option>
+                    @foreach ($groupids as $key=>$gid)
+                    <option value="{{$gid->groupID}}">{{$gid->groupID}}</option>
+                    @endforeach
+                </select>
+
+            </div> 
+
+            <div class="form-group" style="float: right">
+                <label class="col-sm-2 control-label" style="width: 150px">Student Name</label>
                 <div class="col-sm-10">
                     <input id="stuname" name="stuname" placeholder="Student Name" type="text" class="form-control" readonly/>
                 </div>
-        <br>
-        <label class="col-sm-2 control-label" style="width: 150px; margin-top: 15px">Student ID</label>
+                <br>
+                <label class="col-sm-2 control-label" style="width: 150px; margin-top: 15px">Student ID</label>
                 <div class="col-sm-10">
                     <input id="stuid" name="stuid" placeholder="Student ID" type="text" class="form-control" readonly/>
                 </div>
-    </div>
-    
-    <div class="form-group" style="margin-top: 50px; width: 400px">
-        <label class="col-sm-2 control-label" style="width: 300px">Project Title</label>
+            </div>
+
+            <div class="form-group" style="margin-top: 50px; width: 400px">
+                <label class="col-sm-2 control-label" style="width: 300px">Project Title</label>
                 <div class="col-sm-10">
                     <input id="protitle" name="protitle" placeholder="Project Title" type="text" style="width: 500px" class="form-control" readonly/>
                 </div>
-    </div>
-    
-    <div class="form-group" style="margin-top: 120px">
-        <label class="col-sm-2 control-label" style="width: 300px">Project ID</label>
+            </div>
+
+            <div class="form-group" style="margin-top: 120px">
+                <label class="col-sm-2 control-label" style="width: 300px">Project ID</label>
                 <div class="col-sm-10">
                     <input id="proid" name="proid" placeholder="Project ID" type="text" style="width: 500px" class="form-control" readonly/>
                 </div>
-    </div>
-    
-</div>
-<div class="ibox-content" style="font-size: 14">
-    
-<!--    onclick="tabClicked()"-->
-    <div id="tabs">
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs" >
-      <li role="presentation" class="active" ><a href="#member1" aria-controls="home" role="tab" data-toggle="tab" class="ui-tabs-nav" onclick="getselected(this)" id="tabnav1">Please Select Group ID</a></li>
-    <li role="presentation" ><a href="#member2" aria-controls="profile" role="tab" data-toggle="tab" class="ui-tabs-nav" onclick="getselected(this)" id="tabnav2"></a></li>
-    <li role="presentation" ><a href="#member3" aria-controls="messages" role="tab" data-toggle="tab" class="ui-tabs-nav" onclick="getselected(this)" id="tabnav3"></a></li>
-    <li role="presentation" ><a href="#member4" aria-controls="settings" role="tab" data-toggle="tab" class="ui-tabs-nav" onclick="getselected(this)" id="tabnav4"></a></li>
-    <li role="presentation" ><a href="#member5" aria-controls="settings" role="tab" data-toggle="tab" class="ui-tabs-nav" id="tabnav5" onclick="getselected(this)"></a></li>
+            </div>
 
-  </ul>
+        </div>
+        <div class="ibox-content" style="font-size: 14">
 
-  <!-- Tab panes -->
-  
-  <div class="tab-content">
-      <div role="tabpanel" class="tab-pane fade in active" id="member1">
-<!--          tab content starts from here-->
+            <!--    onclick="tabClicked()"-->
+            <div id="tabs">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" >
+                    <li role="presentation" class="active" ><a href="#member1" aria-controls="home" role="tab" data-toggle="tab" class="ui-tabs-nav" onclick="getselected(this)" id="tabnav1">Please Select Group ID</a></li>
+                    <li role="presentation" ><a href="#member2" aria-controls="profile" role="tab" data-toggle="tab" class="ui-tabs-nav" onclick="getselected(this)" id="tabnav2"></a></li>
+                    <li role="presentation" ><a href="#member3" aria-controls="messages" role="tab" data-toggle="tab" class="ui-tabs-nav" onclick="getselected(this)" id="tabnav3"></a></li>
+                    <li role="presentation" ><a href="#member4" aria-controls="settings" role="tab" data-toggle="tab" class="ui-tabs-nav" onclick="getselected(this)" id="tabnav4"></a></li>
+                    <li role="presentation" ><a href="#member5" aria-controls="settings" role="tab" data-toggle="tab" class="ui-tabs-nav" id="tabnav5" onclick="getselected(this)"></a></li>
 
-        <table class="table table-bordered">
-            <tbody>
-                
-                <tr>
-                    <td style="width: 1000px"><strong>Proposal Submission</strong> (10%)
-                        <br><p style="padding-top: 10px">&emsp; Presentation ({{$los->proplo1}}%) 
-                        <br>&emsp; Report (5%)
-                        
-                        </p>
-                    
-                    </td>
-                        
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforprotab1" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforproposalpresenttab1" class="marksforproposaltab1"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforproposalreporttab1" class="marksforproposaltab1"  > Marks</p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>SRS Submission</strong> (9%)
-                        <br><p style="padding-top: 10px">&emsp; Report (9%)
-                            <br>&emsp; Status Document (2%)
-                        </p></td>
+                </ul>
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforsrstab1" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrstab1" class="marksforsrstab1"  > Marks
-                        <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrsstatusdoctab1" class="marksforstatusdoctab1"  > Marks</p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>Prototype</strong> (15%)
-                        <br><p style="padding-top: 10px">&emsp; Presentation (15%) 
-                        </p></td>
+                <!-- Tab panes -->
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforprotypetab1" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforprototab1" class="marksforprototypetab1"  > Marks</p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>Mid Review</strong> (20%)
-                        <br><p style="padding-top: 10px">&emsp; Presentation (10%) 
-                        <br>&emsp; Report (10%)</p></td>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="member1">
+                        <!--          tab content starts from here-->
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksformidtab1" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksformidpresentab1" class="marksformidreviewtab1"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksfomidreporttab1" class="marksformidreviewtab1"> marks</p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>Final Submission</strong> (15%)
-                        <br><p style="padding-top: 10px">&emsp; Presentation (10%) 
-                        <br>&emsp; Report (5%)
-                        <br>&emsp; Status Document (2%)</p></td>
+                        <table class="table table-bordered">
+                            <tbody>
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforpresentationtab1" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalpresnttab1" class="marksforfinalpresentationtab1"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforfinalreporttab1" class="marksforfinalpresentationsecondtab1"  > Marks
-                        <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalstatusdoctab1" class="marksforfinalstatusdoctab1"  > Marks
-                        </p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>Viva</strong> (15%)
-                        <br><p style="padding-top: 10px">&emsp; Viva (15%) </p></td>
+                                <tr>
+                                    <td style="width: 1000px"><strong>Proposal Submission</strong> ({{$los->proposalpresent + $los->proposalreport}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Presentation ({{$los->proposalpresent}}%) 
+                                            <br>&emsp; Report ({{$los->proposalreport}}%)
+                                        </p>
+                                    </td>
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforvivatab1" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforvivatab1" class="marksforvivatab1"  > Marks <br></p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>Other Assessment</strong> (15%)
-                        <br><p style="padding-top: 11px">&emsp; Research Book (4%)
-                        <br>&emsp; Research Paper (4%)
-                        <br>&emsp; Website (4%)</p></td>
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforprotab1" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforproposalpresenttab1" class="marksforproposaltab1"  > Marks <br>
+                                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforproposalreporttab1" class="marksforproposaltab1"  > Marks</p></td>
+                                </tr>
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforotherstab1" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforresearchbooktab1" class="marksforothertab1"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforresearchpapertab1" class="marksforothertab1"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforwebsitetab1" class="marksforothertab1"  > Marks</p></td>
-               </tr>
-            </tbody>
-        </table>
-        <div align="right" style="margin-left: 620px"> <input type="button"style="float: left" value="Get Total" class="save_btn btn btn-primary btn-xl m-l-sm" onclick="getTotal()"></div>
-        <div align="right" style="padding-right: 42px">
-            
-            <input type="text"  placeholder="Total" style="width: 50px; height: 35px" disabled>  
-            <input type="text" name="totaltab1" id="mem1total" style="width: 50px; height: 35px" readonly > <b>Marks</b></div>
-<br>
-<div><textarea name="cmntmem0" readonly rows="4" cols="80" placeholder="Comment" id="cmntmem0"></textarea></div><br>
-<div><select name="statustab1" ><option> Present </option>
-                                            <option> Absent </option></select></div>
-        <div align="right" style="padding-right: 180px"> <input type='submit'  class="save_btn btn btn-primary btn-xl m-l-sm" name='editThesisFormMarks' align="right" id="member1sub">
-            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"></div>
-<!--    </form>-->
-          
-      </div>
-      
-      <div role="tabpanel" class="tab-pane fade in" id="member2">
-          
-<!--          <form method="post">-->
-        <table class="table table-bordered">
-            <tbody>
-                
-                <tr>
-                    <td style="width: 1000px"><strong>Proposal Submission</strong> (10%)
-                        <br><p style="padding-top: 10px">&emsp; Presentation (5%) 
-                        <br>&emsp; Report (5%)
-                        
-                        </p>
-                    
-                    </td>
-                        
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforprotab2" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforproposalpresenttab2" class="marksforproposaltab2"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforproposalreporttab2" class="marksforproposaltab2"  > Marks</p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>SRS Submission</strong> (10%)
-                        <br><p style="padding-top: 10px">&emsp; Report (10%)
-                            <br>&emsp; Status Document (2%)
-                        </p></td>
+                                <tr>
+                                    <td style="width: 1000px"><strong>SRS Submission</strong> ({{$los->srsdoc + $los->srsstatus}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Report ({{$los->srsdoc}}%)
+                                            <br>&emsp; Status Document ({{$los->srsstatus}}%)
+                                        </p></td>
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforsrstab2" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrstab2" class="marksforsrstab2"  > Marks
-                        <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrsstatusdoctab2" class="marksforstatusdoctab2"  > Marks</p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>Prototype</strong> (15%)
-                        <br><p style="padding-top: 10px">&emsp; Presentation (15%) 
-                        </p></td>
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforsrstab1" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrstab1" class="marksforsrstab1"  > Marks
+                                            <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrsstatusdoctab1" class="marksforstatusdoctab1"  > Marks</p></td>
+                                </tr>
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforprotypetab2" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforprototab2" class="marksforprototypetab2"  > Marks</p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>Mid Review</strong> (20%)
-                        <br><p style="padding-top: 10px">&emsp; Presentation (10%) 
-                        <br>&emsp; Report (10%)</p></td>
+                                <tr>
+                                    <td style="width: 1000px"><strong>Prototype</strong> ({{$los->protoprsent}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Presentation ({{$los->protoprsent}}%) 
+                                        </p></td>
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksformidtab2" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksformidpresentab2" class="marksformidreviewtab2"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksfomidreporttab2" class="marksformidreviewtab2"> marks</p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>Final Submission</strong> (15%)
-                        <br><p style="padding-top: 10px">&emsp; Presentation (10%) 
-                        <br>&emsp; Report (5%)
-                        <br>&emsp; Status Document (2%)
-                        </p></td>
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforprotypetab1" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforprototab1" class="marksforprototypetab1"  > Marks</p></td>
+                                </tr>
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforpresentationtab2" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalpresnttab2" class="marksforfinalpresentationtab2"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforfinalreporttab2" class="marksforfinalpresentationsecondtab2"  > Marks
-                        <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalstatusdoctab2" class="marksforfinalstatusdoctab2"  > Marks
-                        </p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>Viva</strong> (15%)
-                        <br><p style="padding-top: 10px">&emsp; Viva (15%) </p></td>
+                                <tr>
+                                    <td style="width: 1000px"><strong>Mid Review</strong> ({{$los->midpresent + $los->midreport}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Presentation ({{$los->midpresent}}%) 
+                                            <br>&emsp; Report ({{$los->midreport}}%)</p></td>
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforvivatab2" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforvivatab2" class="marksforvivatab2"  > Marks <br></p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>Other Assessment</strong> (15%)
-                        <br><p style="padding-top: 11px">&emsp; Research Book (5%)
-                        <br>&emsp; Research Paper (5%)
-                        <br>&emsp; Website (5%)</p></td>
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksformidtab1" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksformidpresentab1" class="marksformidreviewtab1"  > Marks <br>
+                                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksfomidreporttab1" class="marksformidreviewtab1"> marks</p></td>
+                                </tr>
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforotherstab2" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforresearchbooktab2" class="marksforothertab2"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforresearchpapertab2" class="marksforothertab2"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforwebsitetab2" class="marksforothertab2"  > Marks</p></td>
-               </tr>
-            </tbody>
-        </table>
-        <div align="right" style="margin-left: 620px"> <input type="button"style="float: left" value="Get Total" class="save_btn btn btn-primary btn-xl m-l-sm" onclick="getTotal()"></div>
-        <div align="right" style="padding-right: 42px">
-            
-            <input type="text"  placeholder="Total" style="width: 50px; height: 35px" disabled>  
-            <input type="text" name="totaltab2" id="mem2total" style="width: 50px; height: 35px" readonly > <b>Marks</b></div>
-<br>
-        <div><textarea name="cmntmem1" rows="4" cols="80" placeholder="Comment" id="cmntmem1"></textarea></div><br>
-        <div><select name="statustab2" ><option> Present </option>
-                                            <option> Absent </option></select></div>
-        <div align="right" style="padding-right: 180px"> <input type='submit'  class="save_btn btn btn-primary btn-xl m-l-sm" name='editThesisFormMarks' align="right" id="member2sub">
-            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"></div>
-<!--    </form>-->
-          
-      </div>
-      <div role="tabpanel" class="tab-pane fade in" id="member3">
-          
-<!--          <form method="post">-->
-        <table class="table table-bordered">
-            <tbody>
-                
-                <tr>
-                    <td style="width: 1000px"><strong>Proposal Submission</strong> (10%)
-                        <br><p style="padding-top: 10px">&emsp; Presentation (5%) 
-                        <br>&emsp; Report (5%)
-                        
-                        </p>
-                    
-                    </td>
-                        
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforprotab3" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforproposalpresenttab3" class="marksforproposaltab3"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforproposalreporttab3" class="marksforproposaltab3"  > Marks</p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>SRS Submission</strong> (10%)
-                        <br><p style="padding-top: 10px">&emsp; Report (10%)
-                            <br>&emsp; Status Document (2%)
-                        </p></td>
+                                <tr>
+                                    <td style="width: 1000px"><strong>Final Submission</strong> ({{$los->finalprsent + $los->finalreport + $los->finalstatusdoc}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Presentation ({{$los->finalprsent}}%) 
+                                            <br>&emsp; Report ({{$los->finalreport}}%)
+                                            <br>&emsp; Status Document ({{$los->finalstatusdoc}}%)</p></td>
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforsrstab3" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrstab3" class="marksforsrstab3"  > Marks
-                        <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrsstatusdoctab3" class="marksforstatusdoctab3"  > Marks</p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>Prototype</strong> (15%)
-                        <br><p style="padding-top: 10px">&emsp; Presentation (15%) 
-                        </p></td>
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforpresentationtab1" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalpresnttab1" class="marksforfinalpresentationtab1"  > Marks <br>
+                                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforfinalreporttab1" class="marksforfinalpresentationsecondtab1"  > Marks
+                                            <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalstatusdoctab1" class="marksforfinalstatusdoctab1"  > Marks
+                                        </p></td>
+                                </tr>
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforprotypetab3" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforprototab3" class="marksforprototypetab3"  > Marks</p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>Mid Review</strong> (20%)
-                        <br><p style="padding-top: 10px">&emsp; Presentation (10%) 
-                        <br>&emsp; Report (10%)</p></td>
+                                <tr>
+                                    <td style="width: 1000px"><strong>Viva</strong> ({{$los->viva}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Viva ({{$los->viva}}%) </p></td>
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksformidtab3" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksformidpresentab3" class="marksformidreviewtab3"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksfomidreporttab3" class="marksformidreviewtab3"> marks</p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>Final Submission</strong> (15%)
-                        <br><p style="padding-top: 10px">&emsp; Presentation (10%) 
-                        <br>&emsp; Report (5%)
-                        <br>&emsp; Status Document (2%)
-                        </p></td>
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforvivatab1" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforvivatab1" class="marksforvivatab1"  > Marks <br></p></td>
+                                </tr>
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforpresentationtab3" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalpresnttab3" class="marksforfinalpresentationtab3"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforfinalreporttab3" class="marksforfinalpresentationsecondtab3"  > Marks
-                        <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalstatusdoctab3" class="marksforfinalstatusdoctab3"  > Marks</p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>Viva</strong> (15%)
-                        <br><p style="padding-top: 10px">&emsp; Viva (15%) </p></td>
+                                <tr>
+                                    <td style="width: 1000px"><strong>Other Assessment</strong> ({{$los->researchbook + $los->researchpaper + $los->website}}%)
+                                        <br><p style="padding-top: 11px">&emsp; Research Book ({{$los->researchbook}}%)
+                                            <br>&emsp; Research Paper ({{$los->researchpaper}}%)
+                                            <br>&emsp; Website ({{$los->website}}%)</p></td>
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforvivatab3" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforvivatab3" class="marksforvivatab3"  > Marks <br></p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>Other Assessment</strong> (15%)
-                        <br><p style="padding-top: 11px">&emsp; Research Book (5%)
-                        <br>&emsp; Research Paper (5%)
-                        <br>&emsp; Website (5%)</p></td>
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforotherstab1" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforresearchbooktab1" class="marksforothertab1"  > Marks <br>
+                                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforresearchpapertab1" class="marksforothertab1"  > Marks <br>
+                                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforwebsitetab1" class="marksforothertab1"  > Marks</p></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div align="right" style="margin-left: 620px"> <input type="button"style="float: left" value="Get Total" class="save_btn btn btn-primary btn-xl m-l-sm" onclick="getTotal()"></div>
+                        <div align="right" style="padding-right: 42px">
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforotherstab3" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforresearchbooktab3" class="marksforothertab3"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforresearchpapertab3" class="marksforothertab3"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforwebsitetab3" class="marksforothertab3"  > Marks</p></td>
-               </tr>
-            </tbody>
-        </table>
-        <div align="right" style="margin-left: 620px"> <input type="button"style="float: left" value="Get Total" class="save_btn btn btn-primary btn-xl m-l-sm" onclick="getTotal()"></div>
-        <div align="right" style="padding-right: 42px">
-            
-            <input type="text"  placeholder="Total" style="width: 50px; height: 35px" disabled>  
-            <input type="text" name="totaltab3" id="mem3total" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
-<br>
-        <div><textarea name="cmntmem2" readonly rows="4" cols="80" placeholder="Comment" id="cmntmem2"></textarea></div><br>
-        <div><select name="statustab3" ><option> Present </option>
-                                            <option> Absent </option></select></div>
-        <div align="right" style="padding-right: 180px"> <input type='submit'  class="save_btn btn btn-primary btn-xl m-l-sm" name='editThesisFormMarks' align="right" id="member3sub">
-            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"></div>
-<!--    </form>-->
-          
-      </div>
-      <div role="tabpanel" class="tab-pane fade in" id="member4">
-          
-<!--          <form method="post">-->
-        <table class="table table-bordered">
-            <tbody>
-                
-                <tr>
-                    <td style="width: 1000px"><strong>Proposal Submission</strong> (10%)
-                        <br><p style="padding-top: 10px">&emsp; Presentation (5%) 
-                        <br>&emsp; Report (5%)
-                        
-                        </p>
-                    
-                    </td>
-                        
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforprotab4" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforproposalpresenttab4" class="marksforproposaltab4"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforproposalreporttab4" class="marksforproposaltab4"  > Marks</p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>SRS Submission</strong> (10%)
-                        <br><p style="padding-top: 10px">&emsp; Report (10%)
-                            <br>&emsp; Status Document (2%)
-                        </p></td>
+                            <input type="text"  placeholder="Total" style="width: 50px; height: 35px" disabled>  
+                            <input type="text" name="totaltab1" id="mem1total" style="width: 50px; height: 35px" readonly > <b>Marks</b></div>
+                        <br>
+                        <div><textarea name="cmntmem0" readonly rows="4" cols="80" placeholder="Comment" id="cmntmem0"></textarea></div><br>
+                        <div><select name="statustab1" ><option> Present </option>
+                                <option> Absent </option></select></div>
+                        <div align="right" style="padding-right: 180px"> <input type='submit'  class="save_btn btn btn-primary btn-xl m-l-sm" name='editThesisFormMarks' align="right" id="member1sub">
+                            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"></div>
+                        <!--    </form>-->
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforsrstab4" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrstab4" class="marksforsrstab4"  > Marks
-                        <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrsstatusdoctab4" class="marksforstatusdoctab4"  > Marks</p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>Prototype</strong> (15%)
-                        <br><p style="padding-top: 10px">&emsp; Presentation (15%) 
-                        </p></td>
+                    </div>
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforprotypetab4" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforprototab4" class="marksforprototypetab4"  > Marks</p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>Mid Review</strong> (20%)
-                        <br><p style="padding-top: 10px">&emsp; Presentation (10%) 
-                        <br>&emsp; Report (10%)</p></td>
+                    <div role="tabpanel" class="tab-pane fade in" id="member2">
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksformidtab4" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksformidpresentab4" class="marksformidreviewtab4"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksfomidreporttab4" class="marksformidreviewtab4"> marks</p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>Final Submission</strong> (15%)
-                        <br><p style="padding-top: 10px">&emsp; Presentation (10%) 
-                        <br>&emsp; Report (5%)
-                        <br>&emsp; Status Document (2%)
-                        </p></td>
+                        <!--          <form method="post">-->
+                        <table class="table table-bordered">
+                            <tbody>
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforpresentationtab4" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalpresnttab4" class="marksforfinalpresentationtab4"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforfinalreporttab4" class="marksforfinalpresentationsecondtab4"  > Marks
-                        <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalstatusdoctab4" class="marksforfinalstatusdoctab4"  > Marks</p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>Viva</strong> (15%)
-                        <br><p style="padding-top: 10px">&emsp; Viva (15%) </p></td>
+                                <tr>
+                                    <td style="width: 1000px"><strong>Proposal Submission</strong> ({{$los->proposalpresent + $los->proposalreport}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Presentation ({{$los->proposalpresent}}%) 
+                                            <br>&emsp; Report ({{$los->proposalreport}}%)
+                                        </p>
+                                    </td>
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforvivatab4" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforvivatab4" class="marksforvivatab4"  > Marks <br></p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>Other Assessment</strong> (15%)
-                        <br><p style="padding-top: 11px">&emsp; Research Book (5%)
-                        <br>&emsp; Research Paper (4%)
-                        <br>&emsp; Website (4%)</p></td>
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforprotab2" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforproposalpresenttab2" class="marksforproposaltab2"  > Marks <br>
+                                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforproposalreporttab2" class="marksforproposaltab2"  > Marks</p></td>
+                                </tr>
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforotherstab4" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforresearchbooktab4" class="marksforothertab4"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforresearchpapertab4" class="marksforothertab4"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforwebsitetab4" class="marksforothertab4"  > Marks</p></td>
-               </tr>
-            </tbody>
-        </table>
-        <div align="right" style="margin-left: 620px"> <input type="button"style="float: left" value="Get Total" class="save_btn btn btn-primary btn-xl m-l-sm" onclick="getTotal()"></div>
-        <div align="right" style="padding-right: 42px">
-            
-            <input type="text"  placeholder="Total" style="width: 50px; height: 35px" disabled>  
-            <input type="text" name="totaltab4" id="mem4total" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
-<br>
-        <div><textarea name="cmntmem3" readonly rows="4" cols="80" placeholder="Comment" id="cmntmem3"></textarea></div><br>
-        <div><select name="statustab4" ><option> Present </option>
-                                            <option> Absent </option></select></div>
-        <div align="right" style="padding-right: 180px"> <input type='submit'  class="save_btn btn btn-primary btn-xl m-l-sm" name='editThesisFormMarks' align="right" id="member4sub">
-            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"></div>
-<!--    </form>-->
-          
-      </div>
-      <div role="tabpanel" class="tab-pane fade in" id="member5">
-          
-<!--          <form method="post">-->
-        <table class="table table-bordered">
-            <tbody>
-                
-                <tr>
-                    <td style="width: 1000px"><strong>Proposal Submission</strong> (10%)
-                        <br><p style="padding-top: 10px">&emsp; Presentation (5%) 
-                        <br>&emsp; Report (5%)
-                        
-                        </p>
-                    
-                    </td>
-                        
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforprotab5" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforproposalpresenttab5" class="marksforproposaltab5"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforproposalreporttab5" class="marksforproposaltab5"  > Marks</p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>SRS Submission</strong> (12%)
-                        <br><p style="padding-top: 10px">&emsp; Report (10%)
-                            <br>&emsp; Status Document (2%)
-                        </p></td>
+                                <tr>
+                                     <td style="width: 1000px"><strong>SRS Submission</strong> ({{$los->srsdoc + $los->srsstatus}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Report ({{$los->srsdoc}}%)
+                                            <br>&emsp; Status Document ({{$los->srsstatus}}%)
+                                        </p></td>
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforsrstab5" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrstab5" class="marksforsrstab5"  > Marks
-                        <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrsstatusdoctab5" class="marksforstatusdoctab5"  > Marks</p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>Prototype</strong> (15%)
-                        <br><p style="padding-top: 10px">&emsp; Presentation (15%) 
-                        </p></td>
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforsrstab2" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrstab2" class="marksforsrstab2"  > Marks
+                                            <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrsstatusdoctab2" class="marksforstatusdoctab2"  > Marks</p></td>
+                                </tr>
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforprotypetab5" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforprototab5" class="marksforprototypetab5"  > Marks</p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>Mid Review</strong> (20%)
-                        <br><p style="padding-top: 10px">&emsp; Presentation (10%) 
-                        <br>&emsp; Report (10%)</p></td>
+                                <tr>
+                                    <td style="width: 1000px"><strong>Prototype</strong> ({{$los->protoprsent}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Presentation ({{$los->protoprsent}}%) 
+                                        </p></td>
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksformidtab5" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksformidpresentab5" class="marksformidreviewtab5"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksfomidreporttab5" class="marksformidreviewtab5"> marks</p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>Final Submission</strong> (17%)
-                        <br><p style="padding-top: 10px">&emsp; Presentation (10%) 
-                        <br>&emsp; Report (5%)
-                        <br>&emsp; Status Document (2%)
-                        </p></td>
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforprotypetab2" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforprototab2" class="marksforprototypetab2"  > Marks</p></td>
+                                </tr>
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforpresentationtab5" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalpresnttab5" class="marksforfinalpresentationtab5"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforfinalreporttab5" class="marksforfinalpresentationsecondtab5"  > Marks
-                        <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalstatusdoctab5" class="marksforfinalstatusdoctab5"  > Marks</p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>Viva</strong> (15%)
-                        <br><p style="padding-top: 10px">&emsp; Viva (15%) </p></td>
+                                <tr>
+                                    <td style="width: 1000px"><strong>Mid Review</strong> ({{$los->midpresent + $los->midreport}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Presentation ({{$los->midpresent}}%) 
+                                            <br>&emsp; Report ({{$los->midreport}}%)</p></td>
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforvivatab5" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforvivatab5" class="marksforvivatab5"  > Marks <br></p></td>
-               </tr>
-               
-               <tr>
-                    <td style="width: 1000px"><strong>Other Assessment</strong> (12%)
-                        <br><p style="padding-top: 11px">&emsp; Research Book (4%)
-                        <br>&emsp; Research Paper (4%)
-                        <br>&emsp; Website (4%)</p></td>
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksformidtab2" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksformidpresentab2" class="marksformidreviewtab2"  > Marks <br>
+                                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksfomidreporttab2" class="marksformidreviewtab2"> marks</p></td>
+                                </tr>
 
-                    <td style="width: 200px">
-                        <input type="text" id="finalmarksforotherstab5" placeholder="0" disabled style="width: 80px">
-                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforresearchbooktab5" class="marksforothertab5"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforresearchpapertab5" class="marksforothertab5"  > Marks <br>
-                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforwebsitetab5" class="marksforothertab5"  > Marks</p></td>
-               </tr>
-            </tbody>
-        </table>
-        <div align="right" style="margin-left: 620px"> <input type="button"style="float: left" value="Get Total" class="save_btn btn btn-primary btn-xl m-l-sm" onclick="getTotal()"></div>
-        <div align="right" style="padding-right: 42px">
-            
-            <input type="text"  placeholder="Total" style="width: 50px; height: 35px" disabled>  
-            <input type="text" name="totaltab5" id="mem5total" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
-<br>
-        <div><textarea name="cmntmem4" readonly rows="4" cols="80" placeholder="Comment" id="cmntmem4"></textarea></div><br>
-        <div><select name="statustab5" ><option> Present </option>
-                                            <option> Absent </option></select></div>
-        <div align="right" style="padding-right: 180px"> <input type='submit'  class="save_btn btn btn-primary btn-xl m-l-sm" name='editThesisFormMarks' align="right" id="member5sub">
-            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"></div>
-   
-          
-      </div>   
-  </div>
+                                <tr>
+                                    <td style="width: 1000px"><strong>Final Submission</strong> ({{$los->finalprsent + $los->finalreport + $los->finalstatusdoc}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Presentation ({{$los->finalprsent}}%) 
+                                            <br>&emsp; Report ({{$los->finalreport}}%)
+                                            <br>&emsp; Status Document ({{$los->finalstatusdoc}}%)</p></td>
 
-</div>
-</div>   
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforpresentationtab2" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalpresnttab2" class="marksforfinalpresentationtab2"  > Marks <br>
+                                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforfinalreporttab2" class="marksforfinalpresentationsecondtab2"  > Marks
+                                            <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalstatusdoctab2" class="marksforfinalstatusdoctab2"  > Marks
+                                        </p></td>
+                                </tr>
+
+                                <tr>
+                                    <td style="width: 1000px"><strong>Viva</strong> ({{$los->viva}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Viva ({{$los->viva}}%) </p></td>
+
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforvivatab2" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforvivatab2" class="marksforvivatab2"  > Marks <br></p></td>
+                                </tr>
+
+                                <tr>
+                                    <td style="width: 1000px"><strong>Other Assessment</strong> ({{$los->researchbook + $los->researchpaper + $los->website}}%)
+                                        <br><p style="padding-top: 11px">&emsp; Research Book ({{$los->researchbook}}%)
+                                            <br>&emsp; Research Paper ({{$los->researchpaper}}%)
+                                            <br>&emsp; Website ({{$los->website}}%)</p></td>
+
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforotherstab2" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforresearchbooktab2" class="marksforothertab2"  > Marks <br>
+                                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforresearchpapertab2" class="marksforothertab2"  > Marks <br>
+                                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforwebsitetab2" class="marksforothertab2"  > Marks</p></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div align="right" style="margin-left: 620px"> <input type="button"style="float: left" value="Get Total" class="save_btn btn btn-primary btn-xl m-l-sm" onclick="getTotal()"></div>
+                        <div align="right" style="padding-right: 42px">
+
+                            <input type="text"  placeholder="Total" style="width: 50px; height: 35px" disabled>  
+                            <input type="text" name="totaltab2" id="mem2total" style="width: 50px; height: 35px" readonly > <b>Marks</b></div>
+                        <br>
+                        <div><textarea name="cmntmem1" rows="4" cols="80" placeholder="Comment" id="cmntmem1"></textarea></div><br>
+                        <div><select name="statustab2" ><option> Present </option>
+                                <option> Absent </option></select></div>
+                        <div align="right" style="padding-right: 180px"> <input type='submit'  class="save_btn btn btn-primary btn-xl m-l-sm" name='editThesisFormMarks' align="right" id="member2sub">
+                            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"></div>
+                        <!--    </form>-->
+
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade in" id="member3">
+
+                        <!--          <form method="post">-->
+                        <table class="table table-bordered">
+                            <tbody>
+
+                                <tr>
+                                    <td style="width: 1000px"><strong>Proposal Submission</strong> ({{$los->proposalpresent + $los->proposalreport}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Presentation ({{$los->proposalpresent}}%) 
+                                            <br>&emsp; Report ({{$los->proposalreport}}%)
+                                        </p>
+                                    </td>
+
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforprotab3" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforproposalpresenttab3" class="marksforproposaltab3"  > Marks <br>
+                                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforproposalreporttab3" class="marksforproposaltab3"  > Marks</p></td>
+                                </tr>
+
+                                <tr>
+                                     <td style="width: 1000px"><strong>SRS Submission</strong> ({{$los->srsdoc + $los->srsstatus}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Report ({{$los->srsdoc}}%)
+                                            <br>&emsp; Status Document ({{$los->srsstatus}}%)
+                                        </p></td>
+
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforsrstab3" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrstab3" class="marksforsrstab3"  > Marks
+                                            <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrsstatusdoctab3" class="marksforstatusdoctab3"  > Marks</p></td>
+                                </tr>
+
+                                <tr>
+                                    <td style="width: 1000px"><strong>Prototype</strong> ({{$los->protoprsent}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Presentation ({{$los->protoprsent}}%) 
+                                        </p></td>
+
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforprotypetab3" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforprototab3" class="marksforprototypetab3"  > Marks</p></td>
+                                </tr>
+
+                                <tr>
+                                    <td style="width: 1000px"><strong>Mid Review</strong> ({{$los->midpresent + $los->midreport}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Presentation ({{$los->midpresent}}%) 
+                                            <br>&emsp; Report ({{$los->midreport}}%)</p></td>
+
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksformidtab3" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksformidpresentab3" class="marksformidreviewtab3"  > Marks <br>
+                                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksfomidreporttab3" class="marksformidreviewtab3"> marks</p></td>
+                                </tr>
+
+                                <tr>
+                                    <td style="width: 1000px"><strong>Final Submission</strong> ({{$los->finalprsent + $los->finalreport + $los->finalstatusdoc}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Presentation ({{$los->finalprsent}}%) 
+                                            <br>&emsp; Report ({{$los->finalreport}}%)
+                                            <br>&emsp; Status Document ({{$los->finalstatusdoc}}%)</p></td>
+
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforpresentationtab3" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalpresnttab3" class="marksforfinalpresentationtab3"  > Marks <br>
+                                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforfinalreporttab3" class="marksforfinalpresentationsecondtab3"  > Marks
+                                            <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalstatusdoctab3" class="marksforfinalstatusdoctab3"  > Marks</p></td>
+                                </tr>
+
+                                <tr>
+                                    <td style="width: 1000px"><strong>Viva</strong> ({{$los->viva}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Viva ({{$los->viva}}%) </p></td>
+
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforvivatab3" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforvivatab3" class="marksforvivatab3"  > Marks <br></p></td>
+                                </tr>
+
+                                <tr>
+                                    <td style="width: 1000px"><strong>Other Assessment</strong> ({{$los->researchbook + $los->researchpaper + $los->website}}%)
+                                        <br><p style="padding-top: 11px">&emsp; Research Book ({{$los->researchbook}}%)
+                                            <br>&emsp; Research Paper ({{$los->researchpaper}}%)
+                                            <br>&emsp; Website ({{$los->website}}%)</p></td>
+
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforotherstab3" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforresearchbooktab3" class="marksforothertab3"  > Marks <br>
+                                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforresearchpapertab3" class="marksforothertab3"  > Marks <br>
+                                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforwebsitetab3" class="marksforothertab3"  > Marks</p></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div align="right" style="margin-left: 620px"> <input type="button"style="float: left" value="Get Total" class="save_btn btn btn-primary btn-xl m-l-sm" onclick="getTotal()"></div>
+                        <div align="right" style="padding-right: 42px">
+
+                            <input type="text"  placeholder="Total" style="width: 50px; height: 35px" disabled>  
+                            <input type="text" name="totaltab3" id="mem3total" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
+                        <br>
+                        <div><textarea name="cmntmem2" readonly rows="4" cols="80" placeholder="Comment" id="cmntmem2"></textarea></div><br>
+                        <div><select name="statustab3" ><option> Present </option>
+                                <option> Absent </option></select></div>
+                        <div align="right" style="padding-right: 180px"> <input type='submit'  class="save_btn btn btn-primary btn-xl m-l-sm" name='editThesisFormMarks' align="right" id="member3sub">
+                            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"></div>
+                        <!--    </form>-->
+
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade in" id="member4">
+
+                        <!--          <form method="post">-->
+                        <table class="table table-bordered">
+                            <tbody>
+
+                                <tr>
+                                    <td style="width: 1000px"><strong>Proposal Submission</strong> ({{$los->proposalpresent + $los->proposalreport}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Presentation ({{$los->proposalpresent}}%) 
+                                            <br>&emsp; Report ({{$los->proposalreport}}%)
+                                        </p>
+                                    </td>
+
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforprotab4" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforproposalpresenttab4" class="marksforproposaltab4"  > Marks <br>
+                                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforproposalreporttab4" class="marksforproposaltab4"  > Marks</p></td>
+                                </tr>
+
+                                <tr>
+                                     <td style="width: 1000px"><strong>SRS Submission</strong> ({{$los->srsdoc + $los->srsstatus}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Report ({{$los->srsdoc}}%)
+                                            <br>&emsp; Status Document ({{$los->srsstatus}}%)
+                                        </p></td>
+
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforsrstab4" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrstab4" class="marksforsrstab4"  > Marks
+                                            <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrsstatusdoctab4" class="marksforstatusdoctab4"  > Marks</p></td>
+                                </tr>
+
+                                <tr>
+                                    <td style="width: 1000px"><strong>Prototype</strong> ({{$los->protoprsent}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Presentation ({{$los->protoprsent}}%) 
+                                        </p></td>
+
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforprotypetab4" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforprototab4" class="marksforprototypetab4"  > Marks</p></td>
+                                </tr>
+
+                                <tr>
+                                    <td style="width: 1000px"><strong>Mid Review</strong> ({{$los->midpresent + $los->midreport}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Presentation ({{$los->midpresent}}%) 
+                                            <br>&emsp; Report ({{$los->midreport}}%)</p></td>
+
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksformidtab4" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksformidpresentab4" class="marksformidreviewtab4"  > Marks <br>
+                                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksfomidreporttab4" class="marksformidreviewtab4"> marks</p></td>
+                                </tr>
+
+                                <tr>
+                                    <td style="width: 1000px"><strong>Final Submission</strong> ({{$los->finalprsent + $los->finalreport + $los->finalstatusdoc}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Presentation ({{$los->finalprsent}}%) 
+                                            <br>&emsp; Report ({{$los->finalreport}}%)
+                                            <br>&emsp; Status Document ({{$los->finalstatusdoc}}%)</p></td>
+
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforpresentationtab4" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalpresnttab4" class="marksforfinalpresentationtab4"  > Marks <br>
+                                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforfinalreporttab4" class="marksforfinalpresentationsecondtab4"  > Marks
+                                            <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalstatusdoctab4" class="marksforfinalstatusdoctab4"  > Marks</p></td>
+                                </tr>
+
+                                <tr>
+                                    <td style="width: 1000px"><strong>Viva</strong> ({{$los->viva}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Viva ({{$los->viva}}%) </p></td>
+
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforvivatab4" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforvivatab4" class="marksforvivatab4"  > Marks <br></p></td>
+                                </tr>
+
+                                <tr>
+                                    <td style="width: 1000px"><strong>Other Assessment</strong> ({{$los->researchbook + $los->researchpaper + $los->website}}%)
+                                        <br><p style="padding-top: 11px">&emsp; Research Book ({{$los->researchbook}}%)
+                                            <br>&emsp; Research Paper ({{$los->researchpaper}}%)
+                                            <br>&emsp; Website ({{$los->website}}%)</p></td>
+
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforotherstab4" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforresearchbooktab4" class="marksforothertab4"  > Marks <br>
+                                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforresearchpapertab4" class="marksforothertab4"  > Marks <br>
+                                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforwebsitetab4" class="marksforothertab4"  > Marks</p></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div align="right" style="margin-left: 620px"> <input type="button"style="float: left" value="Get Total" class="save_btn btn btn-primary btn-xl m-l-sm" onclick="getTotal()"></div>
+                        <div align="right" style="padding-right: 42px">
+
+                            <input type="text"  placeholder="Total" style="width: 50px; height: 35px" disabled>  
+                            <input type="text" name="totaltab4" id="mem4total" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
+                        <br>
+                        <div><textarea name="cmntmem3" readonly rows="4" cols="80" placeholder="Comment" id="cmntmem3"></textarea></div><br>
+                        <div><select name="statustab4" ><option> Present </option>
+                                <option> Absent </option></select></div>
+                        <div align="right" style="padding-right: 180px"> <input type='submit'  class="save_btn btn btn-primary btn-xl m-l-sm" name='editThesisFormMarks' align="right" id="member4sub">
+                            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"></div>
+                        <!--    </form>-->
+
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade in" id="member5">
+
+                        <!--          <form method="post">-->
+                        <table class="table table-bordered">
+                            <tbody>
+
+                                <tr>
+                                   <td style="width: 1000px"><strong>Proposal Submission</strong> ({{$los->proposalpresent + $los->proposalreport}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Presentation ({{$los->proposalpresent}}%) 
+                                            <br>&emsp; Report ({{$los->proposalreport}}%)
+                                        </p>
+                                    </td>
+
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforprotab5" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforproposalpresenttab5" class="marksforproposaltab5"  > Marks <br>
+                                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforproposalreporttab5" class="marksforproposaltab5"  > Marks</p></td>
+                                </tr>
+
+                                <tr>
+                                     <td style="width: 1000px"><strong>SRS Submission</strong> ({{$los->srsdoc + $los->srsstatus}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Report ({{$los->srsdoc}}%)
+                                            <br>&emsp; Status Document ({{$los->srsstatus}}%)
+                                        </p></td>
+
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforsrstab5" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrstab5" class="marksforsrstab5"  > Marks
+                                            <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforsrsstatusdoctab5" class="marksforstatusdoctab5"  > Marks</p></td>
+                                </tr>
+
+                                <tr>
+                                    <td style="width: 1000px"><strong>Prototype</strong> ({{$los->protoprsent}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Presentation ({{$los->protoprsent}}%) 
+                                        </p></td>
+
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforprotypetab5" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforprototab5" class="marksforprototypetab5"  > Marks</p></td>
+                                </tr>
+
+                                <tr>
+                                    <td style="width: 1000px"><strong>Mid Review</strong> ({{$los->midpresent + $los->midreport}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Presentation ({{$los->midpresent}}%) 
+                                            <br>&emsp; Report ({{$los->midreport}}%)</p></td>
+
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksformidtab5" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksformidpresentab5" class="marksformidreviewtab5"  > Marks <br>
+                                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksfomidreporttab5" class="marksformidreviewtab5"> marks</p></td>
+                                </tr>
+
+                                <tr>
+                                    <td style="width: 1000px"><strong>Final Submission</strong> ({{$los->finalprsent + $los->finalreport + $los->finalstatusdoc}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Presentation ({{$los->finalprsent}}%) 
+                                            <br>&emsp; Report ({{$los->finalreport}}%)
+                                            <br>&emsp; Status Document ({{$los->finalstatusdoc}}%)</p></td>
+
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforpresentationtab5" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalpresnttab5" class="marksforfinalpresentationtab5"  > Marks <br>
+                                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforfinalreporttab5" class="marksforfinalpresentationsecondtab5"  > Marks
+                                            <br><input type="number"  style="width: 65px; margin-top: 5px" name="marksforfinalstatusdoctab5" class="marksforfinalstatusdoctab5"  > Marks</p></td>
+                                </tr>
+
+                                <tr>
+                                    <td style="width: 1000px"><strong>Viva</strong> ({{$los->viva}}%)
+                                        <br><p style="padding-top: 10px">&emsp; Viva ({{$los->viva}}%) </p></td>
+
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforvivatab5" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforvivatab5" class="marksforvivatab5"  > Marks <br></p></td>
+                                </tr>
+
+                                <tr>
+                                    <td style="width: 1000px"><strong>Other Assessment</strong> ({{$los->researchbook + $los->researchpaper + $los->website}}%)
+                                        <br><p style="padding-top: 11px">&emsp; Research Book ({{$los->researchbook}}%)
+                                            <br>&emsp; Research Paper ({{$los->researchpaper}}%)
+                                            <br>&emsp; Website ({{$los->website}}%)</p></td>
+
+                                    <td style="width: 200px">
+                                        <input type="text" id="finalmarksforotherstab5" placeholder="0" disabled style="width: 80px">
+                                        <p><input type="number"  style="width: 65px; margin-top: 5px" name="marksforresearchbooktab5" class="marksforothertab5"  > Marks <br>
+                                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforresearchpapertab5" class="marksforothertab5"  > Marks <br>
+                                            <input type="number"  style="width: 65px; margin-top: 2px" name="marksforwebsitetab5" class="marksforothertab5"  > Marks</p></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div align="right" style="margin-left: 620px"> <input type="button"style="float: left" value="Get Total" class="save_btn btn btn-primary btn-xl m-l-sm" onclick="getTotal()"></div>
+                        <div align="right" style="padding-right: 42px">
+
+                            <input type="text"  placeholder="Total" style="width: 50px; height: 35px" disabled>  
+                            <input type="text" name="totaltab5" id="mem5total" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
+                        <br>
+                        <div><textarea name="cmntmem4" readonly rows="4" cols="80" placeholder="Comment" id="cmntmem4"></textarea></div><br>
+                        <div><select name="statustab5" ><option> Present </option>
+                                <option> Absent </option></select></div>
+                        <div align="right" style="padding-right: 180px"> <input type='submit'  class="save_btn btn btn-primary btn-xl m-l-sm" name='editThesisFormMarks' align="right" id="member5sub">
+                            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"></div>
+                    </div>   
+                </div>
+            </div>
+        </div>   
     </form>
 </div>
 
@@ -647,6 +630,21 @@
 //});
 var studentNames = '';
 var totviewfieldchange = 1;
+var proposalpresent;
+var proposalreport;
+var srsdoc;
+var srsstatus;
+var protoprsent;
+var midpresent;
+var midreport;
+var finalprsent;
+var finalreport;
+var finalstatusdoc;
+var viva;
+var researchbook;
+var researchpaper;
+var website;
+
 function getselected(thisperson)
 {
     document.getElementById('stuid').value = document.getElementById(thisperson.getAttribute('id')).innerHTML;
@@ -663,7 +661,7 @@ function javascriptLoader()
         $(".marksforproposaltab"+totviewfieldchange).each(function () {
             if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-            var marks = (parseInt($(this).val())/100)*5;
+            var marks = (parseInt($(this).val())/100)* proposalpresent;
             total += !isNaN(marks) ? marks : 0;
 
         });
@@ -677,7 +675,7 @@ function javascriptLoader()
         $(".marksforsrstab"+totviewfieldchange).each(function () {
             if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-            var marks = (parseInt($(this).val())/100)*10;
+            var marks = (parseInt($(this).val())/100)* srsdoc;
             total += !isNaN(marks) ? marks : 0;
 
         });
@@ -690,7 +688,7 @@ $('.marksforstatusdoctab'+totviewfieldchange).keyup(function () {
         $(".marksforstatusdoctab"+totviewfieldchange).each(function () {
             if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-            var marks = (parseInt($(this).val())/100)*2;
+            var marks = (parseInt($(this).val())/100)* srsstatus;
             total += !isNaN(marks) ? marks : 0;
 
         });
@@ -704,7 +702,7 @@ $('.marksforstatusdoctab'+totviewfieldchange).keyup(function () {
         $(".marksforprototypetab"+totviewfieldchange).each(function () {
             if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-            var marks = (parseInt($(this).val())/100)*15;
+            var marks = (parseInt($(this).val())/100)* protoprsent;
             total += !isNaN(marks) ? marks : 0;
 
         });
@@ -718,7 +716,7 @@ $('.marksforstatusdoctab'+totviewfieldchange).keyup(function () {
         $(".marksformidreviewtab"+totviewfieldchange).each(function () {
             if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-            var marks = (parseInt($(this).val())/100)*10;
+            var marks = (parseInt($(this).val())/100)* midpresent;
             total += !isNaN(marks) ? marks : 0;
 
         });
@@ -732,7 +730,7 @@ $('.marksforstatusdoctab'+totviewfieldchange).keyup(function () {
         $(".marksforfinalpresentationtab"+totviewfieldchange).each(function () {
             if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-            var marks = (parseInt($(this).val())/100)*10;
+            var marks = (parseInt($(this).val())/100)* finalprsent;
             total += !isNaN(marks) ? marks : 0;
              
         });    
@@ -747,7 +745,7 @@ $('.marksforstatusdoctab'+totviewfieldchange).keyup(function () {
         $(".marksforfinalpresentationsecondtab"+totviewfieldchange).each(function () {
             if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-            var marks = (parseInt($(this).val())/100)*5;
+            var marks = (parseInt($(this).val())/100)* finalreport;
             total += !isNaN(marks) ? marks : 0;
              
         });    
@@ -762,7 +760,7 @@ $('.marksforfinalstatusdoctab'+totviewfieldchange).keyup(function () {
         $(".marksforfinalstatusdoctab"+totviewfieldchange).each(function () {
             if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-            var marks = (parseInt($(this).val())/100)*2;
+            var marks = (parseInt($(this).val())/100)* finalstatusdoc;
             total += !isNaN(marks) ? marks : 0;
 
         });
@@ -777,7 +775,7 @@ $('.marksforfinalstatusdoctab'+totviewfieldchange).keyup(function () {
         $(".marksforvivatab"+totviewfieldchange).each(function () {
             if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-            var marks = (parseInt($(this).val())/100)*15;
+            var marks = (parseInt($(this).val())/100)* viva;
             total += !isNaN(marks) ? marks : 0;
 
         });
@@ -791,7 +789,7 @@ $('.marksforfinalstatusdoctab'+totviewfieldchange).keyup(function () {
         $(".marksforothertab"+totviewfieldchange).each(function () {
             if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-            var marks = (parseInt($(this).val())/100)*5;
+            var marks = (parseInt($(this).val())/100)* researchbook;
             total += !isNaN(marks) ? marks : 0;
 
         });
@@ -843,6 +841,21 @@ function selectStudentDetails()
             document.getElementById('protitle').value = data['title'];
             document.getElementById('proid').value = data['pid'];
             document.getElementById('stuid').value = data['ledrid'];
+            
+            proposalpresent = data['los']['proposalpresent'];
+            proposalreport = data['los']['proposalreport'];
+            srsdoc = data['los']['srsdoc'];
+            srsstatus = data['los']['srsstatus'];
+            protoprsent = data['los']['protoprsent'];
+            midpresent = data['los']['midpresent'];
+            midreport = data['los']['midreport'];
+            finalprsent = data['los']['finalprsent'];
+            finalreport = data['los']['finalreport'];
+            finalstatusdoc = data['los']['finalstatusdoc'];
+            viva = data['los']['viva'];
+            researchbook = data['los']['researchbook'];
+            researchpaper = data['los']['researchpaper'];
+            website = data['los']['website'];
             
 //            if(data['ids'].length === 4)
 //            {

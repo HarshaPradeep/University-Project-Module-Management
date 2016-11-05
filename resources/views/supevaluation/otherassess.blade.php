@@ -98,13 +98,13 @@
         <table class="table table-bordered">
             <tbody style="font-size: 15">                
                 <tr>
-                    <td style="width: 1000px"><strong>Other Assessments</strong> (12%)</td>
+                    <td style="width: 1000px"><strong>Other Assessments</strong> ({{$los->researchbook + $los->researchpaper + $los->website}}%)</td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"></td>
-                    <td style="width: 1000px">Research Book (4%)</td>
-                    <td style="width: 1000px">Research Paper (4%)</td>
-                    <td style="width: 1000px">Website (4%)</td>
+                    <td style="width: 1000px">Research Book ({{$los->researchbook}}%)</td>
+                    <td style="width: 1000px">Research Paper ({{$los->researchpaper}}%)</td>
+                    <td style="width: 1000px">Website ({{$los->website}}%)</td>
                 </tr>
                 <tr>
                     <td style="width: 1000px"><strong>Comment :</strong></td>
@@ -120,9 +120,9 @@
                 </tr> 
                 <tr>
                     <td style="width: 1000px"><strong>Marks : </strong><input type="checkbox" id="convmarks1" onchange="disabledBoxchangedforconv()" style="float: right"></td>
-                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo1mem1" id="finalmarksforlo1mem1" disabled style="width: 65px"></td>
-                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo2mem1" id="finalmarksforlo2mem1" disabled style="width: 65px"></td>
-                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo3mem1" id="finalmarksforlo3mem1" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo1mem1" id="finalmarksforlo1mem1" readonly style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo2mem1" id="finalmarksforlo2mem1" readonly style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo3mem1" id="finalmarksforlo3mem1" readonly style="width: 65px"></td>
                 </tr> 
             </tbody>
         </table>
@@ -147,13 +147,13 @@
         <table class="table table-bordered">
             <tbody style="font-size: 15">                
                 <tr>
-                    <td style="width: 1000px"><strong>Other Assessments</strong> (12%)</td>
+                    <td style="width: 1000px"><strong>Other Assessments</strong> ({{$los->researchbook + $los->researchpaper + $los->website}}%)</td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"></td>
-                    <td style="width: 1000px">Research Book (4%)</td>
-                    <td style="width: 1000px">Research Paper (4%)</td>
-                    <td style="width: 1000px">Website (4%)</td>
+                    <td style="width: 1000px">Research Book ({{$los->researchbook}}%)</td>
+                    <td style="width: 1000px">Research Paper ({{$los->researchpaper}}%)</td>
+                    <td style="width: 1000px">Website ({{$los->website}}%)</td>
                 </tr>
                 <tr>
                     <td style="width: 1000px"><strong>Comment :</strong></td>
@@ -169,9 +169,9 @@
                 </tr> 
                 <tr>
                     <td style="width: 1000px"><strong>Marks : </strong><input type="checkbox" id="convmarks2" onchange="disabledBoxchangedforconv()" style="float: right"></td>
-                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo1mem2" id="finalmarksforlo1mem2" disabled style="width: 65px"></td>
-                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo2mem2" id="finalmarksforlo2mem2" disabled style="width: 65px"></td>
-                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo3mem2" id="finalmarksforlo3mem2" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo1mem2" id="finalmarksforlo1mem2" readonly style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo2mem2" id="finalmarksforlo2mem2" readonly style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo3mem2" id="finalmarksforlo3mem2" readonly style="width: 65px"></td>
                 </tr> 
             </tbody>
         </table>
@@ -196,13 +196,13 @@
         <table class="table table-bordered">
             <tbody style="font-size: 15">                
                 <tr>
-                    <td style="width: 1000px"><strong>Other Assessments</strong> (12%)</td>
+                    <td style="width: 1000px"><strong>Other Assessments</strong> ({{$los->researchbook + $los->researchpaper + $los->website}}%)</td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"></td>
-                    <td style="width: 1000px">Research Book (4%)</td>
-                    <td style="width: 1000px">Research Paper (4%)</td>
-                    <td style="width: 1000px">Website (4%)</td>
+                    <td style="width: 1000px">Research Book ({{$los->researchbook}}%)</td>
+                    <td style="width: 1000px">Research Paper ({{$los->researchpaper}}%)</td>
+                    <td style="width: 1000px">Website ({{$los->website}}%)</td>
                 <tr>
                     <td style="width: 1000px"><strong>Comment :</strong></td>
                     <td ><input type="text" style="width: 120px" id="cmnt1member3" onblur="getValue(this)" class="hh"></td>
@@ -217,9 +217,9 @@
                 </tr> 
                 <tr>
                     <td style="width: 1000px"><strong>Marks : </strong><input type="checkbox" id="convmarks3" onchange="disabledBoxchangedforconv()" style="float: right"></td>
-                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo1mem3" id="finalmarksforlo1mem3" disabled style="width: 65px"></td>
-                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo2mem3" id="finalmarksforlo2mem3" disabled style="width: 65px"></td>
-                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo3mem3" id="finalmarksforlo3mem3" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo1mem3" id="finalmarksforlo1mem3" readonly style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo2mem3" id="finalmarksforlo2mem3" readonly style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo3mem3" id="finalmarksforlo3mem3" readonly style="width: 65px"></td>
                 </tr> 
             </tbody>
         </table>
@@ -244,13 +244,13 @@
         <table class="table table-bordered">
             <tbody style="font-size: 15">                
                 <tr>
-                    <td style="width: 1000px"><strong>Other Assessments</strong> (12%)</td>
+                    <td style="width: 1000px"><strong>Other Assessments</strong> ({{$los->researchbook + $los->researchpaper + $los->website}}%)</td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"></td>
-                    <td style="width: 1000px">Research Book (4%)</td>
-                    <td style="width: 1000px">Research Paper (4%)</td>
-                    <td style="width: 1000px">Website (4%)</td>
+                    <td style="width: 1000px">Research Book ({{$los->researchbook}}%)</td>
+                    <td style="width: 1000px">Research Paper ({{$los->researchpaper}}%)</td>
+                    <td style="width: 1000px">Website ({{$los->website}}%)</td>
                 </tr>
                 <tr>
                     <td style="width: 1000px"><strong>Comment :</strong></td>
@@ -266,9 +266,9 @@
                 </tr> 
                 <tr>
                     <td style="width: 1000px"><strong>Marks : </strong><input type="checkbox" id="convmarks4" onchange="disabledBoxchangedforconv()" style="float: right"></td>
-                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo1mem4" id="finalmarksforlo1mem4" disabled style="width: 65px"></td>
-                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo2mem4" id="finalmarksforlo2mem4" disabled style="width: 65px"></td>
-                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo3mem4" id="finalmarksforlo3mem4" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo1mem4" id="finalmarksforlo1mem4" readonly style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo2mem4" id="finalmarksforlo2mem4" readonly style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo3mem4" id="finalmarksforlo3mem4" readonly style="width: 65px"></td>
                 </tr> 
             </tbody>
         </table>
@@ -293,13 +293,13 @@
         <table class="table table-bordered">
             <tbody style="font-size: 15">                
                 <tr>
-                    <td style="width: 1000px"><strong>Other Assessments</strong> (12%)</td>
+                    <td style="width: 1000px"><strong>Other Assessments</strong> ({{$los->researchbook + $los->researchpaper + $los->website}}%)</td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"></td>
-                    <td style="width: 1000px">Research Book (4%)</td>
-                    <td style="width: 1000px">Research Paper (4%)</td>
-                    <td style="width: 1000px">Website (4%)</td>
+                    <td style="width: 1000px">Research Book ({{$los->researchbook}}%)</td>
+                    <td style="width: 1000px">Research Paper ({{$los->researchpaper}}%)</td>
+                    <td style="width: 1000px">Website ({{$los->website}}%)</td>
                 </tr>
                 <tr>
                     <td style="width: 1000px"><strong>Comment :</strong></td>
@@ -315,9 +315,9 @@
                 </tr> 
                 <tr>
                     <td style="width: 1000px"><strong>Marks : </strong><input type="checkbox" id="convmarks5" onchange="disabledBoxchangedforconv()" style="float: right"></td>
-                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo1mem5" id="finalmarksforlo1mem5" disabled style="width: 65px"></td>
-                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo2mem5" id="finalmarksforlo2mem5" disabled style="width: 65px"></td>
-                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo3mem5" id="finalmarksforlo3mem5" disabled style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo1mem5" id="finalmarksforlo1mem5" readonly style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo2mem5" id="finalmarksforlo2mem5" readonly style="width: 65px"></td>
+                    <td style="width: 1000px"><input type="number" onclick="getlo(this)" name="finalmarksforlo3mem5" id="finalmarksforlo3mem5" readonly style="width: 65px"></td>
                 </tr> 
             </tbody>
         </table>
@@ -352,6 +352,9 @@
  var objid;
  var whtlo = 'lo1';
  var whtmem = 'mem1';
+ var lo1val;
+ var lo2val;
+ var lo3val;
  
  function getselected(thisperson)
  {
@@ -421,7 +424,7 @@
             $(".lo1"+whtmem).each(function () {
                 if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-                var marks = (parseInt($(this).val())/100)*4;          
+                var marks = (parseInt($(this).val())/100)* lo1val;          
                 total += !isNaN(marks) ? marks : 0;
 
             });
@@ -435,7 +438,7 @@
             $(".lo2"+whtmem).each(function () {
                 if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-                var marks = (parseInt($(this).val())/100)*4;
+                var marks = (parseInt($(this).val())/100)* lo2val;
                 total += !isNaN(marks) ? marks : 0;
 
             });
@@ -449,7 +452,7 @@
             $(".lo3"+whtmem).each(function () {
                 if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-                var marks = (parseInt($(this).val())/100)*4;
+                var marks = (parseInt($(this).val())/100)* lo3val;
                 total += !isNaN(marks) ? marks : 0;
 
             });
@@ -478,6 +481,9 @@
             document.getElementById('protitle').value = data['title'];
             document.getElementById('proid').value = data['pid'];
             document.getElementById('stuid').value = data['ledrid'];
+            lo1val = data['los']['researchbook'];
+            lo2val = data['los']['researchpaper'];
+            lo3val = data['los']['website'];
             
 //            if(data['ids'].length === 4)
 //            {

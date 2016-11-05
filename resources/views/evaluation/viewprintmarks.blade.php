@@ -185,7 +185,7 @@ $(document).ready(function () {
         dataType: 'json'
         
         }).done(function (data) { 
-            
+console.log(data);
             var pdata = [
             {
                 value: data.whogotA,
@@ -194,19 +194,19 @@ $(document).ready(function () {
                 label: "A [85-100]"
             },
             {
-                value: data.whogotB,
+                value: data.whogotB.length,
                 color: "#9ACD32",
                 highlight: "#c0cd32",
                 label: "B [75-84]"
             },
             {
-                value: data.whogotC,
+                value: data.whogotC.length,
                 color: "#FDB45C",
                 highlight: "#FFC870",
                 label: "C [65-74]"
             },
             {
-                value: data.whogotD,
+                value: data.whogotD.length,
                 color: "#FF4500",
                 highlight: "#ff2a00",
                 label: "D [50-64]"
@@ -225,43 +225,67 @@ $(document).ready(function () {
         new Chart(cpie).Pie(pdata, chartOptions);
 
         //////////////////////////////////////////////////////////////////////
-            
-        }).fail(function (data) {
-            swal("Failed", "Something Wrong! :)", "error");
-        });       
-   
         
-
         var pdata = [
             {
-                value: 300,
+                value: data.proposalprsentcomp,
                 color: "#46BFBD",
                 highlight: "#5AD3D1",
-                label: "A [90-100]"
+                label: "Proposal Presentation"
             },
             {
-                value: 100,
+                value: data.proposalreportcopm,
                 color: "#FDB45C",
                 highlight: "#FFC870",
-                label: "B [80-89]"
+                label: "Proposal Report"
             },
             {
-                value: 100,
+                value: data.srs,
                 color: "#FDB45C",
                 highlight: "#FFC870",
-                label: "C [70-79]"
+                label: "SRS"
             },
             {
-                value: 100,
+                value: data.prototype,
                 color: "#FDB45C",
                 highlight: "#FFC870",
-                label: "D [60-69]"
+                label: "Prototype"
             },
             {
-                value: 50,
+                value: data.midprsent,
                 color:"#F7464A",
                 highlight: "#FF5A5E",
-                label: "F [0-59]"
+                label: "Mid Prsentation"
+            },
+            {
+                value: data.midreport,
+                color: "#46BFBD",
+                highlight: "#5AD3D1",
+                label: "Mid Report"
+            },
+            {
+                value: data.finalprsent,
+                color: "#FDB45C",
+                highlight: "#FFC870",
+                label: "Final Presentation"
+            },
+            {
+                value: data.finalreport,
+                color: "#FDB45C",
+                highlight: "#FFC870",
+                label: "Final Report"
+            },
+            {
+                value: data.viva,
+                color: "#FDB45C",
+                highlight: "#FFC870",
+                label: "Viva"
+            },
+            {
+                value: data.other,
+                color:"#F7464A",
+                highlight: "#FF5A5E",
+                label: "Other Assessments"
             }
         ];
             var chartOptions = {
@@ -269,6 +293,11 @@ $(document).ready(function () {
                     };
         var cpie = document.getElementById("cpie1").getContext("2d");
         new Chart(cpie).Pie(pdata, chartOptions);
+        
+            
+        }).fail(function (data) {
+            swal("Failed", "Something Wrong! :)", "error");
+        });       
 });
 
 function rowselection(newthis)

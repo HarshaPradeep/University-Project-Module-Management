@@ -3,7 +3,7 @@
 use Cartalyst\Sentinel\Laravel\Facades\Activation;
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 
-/*hiru added*/
+/* hiru added */
 use App\Grouping;
 use App\ResearchGroups;
 use App\Notifications;
@@ -12,7 +12,7 @@ use App\Student;
 use App\Invitations;
 use Fenos\Notifynder\Facades\Notifynder;
 
-/*hiru added end*/
+/* hiru added end */
 
 //App\Http\Controllers\notificationController::GetAllUnreadNotification();
 
@@ -87,7 +87,7 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
     Route::get('saveUpdatedUser', 'createUserController@updateUserindexstore');
 
     Route::get('/searchUser', 'createUserController@search');
-    
+
     Route::get('addUser', 'createUserController@index');
     Route::get('/addUserNewAccount', 'createUserController@storeUser');
 
@@ -110,7 +110,7 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
 
     Route::get('addNotice', 'NoticeController@add_new_notice');
     Route::post('addNotice', 'NoticeController@addNotice');
-  
+
     //harsha added
     Route::get('addResearchArea', 'AddResearchArea@add_research_area');
     Route::post('addResearchArea', 'AddResearchArea@storeResearchArea');
@@ -119,21 +119,20 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
     Route::get('DELETE/{id}', 'AddResearchArea@destroy');
 
     //Route::resource('addResearchArea/{id}', 'AddResearchArea@destroy');
-    
     //evaluationform routes added by harsha///////////////////////////////
     Route::post('evaluationform', 'EvaluationController@store');
     Route::get('evaluationform', 'EvaluationController@create');
     Route::get('/searchstudentform', 'createUserController@searchforStudents');
     Route::get('viewprintmarks', 'EvaluationController@show');
     Route::get('/searchmarks', 'EvaluationController@get');
-    
+
     Route::get('formsupervisor', 'supervisorevaluation@create');
-    
-    Route::get('searchmarksforcharts', 'EvaluationController@forcharts');// data for pie charts
-    
+
+    Route::get('searchmarksforcharts', 'EvaluationController@forcharts'); // data for pie charts
+
     Route::get('settings', 'EvaluationController@settingscreat');
-    Route::post('settings', 'EvaluationController@settingsupdate');    
-    
+    Route::post('settings', 'EvaluationController@settingsupdate');
+
     Route::get('editNotice/{id}', 'NoticeController@editNoticeView'); //------------------
     Route::post('editNotice/{id}', 'NoticeController@editNotice'); //--------------
     //notification
@@ -172,7 +171,7 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
     Route::post('changeSupervisorRequest', 'RPCController@filterSearch');
     Route::get('email/{mail}', 'RPCController@composeEmail');
     Route::post('email/{mail}', 'RPCController@sendEmail');
-    
+
     //        hiru added*
     Route::get('manageGroups', 'GroupManageController@manageGroups');
     Route::get('viewGroup/{groupId}', 'GroupManageController@viewGroup');
@@ -180,57 +179,55 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
     Route::post('addToGroup', 'GroupManageController@addToGroup');
     Route::post('createGroup', 'GroupManageController@createGroup');
 
-        Route::delete('/task/{id}', function ($id) {
+    Route::delete('/task/{id}', function ($id) {
 
-            $groupId = Grouping::where('email','=',$id)->pluck('grouped');
-            
+        $groupId = Grouping::where('email', '=', $id)->pluck('grouped');
 
-            /*remove member from the research group*/
-            $members = ResearchGroups::where('groupID','=',$groupId)->pluck('mails');
-            $myArray = preg_split("/\//", $members);
-            
-            for($count = 0; sizeof($myArray); $count++){
 
-                if($myArray[$count]==$id){
-                    $index = $count;
-                    break;
-                }
+        /* remove member from the research group */
+        $members = ResearchGroups::where('groupID', '=', $groupId)->pluck('mails');
+        $myArray = preg_split("/\//", $members);
+
+        for ($count = 0; sizeof($myArray); $count++) {
+
+            if ($myArray[$count] == $id) {
+                $index = $count;
+                break;
             }
+        }
 
-            /*delete the specific member from the array*/
-            unset($myArray[$index]);
+        /* delete the specific member from the array */
+        unset($myArray[$index]);
 
-            $newMembers = implode("/",$myArray);
+        $newMembers = implode("/", $myArray);
 
-            /*update the members of the research group after deletion*/
-            DB::table('research_groups')
+        /* update the members of the research group after deletion */
+        DB::table('research_groups')
                 ->where('groupID', $groupId)
                 ->update(['mails' => $newMembers]);
 
-            $leadermail = Grouping::where('grouped','=',$groupId)
-                ->where('role','=','leader')
+        $leadermail = Grouping::where('grouped', '=', $groupId)
+                ->where('role', '=', 'leader')
                 ->pluck('email');
 
-            $invitAvl = Invitations::where('leaderMail','=',$leadermail)
-            ->where('memberMail','=',$id)
-            ->get();
+        $invitAvl = Invitations::where('leaderMail', '=', $leadermail)
+                ->where('memberMail', '=', $id)
+                ->get();
 
-            if (!$invitAvl->isEmpty()){
-                $Id = Invitations::where('leaderMail','=',$leadermail)
-                    ->where('memberMail','=',$id)->pluck('id');
-                DB::table('invitings')->where('id', '=', $Id)->delete();
-                }
-                
-                DB::table('students')
+        if (!$invitAvl->isEmpty()) {
+            $Id = Invitations::where('leaderMail', '=', $leadermail)
+                            ->where('memberMail', '=', $id)->pluck('id');
+            DB::table('invitings')->where('id', '=', $Id)->delete();
+        }
+
+        DB::table('students')
                 ->where('email', $id)
-                ->update(['grouped' => NULL,  'role' => NULL]);
+                ->update(['grouped' => NULL, 'role' => NULL]);
 
-            return redirect()->action(
-                'GroupManageController@viewGroup', ['groupId' => $groupId]
-            )->with('flash_message', $id.' was removed successfully.');
-
-            
-        });
+        return redirect()->action(
+                        'GroupManageController@viewGroup', ['groupId' => $groupId]
+                )->with('flash_message', $id . ' was removed successfully.');
+    });
 
 //        /*end-hiru*/
 
@@ -299,53 +296,43 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'panelmember'), func
 
     Route::get('/projectPool/{supId}', 'projectController@showProjectPool');
     Route::post('/projectPool/{supId}', 'projectController@selectProjectPool');
-    
+
     ///////////////////////////harsha////////////
     /////////prposal presetation/////
     Route::any('propevaluation', 'supevaluationController@createproppresen');
-    Route::get('searchstudent', 'supevaluationController@searchforStudents');//common for all
-    Route::post('propevaluation','supevaluationController@storepropevaluation');//send markings to db
-    
+    Route::get('searchstudent', 'supevaluationController@searchforStudents'); //common for all
+    Route::post('propevaluation', 'supevaluationController@storepropevaluation'); //send markings to db
     /////////prposal report/////
     Route::any('propreportevaluation', 'supevaluationController@createproreport');
-    Route::post('propreportevaluation','supevaluationController@storepropreportevaluation');//send markings to db
-    
+    Route::post('propreportevaluation', 'supevaluationController@storepropreportevaluation'); //send markings to db
     /////////srs/////
     Route::any('srsevaluation', 'supevaluationController@srscreate');
-    Route::post('srsevaluation','supevaluationController@storesrsevaluation');//send markings to db
-    
+    Route::post('srsevaluation', 'supevaluationController@storesrsevaluation'); //send markings to db
     ///////prototype////
     Route::any('protoevaluation', 'supevaluationController@protocreate');
-    Route::post('protoevaluation','supevaluationController@storeprotovaluation');//send markings to db
-    
+    Route::post('protoevaluation', 'supevaluationController@storeprotovaluation'); //send markings to db
     //////////mid presentation/////
     Route::any('midprsentevaluation', 'supevaluationController@midprsentcreate');
-    Route::post('midprsentevaluation','supevaluationController@storemidprsentevaluation');//send markings to db
-    
+    Route::post('midprsentevaluation', 'supevaluationController@storemidprsentevaluation'); //send markings to db
     ///////////mid report////
     Route::any('midreportevaluation', 'supevaluationController@midreportcreate');
-    Route::post('midreportevaluation','supevaluationController@storemidreportvaluation');//send markings to db
-    
+    Route::post('midreportevaluation', 'supevaluationController@storemidreportvaluation'); //send markings to db
     ////////final presentation//////
     Route::any('finalprsentevaluation', 'supevaluationController@finalprsentcreate');
-    Route::post('finalprsentevaluation','supevaluationController@storefinalpresentvaluation');//send markings to db
-    
+    Route::post('finalprsentevaluation', 'supevaluationController@storefinalpresentvaluation'); //send markings to db
     ///////final report///////
     Route::any('finalreportevaluation', 'supevaluationController@finalreportcreate');
-    Route::post('finalreportevaluation','supevaluationController@storefinalreportevaluation');//send markings to db
-    
+    Route::post('finalreportevaluation', 'supevaluationController@storefinalreportevaluation'); //send markings to db
     ///////final status doc///////
     Route::any('finalstatusevaluation', 'supevaluationController@finalstatuscreate');
     //Route::post('propevaluation','supevaluationController@storepropevaluation');//send markings to db
-    
     //////viva///////
     Route::any('vivavaluation', 'supevaluationController@vivacreate');
-    Route::post('vivavaluation','supevaluationController@storevivaevaluation');//send markings to db
-    
+    Route::post('vivavaluation', 'supevaluationController@storevivaevaluation'); //send markings to db
     //////other assessments//////
     Route::any('otherassess', 'supevaluationController@othercreate');
-    Route::post('otherassess','supevaluationController@storeotherevaluation');//send markings to db
-    
+    Route::post('otherassess', 'supevaluationController@storeotherevaluation'); //send markings to db
+
     Route::get('thesisPresentations', 'thesisEvaluationController@viewPresentations');
     Route::get('thesisEvaluationForm/{id}', 'thesisEvaluationController@viewThesisForm');
     Route::post('thesisEvaluationForm/{id}', 'thesisEvaluationController@evaluate');
@@ -391,38 +378,37 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'student'), function
     Route::post('projectReRegistration', 'StudentProposalController@Registration');
     Route::get('report', 'reportController@index');
     Route::get('studentprofile', 'reportController@viewStudentProfile');
-    
-    
-    
+
+
+
     ////////////////////////diluni////////
-     Route::get('dupdate', 'defectsController@createdef');
+    Route::get('dupdate', 'defectsController@createdef');
     Route::get('diaryhome', 'diaryController@create');
     Route::get('tasks', 'diaryController@taskopen');
     Route::post('tasks', 'diaryController@storeTasks');
-   
-    
+
+
     Route::resource('DELETE', 'diaryController@destroy');
     Route::get('DELETE/{id}', 'diaryController@destroy');
-	
-	
+
+
     Route::get('diaryhome', 'defectsController@create');
     Route::get('defects', 'defectsController@defectopen');
     Route::post('defects', 'defectsController@storeDefects');
-    
+
     Route::resource('DELETEdef', 'defectsController@destroy');
     Route::get('DELETEdef/{id}', 'defectsController@destroy');
-    
-   
-    
-    
-    
-    /*if decommented research are delete wont work*/
+
+
+
+
+
+    /* if decommented research are delete wont work */
 //    Route::resource('DELETE', 'diaryController@destroy');
 //    Route::get('DELETE/{id}', 'diaryController@destroy');
-    
 /////////////////////////hiruu////////
-/*grouping*/
-Route::get('grouping', 'GroupController@viewPool');
+    /* grouping */
+    Route::get('grouping', 'GroupController@viewPool');
 
 
 /////////////////////////hiruu////////
@@ -448,7 +434,7 @@ Route::get('password-recover/{code}', array('as' => 'password-recover', 'uses' =
 Route::post('resetpassword', 'AuthenticationController@postResetPassword');
 
 //---hiru-----
-/*invitations accept deny*/
+/* invitations accept deny */
 
 Route::post('invite', 'GroupController@storetoNotifiTable');
 
@@ -472,7 +458,7 @@ Route::post('navigateProposal', 'GroupProfileController@navigateProposal');
 
 Route::post('grpSubmit', 'SubmitProposalController@submitProposal');
 
-/*new*/
+/* new */
 Route::get('renavigateProposal', 'SubmitProposalController@viewProposal');
 /**/
 
@@ -481,119 +467,109 @@ Route::delete('/pendingDel/{id}', function ($id) {
 
     DB::table('invitings')->where('notification_id', '=', $id)->delete();
     DB::table('notifications')->where('id', '=', $id)->delete();
-    /*getting current logged users email*/
+    /* getting current logged users email */
     $currentUserEmail = Sentinel::getUser()["email"];
 
-    /*research id*/
-    $ID = ResearchGroups::where('mails','LIKE', $currentUserEmail.'%')->pluck('id');
+    /* research id */
+    $ID = ResearchGroups::where('mails', 'LIKE', $currentUserEmail . '%')->pluck('id');
 
 
     $invCount = Invitations::where('leaderMail', '=', $currentUserEmail)->count();
-    $memberNames = ResearchGroups::where('mails','Like',$currentUserEmail.'%')->pluck('mails');
+    $memberNames = ResearchGroups::where('mails', 'Like', $currentUserEmail . '%')->pluck('mails');
 
 
     $string_version_names = preg_split("/\//", $memberNames);
 
     $memberCount = sizeof($string_version_names);
 
-    if($invCount == 0 || $memberCount == 1){
+    if ($invCount == 0 || $memberCount == 1) {
         DB::table('students')
-            ->where('email', $currentUserEmail)
-            ->update(['grouped' => NULL, 'role' => NULL ]);
+                ->where('email', $currentUserEmail)
+                ->update(['grouped' => NULL, 'role' => NULL]);
 
         DB::table('research_groups')->where('id', '=', $ID)->delete();
-
     }
 
     return redirect()->action('GroupController@viewPool')->with('flash_message', 'Successfully deleted');
-
-
-
-
 });
 
- Route::delete('/remMember/{id}', function ($id) {
-     /*getting current logged users email*/
-     $currentUserEmail = Sentinel::getUser()["email"];
+Route::delete('/remMember/{id}', function ($id) {
+    /* getting current logged users email */
+    $currentUserEmail = Sentinel::getUser()["email"];
 
-     /*research id*/
-     $ID = ResearchGroups::where('mails','LIKE', $currentUserEmail.'%')->pluck('id');
+    /* research id */
+    $ID = ResearchGroups::where('mails', 'LIKE', $currentUserEmail . '%')->pluck('id');
 
-     /*research group ID*/
-     $groupId = ResearchGroups::where('mails','LIKE', $currentUserEmail.'%')->pluck('groupID');
+    /* research group ID */
+    $groupId = ResearchGroups::where('mails', 'LIKE', $currentUserEmail . '%')->pluck('groupID');
 
-     /*getting member mail*/
-     $toMail = Notifications::where('id','=',$id)->pluck('to_id');
+    /* getting member mail */
+    $toMail = Notifications::where('id', '=', $id)->pluck('to_id');
 
-     /*update member grouped status back to general*/
-     DB::table('students')
-         ->where('email', $toMail)
-         ->update(['grouped' => NULL, 'role' => NULL]);
+    /* update member grouped status back to general */
+    DB::table('students')
+            ->where('email', $toMail)
+            ->update(['grouped' => NULL, 'role' => NULL]);
 
-     /*delete from invitees*/
-     DB::table('invitings')->where('notification_id', '=', $id)->delete();
-
-
-     /*remove member from the research group*/
-     $members = ResearchGroups::where('mails','LIKE',$currentUserEmail.'%')->pluck('mails');
-     $myArray = preg_split("/\//", $members);
-
-     for($count = 0; sizeof($myArray); $count++){
-
-         if($myArray[$count]==$toMail){
-             $index = $count;
-             break;             
-         }
-     }
-
-     /*delete the specific member from the array*/
-     unset($myArray[$index]);
-
-     $newMembers = implode("/",$myArray);
-
-     /*update the members of the research group after deletion*/
-     DB::table('research_groups')
-         ->where('groupID', $groupId)
-         ->update(['mails' => $newMembers]);
-
-     $memberNames = ResearchGroups::where('mails','Like',$currentUserEmail.'%')->pluck('mails');
-
-     $string_version_names = preg_split("/\//", $memberNames);
-
-     $invCount = Invitations::where('leaderMail', '=', $currentUserEmail)->count();
-
-     $memberCount = sizeof($string_version_names);
-
-     if($invCount == 0 && $memberCount == 1){
-         DB::table('students')
-             ->where('email', $currentUserEmail)
-             ->update(['grouped' => NULL, 'role' => NULL]);
-
-         DB::table('research_groups')->where('id', '=', $ID)->delete();
-
-     }
-
-     $fromRegID= Student::where('email','=',$currentUserEmail)->pluck('id');
-     $toRegID= Student::where('email','=',$toMail)->pluck('id');
-
-     $url ='/GroupLeaderToMemberRemoveMember/'.$fromRegID.'/'.$toRegID;
-     Notifynder::category('GroupLeaderToMemberRemoveMember')
-         ->from($currentUserEmail." - ".$groupId)
-         ->to($toMail)
-         ->url($url)
-         ->send();
-
-     return redirect()->action('GroupController@viewPool')->with('flash_message', 'Member was successfully deleted');
+    /* delete from invitees */
+    DB::table('invitings')->where('notification_id', '=', $id)->delete();
 
 
+    /* remove member from the research group */
+    $members = ResearchGroups::where('mails', 'LIKE', $currentUserEmail . '%')->pluck('mails');
+    $myArray = preg_split("/\//", $members);
 
- });
+    for ($count = 0; sizeof($myArray); $count++) {
+
+        if ($myArray[$count] == $toMail) {
+            $index = $count;
+            break;
+        }
+    }
+
+    /* delete the specific member from the array */
+    unset($myArray[$index]);
+
+    $newMembers = implode("/", $myArray);
+
+    /* update the members of the research group after deletion */
+    DB::table('research_groups')
+            ->where('groupID', $groupId)
+            ->update(['mails' => $newMembers]);
+
+    $memberNames = ResearchGroups::where('mails', 'Like', $currentUserEmail . '%')->pluck('mails');
+
+    $string_version_names = preg_split("/\//", $memberNames);
+
+    $invCount = Invitations::where('leaderMail', '=', $currentUserEmail)->count();
+
+    $memberCount = sizeof($string_version_names);
+
+    if ($invCount == 0 && $memberCount == 1) {
+        DB::table('students')
+                ->where('email', $currentUserEmail)
+                ->update(['grouped' => NULL, 'role' => NULL]);
+
+        DB::table('research_groups')->where('id', '=', $ID)->delete();
+    }
+
+    $fromRegID = Student::where('email', '=', $currentUserEmail)->pluck('id');
+    $toRegID = Student::where('email', '=', $toMail)->pluck('id');
+
+    $url = '/GroupLeaderToMemberRemoveMember/' . $fromRegID . '/' . $toRegID;
+    Notifynder::category('GroupLeaderToMemberRemoveMember')
+            ->from($currentUserEmail . " - " . $groupId)
+            ->to($toMail)
+            ->url($url)
+            ->send();
+
+    return redirect()->action('GroupController@viewPool')->with('flash_message', 'Member was successfully deleted');
+});
 
 
 
 
 //-----hiru----
-
 //supervisor Registration for the Accepted external supervisor
 Route::get('rejectsExternalSupervisor/{supervisorid}', 'SupervisorController@confirmSupervisorRegistration');
 

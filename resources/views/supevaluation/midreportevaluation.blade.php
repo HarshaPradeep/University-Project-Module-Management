@@ -98,30 +98,30 @@
         <table class="table table-bordered">
             <tbody style="font-size: 15">                
                 <tr>
-                    <td style="width: 1700px"><strong>Mid Report</strong> (10%)</td>
+                    <td style="width: 1700px"><strong>Mid Report</strong> ({{$los->midreport}}%)</td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"></td>
                     <td style="width: 1000px" title="Excellent (5-4)
 Good (3)
 Average (2)
-Below Average (1-0)">LO 1 * (5%)</td>
+Below Average (1-0)">LO 1 * ({{$los->midrepo1}}%)</td>
                     <td style="width: 1000px" title="Excellent (5-4)
 Good (3)
 Average (2)
-Below Average (1-0)">LO 2 * (5%)</td>
+Below Average (1-0)">LO 2 * ({{$los->midrepo2}}%)</td>
                     <td style="width: 1000px" title="Excellent (50-40)
 Good (39-30)
 Average (29-20)
-Below Average (19-0)">LO 3 * (50%)</td>
+Below Average (19-0)">LO 3 * ({{$los->midrepo3}}%)</td>
                     <td style="width: 1000px" title="Excellent (25-20)
 Good (19-15)
 Average (14-10)
-Below Average (9-0)">LO 4 * (25%)</td>
+Below Average (9-0)">LO 4 * ({{$los->midrepo4}}%)</td>
                     <td style="width: 1000px" title="Excellent (15-12)
 Good (11-9)
 Average (8-6)
-Below Average (5-0)">LO 5 * (15%)</td>
+Below Average (5-0)">LO 5 * ({{$los->midrepo5}}%)</td>
                 </tr>
                 <tr>
                     <td style="width: 1000px"><strong>Comment :</strong></td>
@@ -160,7 +160,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
             <input type="text" name="total" id="totalmem1" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
         &nbsp;
             <div align="right" style="padding-right: 42px">
-        <input type="text"  placeholder="Total (10%)" style="width: 100px; height: 35px" disabled> / 
+        <input type="text"  placeholder="Total ({{$los->midreport}}%)" style="width: 100px; height: 35px" disabled> / 
             <input type="text" name="marksformidreporttab1" id="totalconmem1" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
 <div><textarea name="cmntmem0" rows="4" cols="80" placeholder="Comment" id="cmntmem0"></textarea></div><br>
@@ -177,30 +177,30 @@ Below Average (5-0)">LO 5 * (15%)</td>
         <table class="table table-bordered">
             <tbody style="font-size: 15">                
                 <tr>
-                    <td style="width: 1700px"><strong>Mid Report</strong> (10%)</td>
+                    <td style="width: 1700px"><strong>Mid Report</strong> ({{$los->midreport}}%)</td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"></td>
                     <td style="width: 1000px" title="Excellent (5-4)
 Good (3)
 Average (2)
-Below Average (1-0)">LO 1 * (5%)</td>
+Below Average (1-0)">LO 1 * ({{$los->midrepo1}}%)</td>
                     <td style="width: 1000px" title="Excellent (5-4)
 Good (3)
 Average (2)
-Below Average (1-0)">LO 2 * (5%)</td>
+Below Average (1-0)">LO 2 * ({{$los->midrepo2}}%)</td>
                     <td style="width: 1000px" title="Excellent (50-40)
 Good (39-30)
 Average (29-20)
-Below Average (19-0)">LO 3 * (50%)</td>
+Below Average (19-0)">LO 3 * ({{$los->midrepo3}}%)</td>
                     <td style="width: 1000px" title="Excellent (25-20)
 Good (19-15)
 Average (14-10)
-Below Average (9-0)">LO 4 * (25%)</td>
+Below Average (9-0)">LO 4 * ({{$los->midrepo4}}%)</td>
                     <td style="width: 1000px" title="Excellent (15-12)
 Good (11-9)
 Average (8-6)
-Below Average (5-0)">LO 5 * (15%)</td>
+Below Average (5-0)">LO 5 * ({{$los->midrepo5}}%)</td>
                 </tr>
                 <tr>
                     <td style="width: 1000px"><strong>Comment :</strong></td>
@@ -239,7 +239,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
             <input type="text" name="total" id="totalmem2" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
         &nbsp;
             <div align="right" style="padding-right: 42px">
-        <input type="text"  placeholder="Total (10%)" style="width: 100px; height: 35px" disabled> / 
+        <input type="text"  placeholder="Total ({{$los->midreport}}%)" style="width: 100px; height: 35px" disabled> / 
             <input type="text" name="marksformidreporttab2" id="totalconmem2" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
         <div><textarea name="cmntmem1" rows="4" cols="80" placeholder="Comment" id="cmntmem1"></textarea></div><br>
@@ -256,30 +256,30 @@ Below Average (5-0)">LO 5 * (15%)</td>
         <table class="table table-bordered">
             <tbody style="font-size: 15">                
                 <tr>
-                    <td style="width: 1700px"><strong>Mid Report</strong> (10%)</td>
+                    <td style="width: 1700px"><strong>Mid Report</strong> ({{$los->midreport}}%)</td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"></td>
                     <td style="width: 1000px" title="Excellent (5-4)
 Good (3)
 Average (2)
-Below Average (1-0)">LO 1 * (5%)</td>
+Below Average (1-0)">LO 1 * ({{$los->midrepo1}}%)</td>
                     <td style="width: 1000px" title="Excellent (5-4)
 Good (3)
 Average (2)
-Below Average (1-0)">LO 2 * (5%)</td>
+Below Average (1-0)">LO 2 * ({{$los->midrepo2}}%)</td>
                     <td style="width: 1000px" title="Excellent (50-40)
 Good (39-30)
 Average (29-20)
-Below Average (19-0)">LO 3 * (50%)</td>
+Below Average (19-0)">LO 3 * ({{$los->midrepo3}}%)</td>
                     <td style="width: 1000px" title="Excellent (25-20)
 Good (19-15)
 Average (14-10)
-Below Average (9-0)">LO 4 * (25%)</td>
+Below Average (9-0)">LO 4 * ({{$los->midrepo4}}%)</td>
                     <td style="width: 1000px" title="Excellent (15-12)
 Good (11-9)
 Average (8-6)
-Below Average (5-0)">LO 5 * (15%)</td>
+Below Average (5-0)">LO 5 * ({{$los->midrepo5}}%)</td>
                 </tr>
                 <tr>
                     <td style="width: 1000px"><strong>Comment :</strong></td>
@@ -318,7 +318,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
             <input type="text" name="total" id="totalmem3" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
         &nbsp;
             <div align="right" style="padding-right: 42px">
-        <input type="text"  placeholder="Total (10%)" style="width: 100px; height: 35px" disabled> / 
+        <input type="text"  placeholder="Total ({{$los->midreport}}%)" style="width: 100px; height: 35px" disabled> / 
             <input type="text" name="marksformidreporttab3" id="totalconmem3" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
         <div><textarea name="cmntmem2" rows="4" cols="80" placeholder="Comment" id="cmntmem2"></textarea></div><br>
@@ -335,30 +335,30 @@ Below Average (5-0)">LO 5 * (15%)</td>
         <table class="table table-bordered">
             <tbody style="font-size: 15">                
                 <tr>
-                    <td style="width: 1700px"><strong>Mid Report</strong> (10%)</td>
+                    <td style="width: 1700px"><strong>Mid Report</strong> ({{$los->midreport}}%)</td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"></td>
                     <td style="width: 1000px" title="Excellent (5-4)
 Good (3)
 Average (2)
-Below Average (1-0)">LO 1 * (5%)</td>
+Below Average (1-0)">LO 1 * ({{$los->midrepo1}}%)</td>
                     <td style="width: 1000px" title="Excellent (5-4)
 Good (3)
 Average (2)
-Below Average (1-0)">LO 2 * (5%)</td>
+Below Average (1-0)">LO 2 * ({{$los->midrepo2}}%)</td>
                     <td style="width: 1000px" title="Excellent (50-40)
 Good (39-30)
 Average (29-20)
-Below Average (19-0)">LO 3 * (50%)</td>
+Below Average (19-0)">LO 3 * ({{$los->midrepo3}}%)</td>
                     <td style="width: 1000px" title="Excellent (25-20)
 Good (19-15)
 Average (14-10)
-Below Average (9-0)">LO 4 * (25%)</td>
+Below Average (9-0)">LO 4 * ({{$los->midrepo4}}%)</td>
                     <td style="width: 1000px" title="Excellent (15-12)
 Good (11-9)
 Average (8-6)
-Below Average (5-0)">LO 5 * (15%)</td>
+Below Average (5-0)">LO 5 * ({{$los->midrepo5}}%)</td>
                 </tr>
                 <tr>
                     <td style="width: 1000px"><strong>Comment :</strong></td>
@@ -397,7 +397,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
             <input type="text" name="total" id="totalmem4" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
         &nbsp;
             <div align="right" style="padding-right: 42px">
-        <input type="text"  placeholder="Total (10%)" style="width: 100px; height: 35px" disabled> / 
+        <input type="text"  placeholder="Total ({{$los->midreport}}%)" style="width: 100px; height: 35px" disabled> / 
             <input type="text" name="marksformidreporttab4" id="totalconmem4" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
         <div><textarea name="cmntmem3" rows="4" cols="80" placeholder="Comment" id="cmntmem3"></textarea></div><br>
@@ -414,30 +414,30 @@ Below Average (5-0)">LO 5 * (15%)</td>
         <table class="table table-bordered">
             <tbody style="font-size: 15">                
                 <tr>
-                    <td style="width: 1700px"><strong>Mid Report</strong> (10%)</td>
+                    <td style="width: 1700px"><strong>Mid Report</strong> ({{$los->midreport}}%)</td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"></td>
                     <td style="width: 1000px" title="Excellent (5-4)
 Good (3)
 Average (2)
-Below Average (1-0)">LO 1 * (5%)</td>
+Below Average (1-0)">LO 1 * ({{$los->midrepo1}}%)</td>
                     <td style="width: 1000px" title="Excellent (5-4)
 Good (3)
 Average (2)
-Below Average (1-0)">LO 2 * (5%)</td>
+Below Average (1-0)">LO 2 * ({{$los->midrepo2}}%)</td>
                     <td style="width: 1000px" title="Excellent (50-40)
 Good (39-30)
 Average (29-20)
-Below Average (19-0)">LO 3 * (50%)</td>
+Below Average (19-0)">LO 3 * ({{$los->midrepo3}}%)</td>
                     <td style="width: 1000px" title="Excellent (25-20)
 Good (19-15)
 Average (14-10)
-Below Average (9-0)">LO 4 * (25%)</td>
+Below Average (9-0)">LO 4 * ({{$los->midrepo4}}%)</td>
                     <td style="width: 1000px" title="Excellent (15-12)
 Good (11-9)
 Average (8-6)
-Below Average (5-0)">LO 5 * (15%)</td>
+Below Average (5-0)">LO 5 * ({{$los->midrepo5}}%)</td>
                 </tr>
                 <tr>
                     <td style="width: 1000px"><strong>Comment :</strong></td>
@@ -476,7 +476,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
             <input type="text" name="total" id="totalmem5" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
         &nbsp;
             <div align="right" style="padding-right: 42px">
-        <input type="text"  placeholder="Total (10%)" style="width: 100px; height: 35px" disabled> / 
+        <input type="text"  placeholder="Total ({{$los->midreport}}%)" style="width: 100px; height: 35px" disabled> / 
             <input type="text" name="marksformidreporttab5" id="totalconmem5" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
 <div><textarea name="cmntmem4" rows="4" cols="80" placeholder="Comment" id="cmntmem4"></textarea></div><br>
@@ -503,6 +503,12 @@ Below Average (5-0)">LO 5 * (15%)</td>
  var objid;
  var whtlo = 'lo1';
  var whtmem = 'mem1';
+ var lo1val;
+ var lo2val;
+ var lo3val;
+ var lo4val;
+ var lo5val;
+ var midreport;
  
  function getselected(thisperson)
  {
@@ -572,7 +578,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
             $(".lo1"+whtmem).each(function () {
                 if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-                var marks = (parseInt($(this).val())/100)*5;          
+                var marks = (parseInt($(this).val())/100)* lo1val;          
                 total += !isNaN(marks) ? marks : 0;
 
             });
@@ -586,7 +592,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
             $(".lo2"+whtmem).each(function () {
                 if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-                var marks = (parseInt($(this).val())/100)*5;
+                var marks = (parseInt($(this).val())/100)* lo2val;
                 total += !isNaN(marks) ? marks : 0;
 
             });
@@ -600,7 +606,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
             $(".lo3"+whtmem).each(function () {
                 if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-                var marks = (parseInt($(this).val())/100)*50;
+                var marks = (parseInt($(this).val())/100)* lo3val;
                 total += !isNaN(marks) ? marks : 0;
 
             });
@@ -614,7 +620,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
             $(".lo4"+whtmem).each(function () {
                 if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-                var marks = (parseInt($(this).val())/100)*25;
+                var marks = (parseInt($(this).val())/100)* lo4val;
                 total += !isNaN(marks) ? marks : 0;
 
             });
@@ -628,7 +634,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
             $(".lo5"+whtmem).each(function () {
                 if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-                var marks = (parseInt($(this).val())/100)*15;
+                var marks = (parseInt($(this).val())/100)* lo5val;
                 total += !isNaN(marks) ? marks : 0;
 
             });
@@ -657,6 +663,12 @@ Below Average (5-0)">LO 5 * (15%)</td>
             document.getElementById('protitle').value = data['title'];
             document.getElementById('proid').value = data['pid'];
             document.getElementById('stuid').value = data['ledrid'];
+            lo1val = data['los']['midrepo1'];
+            lo2val = data['los']['midrepo2'];
+            lo3val = data['los']['midrepo3'];
+            lo4val = data['los']['midrepo4'];
+            lo5val = data['los']['midrepo5'];
+            midreport = data['los']['midreport'];
             
 //            if(data['ids'].length === 4)
 //            {
@@ -738,7 +750,7 @@ function getTotal()
 
     $('#total'+whtmem).val((Math.round((first2 + second2 + third1) * 10) / 10));
     
-    $('#totalcon'+whtmem).val(((first2 + second2 + third1) / 100) * 10);
+    $('#totalcon'+whtmem).val(((first2 + second2 + third1) / 100) * midreport);
 }
 
 function disabledBoxchangedforconv()

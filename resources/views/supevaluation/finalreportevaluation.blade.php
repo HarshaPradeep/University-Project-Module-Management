@@ -98,31 +98,31 @@
         <table class="table table-bordered">
             <tbody style="font-size: 15">                
                 <tr>
-                    <td style="width: 1700px"><strong>Final Report</strong> (5%)</td>
+                    <td style="width: 1700px"><strong>Final Report</strong> ({{$los->finalreport}}%)</td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"></td>
                     <td style="width: 1000px" title="Excellent (5-4)
 Good (3)
 Average (2)
-Below Average (1-0)">LO 1 * (5%)</td>
+Below Average (1-0)">LO 1 * ({{$los->finalrepolo1}}%)</td>
                     <td style="width: 1000px" title="Excellent (5-4)
 Good (3)
 Average (2)
-Below Average (1-0)">LO 2 * (5%)</td>
+Below Average (1-0)">LO 2 * ({{$los->finalrepolo2}}%)</td>
                     <td style="width: 1000px" title="Excellent (50-40)
 Good (39-30)
 Average (29-20)
-Below Average (19-0)">LO 3 * (50%)</td>
+Below Average (19-0)">LO 3 * ({{$los->finalrepolo3}}%)</td>
                     <td style="width: 1000px" title="Excellent (25-20)
 Good (19-15)
 Average (14-10)
-Below Average (9-0)">LO 4 * (25%)</td>
+Below Average (9-0)">LO 4 * ({{$los->finalrepolo4}}%)</td>
                     <td style="width: 1000px" title="Excellent (15-12)
 Good (11-9)
 Average (8-6)
-Below Average (5-0)">LO 5 * (15%)</td>
-                    <td style="width: 1000px">Status Document (2%)</td>
+Below Average (5-0)">LO 5 * ({{$los->finalrepolo5}}%)</td>
+                    <td style="width: 1000px">Status Document ({{$los->finalstatusdoc}}%)</td>
                 </tr>
                 <tr>
                     <td style="width: 1000px"><strong>Comment :</strong></td>
@@ -164,7 +164,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
             <input type="text" name="total" id="totalmem1" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
         &nbsp;
             <div align="right" style="padding-right: 42px">
-        <input type="text"  placeholder="Total (5%)" style="width: 100px; height: 35px" disabled> / 
+        <input type="text"  placeholder="Total ({{$los->finalreport}}%)" style="width: 100px; height: 35px" disabled> / 
             <input type="text" name="marksforfinalreporttab1" id="totalconmem1" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
 <div><textarea name="cmntmem0" rows="4" cols="80" placeholder="Comment" id="cmntmem0"></textarea></div><br>
@@ -181,31 +181,31 @@ Below Average (5-0)">LO 5 * (15%)</td>
         <table class="table table-bordered">
             <tbody style="font-size: 15">                
                 <tr>
-                    <td style="width: 1700px"><strong>Final Report</strong> (5%)</td>
+                    <td style="width: 1700px"><strong>Final Report</strong> ({{$los->finalreport}}%)</td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"></td>
                     <td style="width: 1000px" title="Excellent (5-4)
 Good (3)
 Average (2)
-Below Average (1-0)">LO 1 * (5%)</td>
+Below Average (1-0)">LO 1 * ({{$los->finalrepolo1}}%)</td>
                     <td style="width: 1000px" title="Excellent (5-4)
 Good (3)
 Average (2)
-Below Average (1-0)">LO 2 * (5%)</td>
+Below Average (1-0)">LO 2 * ({{$los->finalrepolo2}}%)</td>
                     <td style="width: 1000px" title="Excellent (50-40)
 Good (39-30)
 Average (29-20)
-Below Average (19-0)">LO 3 * (50%)</td>
+Below Average (19-0)">LO 3 * ({{$los->finalrepolo3}}%)</td>
                     <td style="width: 1000px" title="Excellent (25-20)
 Good (19-15)
 Average (14-10)
-Below Average (9-0)">LO 4 * (25%)</td>
+Below Average (9-0)">LO 4 * ({{$los->finalrepolo4}}%)</td>
                     <td style="width: 1000px" title="Excellent (15-12)
 Good (11-9)
 Average (8-6)
-Below Average (5-0)">LO 5 * (15%)</td>
-                    <td style="width: 1000px">Status Document (2%)</td>
+Below Average (5-0)">LO 5 * ({{$los->finalrepolo5}}%)</td>
+                    <td style="width: 1000px">Status Document ({{$los->finalstatusdoc}}%)</td>
                 </tr>
                 <tr>
                     <td style="width: 1000px"><strong>Comment :</strong></td>
@@ -247,7 +247,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
             <input type="text" name="total" id="totalmem2" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
         &nbsp;
             <div align="right" style="padding-right: 42px">
-        <input type="text"  placeholder="Total (5%)" style="width: 100px; height: 35px" disabled> / 
+        <input type="text"  placeholder="Total ({{$los->finalreport}}%)" style="width: 100px; height: 35px" disabled> / 
             <input type="text" name="marksforfinalreporttab2" id="totalconmem2" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
         <div><textarea name="cmntmem1" rows="4" cols="80" placeholder="Comment" id="cmntmem1"></textarea></div><br>
@@ -264,31 +264,31 @@ Below Average (5-0)">LO 5 * (15%)</td>
         <table class="table table-bordered">
             <tbody style="font-size: 15">                
                 <tr>
-                    <td style="width: 1700px"><strong>Final Report</strong> (5%)</td>
+                    <td style="width: 1700px"><strong>Final Report</strong> ({{$los->finalreport}}%)</td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"></td>
                     <td style="width: 1000px" title="Excellent (5-4)
 Good (3)
 Average (2)
-Below Average (1-0)">LO 1 * (5%)</td>
+Below Average (1-0)">LO 1 * ({{$los->finalrepolo1}}%)</td>
                     <td style="width: 1000px" title="Excellent (5-4)
 Good (3)
 Average (2)
-Below Average (1-0)">LO 2 * (5%)</td>
+Below Average (1-0)">LO 2 * ({{$los->finalrepolo2}}%)</td>
                     <td style="width: 1000px" title="Excellent (50-40)
 Good (39-30)
 Average (29-20)
-Below Average (19-0)">LO 3 * (50%)</td>
+Below Average (19-0)">LO 3 * ({{$los->finalrepolo3}}%)</td>
                     <td style="width: 1000px" title="Excellent (25-20)
 Good (19-15)
 Average (14-10)
-Below Average (9-0)">LO 4 * (25%)</td>
+Below Average (9-0)">LO 4 * ({{$los->finalrepolo4}}%)</td>
                     <td style="width: 1000px" title="Excellent (15-12)
 Good (11-9)
 Average (8-6)
-Below Average (5-0)">LO 5 * (15%)</td>
-                    <td style="width: 1000px">Status Document (2%)</td>
+Below Average (5-0)">LO 5 * ({{$los->finalrepolo5}}%)</td>
+                    <td style="width: 1000px">Status Document ({{$los->finalstatusdoc}}%)</td>
                 </tr>
                 <tr>
                     <td style="width: 1000px"><strong>Comment :</strong></td>
@@ -330,7 +330,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
             <input type="text" name="total" id="totalmem3" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
         &nbsp;
             <div align="right" style="padding-right: 42px">
-        <input type="text"  placeholder="Total (5%)" style="width: 100px; height: 35px" disabled> / 
+        <input type="text"  placeholder="Total ({{$los->finalreport}}%)" style="width: 100px; height: 35px" disabled> / 
             <input type="text" name="marksforfinalreporttab3" id="totalconmem3" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
         <div><textarea name="cmntmem2" rows="4" cols="80" placeholder="Comment" id="cmntmem2"></textarea></div><br>
@@ -347,31 +347,31 @@ Below Average (5-0)">LO 5 * (15%)</td>
         <table class="table table-bordered">
             <tbody style="font-size: 15">                
                 <tr>
-                    <td style="width: 1700px"><strong>Final Report</strong> (5%)</td>
+                    <td style="width: 1700px"><strong>Final Report</strong> ({{$los->finalreport}}%)</td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"></td>
                     <td style="width: 1000px" title="Excellent (5-4)
 Good (3)
 Average (2)
-Below Average (1-0)">LO 1 * (5%)</td>
+Below Average (1-0)">LO 1 * ({{$los->finalrepolo1}}%)</td>
                     <td style="width: 1000px" title="Excellent (5-4)
 Good (3)
 Average (2)
-Below Average (1-0)">LO 2 * (5%)</td>
+Below Average (1-0)">LO 2 * ({{$los->finalrepolo2}}%)</td>
                     <td style="width: 1000px" title="Excellent (50-40)
 Good (39-30)
 Average (29-20)
-Below Average (19-0)">LO 3 * (50%)</td>
+Below Average (19-0)">LO 3 * ({{$los->finalrepolo3}}%)</td>
                     <td style="width: 1000px" title="Excellent (25-20)
 Good (19-15)
 Average (14-10)
-Below Average (9-0)">LO 4 * (25%)</td>
+Below Average (9-0)">LO 4 * ({{$los->finalrepolo4}}%)</td>
                     <td style="width: 1000px" title="Excellent (15-12)
 Good (11-9)
 Average (8-6)
-Below Average (5-0)">LO 5 * (15%)</td>
-                    <td style="width: 1000px">Status Document (2%)</td>
+Below Average (5-0)">LO 5 * ({{$los->finalrepolo5}}%)</td>
+                    <td style="width: 1000px">Status Document ({{$los->finalstatusdoc}}%)</td>
                 </tr>
                 <tr>
                     <td style="width: 1000px"><strong>Comment :</strong></td>
@@ -413,7 +413,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
             <input type="text" name="total" id="totalmem4" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
         &nbsp;
             <div align="right" style="padding-right: 42px">
-        <input type="text"  placeholder="Total (5%)" style="width: 100px; height: 35px" disabled> / 
+        <input type="text"  placeholder="Total ({{$los->finalreport}}%)" style="width: 100px; height: 35px" disabled> / 
             <input type="text" name="marksforfinalreporttab4" id="totalconmem4" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
         <div><textarea name="cmntmem3" rows="4" cols="80" placeholder="Comment" id="cmntmem3"></textarea></div><br>
@@ -430,31 +430,31 @@ Below Average (5-0)">LO 5 * (15%)</td>
         <table class="table table-bordered">
             <tbody style="font-size: 15">                
                 <tr>
-                    <td style="width: 1700px"><strong>Final Report</strong> (5%)</td>
+                    <td style="width: 1700px"><strong>Final Report</strong> ({{$los->finalreport}}%)</td>
                 </tr> 
                 <tr>
                     <td style="width: 1000px"></td>
                     <td style="width: 1000px" title="Excellent (5-4)
 Good (3)
 Average (2)
-Below Average (1-0)">LO 1 * (5%)</td>
+Below Average (1-0)">LO 1 * ({{$los->finalrepolo1}}%)</td>
                     <td style="width: 1000px" title="Excellent (5-4)
 Good (3)
 Average (2)
-Below Average (1-0)">LO 2 * (5%)</td>
+Below Average (1-0)">LO 2 * ({{$los->finalrepolo2}}%)</td>
                     <td style="width: 1000px" title="Excellent (50-40)
 Good (39-30)
 Average (29-20)
-Below Average (19-0)">LO 3 * (50%)</td>
+Below Average (19-0)">LO 3 * ({{$los->finalrepolo3}}%)</td>
                     <td style="width: 1000px" title="Excellent (25-20)
 Good (19-15)
 Average (14-10)
-Below Average (9-0)">LO 4 * (25%)</td>
+Below Average (9-0)">LO 4 * ({{$los->finalrepolo4}}%)</td>
                     <td style="width: 1000px" title="Excellent (15-12)
 Good (11-9)
 Average (8-6)
-Below Average (5-0)">LO 5 * (15%)</td>
-                    <td style="width: 1000px">Status Document (2%)</td>
+Below Average (5-0)">LO 5 * ({{$los->finalrepolo5}}%)</td>
+                    <td style="width: 1000px">Status Document ({{$los->finalstatusdoc}}%)</td>
                 </tr>
                 <tr>
                     <td style="width: 1000px"><strong>Comment :</strong></td>
@@ -496,7 +496,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
             <input type="text" name="total" id="totalmem5" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
         &nbsp;
             <div align="right" style="padding-right: 42px">
-        <input type="text"  placeholder="Total (5%)" style="width: 100px; height: 35px" disabled> / 
+        <input type="text"  placeholder="Total ({{$los->finalreport}}%)" style="width: 100px; height: 35px" disabled> / 
             <input type="text" name="marksforfinalreporttab5" id="totalconmem5" style="width: 50px; ; height: 35px" readonly placeholder="0"> <b>Marks</b></div>
 <br>
 <div><textarea name="cmntmem4" rows="4" cols="80" placeholder="Comment" id="cmntmem4"></textarea></div><br>
@@ -523,7 +523,14 @@ Below Average (5-0)">LO 5 * (15%)</td>
  var objid;
  var whtlo = 'lo1';
  var whtmem = 'mem1';
- 
+ var lo1val;
+ var lo2val;
+ var lo3val;
+ var lo4val;
+ var lo5val;
+ var lo6val;
+ var finalreport;
+  
  function getselected(thisperson)
  {
     document.getElementById('stuid').value = document.getElementById(thisperson.getAttribute('id')).innerHTML;
@@ -592,7 +599,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
             $(".lo1"+whtmem).each(function () {
                 if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-                var marks = (parseInt($(this).val())/100)*5;          
+                var marks = (parseInt($(this).val())/100)* lo1val;          
                 total += !isNaN(marks) ? marks : 0;
 
             });
@@ -606,7 +613,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
             $(".lo2"+whtmem).each(function () {
                 if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-                var marks = (parseInt($(this).val())/100)*5;
+                var marks = (parseInt($(this).val())/100)* lo2val;
                 total += !isNaN(marks) ? marks : 0;
 
             });
@@ -620,7 +627,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
             $(".lo3"+whtmem).each(function () {
                 if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-                var marks = (parseInt($(this).val())/100)*50;
+                var marks = (parseInt($(this).val())/100)* lo3val;
                 total += !isNaN(marks) ? marks : 0;
 
             });
@@ -634,7 +641,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
             $(".lo4"+whtmem).each(function () {
                 if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-                var marks = (parseInt($(this).val())/100)*25;
+                var marks = (parseInt($(this).val())/100)* lo4val;
                 total += !isNaN(marks) ? marks : 0;
 
             });
@@ -648,7 +655,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
             $(".lo5"+whtmem).each(function () {
                 if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-                var marks = (parseInt($(this).val())/100)*15;
+                var marks = (parseInt($(this).val())/100)* lo5val;
                 total += !isNaN(marks) ? marks : 0;
 
             });
@@ -662,7 +669,7 @@ Below Average (5-0)">LO 5 * (15%)</td>
             $(".lo6"+whtmem).each(function () {
                 if(parseInt($(this).val()) > 100 || parseInt($(this).val()) < 0)
                     swal("Failed", "This Value Cannot be Accepted! :)", "error");
-                var marks = (parseInt($(this).val())/100)*2;
+                var marks = (parseInt($(this).val())/100)* lo6val;
                 total += !isNaN(marks) ? marks : 0;
 
             });
@@ -691,6 +698,13 @@ Below Average (5-0)">LO 5 * (15%)</td>
             document.getElementById('protitle').value = data['title'];
             document.getElementById('proid').value = data['pid'];
             document.getElementById('stuid').value = data['ledrid'];
+            lo1val = data['los']['finalrepolo1'];
+            lo2val = data['los']['finalrepolo2'];
+            lo3val = data['los']['finalrepolo3'];
+            lo4val = data['los']['finalrepolo4'];
+            lo5val = data['los']['finalrepolo5'];
+            lo6val = data['los']['finalstatusdoc'];
+            finalreport = data['los']['finalreport'];
             
 //            if(data['ids'].length === 4)
 //            {
@@ -772,7 +786,7 @@ function getTotal()
 
     $('#total'+whtmem).val((Math.round((first2 + second2 + third1) * 10) / 10));
     
-    $('#totalcon'+whtmem).val(((first2 + second2 + third1) / 100) * 5);
+    $('#totalcon'+whtmem).val(((first2 + second2 + third1) / 100) * finalreport);
 }
 
 function disabledBoxchangedforconv()
