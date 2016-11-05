@@ -71,7 +71,7 @@
                                         'class'=>'wizard-big', 'id'=>'navigateProposal', 'enctype'=>'multipart/form-data' )) !!}
                         <fieldset>
                             <button type="submit"
-                                    class="btn btn-primary" rel="tooltip" title="Submit a group Project Propopsal">
+                                    class="btn btn-primary" rel="tooltip" title="Submit a group Project Proposal">
                                 <span class="glyphicon glyphicon-chevron-right"></span>Submit Project Charter</button>
                             <input id="groupID" type="hidden" name="groupID" value="{{$groupId}}">
                         </fieldset>
@@ -100,7 +100,7 @@
 
 <br><br>
             <div style="float: left; margin-left: 836px;margin-top: 0">
-                {!! Form::open(array('url'=>'groupDelete','method'=>'POST',
+                {!! Form::open(array('url'=>'groupDeleteLead','method'=>'POST',
                 'class'=>'wizard-big', 'id'=>'groupDeleteform', 'enctype'=>'multipart/form-data' )) !!}
                 <fieldset>
                     <button type="button"
