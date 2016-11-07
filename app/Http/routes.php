@@ -223,6 +223,16 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
         DB::table('students')
                 ->where('email', $id)
                 ->update(['grouped' => NULL, 'role' => NULL]);
+        
+        $fromRegID= Student::where('email','=',$leadermail)->pluck('id');
+        $toRegID= Student::where('email','=',$id)->pluck('id');
+
+            $url ='/GroupLeaderToMemberRemoveMember/'.$fromRegID.'/'.$toRegID;
+            Notifynder::category('GroupLeaderToMemberRemoveMember')
+                ->from($leadermail." - ".$groupId)
+                ->to($id)
+                ->url($url)
+                ->send();
 
         return redirect()->action(
                         'GroupManageController@viewGroup', ['groupId' => $groupId]
