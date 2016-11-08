@@ -30,7 +30,7 @@ class supevaluationController extends Controller {
      *
      * @return Response
      */
-    /* Proposal */
+    /* Proposal Prsentation*/
     public function createproppresen() {
         /* Get all supervisor names acording to the supervisor id */
         $supervisaornames = DB::select("SELECT name,id 
@@ -56,9 +56,11 @@ class supevaluationController extends Controller {
 		 WHERE status = 'Approved' and groupID = any (SELECT groupID 
 		 FROM research_groups)");
 
+        /*get all collumn's values in the settings table*/
         $los = DB::table('settings')->first();
 
-        return view('supevaluation.propevaluation', compact('students', 'supervisaornames', 'studentid', 'groupids', 'los'));
+        return view('supevaluation.propevaluation', compact('students',
+                'supervisaornames', 'studentid', 'groupids', 'los'));
     }
 
     public function createproreport() {
@@ -362,18 +364,16 @@ class supevaluationController extends Controller {
     }
 
     function searchforStudents() {
-
+        /* get group id that comes along with the ajax call from view */
         $searchId = Input::get('sid');
 
-        /* get project title according to the student's id */
-        //$protitle = \App\Evaluation::where('studentId', $searchId)->pluck('title');
+        /* get project title according to the group's id */
         $protitle = DB::table('projects')
                 ->where('groupID', $searchId)
                 ->Where('status', 'Approved')
                 ->pluck('title');
 
-        /* get project id according to the student's id */
-        //$proid = \App\Evaluation::where('studentId', $searchId)->pluck('id');
+        /* get project id according to the group's id */
         $proid = DB::table('projects')
                 ->where('title', $protitle)
                 ->Where('status', 'Approved')
@@ -385,13 +385,9 @@ class supevaluationController extends Controller {
                 ->pluck('mails');
 
         $explodedemails = explode("/", $groupmails);
-
-//        $idss= DB::table('students')
-//                        ->where('email', $explodedemails)
-//                        ->pluck('regId');
-
         $sendids = '';
         $sendnames = '';
+        
         foreach ($explodedemails as $mail) {
             $id = (DB::table('students')
                             ->where('email', $mail)
@@ -405,13 +401,14 @@ class supevaluationController extends Controller {
                             ->pluck('name'));
             $sendnames .= $stuname . '/';
         }
-
+        
         $explodedsendids = explode("/", rtrim($sendids, "/"));
         $explodedsendnames = explode("/", rtrim($sendnames, "/"));
-
         $los = DB::table('settings')->first();
-
-        $data = array("title" => $protitle, "pid" => $proid, "sname" => $explodedsendnames, "noofstu" => sizeof($explodedemails), "ids" => $explodedsendids, "ledrid" => $explodedsendids[0], "los" => $los);
+        
+        $data = array("title" => $protitle, "pid" => $proid, "sname" => $explodedsendnames,
+            "noofstu" => sizeof($explodedemails), "ids" => $explodedsendids,
+            "ledrid" => $explodedsendids[0], "los" => $los);
         return json_encode($data);
     }
 
@@ -420,16 +417,23 @@ class supevaluationController extends Controller {
      *
      * @return Response
      */
-    /* Proposal Prsentataion */
+    /* Proposal Prsentataion evaluation marks add to the database */
     public function storepropevaluation() {
+        
+        /* Check whether 1st tab is opened or not by getting its id, if its null then this tab is not opened */
+        /* and check for the studnt's status, present or absent*/
         if (Request::get('cmntmem0') != null && Input::get('statustab1') != "Absent") {
+            
+            /* if evaluation marks table doesn't contain a perticular student's id,
+             *  then that id will add as a new tuple with other necessary details */
             if (!(EvaluationMarks::where('stuid', '=', Request::get('cmntmem0'))->exists())) {
                 EvaluationMarks::create([
                     'stugrpid' => Input::get('selectid'),
                     'stuid' => Request::get('cmntmem0')
                 ]);
             }
-
+            
+            /* if student's id is in the table alredy then these data will update that tuple */
             EvaluationMarks::where('stuid', Request::get('cmntmem0'))
                     ->update([
                         'proposalpresent' => Request::get('marksforproposalpresenttab1'),
