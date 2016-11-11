@@ -115,8 +115,9 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
     Route::get('addResearchArea', 'AddResearchArea@add_research_area');
     Route::post('addResearchArea', 'AddResearchArea@storeResearchArea');
 
-    Route::resource('DELETE', 'AddResearchArea@destroy');
-    Route::get('DELETE/{id}', 'AddResearchArea@destroy');
+    /*uncomment this*/
+//    Route::resource('DELETE', 'AddResearchArea@destroy');
+//    Route::get('DELETE/{id}', 'AddResearchArea@destroy');
 
     //Route::resource('addResearchArea/{id}', 'AddResearchArea@destroy');
     //evaluationform routes added by harsha///////////////////////////////
@@ -364,6 +365,13 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'panelmember'), func
     Route::get('studentinfo', 'reportController@studentInfo');
     Route::post('studentinfo', 'reportController@viewStudentDetails');
     Route::get('downloadthesis', 'reportController@downloadThesis');
+    
+    ////////////////////diluni///////////
+    
+    Route::get('taskSupervisor', 'allocationController@viewtask_allocation');
+    Route::post('taskSupervisor', 'allocationController@addtask_allocation');
+    
+    
 });
 
 Route::group(array('middleware' => 'guest', 'middleware' => 'student'), function() {
@@ -392,30 +400,32 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'student'), function
 
 
     ////////////////////////diluni////////
-    Route::get('dupdate', 'defectsController@createdef');
+    Route::get('defects/{id}', 'defectsController@createdef');
+    Route::get('tasks/{id}', 'diaryController@createtas');
+	Route::get('analysis', 'diaryController@createchrt');
+    Route::post('analysis/getdata' , 'diaryController@getdata');
+
+    Route::post('dupdate/{id}', 'defectsController@updateDefect');
+    Route::post('tupdate/{id}', 'diaryController@updateTask');
+
     Route::get('diaryhome', 'diaryController@create');
     Route::get('tasks', 'diaryController@taskopen');
     Route::post('tasks', 'diaryController@storeTasks');
-
-
-    Route::resource('DELETE', 'diaryController@destroy');
-    Route::get('DELETE/{id}', 'diaryController@destroy');
-
-
+   
+   
     Route::get('diaryhome', 'defectsController@create');
     Route::get('defects', 'defectsController@defectopen');
     Route::post('defects', 'defectsController@storeDefects');
-
+    
     Route::resource('DELETEdef', 'defectsController@destroy');
     Route::get('DELETEdef/{id}', 'defectsController@destroy');
+   
+    
+    Route::resource('DELETE', 'diaryController@destroy');
+    Route::get('DELETE/{id}', 'diaryController@destroy');
+    Route::get('diaryhome', 'allocationController@viewAllocation');
 
 
-
-
-
-    /* if decommented research are delete wont work */
-//    Route::resource('DELETE', 'diaryController@destroy');
-//    Route::get('DELETE/{id}', 'diaryController@destroy');
 /////////////////////////hiruu////////
     /* grouping */
     Route::get('grouping', 'GroupController@viewPool');
