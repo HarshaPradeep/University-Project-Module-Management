@@ -228,10 +228,10 @@
                         </ul>
                     </li>
 
-                    <li>
+<!--                    <li>
                         <a href="/viewSubmissions"><i class="fa fa-th-large"></i> <span class="nav-label">Student Submissions</span> </a>
 
-                    </li>
+                    </li>-->
                     
                     <!--                Harsha added - evaluation -->
                     <li>
