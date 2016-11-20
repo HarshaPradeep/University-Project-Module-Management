@@ -175,6 +175,10 @@
                                 <li ><a href="/vivavaluation">Viva</a></li>
                                 <li ><a href="/otherassess">Other Assessments</a>
                                 </li>
+                                <li>
+                    <a href="/message"><i class="fa fa-th-large"></i> <span class="nav-label">Messages</span> </a>
+
+                </li>
                             </ul>
                         </li>
                     </ul>
