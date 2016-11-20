@@ -98,6 +98,20 @@
                     <a href="/diaryhome"><i class="fa fa-th-large"></i> <span class="nav-label">Project Diary</span> </a>
 
                 </li>
+                 <li>
+                    <a href="/viewNewsTopics"><i class="fa fa-th-large"></i> <span class="nav-label">News Forum</span> </a>
+
+                </li>
+
+                <li>
+                    <a href="/viewTopics"><i class="fa fa-th-large"></i> <span class="nav-label">Group Forum</span> </a>
+
+                </li>
+
+                <li>
+                    <a href="/message"><i class="fa fa-th-large"></i> <span class="nav-label">Messages</span> </a>
+
+                </li>
             </ul>
 
         </div>
