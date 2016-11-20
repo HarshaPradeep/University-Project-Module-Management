@@ -172,7 +172,7 @@
                             <td> {{ $defectd->edate }} </td>
                             <td> {{ $defectd->hours }} </td>
                             <td>
-                                {!! Form::open(['method' => 'DELETE', 'id' => 'deleteForm', 'action' => ['diaryController@destroy', $defectd->id ]]) !!}
+                                {!! Form::open(['method' => 'DELETEdef', 'id' => 'deleteForm', 'action' => ['defectsController@destroy', $defectd->id ]]) !!}
                                 <center>
 
                                     {!! Form::button( '<i class="fa fa-trash fa-lg" title="Delete"></i>',

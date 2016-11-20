@@ -185,7 +185,7 @@ $(document).ready(function () {
         dataType: 'json'
         
         }).done(function (data) { 
-console.log(data);
+//console.log(data);
             var pdata = [
             {
                 value: data.whogotA,

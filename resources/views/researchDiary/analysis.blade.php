@@ -157,60 +157,34 @@
 
 
 $(document).ready(function () {
-
-
-        //var data = getData();
-
-       // console.log(data);
-
-		 <!--Task chart-->
-        var pdata = [
-            {
-                value: 3,
-                color: "#46BFBD",
-                highlight: "#5AD3D1",
-                label: "Not Start"
-            },
-            {
-                value: 4,
-                color: "#FDB45C",
-                highlight: "#FFC870",
-                label: "Start"
-            },
-            {
-                value:4,
-                color:"#F7464A",
-                highlight: "#FF5A5E",
-                label: "Finish"
-            }
-        ];
-
-        var chartOptions = {
-
-                    };
-        var cpie = document.getElementById("cpie").getContext("2d");
-        new Chart(cpie).Pie(pdata, chartOptions);
-
-         <!-- Defect chart -->
+    
+            $.ajax({
+            type: "POST",
+            url:"analysis/getdata",
+            success: function (data) {
+                console.log(data);
+                console.log(data.start);
+                
+                <!-- Defect chart -->
 
         //var data = getData();
       //  console.log(data.start);
 
         var pdata = [
             {
-                value: 3,
+                value: data.not_start,
                 color: "#46BFBD",
                 highlight: "#5AD3D1",
                 label: "Not Start"
             },
             {
-                value: 5,
+                value: data.start,
                 color: "#FDB45C",
                 highlight: "#FFC870",
                 label: "Start"
             },
             {
-                value: 4,
+                value: data.finish,
                 color:"#F7464A",
                 highlight: "#FF5A5E",
                 label: "Finish"
@@ -221,22 +195,46 @@ $(document).ready(function () {
                     };
         var cpie1 = document.getElementById("cpie1").getContext("2d");
         new Chart(cpie1).Pie(pdata, chartOptions);
+        
+        
+        <!--Task chart-->
+        var pdata = [
+            {
+                value: data.t_not_start,
+                color: "#46BFBD",
+                highlight: "#5AD3D1",
+                label: "Not Start"
+            },
+            {
+                value: data.t_start,
+                color: "#FDB45C",
+                highlight: "#FFC870",
+                label: "Start"
+            },
+            {
+                value:data.t_finish,
+                color:"#F7464A",
+                highlight: "#FF5A5E",
+                label: "Finish"
+            }
+        ];
+
+        var chartOptions = {
+
+                    };
+        var cpie = document.getElementById("cpie").getContext("2d");
+        new Chart(cpie).Pie(pdata, chartOptions);       
+        
+                
+            }
+
+        });       
 });
 
 
 
-    function getData(){
-        $.ajax({
-            type: "POST",
-            url:"analysis/getdata",
-            success: function (data) {
-                console.log(data);
-                console.log(data.start);
-                return data;
-            }
+     
 
-        });
-    }
 
 
 

@@ -35,14 +35,20 @@ class diaryController extends Controller {
 	public function getdata(){
 
 
-	    $id = Student::where('email',Sentinel::getUser()->email)->get()[0]->regId;
+	$id = Student::where('email',Sentinel::getUser()->email)->get()[0]->regId;
         $groupid = defect::where('studentId' , $id )->get()[0]->groupId;
 
-	    $start =  defect::where(['state' => 'Start', 'groupId' => $groupid])->count();
+	$start =  defect::where(['state' => 'Start', 'groupId' => $groupid])->count();
         $finish =  defect::where(['state' => 'Finish', 'groupId' => $groupid])->count();
         $not_start =  defect::where(['state' => 'Not Start', 'groupId' => $groupid])->count();
+        
+        $t_groupid = task::where('studentId' , $id )->get()[0]->groupId;
 
-        return response()->json(["start" => $start, 'not_start' => $not_start , 'finish' => $finish]);
+	$t_start =  task::where(['state' => 'Start', 'groupId' => $t_groupid])->count();
+        $t_finish =  task::where(['state' => 'Finish', 'groupId' => $t_groupid])->count();
+        $t_not_start =  task::where(['state' => 'Not Start', 'groupId' => $t_groupid])->count();
+
+        return response()->json(["start" => $start, 'not_start' => $not_start , 'finish' => $finish, "t_start" => $t_start, 't_not_start' => $t_not_start , 't_finish' => $t_finish]);
 
     }
 
@@ -98,7 +104,7 @@ class diaryController extends Controller {
         
         public function destroy($id)
         {
-
+            
             $model = \App\task::find($id);
 
             $model->delete();
