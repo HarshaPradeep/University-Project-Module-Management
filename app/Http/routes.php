@@ -44,6 +44,17 @@ Route::group(array('middleware' => 'auth'), function() {
 
 Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
 
+    //Udani message routes		
+    Route::get('message','InboxController@index');
+    Route::get('viewMessage/{sender}/{receiver}','ViewMessageController@index');
+    Route::get('deleteMessage/{sender}/{receiver}','ViewMessageController@deleteMessage');
+    Route::post('sendMessage','ViewMessageController@sendMessage'); 
+	
+	//Udani groupForum
+    Route::post('groupForum','ForumController@viewPost');
+    Route::post('groupForum',['as'=>'Addpost','uses'=>'ForumController@postQuestion']);
+    Route::get('modules','ModuleController@add');
+    Route::post('modules',['as'=>'AddMod','uses'=>'ModuleController@store']);
 
     //ajax route for shifting the slot of the projects for thesis presentation
     Route::get('getprojectdetail/{id}', 'ThesisPanelController@getProjectDetail');
@@ -273,6 +284,13 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'rpc'), function() {
     Route::get('upload', 'uploadController@uploadLink');
     Route::post('upload', 'uploadController@createUploadLink');
 });
+
+ Route::get('message','InboxController@index');
+    Route::get('viewMessage/{sender}/{receiver}','ViewMessageController@index');
+    Route::get('deleteMessage/{sender}/{receiver}','ViewMessageController@deleteMessage');
+    Route::post('sendMessage','ViewMessageController@sendMessage'); 
+
+
 Route::get('RPCViewOwnProject', 'RPCController@viewOwnProjects');
 
 Route::get('freeSlotManager', 'FreeSlotController@index');
@@ -379,6 +397,40 @@ Route::group(array('middleware' => 'guest', 'middleware' => 'student'), function
     //view supervisor feedbacks
     Route::get('monthlyreports/student/feedbacks', 'StudentMonthlyReportController@showFeedbacks');
 
+	//Udani	
+    Route::get('groupForum/{id?}','ForumController@viewPosts');
+    Route::post('viewTopics','ForumController@deleteandgettopic');
+    Route::get('viewTopics','ForumController@getTopic');
+    Route::post('groupForum/{id?}','ForumController@deleteandaddpost');
+    Route::get('groupForumdisplay/{id?}','ForumController@viewQuestion');
+    Route::post('groupForumdisplay/{id?}','CommentsController@deleteandadd');
+    Route::get('editPost/{id}','ForumController@editPostView');
+    Route::post('editPost/{id}','ForumController@editPostN');
+    Route::get('editTopicView/{id}','ForumController@editTopicView');
+    Route::post('editTopicView/{id}','ForumController@editTopic');
+    Route::get('editComment/{id}','CommentsController@editCommentView');
+    Route::post('editComment/{id}','CommentsController@editComment');
+
+
+    Route::get('newsForum/{id?}','NewsController@viewPosts');
+    Route::post('viewNewsTopics','NewsController@deleteandgettopic');
+    Route::get('viewNewsTopics','NewsController@getTopic');
+    Route::post('newsForum/{id?}','NewsController@deleteandaddpost');
+    Route::get('newsForumdisplay/{id?}','NewsController@viewQuestion');
+    Route::post('newsForumdisplay/{id?}','newsCommentsController@deleteandadd');
+    Route::get('editPostNews/{id}','NewsController@editPostView');
+    Route::post('editPostNews/{id}','NewsController@editPostN');
+    Route::get('editTopicViewNews/{id}','NewsController@editTopicView');
+    Route::post('editTopicViewNews/{id}','NewsController@editTopic');
+    Route::get('editCommentNews/{id}','newsCommentsController@editCommentView');
+    Route::post('editCommentNews/{id}','newsCommentsController@editComment');
+	
+    Route::get('message','InboxController@index');
+    Route::get('viewMessage/{sender}/{receiver}','ViewMessageController@index');
+    Route::get('deleteMessage/{sender}/{receiver}','ViewMessageController@deleteMessage');
+    Route::post('sendMessage','ViewMessageController@sendMessage');
+	//Udani end
+	
     //resourceful controller route for monthly reports
     Route::resource('monthlyreports/student', 'StudentMonthlyReportController');
     Route::get('studentdashboard', 'StudentController@showDashboard');
