@@ -42,7 +42,7 @@ class diaryController extends Controller {
         $finish =  defect::where(['state' => 'Finish', 'groupId' => $groupid])->count();
         $not_start =  defect::where(['state' => 'Not Start', 'groupId' => $groupid])->count();
 
-        return ["start" => $start, 'not_start' => $not_start , 'finish' => $finish];
+        return response()->json(["start" => $start, 'not_start' => $not_start , 'finish' => $finish]);
 
     }
 

@@ -83,7 +83,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <a href="/tasks"">
+                                                    <a href="/tasks">
                                                         <div class="panel-footer">
                                                             <span class="pull-left">View Details</span>
                                                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -155,31 +155,37 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript">
 
- <!--Pia charts configerations-->
+
 $(document).ready(function () {
-		
+
+
+        //var data = getData();
+
+       // console.log(data);
+
 		 <!--Task chart-->
         var pdata = [
             {
-                value: 4,
+                value: 3,
                 color: "#46BFBD",
                 highlight: "#5AD3D1",
                 label: "Not Start"
             },
             {
-                value: 12,
+                value: 4,
                 color: "#FDB45C",
                 highlight: "#FFC870",
                 label: "Start"
             },
             {
-                value: 4,
+                value:4,
                 color:"#F7464A",
                 highlight: "#FF5A5E",
                 label: "Finish"
             }
         ];
-            var chartOptions = {
+
+        var chartOptions = {
 
                     };
         var cpie = document.getElementById("cpie").getContext("2d");
@@ -219,16 +225,20 @@ $(document).ready(function () {
 
 
 
-    //function getData(){
-       // $.ajax({
-          //  type: "POST",
-           // url:"analysis/getdata",
-         //   success: function (data) {
-       //         console.log(data);
-     //       }
+    function getData(){
+        $.ajax({
+            type: "POST",
+            url:"analysis/getdata",
+            success: function (data) {
+                console.log(data);
+                console.log(data.start);
+                return data;
+            }
 
-     //   });
-    //}
+        });
+    }
+
+
 
 </script>
 
