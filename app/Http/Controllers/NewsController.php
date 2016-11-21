@@ -50,6 +50,7 @@ class NewsController extends Controller {
 
     }
 
+    //Get and view the topics from the database
     public function viewPosts($po){
 
 
@@ -67,6 +68,7 @@ class NewsController extends Controller {
     }
 
 
+    //Get comments for the posts and view
     public function viewQuestion($po)
     {
 
@@ -89,7 +91,7 @@ class NewsController extends Controller {
 
     }
 
-
+//Edit icon displayed if the owner is the logged user
 
     public function editPostNews($po)
     {
@@ -106,18 +108,20 @@ class NewsController extends Controller {
 
 
 
-
+//Redirect to the Edit post page
     public function editPostView($id)
     {
         $p = news_posts::find($id);
         return view('/newsforum/editPostNews',compact('p'));
     }
 
+    //Redirect to the Edit topic page
     public function editTopicView($id){
         $p=news_topic::find($id);
         return view('/newsforum/editTopicViewNews',compact('p'));
     }
 
+    //Edit the topic and save changes to the database
     public function editTopic(){
 
 
@@ -138,6 +142,7 @@ class NewsController extends Controller {
         return Redirect::to('/viewNewsTopics');
     }
 
+    //Edit the Post details and store in the database
     public function editPostN()
     {
         if (isset($_POST['toEdit'])) {
@@ -253,7 +258,7 @@ class NewsController extends Controller {
 
 
 
-
+//View all the topics
     public function getTopic(){
 
 
@@ -322,6 +327,7 @@ class NewsController extends Controller {
         }
     }
 
+    //Delete or add the post to the database
     public function deleteandaddpost(Addcomment $id)
     {
         if(isset($_POST['deletePost'])){
