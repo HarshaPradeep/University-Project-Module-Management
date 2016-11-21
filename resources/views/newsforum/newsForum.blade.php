@@ -127,6 +127,7 @@
     </div>
     <br><br>
 
+//Display all the topics
 
     @foreach($pos as $post)
 
@@ -178,7 +179,7 @@
 
 
 
-
+    //Form to add the topics
     <h2>Type your post ...</h2><br><br>
 
     <form id="form1" name="form1" method="post" action="" enctype="multipart/form-data"  >
