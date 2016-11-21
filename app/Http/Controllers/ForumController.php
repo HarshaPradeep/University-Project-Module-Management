@@ -50,7 +50,7 @@ class ForumController extends Controller {
         return view('groupForum{id?}',['comments'=>$comments]);
 
     }
-
+    //View all the posts
     public function viewPosts($po){
 
 
@@ -67,6 +67,7 @@ class ForumController extends Controller {
         return view('groupforum/groupForum',compact('pos','email','viewtopic'));
     }
 
+    //View the replies to the posts
     public function viewQuestion($po)
     {
 
@@ -88,7 +89,8 @@ class ForumController extends Controller {
 
 
     }
-
+    
+//Display the Edit button if he is the owner
     public function editPost($po)
     {
 
@@ -104,18 +106,21 @@ class ForumController extends Controller {
 
 
 
-
+//Redirect to the edit post page with values
    public function editPostView($id)
     {
        $p = newsfeed::find($id);
         return view('groupforum/editPost',compact('p'));
     }
 
+    //Redirect to the edit topics page with the values
     public function editTopicView($id){
         $p=topics::find($id);
         return view('groupforum/editTopicView',compact('p'));
     }
 
+    
+    //Process of editing the topic and store values in the database
     public function editTopic(){
 
 
@@ -136,6 +141,7 @@ class ForumController extends Controller {
         return Redirect::to('/viewTopics');
     }
 
+    //Edit the post details and store in the database
    public function editPostN()
     {
         if (isset($_POST['toEdit'])) {
@@ -212,6 +218,7 @@ class ForumController extends Controller {
 
 
         }
+       //Delete the selected post
         elseif (isset($_POST['delete'])) {
             $postid=$_POST['toEdit'];
 
@@ -227,7 +234,7 @@ class ForumController extends Controller {
     }
 
 
-
+//Display the topics related to the group member
     public function getTopic(){
 
 
@@ -263,7 +270,7 @@ class ForumController extends Controller {
     public function deleteandgettopic(Addtopic $topic){
 
 
-
+    //Delete a topic
         if (isset($_POST['delete'])) {
 
             $u = topics::find($_POST['toDelete']);
@@ -274,8 +281,8 @@ class ForumController extends Controller {
 
 
         }
-
-        else {
+        //Get the topics according to the user's group ID
+        else { 
 
 
             $unique = true;
