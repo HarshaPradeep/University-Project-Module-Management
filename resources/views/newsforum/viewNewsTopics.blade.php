@@ -142,8 +142,10 @@
     {{--print article--}}
     {{--@endforeach--}}
     {{--@endif--}}
+    
+   //Display topics  
+    
     @forelse($topics as $topic)
-
 
 
         <a href="http://localhost:8000/newsForum/{{$topic->topic_id}}">
@@ -212,22 +214,12 @@
     @endforelse
 
 
-
-
-
-
-
-
-
-
     <div class="text-center" >
     {!! $topics->render() !!}
     </div>
 
-
-
-
     <br><br>
+//Add a post
 
     <h2>Post a topic ...</h2><br><br>
 
@@ -265,6 +257,7 @@
         }
     }
 
+//Delete function
 
     function postDelete() {
 
